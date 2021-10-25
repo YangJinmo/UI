@@ -31,6 +31,7 @@
 		09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3A92725A1BC004C6A97 /* SearchTitleCell.swift */; };
 		09ADF3AC2725A1E4004C6A97 /* SearchTermCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3AB2725A1E4004C6A97 /* SearchTermCell.swift */; };
 		09ADF3AE2725A200004C6A97 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3AD2725A200004C6A97 /* Search.swift */; };
+		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		09ADF3A92725A1BC004C6A97 /* SearchTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleCell.swift; sourceTree = "<group>"; };
 		09ADF3AB2725A1E4004C6A97 /* SearchTermCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTermCell.swift; sourceTree = "<group>"; };
 		09ADF3AD2725A200004C6A97 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				09ADF37E272521EB004C6A97 /* TableViewController.swift */,
 				09ADF3A727259A73004C6A97 /* CollectionViewController.swift */,
+				09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				09ADF3812725220C004C6A97 /* BaseView.swift in Sources */,
 				09ADF39E2725562D004C6A97 /* BaseCollectionReusableView.swift in Sources */,
 				09ADF3AE2725A200004C6A97 /* Search.swift in Sources */,
+				09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */,
 				09ADF39627252989004C6A97 /* UIEdgeInsets.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,
