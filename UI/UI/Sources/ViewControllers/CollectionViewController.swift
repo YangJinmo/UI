@@ -11,8 +11,10 @@ final class CollectionViewController: UIViewController {
     
     // MARK: - Constants
     
-    private let searchTitleCellHeight: CGFloat = 76
-    private let searchTermCellHeight: CGFloat = 44
+    private struct Height {
+        static let searchTitleCell: CGFloat = 76
+        static let searchTermCell: CGFloat = 44
+    }
     
     // MARK: - Variables
     
@@ -141,9 +143,9 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.item {
         case 0:
-            return itemSize(width: collectionView, height: searchTitleCellHeight)
+            return itemSize(width: collectionView, height: Height.searchTitleCell)
         default:
-            return itemSize(width: collectionView, height: searchTermCellHeight)
+            return itemSize(width: collectionView, height: Height.searchTermCell)
         }
     }
 }

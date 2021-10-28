@@ -1,0 +1,119 @@
+//
+//  BaseTapViewController.swift
+//  UI
+//
+//  Created by Jmy on 2021/10/28.
+//
+
+import UIKit
+
+class BaseTapViewController: UIViewController {
+    
+    // MARK: - Constants
+    
+    private struct Image {
+        static let chevronLeft = UIImage(systemName: "chevron.left")
+    }
+    
+    private struct Font {
+        static let titleLabel: UIFont = .systemFont(ofSize: 18, weight: .bold)
+        static let rightButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+    }
+    
+    // MARK: - Views
+    
+    let titleView: UIView = UIView()
+    let titleLabel: UILabel =  {
+        let label: UILabel = UILabel()
+        label.font = Font.titleLabel
+        label.textAlignment = .center
+        return label
+    }()
+    let leftButton: UIButton = {
+        let button: UIButton = UIButton()
+        //button.isHidden = true
+        button.setImage(Image.chevronLeft, for: .normal)
+        return button
+    }()
+    let rightButton: UIButton = {
+        let button: UIButton = UIButton()
+        //button.isHidden = true
+        button.titleLabel?.font = Font.rightButton
+        return button
+    }()
+    let dividerView: DividerView = DividerView()
+    
+    // MARK: - View Life Cycle
+    
+    override func loadView() {
+        super.loadView()
+        
+        //view.backgroundColor = .systemBackground
+        setupViews()
+    }
+    
+    // MARK: - Methods
+    
+    private func setupViews() {
+        view.addSubviews(
+            titleView,
+            leftButton,
+            rightButton,
+            titleLabel,
+            dividerView
+        )
+        titleView.backgroundColor = .green
+        dividerView.backgroundColor = .red
+        leftButton.backgroundColor = .blue
+        rightButton.backgroundColor = .yellow
+        titleView.translatesAutoresizingMaskIntoConstraints = false
+        leftButton.translatesAutoresizingMaskIntoConstraints = false
+        rightButton.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleView.translatesAutoresizingMaskIntoConstraints = false
+        dividerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            titleView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            titleView.heightAnchor.constraint(equalToConstant: 45),
+            
+            leftButton.topAnchor.constraint(equalTo: titleView.topAnchor),
+            leftButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
+            leftButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
+            leftButton.widthAnchor.constraint(equalToConstant: 48),
+            
+            rightButton.topAnchor.constraint(equalTo: titleView.topAnchor),
+            rightButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
+            rightButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
+            rightButton.widthAnchor.constraint(equalToConstant: 48),
+            
+            titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: leftButton.rightAnchor),
+            titleLabel.rightAnchor.constraint(equalTo: rightButton.leftAnchor),
+            
+            dividerView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
+            dividerView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
+            dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor)
+        ])
+        
+        leftButton.addTarget(self, action: #selector(leftButtonTouched(_:)), for: .touchUpInside)
+        rightButton.addTarget(self, action: #selector(rightButtonTouched(_:)), for: .touchUpInside)
+    }
+    
+    // MARK: - Methods
+    
+    @objc func leftButtonTouched(_ sender: Any) {
+        print("leftButtonTouched")
+    }
+    
+    @objc func rightButtonTouched(_ sender: Any) {
+        print("rightButtonTouched")
+    }
+    
+    func setTitleLabel(_ text: String) {
+        titleLabel.text = text
+    }
+}
