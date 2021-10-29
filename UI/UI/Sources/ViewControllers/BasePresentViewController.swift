@@ -14,14 +14,13 @@ class BasePresentViewController: BaseTapViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setRightButton()
+        showRightButton()
     }
     
     // MARK: - Methods
     
-    func setRightButton() {
+    func showRightButton() {
         rightButton.isHidden = false
-        rightButton.titleLabel?.text = "확인"
     }
     
     override func rightButtonTouched(_ sender: Any) {

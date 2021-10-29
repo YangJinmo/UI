@@ -15,8 +15,8 @@ final class TableViewController: UIViewController {
     
     // MARK: - Views
     
-    private lazy var tableView: UITableView = {
-        let tableView: UITableView = UITableView()
+    private lazy var tableView: BaseTableView = {
+        let tableView: BaseTableView = BaseTableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(DividerTableViewCell.self)
