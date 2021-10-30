@@ -1,5 +1,5 @@
 //
-//  CustomTabBarController.swift
+//  BaseTabBarController.swift
 //  UI
 //
 //  Created by Jmy on 2021/10/29.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTabBarController: UITabBarController {
+class BaseTabBarController: UITabBarController {
     
     // MARK: - Constants
     
@@ -17,7 +17,6 @@ class CustomTabBarController: UITabBarController {
     }
     
     // MARK: - View Life Cycle
-    
     
     override func loadView() {
         super.loadView()

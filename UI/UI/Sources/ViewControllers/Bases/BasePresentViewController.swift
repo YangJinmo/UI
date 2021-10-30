@@ -11,8 +11,8 @@ class BasePresentViewController: BaseTapViewController {
     
     // MARK: - View Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
         
         showRightButton()
     }

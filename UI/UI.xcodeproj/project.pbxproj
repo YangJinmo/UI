@@ -10,7 +10,9 @@
 		09AB3484272AE8A400317254 /* BaseTapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3483272AE8A400317254 /* BaseTapViewController.swift */; };
 		09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3485272AEF9A00317254 /* BasePresentViewController.swift */; };
 		09AB3488272AF17A00317254 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3487272AF17A00317254 /* UINavigationController.swift */; };
-		09AB348E272B9B1C00317254 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348D272B9B1C00317254 /* CustomTabBarController.swift */; };
+		09AB348E272B9B1C00317254 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348D272B9B1C00317254 /* BaseTabBarController.swift */; };
+		09AB3490272D860000317254 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348F272D860000317254 /* BaseNavigationController.swift */; };
+		09AB3493272D873100317254 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3492272D873100317254 /* SettingViewController.swift */; };
 		09ADF36B272521BD004C6A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF36A272521BD004C6A97 /* AppDelegate.swift */; };
 		09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF36C272521BD004C6A97 /* SceneDelegate.swift */; };
 		09ADF372272521BD004C6A97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09ADF370272521BD004C6A97 /* Main.storyboard */; };
@@ -42,7 +44,9 @@
 		09AB3483272AE8A400317254 /* BaseTapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTapViewController.swift; sourceTree = "<group>"; };
 		09AB3485272AEF9A00317254 /* BasePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresentViewController.swift; sourceTree = "<group>"; };
 		09AB3487272AF17A00317254 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
-		09AB348D272B9B1C00317254 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		09AB348D272B9B1C00317254 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		09AB348F272D860000317254 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		09AB3492272D873100317254 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		09ADF367272521BD004C6A97 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09ADF36A272521BD004C6A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09ADF36C272521BD004C6A97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09AB3491272D867300317254 /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				09AB348D272B9B1C00317254 /* BaseTabBarController.swift */,
+				09AB3483272AE8A400317254 /* BaseTapViewController.swift */,
+				09AB3485272AEF9A00317254 /* BasePresentViewController.swift */,
+				09AB348F272D860000317254 /* BaseNavigationController.swift */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
 		09ADF35E272521BD004C6A97 = {
 			isa = PBXGroup;
 			children = (
@@ -222,12 +237,11 @@
 		09ADF3B32725A392004C6A97 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				09AB3491272D867300317254 /* Bases */,
 				09ADF37E272521EB004C6A97 /* TableViewController.swift */,
 				09ADF3A727259A73004C6A97 /* CollectionViewController.swift */,
 				09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */,
-				09AB3483272AE8A400317254 /* BaseTapViewController.swift */,
-				09AB3485272AEF9A00317254 /* BasePresentViewController.swift */,
-				09AB348D272B9B1C00317254 /* CustomTabBarController.swift */,
+				09AB3492272D873100317254 /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -313,7 +327,7 @@
 				09ADF39E2725562D004C6A97 /* BaseCollectionReusableView.swift in Sources */,
 				09ADF3AE2725A200004C6A97 /* Search.swift in Sources */,
 				09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */,
-				09AB348E272B9B1C00317254 /* CustomTabBarController.swift in Sources */,
+				09AB348E272B9B1C00317254 /* BaseTabBarController.swift in Sources */,
 				09ADF39627252989004C6A97 /* UIEdgeInsets.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,
@@ -322,10 +336,12 @@
 				09ADF3A1272592E7004C6A97 /* DividerTableViewCell.swift in Sources */,
 				09ADF3922725288B004C6A97 /* BaseCollectionViewCell.swift in Sources */,
 				09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */,
+				09AB3493272D873100317254 /* SettingViewController.swift in Sources */,
 				09ADF38E272524FB004C6A97 /* UITableView.swift in Sources */,
 				09ADF39427252921004C6A97 /* FlowLayoutMetric.swift in Sources */,
 				09ADF3832725223D004C6A97 /* BaseTableView.swift in Sources */,
 				09ADF38C272524C2004C6A97 /* UICollectionView.swift in Sources */,
+				09AB3490272D860000317254 /* BaseNavigationController.swift in Sources */,
 				09ADF37F272521EB004C6A97 /* TableViewController.swift in Sources */,
 				09ADF3A427259409004C6A97 /* DividerView.swift in Sources */,
 				09ADF3902725286F004C6A97 /* BaseCollectionView.swift in Sources */,
