@@ -1,5 +1,5 @@
 //
-//  BaseNavigationController.swift
+//  BaseNavigationViewController.swift
 //  UI
 //
 //  Created by Jmy on 2021/10/30.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseNavigationController: BaseViewController {
+class BaseNavigationViewController: BaseViewController {
     
     // MARK: - View Life Cycle
     

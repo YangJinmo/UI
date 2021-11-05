@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingViewController: BaseNavigationController {
+final class SettingViewController: BaseNavigationViewController {
     
     // MARK: - Views
     
