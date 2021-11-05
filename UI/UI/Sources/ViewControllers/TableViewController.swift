@@ -28,6 +28,8 @@ final class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarController?.delegate = self
+        
         setupViews()
     }
     
@@ -50,7 +52,6 @@ final class TableViewController: UIViewController {
 // MARK: - UITableViewDelegate
 
 extension TableViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -61,7 +62,6 @@ extension TableViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 
 extension TableViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -70,5 +70,13 @@ extension TableViewController: UITableViewDataSource {
         let cell: DividerTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.textLabel?.text = items[indexPath.row]
         return cell
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+
+extension TableViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print(tabBarController.selectedIndex)
     }
 }
