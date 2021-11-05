@@ -25,8 +25,6 @@ class BasePresentViewController: BaseViewController {
     }
     
     @objc func rightButtonTouched(_ sender: Any) {
-        dismiss(animated: true) {
-            print("completion: dismiss")
-        }
+        dismiss()
     }
 }

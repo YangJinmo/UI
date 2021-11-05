@@ -50,8 +50,6 @@ final class ReviewViewController: BaseViewController {
     }
     
     @objc func presentButtonTouched(_ sender: Any) {
-        present(ReviewWriteViewController(), animated: true) {
-            print("completion: present")
-        }
+        present(ReviewWriteViewController())
     }
 }

@@ -106,6 +106,13 @@ class BaseViewController: UIViewController {
 }
 
 extension BaseViewController {
+    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool = true, completion: (() -> Void)? = nil) {
+        super.present(viewControllerToPresent, animated: flag, completion: completion)
+    }
+    
+    override func dismiss(animated flag: Bool = true, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+    }
     
     // MARK: - UINavigationController
     
@@ -119,9 +126,5 @@ extension BaseViewController {
     
     func popToRootViewController(animated: Bool = true) {
         navigationController?.popToRootViewController(animated: animated)
-    }
-    
-    func presentVC(_ viewControllerToPresent: UIViewController, animated flag: Bool = true, completion: (() -> Void)? = nil) {
-        present(viewControllerToPresent, animated: flag, completion: completion)
     }
 }
