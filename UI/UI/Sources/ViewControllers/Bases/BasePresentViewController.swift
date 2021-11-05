@@ -7,23 +7,25 @@
 
 import Foundation
 
-class BasePresentViewController: BaseTapViewController {
+class BasePresentViewController: BaseViewController {
     
     // MARK: - View Life Cycle
     
     override func loadView() {
         super.loadView()
         
-        showRightButton()
+        setupRightButton()
     }
     
     // MARK: - Methods
     
-    func showRightButton() {
+    func setupRightButton() {
+        rightButton.addTarget(self, action: #selector(rightButtonTouched(_:)), for: .touchUpInside)
         rightButton.isHidden = false
     }
     
-    override func rightButtonTouched(_ sender: Any) {
+    @objc func rightButtonTouched(_ sender: Any) {
+        print("rightButtonTouched")
         dismiss(animated: true)
     }
 }

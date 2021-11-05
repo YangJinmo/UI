@@ -7,19 +7,25 @@
 
 import UIKit
 
-class BaseNavigationController: BaseTapViewController {
+class BaseNavigationController: BaseViewController {
     
     // MARK: - View Life Cycle
     
     override func loadView() {
         super.loadView()
         
-        showLeftButton()
+        setupLeftButton()
     }
     
     // MARK: - Methods
     
-    func showLeftButton() {
+    func setupLeftButton() {
+        leftButton.addTarget(self, action: #selector(leftButtonTouched(_:)), for: .touchUpInside)
         leftButton.isHidden = false
+    }
+    
+    @objc func leftButtonTouched(_ sender: Any) {
+        print("leftButtonTouched")
+        popViewController()
     }
 }

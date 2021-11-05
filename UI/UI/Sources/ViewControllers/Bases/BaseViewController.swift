@@ -1,5 +1,5 @@
 //
-//  BaseTapViewController.swift
+//  BaseViewController.swift
 //  UI
 //
 //  Created by Jmy on 2021/10/28.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseTapViewController: UIViewController {
+class BaseViewController: UIViewController {
     
     // MARK: - Constants
     
@@ -56,6 +56,7 @@ class BaseTapViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        view.backgroundColor = .systemBackground
         setupViews()
     }
     
@@ -97,25 +98,16 @@ class BaseTapViewController: UIViewController {
             dividerView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
             dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor)
         ])
-        
-        leftButton.addTarget(self, action: #selector(leftButtonTouched(_:)), for: .touchUpInside)
-        rightButton.addTarget(self, action: #selector(rightButtonTouched(_:)), for: .touchUpInside)
-    }
-    
-    // MARK: - Methods
-    
-    @objc func leftButtonTouched(_ sender: Any) {
-        print("leftButtonTouched")
-        popViewController()
-    }
-    
-    @objc func rightButtonTouched(_ sender: Any) {
-        print("rightButtonTouched")
     }
     
     func setTitleLabel(_ text: String) {
         titleLabel.text = text
     }
+}
+
+extension BaseViewController {
+    
+    // MARK: - UINavigationController
     
     func popViewController(animated: Bool = true) {
         navigationController?.popViewController(animated: animated)
@@ -129,7 +121,4 @@ class BaseTapViewController: UIViewController {
         navigationController?.popToRootViewController(animated: animated)
     }
     
-    func moveTabBarController(selectedIndex: Int) {
-        tabBarController?.selectedIndex = selectedIndex
-    }
 }

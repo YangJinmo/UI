@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/10/30.
 //
 
-import Foundation
+import UIKit
 
 final class SettingViewController: BaseNavigationController {
     
