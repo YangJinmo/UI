@@ -31,7 +31,7 @@ class BaseTabBarController: UITabBarController {
         let vc1 = TableViewController()
         let vc2 = CollectionViewController()
         let vc3 = ScrollViewController()
-        let vc4 = TableViewController()
+        let vc4 = ReviewViewController()
         let vc5 = MyViewController()
         
         let nc1 = UINavigationController(rootViewController: vc1)

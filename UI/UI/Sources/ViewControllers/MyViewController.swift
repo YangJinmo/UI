@@ -43,7 +43,6 @@ final class MyViewController: BaseViewController {
         NSLayoutConstraint.activate([
             pushButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pushButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            pushButton.widthAnchor.constraint(equalToConstant: 45),
             pushButton.heightAnchor.constraint(equalToConstant: 45)
         ])
         

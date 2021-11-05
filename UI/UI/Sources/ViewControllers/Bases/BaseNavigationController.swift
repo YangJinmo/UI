@@ -25,7 +25,6 @@ class BaseNavigationController: BaseViewController {
     }
     
     @objc func leftButtonTouched(_ sender: Any) {
-        print("leftButtonTouched")
         popViewController()
     }
 }

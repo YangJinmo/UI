@@ -121,4 +121,7 @@ extension BaseViewController {
         navigationController?.popToRootViewController(animated: animated)
     }
     
+    func presentVC(_ viewControllerToPresent: UIViewController, animated flag: Bool = true, completion: (() -> Void)? = nil) {
+        present(viewControllerToPresent, animated: flag, completion: completion)
+    }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		093160A727350DEA00126D4E /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A627350DEA00126D4E /* MyViewController.swift */; };
+		093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A8273513DA00126D4E /* ReviewViewController.swift */; };
+		093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160AA2735162700126D4E /* ReviewWriteViewController.swift */; };
 		09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3483272AE8A400317254 /* BaseViewController.swift */; };
 		09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3485272AEF9A00317254 /* BasePresentViewController.swift */; };
 		09AB3488272AF17A00317254 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3487272AF17A00317254 /* UINavigationController.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		093160A627350DEA00126D4E /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		093160A8273513DA00126D4E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		093160AA2735162700126D4E /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		09AB3483272AE8A400317254 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09AB3485272AEF9A00317254 /* BasePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresentViewController.swift; sourceTree = "<group>"; };
 		09AB3487272AF17A00317254 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				09ADF37E272521EB004C6A97 /* TableViewController.swift */,
 				09ADF3A727259A73004C6A97 /* CollectionViewController.swift */,
 				09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */,
+				093160A8273513DA00126D4E /* ReviewViewController.swift */,
+				093160AA2735162700126D4E /* ReviewWriteViewController.swift */,
 				093160A627350DEA00126D4E /* MyViewController.swift */,
 				09AB3492272D873100317254 /* SettingViewController.swift */,
 			);
@@ -322,6 +328,7 @@
 			files = (
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,
 				09AB3488272AF17A00317254 /* UINavigationController.swift in Sources */,
+				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
 				09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */,
@@ -344,6 +351,7 @@
 				09ADF38E272524FB004C6A97 /* UITableView.swift in Sources */,
 				09ADF39427252921004C6A97 /* FlowLayoutMetric.swift in Sources */,
 				09ADF3832725223D004C6A97 /* BaseTableView.swift in Sources */,
+				093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */,
 				09ADF38C272524C2004C6A97 /* UICollectionView.swift in Sources */,
 				09AB3490272D860000317254 /* BaseNavigationController.swift in Sources */,
 				09ADF37F272521EB004C6A97 /* TableViewController.swift in Sources */,
