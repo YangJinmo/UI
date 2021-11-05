@@ -9,6 +9,15 @@ import UIKit
 
 final class ReviewWriteViewController: BasePresentViewController {
     
+    // MARK: - Views
+    
+    let pushButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.setTitle("Push", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        return button
+    }()
+    
     // MARK: - Properties
     
     private let vcName: String = "리뷰 작성"
@@ -19,5 +28,35 @@ final class ReviewWriteViewController: BasePresentViewController {
         super.viewDidLoad()
         
         setTitleLabel(vcName)
+        setupViews()
+    }
+    
+    // MARK: - Methods
+    
+    private func setupViews() {
+        view.addSubviews(
+            pushButton
+        )
+        
+        view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
+        
+        NSLayoutConstraint.activate([
+            pushButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pushButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            pushButton.heightAnchor.constraint(equalToConstant: 45)
+        ])
+        
+        pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
+    }
+    
+    @objc func pushButtonTouched(_ sender: Any) {
+        pushViewController(SettingViewController())
+    }
+    
+    func present(rootViewController: UIViewController) {
+        let navigationVC = UINavigationController(rootViewController: rootViewController)
+        navigationVC.modalPresentationStyle = .fullScreen
+        navigationVC.isNavigationBarHidden = true
+        self.present(navigationVC, animated: true, completion: nil)
     }
 }

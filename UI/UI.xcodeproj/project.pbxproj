@@ -12,7 +12,6 @@
 		093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160AA2735162700126D4E /* ReviewWriteViewController.swift */; };
 		09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3483272AE8A400317254 /* BaseViewController.swift */; };
 		09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3485272AEF9A00317254 /* BasePresentViewController.swift */; };
-		09AB3488272AF17A00317254 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3487272AF17A00317254 /* UINavigationController.swift */; };
 		09AB348E272B9B1C00317254 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348D272B9B1C00317254 /* BaseTabBarController.swift */; };
 		09AB3490272D860000317254 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348F272D860000317254 /* BaseNavigationController.swift */; };
 		09AB3493272D873100317254 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3492272D873100317254 /* SettingViewController.swift */; };
@@ -41,6 +40,7 @@
 		09ADF3AC2725A1E4004C6A97 /* SearchTermCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3AB2725A1E4004C6A97 /* SearchTermCell.swift */; };
 		09ADF3AE2725A200004C6A97 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3AD2725A200004C6A97 /* Search.swift */; };
 		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
+		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +49,6 @@
 		093160AA2735162700126D4E /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		09AB3483272AE8A400317254 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09AB3485272AEF9A00317254 /* BasePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresentViewController.swift; sourceTree = "<group>"; };
-		09AB3487272AF17A00317254 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		09AB348D272B9B1C00317254 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		09AB348F272D860000317254 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		09AB3492272D873100317254 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		09ADF3AB2725A1E4004C6A97 /* SearchTermCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTermCell.swift; sourceTree = "<group>"; };
 		09ADF3AD2725A200004C6A97 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +180,8 @@
 				09ADF38927252498004C6A97 /* UIView.swift */,
 				09ADF38D272524FB004C6A97 /* UITableView.swift */,
 				09ADF38B272524C2004C6A97 /* UICollectionView.swift */,
+				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
-				09AB3487272AF17A00317254 /* UINavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,7 +327,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,
-				09AB3488272AF17A00317254 /* UINavigationController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
@@ -340,6 +339,7 @@
 				09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */,
 				09AB348E272B9B1C00317254 /* BaseTabBarController.swift in Sources */,
 				09ADF39627252989004C6A97 /* UIEdgeInsets.swift in Sources */,
+				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,
 				09ADF3AC2725A1E4004C6A97 /* SearchTermCell.swift in Sources */,

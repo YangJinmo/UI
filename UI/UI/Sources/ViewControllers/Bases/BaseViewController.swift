@@ -104,27 +104,3 @@ class BaseViewController: UIViewController {
         titleLabel.text = text
     }
 }
-
-extension BaseViewController {
-    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool = true, completion: (() -> Void)? = nil) {
-        super.present(viewControllerToPresent, animated: flag, completion: completion)
-    }
-    
-    override func dismiss(animated flag: Bool = true, completion: (() -> Void)? = nil) {
-        super.dismiss(animated: flag, completion: completion)
-    }
-    
-    // MARK: - UINavigationController
-    
-    func popViewController(animated: Bool = true) {
-        navigationController?.popViewController(animated: animated)
-    }
-    
-    func pushViewController(_ viewController: UIViewController, animated: Bool = true, hidesBottomBarWhenPushed: Bool = true) {
-        navigationController?.pushViewController(viewController, animated: animated, hidesBottomBarWhenPushed: hidesBottomBarWhenPushed)
-    }
-    
-    func popToRootViewController(animated: Bool = true) {
-        navigationController?.popToRootViewController(animated: animated)
-    }
-}
