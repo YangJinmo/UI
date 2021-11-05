@@ -13,15 +13,25 @@ class BaseTabBarController: UITabBarController {
     
     private struct Image {
         static let house: UIImage? = UIImage(systemName: "house") // 􀎞
-        static let houseFill: UIImage? = UIImage(systemName: "house.fill") // 􀎟
+        static let magnifyingglass: UIImage? = UIImage(systemName: "magnifyingglass") // 􀊫
+        static let bag: UIImage? = UIImage(systemName: "bag") // 􀍣
+        static let message: UIImage? = UIImage(systemName: "message") // 􀌤
+        static let person: UIImage? = UIImage(systemName: "person") // 􀉩
     }
     
+    private struct Color {
+        static let viewBackgroundColor: UIColor = .systemBackground
+        static let tabBarTintColor: UIColor = .label
+        static let tabBarBackgroundColor: UIColor = .systemBackground
+        static let topBorderBackgroundColor: CGColor = UIColor.secondarySystemBackground.cgColor
+    }
+
     // MARK: - View Life Cycle
     
     override func loadView() {
         super.loadView()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Color.viewBackgroundColor
         setupViewControllers()
     }
     
@@ -47,23 +57,23 @@ class BaseTabBarController: UITabBarController {
         nc5.isNavigationBarHidden = true
         
         nc1.title = "Home"
-        nc2.title = "Home"
-        nc3.title = "Home"
-        nc4.title = "Home"
-        nc5.title = "Home"
+        nc2.title = "Search"
+        nc3.title = "Basket"
+        nc4.title = "Review"
+        nc5.title = "My"
         
         nc1.tabBarItem.image = Image.house
-        nc2.tabBarItem.image = Image.houseFill
-        nc3.tabBarItem.image = Image.house
-        nc4.tabBarItem.image = Image.houseFill
-        nc5.tabBarItem.image = Image.house
+        nc2.tabBarItem.image = Image.magnifyingglass
+        nc3.tabBarItem.image = Image.bag
+        nc4.tabBarItem.image = Image.message
+        nc5.tabBarItem.image = Image.person
         
-        tabBar.tintColor = .label
-        tabBar.backgroundColor = .systemBackground
+        tabBar.tintColor = Color.tabBarTintColor
+        tabBar.backgroundColor = Color.tabBarBackgroundColor
         
         let topBorder = CALayer()
         topBorder.frame = CGRect(x: 0, y: 0, width: 1000, height: 1)
-        topBorder.backgroundColor = UIColor.secondarySystemBackground.cgColor
+        topBorder.backgroundColor = Color.topBorderBackgroundColor
 
         tabBar.layer.addSublayer(topBorder)
         tabBar.clipsToBounds = true
