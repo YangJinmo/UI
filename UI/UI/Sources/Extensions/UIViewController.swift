@@ -18,10 +18,10 @@ extension UIViewController {
     
     // MARK: - UINavigationController
     
-    func presentWithNavigationController(_ rootViewController: UIViewController, animated: Bool = true) {
+    func presentWithNavigationController(_ rootViewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.isNavigationBarHidden = true
-        present(navigationController, animated: animated)
+        present(navigationController, animated: animated, completion: completion)
     }
     
     func pushViewController(_ viewController: UIViewController, animated: Bool = true, hidesBottomBarWhenPushed: Bool = true) {
