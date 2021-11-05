@@ -14,17 +14,17 @@ class BaseNavigationController: BaseViewController {
     override func loadView() {
         super.loadView()
         
-        setupLeftButton()
+        setupPopButton()
     }
     
     // MARK: - Methods
     
-    func setupLeftButton() {
-        leftButton.addTarget(self, action: #selector(leftButtonTouched(_:)), for: .touchUpInside)
-        leftButton.isHidden = false
+    func setupPopButton() {
+        popButton.addTarget(self, action: #selector(popButtonTouched(_:)), for: .touchUpInside)
+        popButton.isHidden = false
     }
     
-    @objc func leftButtonTouched(_ sender: Any) {
+    @objc func popButtonTouched(_ sender: Any) {
         popViewController()
     }
 }

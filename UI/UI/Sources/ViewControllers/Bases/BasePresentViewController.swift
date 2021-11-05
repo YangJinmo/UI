@@ -14,17 +14,17 @@ class BasePresentViewController: BaseViewController {
     override func loadView() {
         super.loadView()
         
-        setupRightButton()
+        setupDismissButton()
     }
     
     // MARK: - Methods
     
-    func setupRightButton() {
-        rightButton.addTarget(self, action: #selector(rightButtonTouched(_:)), for: .touchUpInside)
-        rightButton.isHidden = false
+    func setupDismissButton() {
+        dismissButton.addTarget(self, action: #selector(dismissButtonTouched(_:)), for: .touchUpInside)
+        dismissButton.isHidden = false
     }
     
-    @objc func rightButtonTouched(_ sender: Any) {
+    @objc func dismissButtonTouched(_ sender: Any) {
         dismiss()
     }
 }

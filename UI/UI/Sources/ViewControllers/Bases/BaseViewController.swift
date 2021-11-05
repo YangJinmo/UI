@@ -34,14 +34,14 @@ class BaseViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    let leftButton: UIButton = {
+    let popButton: UIButton = {
         let button: UIButton = UIButton()
         button.isHidden = true
         button.setImage(Image.chevronLeft, for: .normal)
         button.tintColor = Color.leftButtonTint
         return button
     }()
-    let rightButton: UIButton = {
+    let dismissButton: UIButton = {
         let button: UIButton = UIButton()
         button.isHidden = true
         button.setTitle("확인", for: .normal)
@@ -65,8 +65,8 @@ class BaseViewController: UIViewController {
     private func setupViews() {
         view.addSubviews(
             titleView,
-            leftButton,
-            rightButton,
+            popButton,
+            dismissButton,
             titleLabel,
             dividerView
         )
@@ -79,20 +79,20 @@ class BaseViewController: UIViewController {
             titleView.rightAnchor.constraint(equalTo: view.rightAnchor),
             titleView.heightAnchor.constraint(equalToConstant: 45),
             
-            leftButton.topAnchor.constraint(equalTo: titleView.topAnchor),
-            leftButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
-            leftButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            leftButton.widthAnchor.constraint(equalToConstant: 48),
+            popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
+            popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
+            popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
+            popButton.widthAnchor.constraint(equalToConstant: 48),
             
-            rightButton.topAnchor.constraint(equalTo: titleView.topAnchor),
-            rightButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
-            rightButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            rightButton.widthAnchor.constraint(equalToConstant: 48),
+            dismissButton.topAnchor.constraint(equalTo: titleView.topAnchor),
+            dismissButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
+            dismissButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
+            dismissButton.widthAnchor.constraint(equalToConstant: 48),
             
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: leftButton.rightAnchor),
-            titleLabel.rightAnchor.constraint(equalTo: rightButton.leftAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: popButton.rightAnchor),
+            titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor),
             
             dividerView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
