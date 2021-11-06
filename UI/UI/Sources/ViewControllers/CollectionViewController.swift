@@ -90,7 +90,6 @@ final class CollectionViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 
 extension CollectionViewController: UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return searches.count
     }
@@ -123,7 +122,6 @@ extension CollectionViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension CollectionViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == 0 {
             searches[indexPath.section].isExpand.toggle()
@@ -139,7 +137,6 @@ extension CollectionViewController: UICollectionViewDelegate {
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.item {
         case 0:

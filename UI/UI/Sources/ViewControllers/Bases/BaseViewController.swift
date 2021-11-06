@@ -57,6 +57,7 @@ class BaseViewController: UIViewController {
         super.loadView()
         
         view.backgroundColor = .systemBackground
+        
         setupViews()
     }
     

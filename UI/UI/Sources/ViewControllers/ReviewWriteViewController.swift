@@ -52,11 +52,4 @@ final class ReviewWriteViewController: BasePresentViewController {
     @objc func pushButtonTouched(_ sender: Any) {
         pushViewController(SettingViewController())
     }
-    
-    func present(rootViewController: UIViewController) {
-        let navigationVC = UINavigationController(rootViewController: rootViewController)
-        navigationVC.modalPresentationStyle = .fullScreen
-        navigationVC.isNavigationBarHidden = true
-        self.present(navigationVC, animated: true, completion: nil)
-    }
 }
