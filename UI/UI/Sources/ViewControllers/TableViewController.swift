@@ -11,7 +11,11 @@ final class TableViewController: UIViewController {
     
     // MARK: - Constants
     
-    private let items: [String] = ["abc", "def", "ghi"]
+    private let items: [String] = [
+        "https://github.com/YangJinmo",
+        "def",
+        "ghi"
+    ]
     
     // MARK: - Views
     
@@ -56,6 +60,10 @@ extension TableViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         print(items[indexPath.row])
+        
+        let vc = WebViewController()
+        vc.urlString = items[indexPath.row]
+        pushViewController(vc)
     }
 }
 

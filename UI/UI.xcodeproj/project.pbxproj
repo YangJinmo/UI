@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091AC4272736592E00294EFC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC4262736592E00294EFC /* WebViewController.swift */; };
+		091AC4292737ED2F00294EFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC4282737ED2F00294EFC /* String.swift */; };
+		091AC42B2737ED5D00294EFC /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC42A2737ED5D00294EFC /* URL.swift */; };
 		093160A727350DEA00126D4E /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A627350DEA00126D4E /* MyViewController.swift */; };
 		093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A8273513DA00126D4E /* ReviewViewController.swift */; };
 		093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160AA2735162700126D4E /* ReviewWriteViewController.swift */; };
 		09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3483272AE8A400317254 /* BaseViewController.swift */; };
 		09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3485272AEF9A00317254 /* BasePresentViewController.swift */; };
-		09AB348E272B9B1C00317254 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348D272B9B1C00317254 /* BaseTabBarController.swift */; };
+		09AB348E272B9B1C00317254 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348D272B9B1C00317254 /* TabBarController.swift */; };
 		09AB3490272D860000317254 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348F272D860000317254 /* BaseNavigationViewController.swift */; };
 		09AB3493272D873100317254 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3492272D873100317254 /* SettingViewController.swift */; };
 		09ADF36B272521BD004C6A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF36A272521BD004C6A97 /* AppDelegate.swift */; };
@@ -45,12 +48,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091AC4262736592E00294EFC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		091AC4282737ED2F00294EFC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		091AC42A2737ED5D00294EFC /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		093160A627350DEA00126D4E /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		093160A8273513DA00126D4E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		093160AA2735162700126D4E /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		09AB3483272AE8A400317254 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09AB3485272AEF9A00317254 /* BasePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresentViewController.swift; sourceTree = "<group>"; };
-		09AB348D272B9B1C00317254 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		09AB348D272B9B1C00317254 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		09AB348F272D860000317254 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		09AB3492272D873100317254 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		09ADF367272521BD004C6A97 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,10 +101,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		091AC425273658B600294EFC /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				09AB348D272B9B1C00317254 /* TabBarController.swift */,
+				091AC4262736592E00294EFC /* WebViewController.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		09AB3491272D867300317254 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
-				09AB348D272B9B1C00317254 /* BaseTabBarController.swift */,
 				09AB3483272AE8A400317254 /* BaseViewController.swift */,
 				09AB3485272AEF9A00317254 /* BasePresentViewController.swift */,
 				09AB348F272D860000317254 /* BaseNavigationViewController.swift */,
@@ -185,6 +199,8 @@
 				09ADF38B272524C2004C6A97 /* UICollectionView.swift */,
 				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
+				091AC4282737ED2F00294EFC /* String.swift */,
+				091AC42A2737ED5D00294EFC /* URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -246,6 +262,7 @@
 		09ADF3B32725A392004C6A97 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				091AC425273658B600294EFC /* Commons */,
 				09AB3491272D867300317254 /* Bases */,
 				09ADF37E272521EB004C6A97 /* TableViewController.swift */,
 				09ADF3A727259A73004C6A97 /* CollectionViewController.swift */,
@@ -330,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,
+				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
@@ -338,10 +356,12 @@
 				09ADF36B272521BD004C6A97 /* AppDelegate.swift in Sources */,
 				09ADF3812725220C004C6A97 /* BaseView.swift in Sources */,
 				09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */,
+				091AC42B2737ED5D00294EFC /* URL.swift in Sources */,
 				09ADF39E2725562D004C6A97 /* BaseCollectionReusableView.swift in Sources */,
 				09ADF3AE2725A200004C6A97 /* Search.swift in Sources */,
 				09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */,
-				09AB348E272B9B1C00317254 /* BaseTabBarController.swift in Sources */,
+				09AB348E272B9B1C00317254 /* TabBarController.swift in Sources */,
+				091AC4292737ED2F00294EFC /* String.swift in Sources */,
 				09ADF39627252989004C6A97 /* UIEdgeInsets.swift in Sources */,
 				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,

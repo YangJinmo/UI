@@ -1,5 +1,5 @@
 //
-//  BaseTabBarController.swift
+//  TabBarController.swift
 //  UI
 //
 //  Created by Jmy on 2021/10/29.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BaseTabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     
     // MARK: - Constants
     
