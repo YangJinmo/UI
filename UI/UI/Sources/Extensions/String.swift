@@ -8,20 +8,23 @@
 import Foundation
 
 extension String {
-    var encode: String {
-        addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? self
+    var encode: String? {
+        addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
     
     var url: URL? {
-        guard let url: URL = URL(string: self) else {
-            log()
+        guard
+            let encodedString: String = encode,
+            let url: URL = URL(string: encodedString),
+            url.canOpenURL()
+        else {
             return nil
         }
         return url
     }
     
     func open() {
-        guard let url: URL = encode.url else { return }
+        guard let url: URL = url else { return }
         url.open()
     }
     

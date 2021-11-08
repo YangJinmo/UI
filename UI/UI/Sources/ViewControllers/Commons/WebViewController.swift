@@ -100,8 +100,7 @@ final class WebViewController: BaseNavigationViewController {
     private func loadWebView() {
         guard
             let urlString = urlString,
-            let url: URL = urlString.encode.url,
-            url.canOpenURL()
+            let url: URL = urlString.url
         else {
             let alert = UIAlertController(
                 title: "실행 오류",
