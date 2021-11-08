@@ -16,7 +16,13 @@ extension URL {
         absoluteString.log()
     }
     
+    func canOpenURL() -> Bool {
+        UIApplication.shared.canOpenURL(self)
+    }
+    
     func open() {
-        UIApplication.shared.open(self)
+        if canOpenURL() {
+            UIApplication.shared.open(self)
+        }
     }
 }

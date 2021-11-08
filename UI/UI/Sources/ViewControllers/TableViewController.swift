@@ -13,8 +13,11 @@ final class TableViewController: UIViewController {
     
     private let items: [String] = [
         "https://github.com/YangJinmo",
-        "def",
-        "ghi"
+        "https://www.notion.so/zzimss/zzimss-085677b5dff74118b3cbafd68adee38b",
+        "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=동탄호수공원",
+        "https://m.map.naver.com/search2/search.naver?query=동탄호수공원&sm=hty&style=v5",
+        "",
+        "abc"
     ]
     
     // MARK: - Views
@@ -28,13 +31,17 @@ final class TableViewController: UIViewController {
     }()
     
     // MARK: - View Life Cycle
+    
+    override func loadView() {
+        super.loadView()
+        
+        setupViews()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tabBarController?.delegate = self
-        
-        setupViews()
     }
     
     // MARK: - Methods

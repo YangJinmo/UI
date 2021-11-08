@@ -33,10 +33,15 @@ final class CollectionViewController: UIViewController {
     
     // MARK: - View Life Cycle
     
+    override func loadView() {
+        super.loadView()
+        
+        setupViews()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
         createDummyDatas()
     }
     

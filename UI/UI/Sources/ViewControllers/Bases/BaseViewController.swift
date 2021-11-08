@@ -8,32 +8,32 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    
     // MARK: - Constants
-    
+
     private struct Image {
         static let chevronLeft: UIImage? = UIImage(systemName: "chevron.left")
     }
-    
+
     private struct Font {
         static let titleLabel: UIFont = .systemFont(ofSize: 18, weight: .bold)
         static let rightButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
-    
+
     private struct Color {
         static let leftButtonTint: UIColor = UIColor.label
         static let rightButtonTitle: UIColor = UIColor.label
     }
-    
+
     // MARK: - Views
-    
+
     let titleView: UIView = UIView()
-    let titleLabel: UILabel =  {
+    let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = Font.titleLabel
         label.textAlignment = .center
         return label
     }()
+
     let popButton: UIButton = {
         let button: UIButton = UIButton()
         button.isHidden = true
@@ -41,6 +41,7 @@ class BaseViewController: UIViewController {
         button.tintColor = Color.leftButtonTint
         return button
     }()
+
     let dismissButton: UIButton = {
         let button: UIButton = UIButton()
         button.isHidden = true
@@ -49,21 +50,22 @@ class BaseViewController: UIViewController {
         button.titleLabel?.font = Font.rightButton
         return button
     }()
+
     let dividerView: DividerView = DividerView()
-    
+
     // MARK: - View Life Cycle
-    
+
     override func loadView() {
         super.loadView()
-        
-        view.backgroundColor = .systemBackground
-        
+
         setupViews()
     }
-    
+
     // MARK: - Methods
-    
+
     private func setupViews() {
+        view.backgroundColor = .systemBackground
+
         view.addSubviews(
             titleView,
             popButton,
@@ -71,36 +73,36 @@ class BaseViewController: UIViewController {
             titleLabel,
             dividerView
         )
-        
+
         view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
-        
+
         NSLayoutConstraint.activate([
             titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleView.leftAnchor.constraint(equalTo: view.leftAnchor),
             titleView.rightAnchor.constraint(equalTo: view.rightAnchor),
             titleView.heightAnchor.constraint(equalToConstant: 45),
-            
+
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
             popButton.widthAnchor.constraint(equalToConstant: 48),
-            
+
             dismissButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             dismissButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             dismissButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
             dismissButton.widthAnchor.constraint(equalToConstant: 48),
-            
+
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             titleLabel.leftAnchor.constraint(equalTo: popButton.rightAnchor),
             titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor),
-            
+
             dividerView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor)
+            dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
         ])
     }
-    
+
     func setTitleLabel(_ text: String) {
         titleLabel.text = text
     }

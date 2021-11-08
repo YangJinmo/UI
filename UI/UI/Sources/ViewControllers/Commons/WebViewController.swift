@@ -24,21 +24,33 @@ final class WebViewController: BaseNavigationViewController {
     
     // MARK: - Views
     
-    private var webView: WKWebView!
-    private var ai: UIActivityIndicatorView = UIActivityIndicatorView()
+    private var webView: BaseWebView!
+    private var activityindicatorView = BaseActivityIndicatorView()
+    private var progressView = BaseProgressView()
     
     // MARK: - View Life Cycle
+    
+    override func loadView() {
+        super.loadView()
+        
+        setWebView()
+        setupViews()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setWebView()
-        setupWebView()
         removeCache()
         loadWebView()
     }
     
     // MARK: - Methods
+    
+    private func removeCache() {
+        let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache])
+        let date = Date(timeIntervalSince1970: 0)
+        WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set<String>, modifiedSince: date, completionHandler: { })
+    }
     
     private func setWebView() {
         let contentController = WKUserContentController()
@@ -47,15 +59,24 @@ final class WebViewController: BaseNavigationViewController {
         let config = WKWebViewConfiguration()
         config.userContentController = contentController
         
-        webView = WKWebView(frame: view.frame, configuration: config)
+        webView = BaseWebView(configuration: config)
         webView.uiDelegate = self
         webView.navigationDelegate = self
-        webView.scrollView.showsVerticalScrollIndicator = false
-        webView.scrollView.showsHorizontalScrollIndicator = false
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     }
     
-    private func setupWebView() {
-        view.addSubviews(webView)
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            progressView.progress = Float(webView.estimatedProgress)
+        }
+    }
+    
+    private func setupViews() {
+        view.addSubviews(
+            webView,
+            activityindicatorView,
+            progressView
+        )
         
         view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
         
@@ -65,112 +86,104 @@ final class WebViewController: BaseNavigationViewController {
             webView.topAnchor.constraint(equalTo: webViewTopAnchor),
             webView.leftAnchor.constraint(equalTo: view.leftAnchor),
             webView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            activityindicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityindicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            progressView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            progressView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            progressView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
         ])
     }
     
     private func loadWebView() {
-        guard let urlString: String = urlString else { return }
-        webView.load(urlString: urlString)
+        guard
+            let urlString = urlString,
+            let url: URL = urlString.encode.url,
+            url.canOpenURL()
+        else {
+            let alert = UIAlertController(
+                title: "실행 오류",
+                message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다",
+                preferredStyle: .alert
+            )
+            let defaultAction = UIAlertAction(
+                title: "확인",
+                style: .default,
+                handler: { _ in
+                    self.popViewController()
+                }
+            )
+            alert.addAction(defaultAction)
+            present(alert)
+            return
+        }
+        webView.load(url)
     }
     
-    private func removeCache() {
-        let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache])
-        let date = Date(timeIntervalSince1970: 0)
-        WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set<String>, modifiedSince: date, completionHandler:{ })
-    }
-    
-    var passMessage: ((String) -> ())?
+    var passMessage: ((String) -> Void)?
     
     private func passMessage(_ message: String) {
-        if let pm: ((String) -> ()) = passMessage {
+        if let pm: ((String) -> Void) = passMessage {
             pm(message)
             popViewController()
         }
     }
 }
 
-// MARK: - WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler
-extension WebViewController: WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if (message.name == scriptMessageHandler) {
-            passMessage(message.body as! String)
-        }
-    }
-    
+// MARK: - WKUIDelegate
+
+extension WebViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: {action in completionHandler()})
+        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: { _ in completionHandler() })
         alert.addAction(defaultAction)
-        present(alert, animated: true, completion: nil)
+        present(alert)
     }
     
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {(action) in completionHandler(false)})
-        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: {(action) in completionHandler(true)})
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: { _ in completionHandler(false) })
+        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: { _ in completionHandler(true) })
         alert.addAction(cancelAction)
         alert.addAction(defaultAction)
-        present(alert, animated: true, completion: nil)
+        present(alert)
     }
-    
+}
+
+// MARK: - WKNavigationDelegate
+
+extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        ai = UIActivityIndicatorView(style: .medium)
-        ai.frame = CGRect(x: view.frame.midX - 25, y: view.frame.midY - 25, width: 50, height: 50)
-        ai.hidesWhenStopped = true
-        ai.startAnimating()
-        view.addSubview(ai)
+        activityindicatorView.startAnimating()
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
         guard let url: URL = navigationAction.request.url else { return }
         url.log()
-        
-        switch url.scheme {
-        case "kakaokompassauth", "kakaolink":
-            url.open()
-            decisionHandler(.cancel)
-            break
-        case "coupang":
-            popViewController()
-            url.open()
-            decisionHandler(.cancel)
-            break
-        default:
-            decisionHandler(.allow)
-            break
-        }
+        decisionHandler(.allow)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        ai.stopAnimating()
+        activityindicatorView.stopAnimating()
+        progressView.isHidden = true
         
         // Disable WKActionSheet on WKWebView
         webView.evaluateJavaScript("document.body.style.webkitTouchCallout='none';")
     }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        error.localizedDescription.log()
+    }
 }
 
-// MARK: - WKWebView
-extension WKWebView {
-    func load(urlString: String) {
-        guard let url: URL = urlString.encode.url else { return }
-        load(url.request)
-    }
-    
-    // MARK: - Cookies
-    
-    func cleanAllCookies() {
-        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-        
-        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-            records.forEach { record in
-                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-            }
+// MARK: - WKScriptMessageHandler
+
+extension WebViewController: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.name == scriptMessageHandler {
+            passMessage(message.body as! String)
         }
-    }
-    
-    func refreshCookies() {
-        configuration.processPool = WKProcessPool()
     }
 }

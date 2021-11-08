@@ -24,11 +24,16 @@ final class ReviewViewController: BaseViewController {
     
     // MARK: - View Life Cycle
     
+    override func loadView() {
+        super.loadView()
+        
+        setupViews()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTitleLabel(vcName)
-        setupViews()
     }
     
     // MARK: - Methods

@@ -34,17 +34,16 @@ final class ScrollViewController: UIViewController {
     }()
     
     // MARK: - View Life Cycle
+    
+    override func loadView() {
+        super.loadView()
         
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupScrollView()
         setupViews()
     }
     
     // MARK: - Methods
     
-    func setupScrollView() {
+    func setupViews() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
@@ -62,9 +61,7 @@ final class ScrollViewController: UIViewController {
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
-    }
-    
-    func setupViews() {
+        
         contentView.addSubview(titleLabel)
         contentView.addSubview(subtitleLabel)
         

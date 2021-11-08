@@ -10,6 +10,10 @@
 		091AC4272736592E00294EFC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC4262736592E00294EFC /* WebViewController.swift */; };
 		091AC4292737ED2F00294EFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC4282737ED2F00294EFC /* String.swift */; };
 		091AC42B2737ED5D00294EFC /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC42A2737ED5D00294EFC /* URL.swift */; };
+		091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC42C273903EC00294EFC /* BaseWebView.swift */; };
+		091AC42F273905D600294EFC /* BaseActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */; };
+		091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC4302739078D00294EFC /* BaseProgressView.swift */; };
+		091AC4332739142400294EFC /* WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC4322739142400294EFC /* WKWebView.swift */; };
 		093160A727350DEA00126D4E /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A627350DEA00126D4E /* MyViewController.swift */; };
 		093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A8273513DA00126D4E /* ReviewViewController.swift */; };
 		093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160AA2735162700126D4E /* ReviewWriteViewController.swift */; };
@@ -51,6 +55,10 @@
 		091AC4262736592E00294EFC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		091AC4282737ED2F00294EFC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		091AC42A2737ED5D00294EFC /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		091AC42C273903EC00294EFC /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
+		091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivityIndicatorView.swift; sourceTree = "<group>"; };
+		091AC4302739078D00294EFC /* BaseProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProgressView.swift; sourceTree = "<group>"; };
+		091AC4322739142400294EFC /* WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebView.swift; sourceTree = "<group>"; };
 		093160A627350DEA00126D4E /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		093160A8273513DA00126D4E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		093160AA2735162700126D4E /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +164,9 @@
 				09ADF3912725288B004C6A97 /* BaseCollectionViewCell.swift */,
 				09ADF39D2725562D004C6A97 /* BaseCollectionReusableView.swift */,
 				09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */,
+				091AC42C273903EC00294EFC /* BaseWebView.swift */,
+				091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */,
+				091AC4302739078D00294EFC /* BaseProgressView.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -201,6 +212,7 @@
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
 				091AC4282737ED2F00294EFC /* String.swift */,
 				091AC42A2737ED5D00294EFC /* URL.swift */,
+				091AC4322739142400294EFC /* WKWebView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -350,12 +362,15 @@
 				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
+				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
 				09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */,
 				093160A727350DEA00126D4E /* MyViewController.swift in Sources */,
 				09ADF36B272521BD004C6A97 /* AppDelegate.swift in Sources */,
+				091AC42F273905D600294EFC /* BaseActivityIndicatorView.swift in Sources */,
 				09ADF3812725220C004C6A97 /* BaseView.swift in Sources */,
 				09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */,
+				091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */,
 				091AC42B2737ED5D00294EFC /* URL.swift in Sources */,
 				09ADF39E2725562D004C6A97 /* BaseCollectionReusableView.swift in Sources */,
 				09ADF3AE2725A200004C6A97 /* Search.swift in Sources */,
@@ -364,6 +379,7 @@
 				091AC4292737ED2F00294EFC /* String.swift in Sources */,
 				09ADF39627252989004C6A97 /* UIEdgeInsets.swift in Sources */,
 				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
+				091AC4332739142400294EFC /* WKWebView.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,
 				09ADF3AC2725A1E4004C6A97 /* SearchTermCell.swift in Sources */,
