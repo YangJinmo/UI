@@ -27,6 +27,8 @@ final class TableViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(DividerTableViewCell.self)
+        tableView.estimatedRowHeight = 85.0
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
     
@@ -83,6 +85,7 @@ extension TableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DividerTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = items[indexPath.row]
         return cell
     }
