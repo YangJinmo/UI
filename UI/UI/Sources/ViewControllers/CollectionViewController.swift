@@ -8,20 +8,19 @@
 import UIKit
 
 final class CollectionViewController: UIViewController {
-    
     // MARK: - Constants
-    
+
     private struct Height {
         static let searchTitleCell: CGFloat = 76
         static let searchTermCell: CGFloat = 44
     }
-    
+
     // MARK: - Variables
-    
+
     private var searches = [Search]()
-    
+
     // MARK: - Views
-    
+
     private lazy var collectionView: BaseCollectionView = {
         let collectionView: BaseCollectionView = BaseCollectionView(layout: flowLayout())
         collectionView.dataSource = self
@@ -30,47 +29,47 @@ final class CollectionViewController: UIViewController {
         collectionView.register(SearchTermCell.self)
         return collectionView
     }()
-    
+
     // MARK: - View Life Cycle
-    
+
     override func loadView() {
         super.loadView()
-        
+
         setupViews()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         createDummyDatas()
     }
-    
+
     // MARK: - UIViewController Transition Coordinator
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        
+
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
         }
         flowLayout.invalidateLayout()
     }
-    
+
     // MARK: - Methods
-    
+
     private func setupViews() {
         view.addSubview(collectionView)
-        
+
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
-    
+
     private func createDummyDatas() {
         searches = [
             Search(
@@ -87,7 +86,7 @@ final class CollectionViewController: UIViewController {
                 isExpand: false,
                 title: "연관 검색",
                 terms: ["보충제", "고구마", "헬스장", "런닝머신", "다이어트"]
-            )
+            ),
         ]
     }
 }
@@ -98,7 +97,7 @@ extension CollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return searches.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searches[section].isExpand == true {
             return searches[section].terms.count + 1
@@ -106,7 +105,7 @@ extension CollectionViewController: UICollectionViewDataSource {
             return 1
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.item {
         case 0:
@@ -130,7 +129,7 @@ extension CollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == 0 {
             searches[indexPath.section].isExpand.toggle()
-            
+
             let sections: IndexSet = IndexSet(integer: indexPath.section)
             collectionView.reloadSections(sections)
         } else {
@@ -158,15 +157,15 @@ extension CollectionViewController: FlowLayoutMetric {
     var numberOfItemForRow: CGFloat {
         1
     }
-    
+
     var inset: CGFloat {
         20
     }
-    
+
     var lineSpacing: CGFloat {
         1
     }
-    
+
     var interItemSpacing: CGFloat {
         0
     }

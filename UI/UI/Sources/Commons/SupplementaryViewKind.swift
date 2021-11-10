@@ -9,7 +9,7 @@ import UIKit
 
 public enum SupplementaryViewKind: String {
     case header, footer
-    
+
     public init?(rawValue: String) {
         switch rawValue {
         case UICollectionView.elementKindSectionHeader: self = .header
@@ -17,7 +17,7 @@ public enum SupplementaryViewKind: String {
         default: return nil
         }
     }
-    
+
     public var rawValue: String {
         switch self {
         case .header: return UICollectionView.elementKindSectionHeader

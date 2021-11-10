@@ -14,7 +14,6 @@ extension UICollectionReusableView {
 }
 
 extension UICollectionView {
-    
     // MARK: - UICollectionViewCell
 
     func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
@@ -36,7 +35,7 @@ extension UICollectionView {
     }
 
     // MARK: - UICollectionReusableView
-    
+
     func register<T: UICollectionReusableView>(_ viewClass: T.Type, kind: SupplementaryViewKind) {
         register(viewClass, forSupplementaryViewOfKind: kind.rawValue, withReuseIdentifier: T.reuseIdentifier)
     }
@@ -48,14 +47,14 @@ extension UICollectionView {
     func registerFooter<T: UICollectionReusableView>(_ viewClass: T.Type) {
         register(viewClass, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: T.reuseIdentifier)
     }
-    
+
     func registerNib<T: UICollectionReusableView>(_ viewClass: T.Type, kind: SupplementaryViewKind) {
         let bundle: Bundle = Bundle(for: T.self)
         let nib: UINib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
 
         register(nib, forSupplementaryViewOfKind: kind.rawValue, withReuseIdentifier: T.reuseIdentifier)
     }
-    
+
     func registerHeaderNib<T: UICollectionReusableView>(_ viewClass: T.Type) {
         let bundle: Bundle = Bundle(for: T.self)
         let nib: UINib = UINib(nibName: T.reuseIdentifier, bundle: bundle)

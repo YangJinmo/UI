@@ -11,15 +11,15 @@ extension URL {
     var request: URLRequest {
         URLRequest(url: self)
     }
-    
+
     func log() {
         absoluteString.log()
     }
-    
+
     func canOpenURL() -> Bool {
         UIApplication.shared.canOpenURL(self)
     }
-    
+
     func open() {
         UIApplication.shared.open(self)
     }

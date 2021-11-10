@@ -8,22 +8,21 @@
 import UIKit
 
 final class SearchTitleCell: BaseCollectionViewCell {
-    
     // MARK: - Constants
-    
+
     private struct Image {
         static let chevronDownImage = UIImage(systemName: "chevron.down")
         static let chevronUpImage = UIImage(systemName: "chevron.up")
     }
-    
+
     // MARK: - Variables
-    
+
     private var timer: Timer = Timer()
     private var isTimerOn: Bool = false
     private var index: Int = 0
-    
+
     // MARK: - Views
-    
+
     private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
@@ -58,25 +57,25 @@ final class SearchTitleCell: BaseCollectionViewCell {
             dividerView,
             chevronButton
         )
-        
+
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         termLabel.translatesAutoresizingMaskIntoConstraints = false
         dividerView.translatesAutoresizingMaskIntoConstraints = false
         chevronButton.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
+
             termLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             termLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
+
             dividerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             dividerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
+
             chevronButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            chevronButton.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+            chevronButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
         ])
     }
 

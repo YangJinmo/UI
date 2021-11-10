@@ -9,11 +9,10 @@ import UIKit
 import WebKit
 
 final class WebViewController: BaseNavigationViewController {
-    
     // MARK: - Constants
-    
+
     private let scriptMessageHandler: String = "scriptHandler"
-    
+
     var urlString: String?
     var isShowTitleView: Bool = true
     var titleText: String? {
@@ -21,82 +20,82 @@ final class WebViewController: BaseNavigationViewController {
             titleLabel.text = titleText
         }
     }
-    
+
     // MARK: - Views
-    
+
     private var webView: BaseWebView!
     private var activityindicatorView = BaseActivityIndicatorView()
     private var progressView = BaseProgressView()
-    
+
     // MARK: - View Life Cycle
-    
+
     override func loadView() {
         super.loadView()
-        
+
         setWebView()
         setupViews()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         removeCache()
         loadWebView()
     }
-    
+
     // MARK: - Methods
-    
+
     private func removeCache() {
         let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache])
         let date = Date(timeIntervalSince1970: 0)
         WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set<String>, modifiedSince: date, completionHandler: { })
     }
-    
+
     private func setWebView() {
         let contentController = WKUserContentController()
         contentController.add(self, name: scriptMessageHandler)
-        
+
         let config = WKWebViewConfiguration()
         config.userContentController = contentController
-        
+
         webView = BaseWebView(configuration: config)
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     }
-    
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             progressView.progress = Float(webView.estimatedProgress)
         }
     }
-    
+
     private func setupViews() {
         view.addSubviews(
             webView,
             activityindicatorView,
             progressView
         )
-        
+
         view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
-        
+
         let webViewTopAnchor = isShowTitleView ? titleView.bottomAnchor : view.safeAreaLayoutGuide.topAnchor
-        
+
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: webViewTopAnchor),
             webView.leftAnchor.constraint(equalTo: view.leftAnchor),
             webView.rightAnchor.constraint(equalTo: view.rightAnchor),
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
+
             activityindicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityindicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
+
             progressView.leftAnchor.constraint(equalTo: view.leftAnchor),
             progressView.rightAnchor.constraint(equalTo: view.rightAnchor),
             progressView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
         ])
     }
-    
+
     private func loadWebView() {
         guard
             let urlString = urlString,
@@ -120,9 +119,9 @@ final class WebViewController: BaseNavigationViewController {
         }
         webView.load(url)
     }
-    
+
     var passMessage: ((String) -> Void)?
-    
+
     private func passMessage(_ message: String) {
         if let pm: ((String) -> Void) = passMessage {
             pm(message)
@@ -140,7 +139,7 @@ extension WebViewController: WKUIDelegate {
         alert.addAction(defaultAction)
         present(alert)
     }
-    
+
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: { _ in completionHandler(false) })
@@ -157,21 +156,21 @@ extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         activityindicatorView.startAnimating()
     }
-    
+
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url: URL = navigationAction.request.url else { return }
         url.log()
         decisionHandler(.allow)
     }
-    
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityindicatorView.stopAnimating()
         progressView.isHidden = true
-        
+
         // Disable WKActionSheet on WKWebView
         webView.evaluateJavaScript("document.body.style.webkitTouchCallout='none';")
     }
-    
+
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         error.localizedDescription.log()
     }

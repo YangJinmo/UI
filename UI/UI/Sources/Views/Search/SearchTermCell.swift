@@ -8,9 +8,8 @@
 import UIKit
 
 final class SearchTermCell: BaseCollectionViewCell {
-    
     // MARK: - Views
-    
+
     private let rankLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
@@ -32,16 +31,16 @@ final class SearchTermCell: BaseCollectionViewCell {
             rankLabel,
             titleLabel
         )
-        
+
         rankLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             rankLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             rankLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-            
+
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: rankLabel.rightAnchor, constant: 20)
+            titleLabel.leftAnchor.constraint(equalTo: rankLabel.rightAnchor, constant: 20),
         ])
     }
 

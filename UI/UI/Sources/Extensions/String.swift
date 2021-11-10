@@ -11,7 +11,7 @@ extension String {
     var encode: String? {
         addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
-    
+
     var url: URL? {
         guard
             let encodedString: String = encode,
@@ -22,12 +22,12 @@ extension String {
         }
         return url
     }
-    
+
     func open() {
         guard let url: URL = url else { return }
         url.open()
     }
-    
+
     func log(function: String = #function, _ value: Any = "", _ comment: String = "") {
         print("func \(function) \(comment)\(self)")
     }

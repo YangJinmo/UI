@@ -8,20 +8,19 @@
 import UIKit
 
 final class TableViewController: UIViewController {
-    
     // MARK: - Constants
-    
+
     private let items: [String] = [
         "https://github.com/YangJinmo",
         "https://www.notion.so/zzimss/zzimss-085677b5dff74118b3cbafd68adee38b",
         "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=동탄호수공원",
         "https://m.map.naver.com/search2/search.naver?query=동탄호수공원&sm=hty&style=v5",
         "",
-        "abc"
+        "abc",
     ]
-    
+
     // MARK: - Views
-    
+
     private lazy var tableView: BaseTableView = {
         let tableView: BaseTableView = BaseTableView()
         tableView.dataSource = self
@@ -31,33 +30,33 @@ final class TableViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
-    
+
     // MARK: - View Life Cycle
-    
+
     override func loadView() {
         super.loadView()
-        
+
         setupViews()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tabBarController?.delegate = self
     }
-    
+
     // MARK: - Methods
-    
+
     private func setupViews() {
         view.addSubview(tableView)
-        
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
 }
@@ -67,9 +66,9 @@ final class TableViewController: UIViewController {
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
         print(items[indexPath.row])
-        
+
         let vc = WebViewController()
         vc.urlString = items[indexPath.row]
         pushViewController(vc)
@@ -82,7 +81,7 @@ extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DividerTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.textLabel?.numberOfLines = 0
