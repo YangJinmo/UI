@@ -274,8 +274,8 @@
 		09ADF3B32725A392004C6A97 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				091AC425273658B600294EFC /* Commons */,
 				09AB3491272D867300317254 /* Bases */,
+				091AC425273658B600294EFC /* Commons */,
 				09ADF37E272521EB004C6A97 /* TableViewController.swift */,
 				09ADF3A727259A73004C6A97 /* CollectionViewController.swift */,
 				09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */,
