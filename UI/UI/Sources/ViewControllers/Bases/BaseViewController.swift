@@ -82,8 +82,8 @@ class BaseViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            titleView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            titleView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            titleView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             titleView.heightAnchor.constraint(equalToConstant: 45),
 
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
@@ -107,8 +107,8 @@ class BaseViewController: UIViewController {
             
             contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            contentView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            contentView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            contentView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
         ])
     }
 
