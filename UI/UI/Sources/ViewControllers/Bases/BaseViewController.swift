@@ -27,6 +27,7 @@ class BaseViewController: UIViewController {
     // MARK: - Views
 
     let titleView: UIView = UIView()
+    
     let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = Font.titleLabel
@@ -52,6 +53,8 @@ class BaseViewController: UIViewController {
     }()
 
     let dividerView: DividerView = DividerView()
+    
+    let contentView: UIView = UIView()
 
     // MARK: - View Life Cycle
 
@@ -71,7 +74,8 @@ class BaseViewController: UIViewController {
             popButton,
             dismissButton,
             titleLabel,
-            dividerView
+            dividerView,
+            contentView
         )
 
         view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
@@ -96,10 +100,15 @@ class BaseViewController: UIViewController {
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             titleLabel.leftAnchor.constraint(equalTo: popButton.rightAnchor),
             titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor),
-
+            
+            dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             dividerView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            contentView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: view.rightAnchor),
         ])
     }
 

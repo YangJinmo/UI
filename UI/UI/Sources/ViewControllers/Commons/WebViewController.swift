@@ -79,19 +79,19 @@ final class WebViewController: BaseNavigationViewController {
 
         view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
 
-        let webViewTopAnchor = isShowTitleView ? titleView.bottomAnchor : view.safeAreaLayoutGuide.topAnchor
+        let webViewTopAnchor = isShowTitleView ? contentView.topAnchor : view.safeAreaLayoutGuide.topAnchor
 
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: webViewTopAnchor),
-            webView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            webView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            webView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            webView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            webView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-            activityindicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityindicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityindicatorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            activityindicatorView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 
-            progressView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            progressView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            progressView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
+            progressView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
             progressView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
         ])
     }
