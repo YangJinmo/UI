@@ -63,11 +63,12 @@ final class ScrollViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
         ])
 
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(subtitleLabel)
+        contentView.addSubviews(
+            titleLabel,
+            subtitleLabel
+        )
 
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
 
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
