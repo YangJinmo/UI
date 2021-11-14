@@ -13,14 +13,7 @@ extension String {
     }
 
     var url: URL? {
-        guard
-            let encodedString: String = encode,
-            let url: URL = URL(string: encodedString),
-            url.canOpenURL()
-        else {
-            return nil
-        }
-        return url
+        return URL(string: self)
     }
 
     func open() {

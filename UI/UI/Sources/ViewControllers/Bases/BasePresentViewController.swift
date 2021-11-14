@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/10/28.
 //
 
-import Foundation
+import UIKit
 
 class BasePresentViewController: BaseViewController {
     // MARK: - View Life Cycle

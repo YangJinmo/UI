@@ -89,12 +89,12 @@ class BaseViewController: UIViewController {
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            popButton.widthAnchor.constraint(equalToConstant: 48),
+            popButton.widthAnchor.constraint(equalToConstant: 56),
 
             dismissButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             dismissButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             dismissButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            dismissButton.widthAnchor.constraint(equalToConstant: 48),
+            dismissButton.widthAnchor.constraint(equalToConstant: 56),
 
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
