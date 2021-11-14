@@ -24,7 +24,7 @@ final class SearchTermCell: BaseCollectionViewCell {
         return label
     }()
 
-    // MARK: - Initialization
+    // MARK: - Methods
 
     override func setupViews() {
         contentView.addSubviews(
@@ -43,8 +43,6 @@ final class SearchTermCell: BaseCollectionViewCell {
             titleLabel.leftAnchor.constraint(equalTo: rankLabel.rightAnchor, constant: 20),
         ])
     }
-
-    // MARK: - Internal Methods
 
     func bind(rank: Int, term: String) {
         rankLabel.text = "\(rank)"

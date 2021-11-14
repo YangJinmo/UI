@@ -18,6 +18,7 @@ final class DividerTableViewCell: BaseTableViewCell {
         contentView.addSubview(dividerView)
 
         dividerView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             dividerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),

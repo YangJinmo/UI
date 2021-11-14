@@ -48,7 +48,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     private let dividerView = DividerView()
 
-    // MARK: - Initialization
+    // MARK: - Methods
 
     override func setupViews() {
         contentView.addSubviews(
@@ -78,8 +78,6 @@ final class SearchTitleCell: BaseCollectionViewCell {
             chevronButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
         ])
     }
-
-    // MARK: - Methods
 
     func bind(data: Search) {
         chevronButton.isSelected = data.isExpand
