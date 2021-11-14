@@ -49,6 +49,7 @@
 		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 		09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */; };
+		E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				091AC42C273903EC00294EFC /* BaseWebView.swift */,
 				091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */,
 				091AC4302739078D00294EFC /* BaseProgressView.swift */,
+				E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				091AC42F273905D600294EFC /* BaseActivityIndicatorView.swift in Sources */,
 				09ADF3812725220C004C6A97 /* BaseView.swift in Sources */,
 				09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */,
+				E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */,
 				091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */,
 				091AC42B2737ED5D00294EFC /* URL.swift in Sources */,
 				09ADF39E2725562D004C6A97 /* BaseCollectionReusableView.swift in Sources */,

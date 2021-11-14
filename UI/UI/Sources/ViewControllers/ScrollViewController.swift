@@ -10,13 +10,7 @@ import UIKit
 final class ScrollViewController: UIViewController {
     // MARK: - Views
 
-    let scrollView: UIScrollView = {
-        let scrollView: UIScrollView = UIScrollView()
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        return scrollView
-    }()
-
+    let scrollView = BaseScrollView()
     let contentView = UIView()
     let titleLabel: UILabel = {
         let label = UILabel()
