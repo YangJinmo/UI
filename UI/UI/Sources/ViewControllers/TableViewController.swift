@@ -9,14 +9,32 @@ import UIKit
 
 final class TableViewController: UIViewController {
     // MARK: - Constants
-
-    private let items: [String] = [
-        "https://github.com/YangJinmo",
-        "https://www.notion.so/zzimss/zzimss-085677b5dff74118b3cbafd68adee38b",
-        "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=동탄호수공원",
-        "https://m.map.naver.com/search2/search.naver?query=동탄호수공원&sm=hty&style=v5",
-        "",
-        "abc",
+    
+    private let websites: [Website] = [
+        Website(
+            title: "GitHub",
+            urlString: "https://github.com/YangJinmo"
+        ),
+        Website(
+            title: "Notion",
+            urlString: "https://www.notion.so/zzimss/zzimss-085677b5dff74118b3cbafd68adee38b"
+        ),
+        Website(
+            title: "Naver",
+            urlString: "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=동탄호수공원"
+        ),
+        Website(
+            title: "NaverMap",
+            urlString: "https://m.map.naver.com/search2/search.naver?query=동탄호수공원&sm=hty&style=v5"
+        ),
+        Website(
+            title: "",
+            urlString: ""
+        ),
+        Website(
+            title: "abc",
+            urlString: "abc"
+        ),
     ]
 
     // MARK: - Views
@@ -66,11 +84,9 @@ final class TableViewController: UIViewController {
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
-        print(items[indexPath.row])
-
-        let vc = WebViewController()
-        vc.urlString = items[indexPath.row]
+        
+        let website: Website = websites[indexPath.row]
+        let vc = WebViewController(urlString: website.urlString, titleText: website.title)
         pushViewController(vc)
     }
 }
@@ -79,13 +95,13 @@ extension TableViewController: UITableViewDelegate {
 
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return websites.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DividerTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = items[indexPath.row]
+        cell.textLabel?.text = websites[indexPath.row].title
         return cell
     }
 }
