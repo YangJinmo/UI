@@ -12,13 +12,23 @@ final class WebViewController: BaseNavigationViewController {
     // MARK: - Constants
 
     private let scriptMessageHandler: String = "scriptHandler"
+    
+    // MARK: - Variables
 
     var urlString: String?
-    var isShowTitleView: Bool = true
-    var titleText: String? {
-        didSet {
-            titleLabel.text = titleText
-        }
+    var titleText: String = ""
+
+    // MARK: - Initialization
+
+    init(urlString: String, titleText: String = "") {
+        self.urlString = urlString
+        self.titleText = titleText
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Views
@@ -39,6 +49,7 @@ final class WebViewController: BaseNavigationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setTitleLabel(titleText)
         removeCache()
         loadWebView()
     }
@@ -79,10 +90,8 @@ final class WebViewController: BaseNavigationViewController {
 
         view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
 
-        let webViewTopAnchor = isShowTitleView ? contentView.topAnchor : view.safeAreaLayoutGuide.topAnchor
-
         NSLayoutConstraint.activate([
-            webView.topAnchor.constraint(equalTo: webViewTopAnchor),
+            webView.topAnchor.constraint(equalTo: contentView.topAnchor),
             webView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             webView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             webView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
