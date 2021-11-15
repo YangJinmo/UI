@@ -24,20 +24,6 @@ class BaseViewController: UIViewController {
         static let rightButtonTitle: UIColor = UIColor.label
     }
 
-    // MARK: - Initialization
-
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
-    }
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     // MARK: - Views
 
     let titleView: UIView = UIView()
