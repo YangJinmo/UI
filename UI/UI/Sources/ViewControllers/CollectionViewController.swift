@@ -17,7 +17,23 @@ final class CollectionViewController: UIViewController {
 
     // MARK: - Variables
 
-    private var searches = [Search]()
+    private var searches: [Search] = [
+        Search(
+            isExpand: false,
+            title: "인기 검색",
+            terms: ["캠핑", "가방", "고양이", "건전지", "오미자"]
+        ),
+        Search(
+            isExpand: false,
+            title: "최근 검색",
+            terms: ["충전기", "강아지", "개구리", "두꺼비", "아이유"]
+        ),
+        Search(
+            isExpand: false,
+            title: "연관 검색",
+            terms: ["보충제", "고구마", "헬스장", "런닝머신", "다이어트"]
+        ),
+    ]
 
     // MARK: - Views
 
@@ -38,12 +54,6 @@ final class CollectionViewController: UIViewController {
         setupViews()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        createDummyDatas()
-    }
-
     // MARK: - Methods
 
     private func setupViews() {
@@ -57,26 +67,6 @@ final class CollectionViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-    }
-
-    private func createDummyDatas() {
-        searches = [
-            Search(
-                isExpand: false,
-                title: "인기 검색",
-                terms: ["캠핑", "가방", "고양이", "건전지", "오미자"]
-            ),
-            Search(
-                isExpand: false,
-                title: "최근 검색",
-                terms: ["충전기", "강아지", "개구리", "두꺼비", "아이유"]
-            ),
-            Search(
-                isExpand: false,
-                title: "연관 검색",
-                terms: ["보충제", "고구마", "헬스장", "런닝머신", "다이어트"]
-            ),
-        ]
     }
 }
 
