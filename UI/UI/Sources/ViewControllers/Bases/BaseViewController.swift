@@ -24,10 +24,24 @@ class BaseViewController: UIViewController {
         static let rightButtonTitle: UIColor = UIColor.label
     }
 
+    // MARK: - Initialization
+
+    convenience init() {
+        self.init(nibName: nil, bundle: nil)
+    }
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Views
 
     let titleView: UIView = UIView()
-    
+
     let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = Font.titleLabel
@@ -53,7 +67,7 @@ class BaseViewController: UIViewController {
     }()
 
     let dividerView: DividerView = DividerView()
-    
+
     let contentView: UIView = UIView()
 
     // MARK: - View Life Cycle
@@ -100,11 +114,11 @@ class BaseViewController: UIViewController {
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             titleLabel.leftAnchor.constraint(equalTo: popButton.rightAnchor),
             titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor),
-            
+
             dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             dividerView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            
+
             contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
