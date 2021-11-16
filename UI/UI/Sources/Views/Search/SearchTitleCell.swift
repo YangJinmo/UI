@@ -17,6 +17,9 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // MARK: - Variables
 
+    static var itemHeight: CGFloat {
+        return 76
+    }
     private var timer: Timer = Timer()
     private var isTimerOn: Bool = false
     private var index: Int = 0

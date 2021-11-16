@@ -8,13 +8,6 @@
 import UIKit
 
 final class CollectionViewController: UIViewController {
-    // MARK: - Constants
-
-    private struct Height {
-        static let searchTitleCell: CGFloat = 76
-        static let searchTermCell: CGFloat = 44
-    }
-
     // MARK: - Variables
 
     private var searches: [Search] = [
@@ -123,9 +116,9 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.item {
         case 0:
-            return itemSize(width: collectionView, height: Height.searchTitleCell)
+            return itemSize(width: collectionView, height: SearchTitleCell.itemHeight)
         default:
-            return itemSize(width: collectionView, height: Height.searchTermCell)
+            return itemSize(width: collectionView, height: SearchTermCell.itemHeight)
         }
     }
 }

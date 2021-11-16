@@ -8,6 +8,12 @@
 import UIKit
 
 final class SearchTermCell: BaseCollectionViewCell {
+    // MARK: - Variables
+    
+    static var itemHeight: CGFloat {
+        return 44
+    }
+    
     // MARK: - Views
 
     private let rankLabel: UILabel = {
