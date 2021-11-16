@@ -15,8 +15,8 @@ final class WebViewController: BaseNavigationViewController {
     
     // MARK: - Variables
 
-    var urlString: String?
-    var titleText: String = ""
+    private var urlString: String?
+    private var titleText: String = ""
 
     // MARK: - Initialization
 
