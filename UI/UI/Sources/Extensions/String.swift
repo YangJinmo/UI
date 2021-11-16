@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     var encode: String? {
-        addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        return addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
 
     var url: URL? {

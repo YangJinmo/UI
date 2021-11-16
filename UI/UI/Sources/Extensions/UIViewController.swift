@@ -8,12 +8,12 @@
 import UIKit
 
 extension UIViewController {
-    func present(_ viewControllerToPresent: UIViewController, animated flag: Bool = true) {
-        present(viewControllerToPresent, animated: flag, completion: nil)
+    func present(_ viewControllerToPresent: UIViewController, completion: (() -> Void)? = nil) {
+        present(viewControllerToPresent, animated: true, completion: completion)
     }
 
-    func dismiss(animated flag: Bool = true) {
-        dismiss(animated: flag, completion: nil)
+    func dismiss(completion: (() -> Void)? = nil) {
+        dismiss(animated: true, completion: completion)
     }
 
     // MARK: - UINavigationController

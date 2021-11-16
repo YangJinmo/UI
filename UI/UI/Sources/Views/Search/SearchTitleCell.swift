@@ -8,21 +8,22 @@
 import UIKit
 
 final class SearchTitleCell: BaseCollectionViewCell {
+    // MARK: - Variables
+
+    static var itemHeight: CGFloat {
+        return 76
+    }
+
+    private var timer: Timer = Timer()
+    private var isTimerOn: Bool = false
+    private var index: Int = 0
+
     // MARK: - Constants
 
     private struct Image {
         static let chevronDownImage = UIImage(systemName: "chevron.down")
         static let chevronUpImage = UIImage(systemName: "chevron.up")
     }
-
-    // MARK: - Variables
-
-    static var itemHeight: CGFloat {
-        return 76
-    }
-    private var timer: Timer = Timer()
-    private var isTimerOn: Bool = false
-    private var index: Int = 0
 
     // MARK: - Views
 
