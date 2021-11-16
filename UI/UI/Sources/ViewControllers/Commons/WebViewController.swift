@@ -34,7 +34,7 @@ final class WebViewController: BaseNavigationViewController {
     // MARK: - Views
 
     private var webView: BaseWebView!
-    private var activityindicatorView = BaseActivityIndicatorView()
+    private var activityIndicatorView = BaseActivityIndicatorView()
     private var progressView = BaseProgressView()
 
     // MARK: - View Life Cycle
@@ -84,7 +84,7 @@ final class WebViewController: BaseNavigationViewController {
     private func setupViews() {
         view.addSubviews(
             webView,
-            activityindicatorView,
+            activityIndicatorView,
             progressView
         )
 
@@ -96,8 +96,8 @@ final class WebViewController: BaseNavigationViewController {
             webView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             webView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-            activityindicatorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            activityindicatorView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            activityIndicatorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 
             progressView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
             progressView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
@@ -165,7 +165,7 @@ extension WebViewController: WKUIDelegate {
 
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        activityindicatorView.startAnimating()
+        activityIndicatorView.startAnimating()
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -175,7 +175,7 @@ extension WebViewController: WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        activityindicatorView.stopAnimating()
+        activityIndicatorView.stopAnimating()
         progressView.isHidden = true
 
         // Disable WKActionSheet on WKWebView
