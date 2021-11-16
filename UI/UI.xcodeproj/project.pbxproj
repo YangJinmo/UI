@@ -51,6 +51,7 @@
 		E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */; };
 		E8A829312743209700B3D7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A829302743209700B3D7F9 /* Main.storyboard */; };
 		E8A829332743256A00B3D7F9 /* Website.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829322743256A00B3D7F9 /* Website.swift */; };
+		E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		E8A829302743209700B3D7F9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E8A829322743256A00B3D7F9 /* Website.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Website.swift; sourceTree = "<group>"; };
+		E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */,
 				091AC4302739078D00294EFC /* BaseProgressView.swift */,
 				E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */,
+				E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
+				E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
 				09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */,
