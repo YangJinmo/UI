@@ -18,7 +18,7 @@ class BaseProgressView: UIProgressView {
         super.init(frame: frame)
 
         progressViewStyle = .bar
-        progressTintColor = .orange
+        progressTintColor = .systemOrange
         trackTintColor = .clear
     }
 
