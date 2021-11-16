@@ -14,6 +14,30 @@ extension UICollectionReusableView {
 }
 
 extension UICollectionView {
+    func reloadData(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0) {
+            self.reloadData()
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func reloadItems(indexPath: IndexPath, completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0) {
+            self.reloadItems(indexPath: indexPath)
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func reloadItems(indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            UIView.performWithoutAnimation {
+                self.reloadItems(at: [indexPath])
+            }
+        }
+    }
+
     // MARK: - UICollectionViewCell
 
     func register<T: UICollectionViewCell>(_ cellClass: T.Type) {

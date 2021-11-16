@@ -9,35 +9,15 @@ import UIKit
 
 final class TableViewController: UIViewController {
     // MARK: - Constants
-    
-    private let websites: [Website] = [
-        Website(
-            title: "GitHub",
-            urlString: "https://github.com/YangJinmo"
-        ),
-        Website(
-            title: "Notion",
-            urlString: "https://www.notion.so/zzimss/zzimss-085677b5dff74118b3cbafd68adee38b"
-        ),
-        Website(
-            title: "Naver",
-            urlString: "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=동탄호수공원"
-        ),
-        Website(
-            title: "NaverMap",
-            urlString: "https://m.map.naver.com/search2/search.naver?query=동탄호수공원&sm=hty&style=v5"
-        ),
-        Website(
-            title: "",
-            urlString: ""
-        ),
-        Website(
-            title: "abc",
-            urlString: "abc"
-        ),
-    ]
+
+    private var websites: [Website] = [] {
+        didSet { setWebsites() }
+    }
 
     // MARK: - Views
+
+    private var activityIndicatorView = BaseActivityIndicatorView()
+    private var refreshControl = BaseRefreshControl()
 
     private lazy var tableView: BaseTableView = {
         let tableView: BaseTableView = BaseTableView()
@@ -46,6 +26,7 @@ final class TableViewController: UIViewController {
         tableView.register(DividerTableViewCell.self)
         tableView.estimatedRowHeight = 85.0
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.refreshControl = self.refreshControl
         return tableView
     }()
 
@@ -61,6 +42,14 @@ final class TableViewController: UIViewController {
         super.viewDidLoad()
 
         tabBarController?.delegate = self
+
+        refreshControl.addTarget(
+            self,
+            action: #selector(refresh),
+            for: .valueChanged
+        )
+        
+        getWebsites()
     }
 
     // MARK: - Methods
@@ -75,7 +64,28 @@ final class TableViewController: UIViewController {
             tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
         ])
+
+        tableView.addSubview(activityIndicatorView)
+
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            activityIndicatorView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
+        ])
+    }
+
+    @objc private func refresh() {
+        getWebsites()
+    }
+
+    private func setWebsites() {
+        tableView.reloadData {
+            self.activityIndicatorView.stopAnimating()
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
@@ -84,7 +94,7 @@ final class TableViewController: UIViewController {
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
         let website: Website = websites[indexPath.row]
         let vc = WebViewController(urlString: website.urlString, titleText: website.title)
         pushViewController(vc)
@@ -110,6 +120,23 @@ extension TableViewController: UITableViewDataSource {
 
 extension TableViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print(tabBarController.selectedIndex)
+        tabBarController.selectedIndex.description.log()
+    }
+}
+
+// MARK: - API
+
+extension TableViewController {
+    private func getWebsites() {
+        guard let path: String = Bundle.main.path(forResource: "Websites", ofType: "json") else { return }
+
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let websites = try JSONDecoder().decode([Website].self, from: data)
+
+            self.websites = websites
+        } catch {
+            error.localizedDescription.log()
+        }
     }
 }

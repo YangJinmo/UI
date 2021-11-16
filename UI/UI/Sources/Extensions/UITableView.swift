@@ -23,6 +23,30 @@ extension UITableViewHeaderFooterView: ReusableView {
 }
 
 extension UITableView {
+    func reloadData(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0) {
+            self.reloadData()
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func reloadRows(indexPath: IndexPath, completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0) {
+            self.reloadRows(indexPath: indexPath)
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func reloadRows(indexPath: IndexPath, with animation: UITableView.RowAnimation = .none) {
+        DispatchQueue.main.async {
+            UIView.performWithoutAnimation {
+                self.reloadRows(at: [indexPath], with: animation)
+            }
+        }
+    }
+
     // MARK: - UITableViewCell
 
     func register<T: UITableViewCell>(_ cellClass: T.Type) {

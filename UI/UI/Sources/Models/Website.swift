@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Website {
+struct Website: Decodable {
     var title = String()
     var urlString = String()
 }
