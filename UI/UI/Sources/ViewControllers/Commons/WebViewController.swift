@@ -88,9 +88,7 @@ final class WebViewController: BaseNavigationViewController {
             progressView
         )
 
-        view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
-
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             webView.topAnchor.constraint(equalTo: contentView.topAnchor),
             webView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             webView.rightAnchor.constraint(equalTo: contentView.rightAnchor),

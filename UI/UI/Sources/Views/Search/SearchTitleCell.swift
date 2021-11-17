@@ -62,12 +62,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
             chevronButton
         )
 
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        termLabel.translatesAutoresizingMaskIntoConstraints = false
-        dividerView.translatesAutoresizingMaskIntoConstraints = false
-        chevronButton.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 

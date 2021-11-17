@@ -17,7 +17,7 @@ final class MyViewController: BaseViewController {
         return button
     }()
 
-    // MARK: - Properties
+    // MARK: - Constants
 
     private let vcName: String = "마이"
 
@@ -41,14 +41,9 @@ final class MyViewController: BaseViewController {
         view.addSubviews(
             pushButton
         )
-
-        view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
-
-        NSLayoutConstraint.activate([
-            pushButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pushButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            pushButton.heightAnchor.constraint(equalToConstant: 45),
-        ])
+        
+        pushButton.center()
+        pushButton.height(44)
 
         pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
     }

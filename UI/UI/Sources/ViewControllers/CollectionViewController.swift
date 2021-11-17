@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class CollectionViewController: UIViewController {
+final class CollectionViewController: BaseViewController {
+    // MARK: - Constants
+
+    private let vcName: String = "검색어 추천"
+
     // MARK: - Variables
 
     private var searches: [Search] = [
@@ -47,19 +51,21 @@ final class CollectionViewController: UIViewController {
         setupViews()
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setTitleLabel(vcName)
+    }
+
     // MARK: - Methods
 
     private func setupViews() {
-        view.addSubview(collectionView)
+        contentView.addSubviews(collectionView)
 
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.fillSuperview()
 
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+//        contentView.addConstraintsWithFormat("H:|[v0]|", views: collectionView)
+//        contentView.addConstraintsWithFormat("V:|[v0]|", views: collectionView)
     }
 }
 

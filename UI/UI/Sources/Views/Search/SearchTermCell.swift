@@ -38,10 +38,7 @@ final class SearchTermCell: BaseCollectionViewCell {
             titleLabel
         )
 
-        rankLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             rankLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             rankLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
 

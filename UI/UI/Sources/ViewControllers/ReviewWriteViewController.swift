@@ -17,7 +17,7 @@ final class ReviewWriteViewController: BasePresentViewController {
         return button
     }()
 
-    // MARK: - Properties
+    // MARK: - Constants
 
     private let vcName: String = "리뷰 작성"
 
@@ -41,14 +41,10 @@ final class ReviewWriteViewController: BasePresentViewController {
         view.addSubviews(
             pushButton
         )
-
-        view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
-
-        NSLayoutConstraint.activate([
-            pushButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pushButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            pushButton.heightAnchor.constraint(equalToConstant: 45),
-        ])
+        
+        pushButton.center()
+//        pushButton.centered(view)
+        pushButton.height(44)
 
         pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 final class TableViewController: UIViewController {
-    // MARK: - Constants
+    // MARK: - Variables
 
     private var websites: [Website] = [] {
         didSet { setWebsites() }
@@ -48,33 +48,79 @@ final class TableViewController: UIViewController {
             action: #selector(refresh),
             for: .valueChanged
         )
-        
+
         getWebsites()
     }
 
     // MARK: - Methods
 
     private func setupViews() {
-        view.addSubview(tableView)
+        view.addSubviews(tableView)
 
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+//        Constraint.activate([
+//            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+//            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//        ])
 
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//        tableView.make(
+//            top: view.safeAreaLayoutGuide.topAnchor,
+//            left: view.safeAreaLayoutGuide.leftAnchor,
+//            right: view.safeAreaLayoutGuide.rightAnchor,
+//            bottom: view.bottomAnchor
+//        )
+        
+//        let topConstraint = Constraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 0)
+//        view.addConstraint(topConstraint)
+//        let leftConstraint = Constraint(item: tableView, attribute: .left, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 0)
+//        view.addConstraint(leftConstraint)
+//        let rightConstraint = Constraint(item: tableView, attribute: .right, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 0)
+//        view.addConstraint(rightConstraint)
+//        let bottomConstraint = Constraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0)
+//        view.addConstraint(bottomConstraint)
 
-        ])
+//        let topConstraint = Constraint(item: view.safeAreaLayoutGuide, attribute: .top, relatedBy: .equal, toItem: tableView, attribute: .top, multiplier: 1, constant: 0)
+//        view.addConstraint(topConstraint)
+//        let leftConstraint = Constraint(item: view.safeAreaLayoutGuide, attribute: .left, relatedBy: .equal, toItem: tableView, attribute: .left, multiplier: 1, constant: 0)
+//        view.addConstraint(leftConstraint)
+//        let rightConstraint = Constraint(item: view.safeAreaLayoutGuide, attribute: .right, relatedBy: .equal, toItem: tableView, attribute: .right, multiplier: 1, constant: 0)
+//        view.addConstraint(rightConstraint)
+//        let bottomConstraint = Constraint(item: view.safeAreaLayoutGuide, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 0)
+//        view.addConstraint(bottomConstraint)
+        
+//        view.addConstraint(Constraint(item: view.safeAreaLayoutGuide, attribute: .top, relatedBy: .equal, toItem: tableView, attribute: .top, multiplier: 1, constant: 0))
+//        view.addConstraint(Constraint(item: view.safeAreaLayoutGuide, attribute: .left, relatedBy: .equal, toItem: tableView, attribute: .left, multiplier: 1, constant: 0))
+//        view.addConstraint(Constraint(item: view.safeAreaLayoutGuide, attribute: .right, relatedBy: .equal, toItem: tableView, attribute: .right, multiplier: 1, constant: 0))
+//        view.addConstraint(Constraint(item: view.safeAreaLayoutGuide, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 0))
+        
+//        view.addConstraint(Constraint(view.safeAreaLayoutGuide, .top, tableView, .top))
+//        view.addConstraint(Constraint(view.safeAreaLayoutGuide, .left, tableView, .left))
+//        view.addConstraint(Constraint(view.safeAreaLayoutGuide, .right, tableView, .right))
+//        view.addConstraint(Constraint(view.safeAreaLayoutGuide, .bottom, tableView, .bottom))
+        
+        view.make(tableView, .top, view.safeAreaLayoutGuide, .top)
+        view.make(tableView, .left, view.safeAreaLayoutGuide, .left)
+        view.make(tableView, .right, view.safeAreaLayoutGuide, .right)
+        view.make(tableView, .bottom, view, .bottom)
+        
+//        tableView.height(40)
+//        tableView.height(200)
+        
+//        print(view.constraints)
+//
+//        view.removeConstraint(attribute: .top)
+//
+//        print(view.constraints)
+//
+//        view.make(tableView, .top, view.safeAreaLayoutGuide, .top, constant: 20)
+//
+//        print(view.constraints)
+        
+        tableView.addSubviews(activityIndicatorView)
 
-        tableView.addSubview(activityIndicatorView)
-
-        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            activityIndicatorView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
-        ])
+        // activityIndicatorView.center()
+        activityIndicatorView.center(tableView)
     }
 
     @objc private func refresh() {

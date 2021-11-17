@@ -28,6 +28,19 @@ final class ScrollViewController: UIViewController {
         return label
     }()
 
+    // MARK: - Layout Constraint
+
+    private var topConstraint: Constraint? {
+        didSet {
+            if oldValue != nil {
+                view.removeConstraint(oldValue!)
+            }
+            if topConstraint != nil {
+                view.addConstraint(topConstraint!)
+            }
+        }
+    }
+
     // MARK: - View Life Cycle
 
     override func loadView() {
@@ -39,13 +52,10 @@ final class ScrollViewController: UIViewController {
     // MARK: - Methods
 
     func setupViews() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        view.addSubviews(scrollView)
+        scrollView.addSubviews(contentView)
 
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -62,9 +72,7 @@ final class ScrollViewController: UIViewController {
             subtitleLabel
         )
 
-        contentView.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
-
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
             titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4 / 5),
@@ -74,5 +82,11 @@ final class ScrollViewController: UIViewController {
             subtitleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4 / 5),
             subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
         ])
+
+        // test
+        topConstraint = view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
+        topConstraint?.isActive = true
+        // ==
+        topConstraint = view.top(titleLabel.bottomAnchor, 0)
     }
 }

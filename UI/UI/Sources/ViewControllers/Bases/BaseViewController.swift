@@ -78,13 +78,11 @@ class BaseViewController: UIViewController {
             contentView
         )
 
-        view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
-
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             titleView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            titleView.heightAnchor.constraint(equalToConstant: 45),
+            titleView.heightAnchor.constraint(equalToConstant: 44),
 
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),

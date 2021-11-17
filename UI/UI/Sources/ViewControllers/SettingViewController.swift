@@ -17,7 +17,7 @@ final class SettingViewController: BaseNavigationViewController {
         return button
     }()
 
-    // MARK: - Properties
+    // MARK: - Constants
 
     private let vcName: String = "설정"
 
@@ -41,14 +41,9 @@ final class SettingViewController: BaseNavigationViewController {
         view.addSubviews(
             presentButton
         )
-
-        view.subviewsTranslatesAutoresizingMaskIntoConstraintsFalse()
-
-        NSLayoutConstraint.activate([
-            presentButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            presentButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            presentButton.heightAnchor.constraint(equalToConstant: 45),
-        ])
+        
+        presentButton.center()
+        presentButton.height(44)
 
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
     }

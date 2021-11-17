@@ -15,11 +15,9 @@ final class DividerTableViewCell: BaseTableViewCell {
     // MARK: - Methods
 
     override func setupViews() {
-        contentView.addSubview(dividerView)
+        contentView.addSubviews(dividerView)
 
-        dividerView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             dividerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             dividerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
