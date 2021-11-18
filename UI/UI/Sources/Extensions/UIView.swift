@@ -64,16 +64,6 @@ extension UIView {
         return anchor
     }
 
-    func fillSuperview(padding: UIEdgeInsets = .zero) {
-        make(
-            top: superview?.topAnchor,
-            left: superview?.leftAnchor,
-            right: superview?.rightAnchor,
-            bottom: superview?.bottomAnchor,
-            padding: padding
-        )
-    }
-
     @discardableResult
     func remake(
         top: NSLayoutYAxisAnchor? = nil,
@@ -159,6 +149,26 @@ extension UIView {
             view.constraints.first { $0.firstAnchor == dimension }?.isActive = false
         } else if let superview = superview {
             superview.constraints.first { $0.firstAnchor == dimension }?.isActive = false
+        }
+    }
+    
+    func edges(_ view: UIView? = nil, padding: UIEdgeInsets = .zero) {
+        if let view = view {
+            make(
+                top: view.topAnchor,
+                left: view.leftAnchor,
+                right: view.rightAnchor,
+                bottom: view.bottomAnchor,
+                padding: padding
+            )
+        } else if let superview = superview {
+            make(
+                top: superview.topAnchor,
+                left: superview.leftAnchor,
+                right: superview.rightAnchor,
+                bottom: superview.bottomAnchor,
+                padding: padding
+            )
         }
     }
 

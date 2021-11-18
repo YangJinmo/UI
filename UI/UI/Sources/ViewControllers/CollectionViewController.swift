@@ -62,7 +62,8 @@ final class CollectionViewController: BaseViewController {
     private func setupViews() {
         contentView.addSubviews(collectionView)
 
-        collectionView.fillSuperview()
+        collectionView.edges()
+//        collectionView.edges(contentView)
 
 //        contentView.addConstraintsWithFormat("H:|[v0]|", views: collectionView)
 //        contentView.addConstraintsWithFormat("V:|[v0]|", views: collectionView)
