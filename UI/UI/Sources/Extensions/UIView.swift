@@ -64,6 +64,16 @@ extension UIView {
         return anchor
     }
 
+    func fillSuperview(padding: UIEdgeInsets = .zero) {
+        make(
+            top: superview?.topAnchor,
+            left: superview?.leftAnchor,
+            right: superview?.rightAnchor,
+            bottom: superview?.bottomAnchor,
+            padding: padding
+        )
+    }
+
     @discardableResult
     func remake(
         top: NSLayoutYAxisAnchor? = nil,
@@ -74,29 +84,14 @@ extension UIView {
         width: CGFloat = 0,
         height: CGFloat = 0
     ) -> Anchor {
-        if let _ = top {
-            remove(anchorY: topAnchor)
-        }
-
-        if let _ = left {
-            remove(anchorX: leftAnchor)
-        }
-
-        if let _ = right {
-            remove(anchorX: rightAnchor)
-        }
-
-        if let _ = bottom {
-            remove(anchorY: bottomAnchor)
-        }
-
-        if width > 0 {
-            remove(dimension: widthAnchor)
-        }
-
-        if height > 0 {
-            remove(dimension: heightAnchor)
-        }
+        remove(
+            top: top,
+            left: left,
+            right: right,
+            bottom: bottom,
+            width: width,
+            height: height
+        )
 
         return make(
             top: top,
@@ -109,32 +104,37 @@ extension UIView {
         )
     }
 
-    func fillSuperview(padding: UIEdgeInsets = .zero) {
-        make(
-            top: superview?.topAnchor,
-            left: superview?.leftAnchor,
-            right: superview?.rightAnchor,
-            bottom: superview?.bottomAnchor,
-            padding: padding
-        )
-    }
-
     private func remove(
         _ view: UIView? = nil,
-        anchorX: NSLayoutXAxisAnchor? = nil,
-        anchorY: NSLayoutYAxisAnchor? = nil,
-        dimension: NSLayoutDimension? = nil
+        top: NSLayoutYAxisAnchor? = nil,
+        left: NSLayoutXAxisAnchor? = nil,
+        right: NSLayoutXAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
+        width: CGFloat = 0,
+        height: CGFloat = 0
     ) {
-        if let anchorX = anchorX {
-            remove(anchorX: anchorX)
+        if let _ = top {
+            remove(view, anchorY: topAnchor)
         }
 
-        if let anchorY = anchorY {
-            remove(anchorY: anchorY)
+        if let _ = left {
+            remove(view, anchorX: leftAnchor)
         }
 
-        if let dimension = dimension {
-            remove(dimension: dimension)
+        if let _ = right {
+            remove(view, anchorX: rightAnchor)
+        }
+
+        if let _ = bottom {
+            remove(view, anchorY: bottomAnchor)
+        }
+
+        if width > 0 {
+            remove(view, dimension: widthAnchor)
+        }
+
+        if height > 0 {
+            remove(view, dimension: heightAnchor)
         }
     }
 
@@ -162,32 +162,28 @@ extension UIView {
         }
     }
 
-    func remove(anchor: NSLayoutYAxisAnchor) {
-        constraints.first { $0.firstAnchor == anchor }?.isActive = false
-    }
-
-    func removeTopAnchor(_ view: UIView? = nil) {
-        remove(view, anchorY: topAnchor)
-    }
-
+    @discardableResult
     func top(_ anchor: NSLayoutYAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
         let constraint: Constraint = topAnchor.constraint(equalTo: anchor, constant: constant)
         constraint.isActive = true
         return constraint
     }
 
+    @discardableResult
     func left(_ anchor: NSLayoutXAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
         let constraint: Constraint = leftAnchor.constraint(equalTo: anchor, constant: constant)
         constraint.isActive = true
         return constraint
     }
 
+    @discardableResult
     func right(_ anchor: NSLayoutXAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
         let constraint: Constraint = rightAnchor.constraint(equalTo: anchor, constant: constant)
         constraint.isActive = true
         return constraint
     }
 
+    @discardableResult
     func bottom(_ anchor: NSLayoutYAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
         let constraint: Constraint = bottomAnchor.constraint(equalTo: anchor, constant: constant)
         constraint.isActive = true

@@ -67,30 +67,28 @@ final class TableViewController: UIViewController {
         tableView.make(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.safeAreaLayoutGuide.leftAnchor,
-            right: view.safeAreaLayoutGuide.rightAnchor,
-            bottom: view.bottomAnchor,
-            padding: .init(top: -20, left: -20, bottom: -20, right: -20)
+            right: view.safeAreaLayoutGuide.rightAnchor
+//            bottom: view.bottomAnchor,
+//            padding: .init(top: -20, left: -20, bottom: -20, right: -20)//,
+//            height: 300
         )
-
-//        view.constraints.first { $0.firstAnchor == tableView.topAnchor }?.isActive = false
-        
-//        view.remove(anchor: tableView.topAnchor)
-//        tableView.removeTopAnchor()
 
 //        view.make(tableView, .top, view.safeAreaLayoutGuide, .top)
 //        view.make(tableView, .left, view.safeAreaLayoutGuide, .left)
 //        view.make(tableView, .right, view.safeAreaLayoutGuide, .right)
 //        view.make(tableView, .bottom, view, .bottom)
-        
-        tableView.remake(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            bottom: view.bottomAnchor,
-            padding: .init(horizontal: 40, vertical: 40)
-        )
 
-//        tableView.height(40)
+//        view.constraints.first { $0.firstAnchor == tableView.topAnchor }?.isActive = false
+
+//        tableView.remake(
+//            top: view.topAnchor,
+//            left: view.leftAnchor,
+//            right: view.rightAnchor,
+//            bottom: view.bottomAnchor,
+//            padding: .init(horizontal: 40, vertical: 40)
+//        )
+
+        tableView.height(40)
 //        tableView.height(200)
 
         tableView.addSubviews(activityIndicatorView)
