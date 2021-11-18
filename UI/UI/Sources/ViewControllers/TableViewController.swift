@@ -73,11 +73,6 @@ final class TableViewController: UIViewController {
 //            height: 300
         )
 
-//        view.make(tableView, .top, view.safeAreaLayoutGuide, .top)
-//        view.make(tableView, .left, view.safeAreaLayoutGuide, .left)
-//        view.make(tableView, .right, view.safeAreaLayoutGuide, .right)
-//        view.make(tableView, .bottom, view, .bottom)
-
 //        view.constraints.first { $0.firstAnchor == tableView.topAnchor }?.isActive = false
 
 //        tableView.remake(

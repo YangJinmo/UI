@@ -163,34 +163,34 @@ extension UIView {
     }
 
     @discardableResult
-    func top(_ anchor: NSLayoutYAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
+    func top(_ anchor: NSLayoutYAxisAnchor, _ constant: CGFloat = 0.0) -> Constraint {
         let constraint: Constraint = topAnchor.constraint(equalTo: anchor, constant: constant)
         constraint.isActive = true
         return constraint
     }
 
     @discardableResult
-    func left(_ anchor: NSLayoutXAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
+    func left(_ anchor: NSLayoutXAxisAnchor, _ constant: CGFloat = 0.0) -> Constraint {
         let constraint: Constraint = leftAnchor.constraint(equalTo: anchor, constant: constant)
         constraint.isActive = true
         return constraint
     }
 
     @discardableResult
-    func right(_ anchor: NSLayoutXAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
+    func right(_ anchor: NSLayoutXAxisAnchor, _ constant: CGFloat = 0.0) -> Constraint {
         let constraint: Constraint = rightAnchor.constraint(equalTo: anchor, constant: constant)
         constraint.isActive = true
         return constraint
     }
 
     @discardableResult
-    func bottom(_ anchor: NSLayoutYAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
+    func bottom(_ anchor: NSLayoutYAxisAnchor, _ constant: CGFloat = 0.0) -> Constraint {
         let constraint: Constraint = bottomAnchor.constraint(equalTo: anchor, constant: constant)
         constraint.isActive = true
         return constraint
     }
 
-    func centerX(_ anchor: NSLayoutXAxisAnchor? = nil, _ constant: CGFloat = 0) {
+    func centerX(_ anchor: NSLayoutXAxisAnchor? = nil, _ constant: CGFloat = 0.0) {
         if let anchor = anchor {
             centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         } else if let superviewCenterXAnchor = superview?.centerXAnchor {
@@ -198,7 +198,7 @@ extension UIView {
         }
     }
 
-    func centerY(_ anchor: NSLayoutYAxisAnchor? = nil, _ constant: CGFloat = 0) {
+    func centerY(_ anchor: NSLayoutYAxisAnchor? = nil, _ constant: CGFloat = 0.0) {
         if let anchor = anchor {
             centerYAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         } else if let superviewCenterYAnchor = superview?.centerYAnchor {
@@ -221,7 +221,7 @@ extension UIView {
         }
     }
 
-    func setConstraint(_ attribute: LayoutAttribute, _ constant: CGFloat, _ multiplier: CGFloat = 1) {
+    func setConstraint(_ attribute: LayoutAttribute, _ constant: CGFloat, _ multiplier: CGFloat = 1.0) {
         removeConstraint(attribute: attribute)
         addConstraint(createConstraint(attribute: attribute, multiplier: multiplier, constant: constant))
     }
@@ -251,18 +251,6 @@ extension UIView {
 
     func height(_ constant: CGFloat, _ multiplier: CGFloat = 1.0) {
         setConstraint(.height, constant, multiplier)
-    }
-
-    func make(
-        _ view1: Any,
-        _ attr1: LayoutAttribute,
-        _ view2: Any?,
-        _ attr2: LayoutAttribute,
-        relation: LayoutRelation = .equal,
-        multiplier: CGFloat = 1.0,
-        constant: CGFloat = 0.0
-    ) {
-        addConstraint(Constraint(view1, attr1, view2, attr2, relation))
     }
 
     // MARK: - VisualFormat
