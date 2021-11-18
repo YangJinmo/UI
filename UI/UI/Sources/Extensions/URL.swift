@@ -9,7 +9,7 @@ import UIKit
 
 extension URL {
     var request: URLRequest {
-        URLRequest(url: self)
+        return URLRequest(url: self)
     }
 
     func log() {
