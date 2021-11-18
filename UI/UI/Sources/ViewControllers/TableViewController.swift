@@ -64,59 +64,35 @@ final class TableViewController: UIViewController {
 //            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 //        ])
 
-//        tableView.make(
-//            top: view.safeAreaLayoutGuide.topAnchor,
-//            left: view.safeAreaLayoutGuide.leftAnchor,
-//            right: view.safeAreaLayoutGuide.rightAnchor,
-//            bottom: view.bottomAnchor
-//        )
-        
-//        let topConstraint = Constraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 0)
-//        view.addConstraint(topConstraint)
-//        let leftConstraint = Constraint(item: tableView, attribute: .left, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .left, multiplier: 1, constant: 0)
-//        view.addConstraint(leftConstraint)
-//        let rightConstraint = Constraint(item: tableView, attribute: .right, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .right, multiplier: 1, constant: 0)
-//        view.addConstraint(rightConstraint)
-//        let bottomConstraint = Constraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0)
-//        view.addConstraint(bottomConstraint)
+        tableView.make(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            left: view.safeAreaLayoutGuide.leftAnchor,
+            right: view.safeAreaLayoutGuide.rightAnchor,
+            bottom: view.bottomAnchor,
+            padding: .init(top: -20, left: -20, bottom: -20, right: -20)
+        )
 
-//        let topConstraint = Constraint(item: view.safeAreaLayoutGuide, attribute: .top, relatedBy: .equal, toItem: tableView, attribute: .top, multiplier: 1, constant: 0)
-//        view.addConstraint(topConstraint)
-//        let leftConstraint = Constraint(item: view.safeAreaLayoutGuide, attribute: .left, relatedBy: .equal, toItem: tableView, attribute: .left, multiplier: 1, constant: 0)
-//        view.addConstraint(leftConstraint)
-//        let rightConstraint = Constraint(item: view.safeAreaLayoutGuide, attribute: .right, relatedBy: .equal, toItem: tableView, attribute: .right, multiplier: 1, constant: 0)
-//        view.addConstraint(rightConstraint)
-//        let bottomConstraint = Constraint(item: view.safeAreaLayoutGuide, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 0)
-//        view.addConstraint(bottomConstraint)
+//        view.constraints.first { $0.firstAnchor == tableView.topAnchor }?.isActive = false
         
-//        view.addConstraint(Constraint(item: view.safeAreaLayoutGuide, attribute: .top, relatedBy: .equal, toItem: tableView, attribute: .top, multiplier: 1, constant: 0))
-//        view.addConstraint(Constraint(item: view.safeAreaLayoutGuide, attribute: .left, relatedBy: .equal, toItem: tableView, attribute: .left, multiplier: 1, constant: 0))
-//        view.addConstraint(Constraint(item: view.safeAreaLayoutGuide, attribute: .right, relatedBy: .equal, toItem: tableView, attribute: .right, multiplier: 1, constant: 0))
-//        view.addConstraint(Constraint(item: view.safeAreaLayoutGuide, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 0))
+//        view.remove(anchor: tableView.topAnchor)
+//        tableView.removeTopAnchor()
+
+//        view.make(tableView, .top, view.safeAreaLayoutGuide, .top)
+//        view.make(tableView, .left, view.safeAreaLayoutGuide, .left)
+//        view.make(tableView, .right, view.safeAreaLayoutGuide, .right)
+//        view.make(tableView, .bottom, view, .bottom)
         
-//        view.addConstraint(Constraint(view.safeAreaLayoutGuide, .top, tableView, .top))
-//        view.addConstraint(Constraint(view.safeAreaLayoutGuide, .left, tableView, .left))
-//        view.addConstraint(Constraint(view.safeAreaLayoutGuide, .right, tableView, .right))
-//        view.addConstraint(Constraint(view.safeAreaLayoutGuide, .bottom, tableView, .bottom))
-        
-        view.make(tableView, .top, view.safeAreaLayoutGuide, .top)
-        view.make(tableView, .left, view.safeAreaLayoutGuide, .left)
-        view.make(tableView, .right, view.safeAreaLayoutGuide, .right)
-        view.make(tableView, .bottom, view, .bottom)
-        
+        tableView.remake(
+            top: view.topAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            bottom: view.bottomAnchor,
+            padding: .init(horizontal: 40, vertical: 40)
+        )
+
 //        tableView.height(40)
 //        tableView.height(200)
-        
-//        print(view.constraints)
-//
-//        view.removeConstraint(attribute: .top)
-//
-//        print(view.constraints)
-//
-//        view.make(tableView, .top, view.safeAreaLayoutGuide, .top, constant: 20)
-//
-//        print(view.constraints)
-        
+
         tableView.addSubviews(activityIndicatorView)
 
         // activityIndicatorView.center()

@@ -64,6 +64,51 @@ extension UIView {
         return anchor
     }
 
+    @discardableResult
+    func remake(
+        top: NSLayoutYAxisAnchor? = nil,
+        left: NSLayoutXAxisAnchor? = nil,
+        right: NSLayoutXAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
+        padding: UIEdgeInsets = .zero,
+        width: CGFloat = 0,
+        height: CGFloat = 0
+    ) -> Anchor {
+        if let _ = top {
+            remove(anchorY: topAnchor)
+        }
+
+        if let _ = left {
+            remove(anchorX: leftAnchor)
+        }
+
+        if let _ = right {
+            remove(anchorX: rightAnchor)
+        }
+
+        if let _ = bottom {
+            remove(anchorY: bottomAnchor)
+        }
+
+        if width > 0 {
+            remove(dimension: widthAnchor)
+        }
+
+        if height > 0 {
+            remove(dimension: heightAnchor)
+        }
+
+        return make(
+            top: top,
+            left: left,
+            right: right,
+            bottom: bottom,
+            padding: padding,
+            width: width,
+            height: height
+        )
+    }
+
     func fillSuperview(padding: UIEdgeInsets = .zero) {
         make(
             top: superview?.topAnchor,
@@ -72,6 +117,57 @@ extension UIView {
             bottom: superview?.bottomAnchor,
             padding: padding
         )
+    }
+
+    private func remove(
+        _ view: UIView? = nil,
+        anchorX: NSLayoutXAxisAnchor? = nil,
+        anchorY: NSLayoutYAxisAnchor? = nil,
+        dimension: NSLayoutDimension? = nil
+    ) {
+        if let anchorX = anchorX {
+            remove(anchorX: anchorX)
+        }
+
+        if let anchorY = anchorY {
+            remove(anchorY: anchorY)
+        }
+
+        if let dimension = dimension {
+            remove(dimension: dimension)
+        }
+    }
+
+    private func remove(_ view: UIView? = nil, anchorX: NSLayoutXAxisAnchor) {
+        if let view = view {
+            view.constraints.first { $0.firstAnchor == anchorX }?.isActive = false
+        } else if let superview = superview {
+            superview.constraints.first { $0.firstAnchor == anchorX }?.isActive = false
+        }
+    }
+
+    private func remove(_ view: UIView? = nil, anchorY: NSLayoutYAxisAnchor) {
+        if let view = view {
+            view.constraints.first { $0.firstAnchor == anchorY }?.isActive = false
+        } else if let superview = superview {
+            superview.constraints.first { $0.firstAnchor == anchorY }?.isActive = false
+        }
+    }
+
+    private func remove(_ view: UIView? = nil, dimension: NSLayoutDimension) {
+        if let view = view {
+            view.constraints.first { $0.firstAnchor == dimension }?.isActive = false
+        } else if let superview = superview {
+            superview.constraints.first { $0.firstAnchor == dimension }?.isActive = false
+        }
+    }
+
+    func remove(anchor: NSLayoutYAxisAnchor) {
+        constraints.first { $0.firstAnchor == anchor }?.isActive = false
+    }
+
+    func removeTopAnchor(_ view: UIView? = nil) {
+        remove(view, anchorY: topAnchor)
     }
 
     func top(_ anchor: NSLayoutYAxisAnchor, _ constant: CGFloat = 0) -> Constraint {
@@ -160,7 +256,7 @@ extension UIView {
     func height(_ constant: CGFloat, _ multiplier: CGFloat = 1.0) {
         setConstraint(.height, constant, multiplier)
     }
-    
+
     func make(
         _ view1: Any,
         _ attr1: LayoutAttribute,
@@ -170,19 +266,6 @@ extension UIView {
         multiplier: CGFloat = 1.0,
         constant: CGFloat = 0.0
     ) {
-        addConstraint(Constraint(view1, attr1, view2, attr2, relation))
-    }
-
-    func remove(
-        _ view1: Any,
-        _ attr1: LayoutAttribute,
-        _ view2: Any?,
-        _ attr2: LayoutAttribute,
-        _ relation: LayoutRelation = .equal,
-        _ multiplier: CGFloat = 1.0,
-        _ constant: CGFloat = 0.0
-    ) {
-        removeConstraint(attribute: .top)
         addConstraint(Constraint(view1, attr1, view2, attr2, relation))
     }
 
