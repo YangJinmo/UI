@@ -55,7 +55,7 @@ final class TableViewController: UIViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.addSubviews(tableView)
+//        view.addSubviews(tableView)
 
 //        Constraint.activate([
 //            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -64,23 +64,31 @@ final class TableViewController: UIViewController {
 //            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 //        ])
 
-        tableView.make(
+//        tableView.make(
+//            top: view.safeAreaLayoutGuide.topAnchor,
+//            left: view.safeAreaLayoutGuide.leftAnchor,
+//            right: view.safeAreaLayoutGuide.rightAnchor,
+//            bottom: view.bottomAnchor,
+//            padding: .init(top: -20, left: -20, bottom: -20, right: -20)
+//            height: 300
+//        )
+
+        // Snippet
+        view.add(
+            subview: tableView,
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.safeAreaLayoutGuide.leftAnchor,
             right: view.safeAreaLayoutGuide.rightAnchor,
-            bottom: view.bottomAnchor,
-            padding: .init(top: -20, left: -20, bottom: -20, right: -20)
-//            height: 300
+            bottom: view.bottomAnchor
         )
 
 //        view.constraints.first { $0.firstAnchor == tableView.topAnchor }?.isActive = false
 
         tableView.remake(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            bottom: view.bottomAnchor,
-            padding: .init(horizontal: 40, vertical: 80)
+            top: view.topAnchor, 20,
+            left: view.leftAnchor, 40,
+            right: view.rightAnchor, 20,
+            bottom: view.bottomAnchor, 20
         )
 
 //        tableView.height(40)

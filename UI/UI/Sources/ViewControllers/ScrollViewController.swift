@@ -48,46 +48,104 @@ final class ScrollViewController: UIViewController {
 
         setupViews()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.safeAreaInsets.top.description.log()
+        view.safeAreaInsets.bottom.description.log()
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        
+        view.safeAreaInsets.top.description.log()
+        view.safeAreaInsets.bottom.description.log()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        view.safeAreaInsets.top.description.log()
+        view.safeAreaInsets.bottom.description.log()
+    }
 
     // MARK: - Methods
 
     func setupViews() {
-        view.addSubviews(scrollView)
-        scrollView.addSubviews(contentView)
+//        view.addSubviews(scrollView)
+//        scrollView.addSubviews(contentView)
 
-        Constraint.activate([
-            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-        ])
-
-        contentView.addSubviews(
-            titleLabel,
-            subtitleLabel
+//        Constraint.activate([
+//            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+//            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//
+//            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+//            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+//            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+//            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+//        ])
+        
+//        scrollView.centerX()
+//        scrollView.width(equalTo: view.widthAnchor)
+//        scrollView.top(equalTo: view.safeAreaLayoutGuide.topAnchor)
+//        scrollView.bottom(equalTo: view.bottomAnchor)
+        
+        view.add(subview: scrollView, top: view.safeAreaLayoutGuide.topAnchor, bottom: view.bottomAnchor, width: view.widthAnchor)
+        scrollView.centerX()
+        
+        scrollView.add(
+            subview: contentView,
+            top: scrollView.topAnchor,
+            bottom: scrollView.bottomAnchor,
+            width: scrollView.widthAnchor
         )
+        contentView.centerX()
+        
+//        scrollView.width(view.widthAnchor, 300)
 
-        Constraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4 / 5),
+//        contentView.addSubviews(
+//            titleLabel,
+//            subtitleLabel
+//        )
 
-            subtitleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
-            subtitleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4 / 5),
-            subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
-        ])
+//        Constraint.activate([
+//            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
+//            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4/5),
+//
+//            subtitleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
+//            subtitleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4/5),
+//            subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
+//        ])
+        
+        contentView.add(
+            subview: titleLabel,
+            top: contentView.topAnchor, 24,
+            width: contentView.widthAnchor, widthMultiplier: 4/5
+        )
+        
+        titleLabel.centerX()
+        //titleLabel.width(equalTo: contentView.widthAnchor, multiplier: 4/5)
+        
+        contentView.add(
+            subview: subtitleLabel,
+            top: titleLabel.bottomAnchor, 24,
+            bottom: contentView.bottomAnchor, 24,
+            width: contentView.widthAnchor, widthMultiplier: 4/5
+        )
+        
+        subtitleLabel.centerX()
+//        subtitleLabel.width(equalTo: contentView.widthAnchor, multiplier: 4/5)
 
         // test
-        topConstraint = view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
-        topConstraint?.isActive = true
+//        topConstraint = view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
+//        topConstraint?.isActive = true
         // ==
-        topConstraint = view.top(titleLabel.bottomAnchor, 0)
-        topConstraint?.isActive = false
+//        topConstraint = view.top(titleLabel.bottomAnchor, 0)
+//        topConstraint?.isActive = false
     }
 }
