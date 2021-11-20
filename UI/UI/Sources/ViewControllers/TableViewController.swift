@@ -56,21 +56,19 @@ final class TableViewController: UIViewController {
 
     private func setupViews() {
 //        view.addSubviews(tableView)
-
+//
 //        Constraint.activate([
 //            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 //            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
 //            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
 //            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 //        ])
-
+//
 //        tableView.make(
 //            top: view.safeAreaLayoutGuide.topAnchor,
 //            left: view.safeAreaLayoutGuide.leftAnchor,
 //            right: view.safeAreaLayoutGuide.rightAnchor,
-//            bottom: view.bottomAnchor,
-//            padding: .init(top: -20, left: -20, bottom: -20, right: -20)
-//            height: 300
+//            bottom: view.bottomAnchor
 //        )
 
         // Snippet
@@ -97,7 +95,7 @@ final class TableViewController: UIViewController {
         tableView.addSubviews(activityIndicatorView)
 
         // activityIndicatorView.center()
-        activityIndicatorView.center(tableView)
+        activityIndicatorView.center(equalTo: tableView)
     }
 
     @objc private func refresh() {

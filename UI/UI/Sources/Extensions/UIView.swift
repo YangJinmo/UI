@@ -13,7 +13,7 @@ typealias LayoutAttribute = Constraint.Attribute
 typealias LayoutRelation = Constraint.Relation
 
 struct Anchor {
-    var top, left, right, bottom, width, height, centerX, centerY, center: Constraint?
+    var top, left, right, bottom, width, height, centerX, centerY: Constraint?
 }
 
 extension UIView {
@@ -39,19 +39,17 @@ extension UIView {
         widthMultiplier: CGFloat = 1.0,
         height: NSLayoutDimension? = nil,
         heightConstant: CGFloat = 0.0,
-        heightMultiplier: CGFloat = 1.0//,
-//        center: Constraint? = nil
+        heightMultiplier: CGFloat = 1.0,
+        centerX: UIView? = nil,
+        centerXConstant: CGFloat = 0.0,
+        centerY: UIView? = nil,
+        centerYConstant: CGFloat = 0.0,
+        center: UIView? = nil,
+        centerConstant: CGFloat = 0.0
     ) {
         addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
-        subview.make(top: top, topConstant, left: left, leftConstant, right: right, rightConstant, bottom: bottom, bottomConstant, width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier, height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier)
-//        if center == centerX() {
-//            subview.centerX(equalTo: <#T##NSLayoutXAxisAnchor?#>, constant: <#T##CGFloat#>)
-//        } else if center == .centerY {
-//            subview.centerY()
-//        } else if center == .center {
-//            subview.center()
-//        }
+        subview.make(top: top, topConstant, left: left, leftConstant, right: right, rightConstant, bottom: bottom, bottomConstant, width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier, height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier, centerX: centerX, centerXConstant: centerXConstant, centerY: centerY, centerYConstant: centerYConstant, center: center, centerConstant: centerConstant)
     }
 
     // MARK: - Layout Anchor
@@ -71,7 +69,13 @@ extension UIView {
         widthMultiplier: CGFloat = 1.0,
         height: NSLayoutDimension? = nil,
         heightConstant: CGFloat = 0.0,
-        heightMultiplier: CGFloat = 1.0
+        heightMultiplier: CGFloat = 1.0,
+        centerX: UIView? = nil,
+        centerXConstant: CGFloat = 0.0,
+        centerY: UIView? = nil,
+        centerYConstant: CGFloat = 0.0,
+        center: UIView? = nil,
+        centerConstant: CGFloat = 0.0
     ) -> Anchor {
         var anchor = Anchor()
         anchor.top = make(anchorY: topAnchor, toAnchorY: top, constant: topConstant)
@@ -80,6 +84,13 @@ extension UIView {
         anchor.bottom = make(anchorY: bottomAnchor, toAnchorY: bottom, constant: -bottomConstant)
         anchor.width = make(dimension: widthAnchor, toDimension: width, constant: widthConstant, multiplier: widthMultiplier)
         anchor.height = make(dimension: heightAnchor, toDimension: height, constant: heightConstant, multiplier: heightMultiplier)
+        anchor.centerX = make(anchorX: centerXAnchor, toAnchorX: centerX?.centerXAnchor, constant: centerXConstant)
+        anchor.centerY = make(anchorY: centerYAnchor, toAnchorY: centerY?.centerYAnchor, constant: centerYConstant)
+        if let _ = center {
+            anchor.centerX = make(anchorX: centerXAnchor, toAnchorX: centerX?.centerXAnchor, constant: centerXConstant)
+            anchor.centerY = make(anchorY: centerYAnchor, toAnchorY: centerY?.centerYAnchor, constant: centerYConstant)
+        }
+        
         // [anchor.top, anchor.left, anchor.right, anchor.bottom, anchor.width, anchor.height].forEach { $0?.isActive = true }
         return anchor
     }
@@ -99,10 +110,16 @@ extension UIView {
         widthMultiplier: CGFloat = 1.0,
         height: NSLayoutDimension? = nil,
         heightConstant: CGFloat = 0.0,
-        heightMultiplier: CGFloat = 1.0
+        heightMultiplier: CGFloat = 1.0,
+        centerX: UIView? = nil,
+        centerXConstant: CGFloat = 0.0,
+        centerY: UIView? = nil,
+        centerYConstant: CGFloat = 0.0,
+        center: UIView? = nil,
+        centerConstant: CGFloat = 0.0
     ) -> Anchor {
-        remove(top: top, left: left, right: right, bottom: bottom, width: width, height: height)
-        return make(top: top, topConstant, left: left, leftConstant, right: right, rightConstant, bottom: bottom, bottomConstant, width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier, height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier)
+        remove(top: top, left: left, right: right, bottom: bottom, width: width, height: height, centerX: centerX, centerY: centerY, center: center)
+        return make(top: top, topConstant, left: left, leftConstant, right: right, rightConstant, bottom: bottom, bottomConstant, width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier, height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier, centerX: centerX, centerXConstant: centerXConstant, centerY: centerY, centerYConstant: centerYConstant, center: center, centerConstant: centerConstant)
     }
 
     private func remove(
@@ -112,7 +129,10 @@ extension UIView {
         right: NSLayoutXAxisAnchor? = nil,
         bottom: NSLayoutYAxisAnchor? = nil,
         width: NSLayoutDimension? = nil,
-        height: NSLayoutDimension? = nil
+        height: NSLayoutDimension? = nil,
+        centerX: UIView? = nil,
+        centerY: UIView? = nil,
+        center: UIView? = nil
     ) {
         if let _ = top {
             remove(view, anchorY: topAnchor)
@@ -136,6 +156,19 @@ extension UIView {
 
         if let _ = height {
             remove(view, dimension: heightAnchor)
+        }
+        
+        if let _ = centerX {
+            remove(view, anchorX: centerXAnchor)
+        }
+
+        if let _ = centerY {
+            remove(view, anchorY: centerYAnchor)
+        }
+        
+        if let _ = center {
+            remove(view, anchorX: centerXAnchor)
+            remove(view, anchorY: centerYAnchor)
         }
     }
 
@@ -260,38 +293,28 @@ extension UIView {
     }
 
     @discardableResult
-    func centerX(equalTo anchor: NSLayoutXAxisAnchor? = nil, constant: CGFloat = 0.0) -> Constraint {
-        remove(anchorX: centerXAnchor)
-
-        var constraint: Constraint = Constraint()
-
-        if let anchor = anchor {
-            constraint = centerXAnchor.constraint(equalTo: anchor, constant: constant)
-        } else if let anchor = superview?.centerXAnchor {
-            constraint = centerXAnchor.constraint(equalTo: anchor, constant: constant)
+    func centerX(equalTo view: UIView? = nil, constant: CGFloat = 0.0) -> Constraint? {
+        if let view = view {
+            return remake(anchorX: centerXAnchor, toAnchorX: view.centerXAnchor, constant: constant)
+        } else if let superview = superview {
+            return remake(anchorX: centerXAnchor, toAnchorX: superview.centerXAnchor, constant: constant)
         }
-        constraint.isActive = true
-        return constraint
+        return nil
     }
-
+    
     @discardableResult
-    func centerY(equalTo anchor: NSLayoutYAxisAnchor? = nil, constant: CGFloat = 0.0) -> Constraint {
-        remove(anchorY: centerYAnchor)
-
-        var constraint: Constraint = Constraint()
-
-        if let anchor = anchor {
-            constraint = centerYAnchor.constraint(equalTo: anchor, constant: constant)
-        } else if let anchor = superview?.centerYAnchor {
-            constraint = centerYAnchor.constraint(equalTo: anchor, constant: constant)
+    func centerY(equalTo view: UIView? = nil, constant: CGFloat = 0.0) -> Constraint? {
+        if let view = view {
+            return remake(anchorY: centerYAnchor, toAnchorY: view.centerYAnchor, constant: constant)
+        } else if let superview = superview {
+            return remake(anchorY: centerYAnchor, toAnchorY: superview.centerYAnchor, constant: constant)
         }
-        constraint.isActive = true
-        return constraint
+        return nil
     }
 
-    func center(_ toView: UIView? = nil) {
-        centerX(equalTo: toView?.centerXAnchor)
-        centerY(equalTo: toView?.centerYAnchor)
+    func center(equalTo view: UIView? = nil, constant: CGFloat = 0.0) {
+        centerX(equalTo: view, constant: constant)
+        centerY(equalTo: view, constant: constant)
     }
 
     // MARK: - Layout Attribute
