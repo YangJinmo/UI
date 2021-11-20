@@ -63,7 +63,7 @@ final class CollectionViewController: BaseViewController {
         contentView.addSubviews(collectionView)
 
         collectionView.edges()
-//        collectionView.edges(contentView)
+//        collectionView.edges(equalTo: contentView)
 
 //        contentView.addConstraintsWithFormat("H:|[v0]|", views: collectionView)
 //        contentView.addConstraintsWithFormat("V:|[v0]|", views: collectionView)

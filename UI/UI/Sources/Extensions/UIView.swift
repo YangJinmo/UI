@@ -196,7 +196,7 @@ extension UIView {
         }
     }
 
-    func edges(_ view: UIView? = nil) {
+    func edges(equalTo view: UIView? = nil) {
         if let view = view {
             make(
                 top: view.topAnchor,
