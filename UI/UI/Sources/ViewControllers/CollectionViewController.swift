@@ -56,6 +56,17 @@ final class CollectionViewController: BaseViewController {
 
         setTitleLabel(vcName)
     }
+    
+    // MARK: - UIViewController Transition Coordinator
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        flowLayout.invalidateLayout()
+    }
 
     // MARK: - Methods
 
