@@ -217,7 +217,7 @@ extension UIView {
             remove(view, anchorY: centerYAnchor)
         }
         
-        if let edges = edges {
+        if let _ = edges {
             remove(anchorY: topAnchor)
             remove(anchorX: leftAnchor)
             remove(anchorX: rightAnchor)

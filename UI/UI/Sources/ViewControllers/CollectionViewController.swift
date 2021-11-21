@@ -56,7 +56,7 @@ final class CollectionViewController: BaseViewController {
 
         setTitleLabel(vcName)
     }
-    
+
     // MARK: - UIViewController Transition Coordinator
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -71,13 +71,18 @@ final class CollectionViewController: BaseViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        contentView.addSubviews(collectionView)
-
-        collectionView.edges()
-//        collectionView.edges(equalTo: contentView)
-
+//        contentView.addSubviews(collectionView)
+        
 //        contentView.addConstraintsWithFormat("H:|[v0]|", views: collectionView)
 //        contentView.addConstraintsWithFormat("V:|[v0]|", views: collectionView)
+
+//        collectionView.edges()
+//        collectionView.edges(equalTo: contentView)
+        
+        contentView.add(
+            subview: collectionView,
+            edges: contentView
+        )
     }
 }
 
