@@ -43,7 +43,6 @@ final class ReviewWriteViewController: BasePresentViewController {
         )
         
         pushButton.center()
-//        pushButton.centered(view)
         pushButton.height(44)
 
         pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)

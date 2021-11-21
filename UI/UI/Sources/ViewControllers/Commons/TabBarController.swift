@@ -11,11 +11,11 @@ final class TabBarController: UITabBarController {
     // MARK: - Constants
 
     private struct Image {
-        static let house: UIImage? = UIImage(systemName: "house") // 􀎞
-        static let magnifyingglass: UIImage? = UIImage(systemName: "magnifyingglass") // 􀊫
-        static let bag: UIImage? = UIImage(systemName: "bag") // 􀍣
-        static let message: UIImage? = UIImage(systemName: "message") // 􀌤
-        static let person: UIImage? = UIImage(systemName: "person") // 􀉩
+        static let house: UIImage? = UIImage(systemName: "house")
+        static let magnifyingglass: UIImage? = UIImage(systemName: "magnifyingglass")
+        static let bag: UIImage? = UIImage(systemName: "bag")
+        static let message: UIImage? = UIImage(systemName: "message")
+        static let person: UIImage? = UIImage(systemName: "person")
     }
 
     private struct Color {

@@ -19,36 +19,25 @@ final class SearchTermCell: BaseCollectionViewCell {
     private let rankLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .label
         return label
     }()
 
     private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .label
         return label
     }()
 
     // MARK: - Methods
 
     override func setupViews() {
-        contentView.addSubviews(
-            rankLabel,
-            titleLabel
+        contentView.add(
+            subview: rankLabel,
+            center: contentView
         )
-
-        Constraint.activate([
-            rankLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            rankLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: rankLabel.rightAnchor, constant: 20),
-        ])
     }
 
     func bind(rank: Int, term: String) {
-        rankLabel.text = "\(rank)"
-        titleLabel.text = term
+        rankLabel.text = "\(rank). \(term)"
     }
 }

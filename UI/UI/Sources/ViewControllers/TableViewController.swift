@@ -42,12 +42,7 @@ final class TableViewController: UIViewController {
         super.viewDidLoad()
 
         tabBarController?.delegate = self
-
-        refreshControl.addTarget(
-            self,
-            action: #selector(refresh),
-            for: .valueChanged
-        )
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 
         getWebsites()
     }
@@ -55,23 +50,6 @@ final class TableViewController: UIViewController {
     // MARK: - Methods
 
     private func setupViews() {
-//        view.addSubviews(tableView)
-//
-//        Constraint.activate([
-//            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-//            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//        ])
-//
-//        tableView.make(
-//            top: view.safeAreaLayoutGuide.topAnchor,
-//            left: view.safeAreaLayoutGuide.leftAnchor,
-//            right: view.safeAreaLayoutGuide.rightAnchor,
-//            bottom: view.bottomAnchor
-//        )
-
-        // Snippet
         view.add(
             subview: tableView,
             top: view.safeAreaLayoutGuide.topAnchor,
@@ -80,22 +58,10 @@ final class TableViewController: UIViewController {
             bottom: view.bottomAnchor
         )
 
-//        view.constraints.first { $0.firstAnchor == tableView.topAnchor }?.isActive = false
-
-        tableView.remake(
-            top: view.topAnchor, 20,
-            left: view.leftAnchor, 40,
-            right: view.rightAnchor, 20,
-            bottom: view.bottomAnchor, 20
+        tableView.add(
+            subview: activityIndicatorView,
+            center: tableView
         )
-
-//        tableView.height(40)
-//        tableView.height(200)
-
-        tableView.addSubviews(activityIndicatorView)
-
-        // activityIndicatorView.center()
-        activityIndicatorView.center(equalTo: tableView)
     }
 
     @objc private func refresh() {
@@ -117,8 +83,12 @@ extension TableViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let website: Website = websites[indexPath.row]
-        let vc = WebViewController(urlString: website.urlString, titleText: website.title)
-        pushViewController(vc)
+        pushViewController(
+            WebViewController(
+                urlString: website.urlString,
+                titleText: website.title
+            )
+        )
     }
 }
 

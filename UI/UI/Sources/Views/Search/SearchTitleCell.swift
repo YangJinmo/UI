@@ -30,14 +30,12 @@ final class SearchTitleCell: BaseCollectionViewCell {
     private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .label
         return label
     }()
 
     private let termLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .label
         return label
     }()
 
@@ -63,7 +61,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
         )
 
         Constraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 36),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 
             termLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -74,7 +72,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
             dividerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
             chevronButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            chevronButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            chevronButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -36),
         ])
     }
 
@@ -89,9 +87,11 @@ final class SearchTitleCell: BaseCollectionViewCell {
             isTimerOn = false
             termLabel.text = data.title
         } else {
-            termLabel.text = "\(index + 1). \(data.terms[index])"
+            termLabel.text = "\(index + 1). \(data.terms[index])" // Default
+
             if isTimerOn == false {
                 isTimerOn = true
+
                 timer = Timer.scheduledTimer(
                     withTimeInterval: 2,
                     repeats: true,

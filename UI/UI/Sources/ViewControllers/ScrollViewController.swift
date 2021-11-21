@@ -88,25 +88,6 @@ final class ScrollViewController: UIViewController {
 //            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
 //        ])
 
-//        scrollView.centerX()
-//        scrollView.width(equalTo: view.widthAnchor)
-//        scrollView.top(equalTo: view.safeAreaLayoutGuide.topAnchor)
-//        scrollView.bottom(equalTo: view.bottomAnchor)
-
-        view.add(subview: scrollView, top: view.safeAreaLayoutGuide.topAnchor, bottom: view.bottomAnchor, width: view.widthAnchor, centerX: view)
-//        scrollView.centerX()
-
-        scrollView.add(
-            subview: contentView,
-            top: scrollView.topAnchor,
-            bottom: scrollView.bottomAnchor,
-            width: scrollView.widthAnchor,
-            centerX: scrollView
-        )
-//        contentView.centerX()
-
-//        scrollView.width(view.widthAnchor, 300)
-
 //        contentView.addSubviews(
 //            titleLabel,
 //            subtitleLabel
@@ -123,15 +104,28 @@ final class ScrollViewController: UIViewController {
 //            subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
 //        ])
 
+        view.add(
+            subview: scrollView,
+            top: view.safeAreaLayoutGuide.topAnchor,
+            bottom: view.bottomAnchor,
+            width: view.widthAnchor,
+            centerX: view
+        )
+
+        scrollView.add(
+            subview: contentView,
+            top: scrollView.topAnchor,
+            bottom: scrollView.bottomAnchor,
+            width: scrollView.widthAnchor,
+            centerX: scrollView
+        )
+
         contentView.add(
             subview: titleLabel,
             top: contentView.topAnchor, 24,
             width: contentView.widthAnchor, widthMultiplier: 4 / 5,
             centerX: contentView
         )
-
-//        titleLabel.centerX()
-//        titleLabel.width(equalTo: contentView.widthAnchor, multiplier: 4/5)
 
         contentView.add(
             subview: subtitleLabel,
@@ -141,14 +135,11 @@ final class ScrollViewController: UIViewController {
             centerX: contentView
         )
 
-//        subtitleLabel.centerX()
-//        subtitleLabel.width(equalTo: contentView.widthAnchor, multiplier: 4/5)
-
         // test
-//        topConstraint = view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
-//        topConstraint?.isActive = true
+        // topConstraint = view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
+        // topConstraint?.isActive = true
         // ==
-//        topConstraint = view.top(titleLabel.bottomAnchor, 0)
-//        topConstraint?.isActive = false
+        // topConstraint = view.top(titleLabel.bottomAnchor, 0)
+        // topConstraint?.isActive = false
     }
 }
