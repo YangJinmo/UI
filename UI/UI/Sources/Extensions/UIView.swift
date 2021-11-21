@@ -23,8 +23,8 @@ extension UIView {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
     }
-    
-    // MARK: - Layout Anchor
+
+    // MARK: - Layout Anchors
 
     func add(
         subview: UIView,
@@ -43,15 +43,28 @@ extension UIView {
         heightConstant: CGFloat = 0.0,
         heightMultiplier: CGFloat = 1.0,
         centerX: UIView? = nil,
-        centerXConstant: CGFloat = 0.0,
+        _ centerXConstant: CGFloat = 0.0,
         centerY: UIView? = nil,
-        centerYConstant: CGFloat = 0.0,
+        _ centerYConstant: CGFloat = 0.0,
         center: UIView? = nil,
-        centerConstant: CGFloat = 0.0
+        _ centerConstant: CGFloat = 0.0,
+        edges: UIView? = nil,
+        _ edgesConstant: CGFloat = 0.0
     ) {
         addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
-        subview.make(top: top, topConstant, left: left, leftConstant, right: right, rightConstant, bottom: bottom, bottomConstant, width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier, height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier, centerX: centerX, centerXConstant: centerXConstant, centerY: centerY, centerYConstant: centerYConstant, center: center, centerConstant: centerConstant)
+        subview.make(
+            top: top, topConstant,
+            left: left, leftConstant,
+            right: right, rightConstant,
+            bottom: bottom, bottomConstant,
+            width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier,
+            height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier,
+            centerX: centerX, centerXConstant,
+            centerY: centerY, centerYConstant,
+            center: center, centerConstant,
+            edges: edges, edgesConstant
+        )
     }
 
     @discardableResult
@@ -71,11 +84,13 @@ extension UIView {
         heightConstant: CGFloat = 0.0,
         heightMultiplier: CGFloat = 1.0,
         centerX: UIView? = nil,
-        centerXConstant: CGFloat = 0.0,
+        _ centerXConstant: CGFloat = 0.0,
         centerY: UIView? = nil,
-        centerYConstant: CGFloat = 0.0,
+        _ centerYConstant: CGFloat = 0.0,
         center: UIView? = nil,
-        centerConstant: CGFloat = 0.0
+        _ centerConstant: CGFloat = 0.0,
+        edges: UIView? = nil,
+        _ edgesConstant: CGFloat = 0.0
     ) -> Anchor {
         var anchor = Anchor()
         anchor.top = make(anchorY: topAnchor, toAnchorY: top, constant: topConstant)
@@ -86,11 +101,17 @@ extension UIView {
         anchor.height = make(dimension: heightAnchor, toDimension: height, constant: heightConstant, multiplier: heightMultiplier)
         anchor.centerX = make(anchorX: centerXAnchor, toAnchorX: centerX?.centerXAnchor, constant: centerXConstant)
         anchor.centerY = make(anchorY: centerYAnchor, toAnchorY: centerY?.centerYAnchor, constant: centerYConstant)
-        if let _ = center {
-            anchor.centerX = make(anchorX: centerXAnchor, toAnchorX: centerX?.centerXAnchor, constant: centerXConstant)
-            anchor.centerY = make(anchorY: centerYAnchor, toAnchorY: centerY?.centerYAnchor, constant: centerYConstant)
+        if let center = center {
+            anchor.centerX = make(anchorX: centerXAnchor, toAnchorX: center.centerXAnchor, constant: centerXConstant)
+            anchor.centerY = make(anchorY: centerYAnchor, toAnchorY: center.centerYAnchor, constant: centerYConstant)
         }
-        
+        if let edges = edges {
+            anchor.top = make(anchorY: topAnchor, toAnchorY: edges.topAnchor, constant: edgesConstant)
+            anchor.left = make(anchorX: leftAnchor, toAnchorX: edges.leftAnchor, constant: edgesConstant)
+            anchor.right = make(anchorX: rightAnchor, toAnchorX: edges.rightAnchor, constant: -edgesConstant)
+            anchor.bottom = make(anchorY: bottomAnchor, toAnchorY: edges.bottomAnchor, constant: -edgesConstant)
+        }
+
         // [anchor.top, anchor.left, anchor.right, anchor.bottom, anchor.width, anchor.height].forEach { $0?.isActive = true }
         return anchor
     }
@@ -112,14 +133,38 @@ extension UIView {
         heightConstant: CGFloat = 0.0,
         heightMultiplier: CGFloat = 1.0,
         centerX: UIView? = nil,
-        centerXConstant: CGFloat = 0.0,
+        _ centerXConstant: CGFloat = 0.0,
         centerY: UIView? = nil,
-        centerYConstant: CGFloat = 0.0,
+        _ centerYConstant: CGFloat = 0.0,
         center: UIView? = nil,
-        centerConstant: CGFloat = 0.0
+        _ centerConstant: CGFloat = 0.0,
+        edges: UIView? = nil,
+        _ edgesConstant: CGFloat = 0.0
     ) -> Anchor {
-        remove(top: top, left: left, right: right, bottom: bottom, width: width, height: height, centerX: centerX, centerY: centerY, center: center)
-        return make(top: top, topConstant, left: left, leftConstant, right: right, rightConstant, bottom: bottom, bottomConstant, width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier, height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier, centerX: centerX, centerXConstant: centerXConstant, centerY: centerY, centerYConstant: centerYConstant, center: center, centerConstant: centerConstant)
+        remove(
+            top: top,
+            left: left,
+            right: right,
+            bottom: bottom,
+            width: width,
+            height: height,
+            centerX: centerX,
+            centerY: centerY,
+            center: center,
+            edges: edges
+        )
+        return make(
+            top: top, topConstant,
+            left: left, leftConstant,
+            right: right, rightConstant,
+            bottom: bottom, bottomConstant,
+            width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier,
+            height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier,
+            centerX: centerX, centerXConstant,
+            centerY: centerY, centerYConstant,
+            center: center, centerConstant,
+            edges: edges, edgesConstant
+        )
     }
 
     private func remove(
@@ -132,7 +177,8 @@ extension UIView {
         height: NSLayoutDimension? = nil,
         centerX: UIView? = nil,
         centerY: UIView? = nil,
-        center: UIView? = nil
+        center: UIView? = nil,
+        edges: UIView? = nil
     ) {
         if let _ = top {
             remove(view, anchorY: topAnchor)
@@ -165,10 +211,17 @@ extension UIView {
         if let _ = centerY {
             remove(view, anchorY: centerYAnchor)
         }
-        
+
         if let _ = center {
             remove(view, anchorX: centerXAnchor)
             remove(view, anchorY: centerYAnchor)
+        }
+        
+        if let edges = edges {
+            remove(anchorY: topAnchor)
+            remove(anchorX: leftAnchor)
+            remove(anchorX: rightAnchor)
+            remove(anchorY: bottomAnchor)
         }
     }
 
@@ -196,20 +249,20 @@ extension UIView {
         }
     }
 
-    func edges(equalTo view: UIView? = nil) {
+    func edges(equalTo view: UIView? = nil, constant: CGFloat = 0.0) {
         if let view = view {
             make(
-                top: view.topAnchor,
-                left: view.leftAnchor,
-                right: view.rightAnchor,
-                bottom: view.bottomAnchor
+                top: view.topAnchor, constant,
+                left: view.leftAnchor, constant,
+                right: view.rightAnchor, -constant,
+                bottom: view.bottomAnchor, -constant
             )
         } else if let superview = superview {
             make(
-                top: superview.topAnchor,
-                left: superview.leftAnchor,
-                right: superview.rightAnchor,
-                bottom: superview.bottomAnchor
+                top: superview.topAnchor, constant,
+                left: superview.leftAnchor, constant,
+                right: superview.rightAnchor, -constant,
+                bottom: superview.bottomAnchor, -constant
             )
         }
     }
@@ -301,7 +354,7 @@ extension UIView {
         }
         return nil
     }
-    
+
     @discardableResult
     func centerY(equalTo view: UIView? = nil, constant: CGFloat = 0.0) -> Constraint? {
         if let view = view {
