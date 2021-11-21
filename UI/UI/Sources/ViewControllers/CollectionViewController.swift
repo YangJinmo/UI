@@ -153,15 +153,15 @@ extension CollectionViewController: FlowLayoutMetric {
         1
     }
 
-    var inset: CGFloat {
-        20
+    var sectionInset: UIEdgeInsets {
+        .uniform(size: 0)
     }
 
-    var lineSpacing: CGFloat {
+    var minimumLineSpacing: CGFloat {
         1
     }
 
-    var interItemSpacing: CGFloat {
+    var minimumInteritemSpacing: CGFloat {
         0
     }
 }

@@ -9,9 +9,9 @@ import UIKit
 
 protocol FlowLayoutMetric {
     var numberOfItemForRow: CGFloat { get }
-    var inset: CGFloat { get }
-    var lineSpacing: CGFloat { get }
-    var interItemSpacing: CGFloat { get }
+    var sectionInset: UIEdgeInsets { get }
+    var minimumLineSpacing: CGFloat { get }
+    var minimumInteritemSpacing: CGFloat { get }
 
     func flowLayout() -> UICollectionViewFlowLayout
 }
@@ -19,13 +19,14 @@ protocol FlowLayoutMetric {
 extension FlowLayoutMetric {
     func flowLayout() -> UICollectionViewFlowLayout {
         let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = .init(horizontal: inset, vertical: 0)
-        flowLayout.minimumLineSpacing = lineSpacing
-        flowLayout.minimumInteritemSpacing = interItemSpacing
+        flowLayout.sectionInset = sectionInset
+        flowLayout.minimumLineSpacing = minimumLineSpacing
+        flowLayout.minimumInteritemSpacing = minimumInteritemSpacing
         return flowLayout
     }
 
     func itemSize(width view: UIView, height: CGFloat) -> CGSize {
-        return CGSize(width: view.safeAreaLayoutGuide.layoutFrame.width - (inset * 2), height: height)
+        let horizontalInset: CGFloat = sectionInset.left + sectionInset.right
+        return CGSize(width: view.safeAreaLayoutGuide.layoutFrame.width - (horizontalInset * 2), height: height)
     }
 }
