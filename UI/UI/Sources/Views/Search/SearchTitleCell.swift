@@ -53,27 +53,78 @@ final class SearchTitleCell: BaseCollectionViewCell {
     // MARK: - Methods
 
     override func setupViews() {
-        contentView.addSubviews(
-            titleLabel,
-            termLabel,
-            dividerView,
-            chevronButton
+//        contentView.addSubviews(
+//            titleLabel,
+//            termLabel,
+//            dividerView,
+//            chevronButton
+//        )
+
+//        Constraint.activate([
+//            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 36),
+//            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//
+//            termLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//            termLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//
+//            dividerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+//            dividerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+//            dividerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+//
+//            chevronButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//            chevronButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -36),
+//        ])
+
+        contentView.add(
+            subview: titleLabel,
+            left: contentView.leftAnchor, 36,
+            centerY: contentView
         )
 
-        Constraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 36),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        contentView.add(
+            subview: termLabel,
+            center: contentView
+        )
 
-            termLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            termLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        contentView.add(
+            subview: dividerView,
+            left: contentView.leftAnchor,
+            right: contentView.rightAnchor,
+            bottom: contentView.bottomAnchor
+        )
 
-            dividerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            dividerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            dividerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-
-            chevronButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            chevronButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -36),
-        ])
+        contentView.add(
+            subview: chevronButton,
+            right: contentView.rightAnchor, 36,
+            centerY: contentView
+        )
+        
+//        contentView.constraints.first { $0.firstAnchor == titleLabel.leftAnchor }?.isActive = false
+//
+//        removeAnchor(left: titleLabel, right: chevronButton)
+//
+//        contentView.remove(anchorX: titleLabel.leftAnchor)
+//        contentView.remove(anchorX: leftAnchor) // X
+//
+//        titleLabel.remove(left: contentView.leftAnchor)
+//        titleLabel.remove(left: leftAnchor)
+//        titleLabel.remove(left: titleLabel.leftAnchor)
+//
+//        titleLabel.left(equalTo: contentView.leftAnchor, constant: 50)
+//
+//        contentView.leftAnchor.remove(superview: titleLabel) // X
+//        titleLabel.leftAnchor.remove(superview: contentView)
+//
+//        titleLabel.remove(left: contentView.leftAnchor)
+//        titleLabel.remove(left: leftAnchor)
+//
+//        titleLabel.remake(left: contentView.leftAnchor, 60)
+//
+//        titleLabel.centerX(constant: 30)
+//
+//        titleLabel.remake(anchorX: titleLabel.leftAnchor, toAnchorX: contentView.leftAnchor, constant: 60)
+//        titleLabel.leftAnchor.constraint(anchor: contentView.leftAnchor, constant: 60)
+//        titleLabel.remake(left: contentView.leftAnchor, 60)
     }
 
     func bind(data: Search) {
