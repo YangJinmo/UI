@@ -16,15 +16,9 @@ final class SearchTermCell: BaseCollectionViewCell {
 
     // MARK: - Views
 
-    private let rankLabel: UILabel = {
+    private let rankTermLabel: UILabel = {
         let label: UILabel = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        return label
-    }()
-
-    private let titleLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .regular)
         return label
     }()
 
@@ -32,12 +26,12 @@ final class SearchTermCell: BaseCollectionViewCell {
 
     override func setupViews() {
         contentView.add(
-            subview: rankLabel,
+            subview: rankTermLabel,
             center: contentView
         )
     }
 
     func bind(rank: Int, term: String) {
-        rankLabel.text = "\(rank). \(term)"
+        rankTermLabel.text = "\(rank). \(term)"
     }
 }
