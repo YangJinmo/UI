@@ -423,3 +423,101 @@ extension UIView {
         )
     }
 }
+
+extension NSLayoutXAxisAnchor {
+    func remove(superview: UIView) {
+        superview.constraints.first { $0.firstAnchor == self }?.isActive = false
+    }
+}
+
+extension NSLayoutYAxisAnchor {
+    func remove(superview: UIView) {
+        superview.constraints.first { $0.firstAnchor == self }?.isActive = false
+    }
+}
+
+extension NSLayoutDimension {
+    func remove(superview: UIView) {
+        superview.constraints.first { $0.firstAnchor == self }?.isActive = false
+    }
+}
+
+@objc extension NSLayoutAnchor {
+    @discardableResult
+    func constraint(
+        _ relation: NSLayoutConstraint.Relation = .equal,
+        anchor: NSLayoutAnchor,
+        constant: CGFloat = 0.0,
+        priority: UILayoutPriority = .required,
+        isActive: Bool = true
+    ) -> NSLayoutConstraint {
+        var constraint: NSLayoutConstraint
+
+        switch relation {
+        case .equal:
+            constraint = self.constraint(equalTo: anchor, constant: constant)
+
+        case .greaterThanOrEqual:
+            constraint = self.constraint(greaterThanOrEqualTo: anchor, constant: constant)
+
+        case .lessThanOrEqual:
+            constraint = self.constraint(lessThanOrEqualTo: anchor, constant: constant)
+
+        @unknown default:
+            fatalError()
+        }
+
+        constraint.set(priority: priority, isActive: isActive)
+        return constraint
+    }
+}
+
+extension NSLayoutDimension {
+    @discardableResult
+    func constraint(
+        _ relation: NSLayoutConstraint.Relation = .equal,
+        anchor: NSLayoutDimension? = nil,
+        constant: CGFloat = 0.0,
+        multiplier: CGFloat = 1.0,
+        priority: UILayoutPriority = .required,
+        isActive: Bool = true
+    ) -> NSLayoutConstraint {
+        let constraint: NSLayoutConstraint
+
+        switch relation {
+        case .equal:
+            if let anchor = anchor {
+                constraint = self.constraint(equalTo: anchor, multiplier: multiplier, constant: constant)
+            } else {
+                constraint = self.constraint(equalToConstant: constant)
+            }
+
+        case .greaterThanOrEqual:
+            if let anchor = anchor {
+                constraint = self.constraint(greaterThanOrEqualTo: anchor, multiplier: multiplier, constant: constant)
+            } else {
+                constraint = self.constraint(greaterThanOrEqualToConstant: constant)
+            }
+
+        case .lessThanOrEqual:
+            if let anchor = anchor {
+                constraint = self.constraint(lessThanOrEqualTo: anchor, multiplier: multiplier, constant: constant)
+            } else {
+                constraint = self.constraint(lessThanOrEqualToConstant: constant)
+            }
+
+        @unknown default:
+            fatalError()
+        }
+
+        constraint.set(priority: priority, isActive: isActive)
+        return constraint
+    }
+}
+
+extension NSLayoutConstraint {
+    func set(priority: UILayoutPriority, isActive: Bool) {
+        self.priority = priority
+        self.isActive = isActive
+    }
+}
