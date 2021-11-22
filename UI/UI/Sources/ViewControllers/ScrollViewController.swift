@@ -123,7 +123,7 @@ final class ScrollViewController: UIViewController {
         contentView.add(
             subview: titleLabel,
             top: contentView.topAnchor, 24,
-            width: contentView.widthAnchor, widthMultiplier: 4 / 5,
+            width: contentView.widthAnchor, multiplier: 4 / 5,
             centerX: contentView
         )
 
@@ -131,7 +131,7 @@ final class ScrollViewController: UIViewController {
             subview: subtitleLabel,
             top: titleLabel.bottomAnchor, 24,
             bottom: contentView.bottomAnchor, 24,
-            width: contentView.widthAnchor, widthMultiplier: 4 / 5,
+            width: contentView.widthAnchor, multiplier: 4 / 5,
             centerX: contentView
         )
 

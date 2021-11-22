@@ -8,13 +8,6 @@
 import UIKit
 
 typealias Constraint = NSLayoutConstraint
-typealias Constraints = [Constraint]
-typealias LayoutAttribute = Constraint.Attribute
-typealias LayoutRelation = Constraint.Relation
-
-struct Anchor {
-    var top, left, right, bottom, width, height, centerX, centerY: Constraint?
-}
 
 extension UIView {
     func addSubviews(_ views: UIView...) {
@@ -37,11 +30,11 @@ extension UIView {
         bottom: NSLayoutYAxisAnchor? = nil,
         _ bottomConstant: CGFloat = 0.0,
         width: NSLayoutDimension? = nil,
-        widthConstant: CGFloat = 0.0,
-        widthMultiplier: CGFloat = 1.0,
+        _ widthConstant: CGFloat = 0.0,
+        multiplier widthMultiplier: CGFloat = 1.0,
         height: NSLayoutDimension? = nil,
-        heightConstant: CGFloat = 0.0,
-        heightMultiplier: CGFloat = 1.0,
+        _ heightConstant: CGFloat = 0.0,
+        multiplier heightMultiplier: CGFloat = 1.0,
         centerX: UIView? = nil,
         _ centerXConstant: CGFloat = 0.0,
         centerY: UIView? = nil,
@@ -58,8 +51,8 @@ extension UIView {
             left: left, leftConstant,
             right: right, rightConstant,
             bottom: bottom, bottomConstant,
-            width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier,
-            height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier,
+            width: width, widthConstant, multiplier: widthMultiplier,
+            height: height, heightConstant, multiplier: heightMultiplier,
             centerX: centerX, centerXConstant,
             centerY: centerY, centerYConstant,
             center: center, centerConstant,
@@ -67,7 +60,6 @@ extension UIView {
         )
     }
 
-    @discardableResult
     func make(
         top: NSLayoutYAxisAnchor? = nil,
         _ topConstant: CGFloat = 0.0,
@@ -78,11 +70,11 @@ extension UIView {
         bottom: NSLayoutYAxisAnchor? = nil,
         _ bottomConstant: CGFloat = 0.0,
         width: NSLayoutDimension? = nil,
-        widthConstant: CGFloat = 0.0,
-        widthMultiplier: CGFloat = 1.0,
+        _ widthConstant: CGFloat = 0.0,
+        multiplier widthMultiplier: CGFloat = 1.0,
         height: NSLayoutDimension? = nil,
-        heightConstant: CGFloat = 0.0,
-        heightMultiplier: CGFloat = 1.0,
+        _ heightConstant: CGFloat = 0.0,
+        multiplier heightMultiplier: CGFloat = 1.0,
         centerX: UIView? = nil,
         _ centerXConstant: CGFloat = 0.0,
         centerY: UIView? = nil,
@@ -91,32 +83,39 @@ extension UIView {
         _ centerConstant: CGFloat = 0.0,
         edges: UIView? = nil,
         _ edgesConstant: CGFloat = 0.0
-    ) -> Anchor {
-        var anchor = Anchor()
-        anchor.top = make(anchorY: topAnchor, toAnchorY: top, constant: topConstant)
-        anchor.left = make(anchorX: leftAnchor, toAnchorX: left, constant: leftConstant)
-        anchor.right = make(anchorX: rightAnchor, toAnchorX: right, constant: -rightConstant)
-        anchor.bottom = make(anchorY: bottomAnchor, toAnchorY: bottom, constant: -bottomConstant)
-        anchor.width = make(dimension: widthAnchor, toDimension: width, constant: widthConstant, multiplier: widthMultiplier)
-        anchor.height = make(dimension: heightAnchor, toDimension: height, constant: heightConstant, multiplier: heightMultiplier)
-        anchor.centerX = make(anchorX: centerXAnchor, toAnchorX: centerX?.centerXAnchor, constant: centerXConstant)
-        anchor.centerY = make(anchorY: centerYAnchor, toAnchorY: centerY?.centerYAnchor, constant: centerYConstant)
+    ) {
+        if let top = top {
+            make(anchorY: topAnchor, toAnchorY: top, constant: topConstant)
+        }
+        if let left = left {
+            make(anchorX: leftAnchor, toAnchorX: left, constant: leftConstant)
+        }
+        if let right = right {
+            make(anchorX: rightAnchor, toAnchorX: right, constant: -rightConstant)
+        }
+        if let bottom = bottom {
+            make(anchorY: bottomAnchor, toAnchorY: bottom, constant: -bottomConstant)
+        }
+        make(dimension: widthAnchor, toDimension: width, constant: widthConstant, multiplier: widthMultiplier)
+        make(dimension: heightAnchor, toDimension: height, constant: heightConstant, multiplier: heightMultiplier)
+        if let centerX = centerX {
+            make(anchorX: centerXAnchor, toAnchorX: centerX.centerXAnchor, constant: centerXConstant)
+        }
+        if let centerY = centerY {
+            make(anchorY: centerYAnchor, toAnchorY: centerY.centerYAnchor, constant: centerYConstant)
+        }
         if let center = center {
-            anchor.centerX = make(anchorX: centerXAnchor, toAnchorX: center.centerXAnchor, constant: centerXConstant)
-            anchor.centerY = make(anchorY: centerYAnchor, toAnchorY: center.centerYAnchor, constant: centerYConstant)
+            make(anchorX: centerXAnchor, toAnchorX: center.centerXAnchor, constant: centerXConstant)
+            make(anchorY: centerYAnchor, toAnchorY: center.centerYAnchor, constant: centerYConstant)
         }
         if let edges = edges {
-            anchor.top = make(anchorY: topAnchor, toAnchorY: edges.topAnchor, constant: edgesConstant)
-            anchor.left = make(anchorX: leftAnchor, toAnchorX: edges.leftAnchor, constant: edgesConstant)
-            anchor.right = make(anchorX: rightAnchor, toAnchorX: edges.rightAnchor, constant: -edgesConstant)
-            anchor.bottom = make(anchorY: bottomAnchor, toAnchorY: edges.bottomAnchor, constant: -edgesConstant)
+            make(anchorY: topAnchor, toAnchorY: edges.topAnchor, constant: edgesConstant)
+            make(anchorX: leftAnchor, toAnchorX: edges.leftAnchor, constant: edgesConstant)
+            make(anchorX: rightAnchor, toAnchorX: edges.rightAnchor, constant: -edgesConstant)
+            make(anchorY: bottomAnchor, toAnchorY: edges.bottomAnchor, constant: -edgesConstant)
         }
-
-        // [anchor.top, anchor.left, anchor.right, anchor.bottom, anchor.width, anchor.height].forEach { $0?.isActive = true }
-        return anchor
     }
 
-    @discardableResult
     func remake(
         top: NSLayoutYAxisAnchor? = nil,
         _ topConstant: CGFloat = 0.0,
@@ -127,11 +126,11 @@ extension UIView {
         bottom: NSLayoutYAxisAnchor? = nil,
         _ bottomConstant: CGFloat = 0.0,
         width: NSLayoutDimension? = nil,
-        widthConstant: CGFloat = 0.0,
-        widthMultiplier: CGFloat = 1.0,
+        _ widthConstant: CGFloat = 0.0,
+        multiplier widthMultiplier: CGFloat = 1.0,
         height: NSLayoutDimension? = nil,
-        heightConstant: CGFloat = 0.0,
-        heightMultiplier: CGFloat = 1.0,
+        _ heightConstant: CGFloat = 0.0,
+        multiplier heightMultiplier: CGFloat = 1.0,
         centerX: UIView? = nil,
         _ centerXConstant: CGFloat = 0.0,
         centerY: UIView? = nil,
@@ -140,7 +139,7 @@ extension UIView {
         _ centerConstant: CGFloat = 0.0,
         edges: UIView? = nil,
         _ edgesConstant: CGFloat = 0.0
-    ) -> Anchor {
+    ) {
         remove(
             top: top,
             left: left,
@@ -153,13 +152,13 @@ extension UIView {
             center: center,
             edges: edges
         )
-        return make(
+        make(
             top: top, topConstant,
             left: left, leftConstant,
             right: right, rightConstant,
             bottom: bottom, bottomConstant,
-            width: width, widthConstant: widthConstant, widthMultiplier: widthMultiplier,
-            height: height, heightConstant: heightConstant, heightMultiplier: heightMultiplier,
+            width: width, widthConstant, multiplier: widthMultiplier,
+            height: height, heightConstant, multiplier: heightMultiplier,
             centerX: centerX, centerXConstant,
             centerY: centerY, centerYConstant,
             center: center, centerConstant,
@@ -167,8 +166,7 @@ extension UIView {
         )
     }
 
-    private func remove(
-        _ view: UIView? = nil,
+    func remove(
         top: NSLayoutYAxisAnchor? = nil,
         left: NSLayoutXAxisAnchor? = nil,
         right: NSLayoutXAxisAnchor? = nil,
@@ -180,73 +178,53 @@ extension UIView {
         center: UIView? = nil,
         edges: UIView? = nil
     ) {
+        guard let superview = superview else { return }
         if let _ = top {
-            remove(view, anchorY: topAnchor)
+            superview.remove(anchorY: topAnchor)
         }
-
         if let _ = left {
-            remove(view, anchorX: leftAnchor)
+            superview.remove(anchorX: leftAnchor)
         }
-
         if let _ = right {
-            remove(view, anchorX: rightAnchor)
+            superview.remove(anchorX: rightAnchor)
         }
-
         if let _ = bottom {
-            remove(view, anchorY: bottomAnchor)
+            superview.remove(anchorY: bottomAnchor)
         }
-
         if let _ = width {
-            remove(view, dimension: widthAnchor)
+            superview.remove(dimension: widthAnchor)
         }
-
         if let _ = height {
-            remove(view, dimension: heightAnchor)
+            superview.remove(dimension: heightAnchor)
         }
-        
-        if let _ = centerX {
-            remove(view, anchorX: centerXAnchor)
+        if let centerX = centerX {
+            centerX.remove(anchorX: centerXAnchor)
         }
-
-        if let _ = centerY {
-            remove(view, anchorY: centerYAnchor)
+        if let centerY = centerY {
+            centerY.remove(anchorY: centerYAnchor)
         }
-
-        if let _ = center {
-            remove(view, anchorX: centerXAnchor)
-            remove(view, anchorY: centerYAnchor)
+        if let center = center {
+            center.remove(anchorX: centerXAnchor)
+            center.remove(anchorY: centerYAnchor)
         }
-        
-        if let _ = edges {
-            remove(anchorY: topAnchor)
-            remove(anchorX: leftAnchor)
-            remove(anchorX: rightAnchor)
-            remove(anchorY: bottomAnchor)
+        if let edges = edges {
+            edges.remove(anchorY: topAnchor)
+            edges.remove(anchorX: leftAnchor)
+            edges.remove(anchorX: rightAnchor)
+            edges.remove(anchorY: bottomAnchor)
         }
     }
 
-    private func remove(_ view: UIView? = nil, anchorX: NSLayoutXAxisAnchor) {
-        if let view = view {
-            view.constraints.first { $0.firstAnchor == anchorX }?.isActive = false
-        } else if let superview = superview {
-            superview.constraints.first { $0.firstAnchor == anchorX }?.isActive = false
-        }
+    func remove(anchorX: NSLayoutXAxisAnchor) {
+        constraints.first { $0.firstAnchor == anchorX }?.isActive = false
     }
 
-    private func remove(_ view: UIView? = nil, anchorY: NSLayoutYAxisAnchor) {
-        if let view = view {
-            view.constraints.first { $0.firstAnchor == anchorY }?.isActive = false
-        } else if let superview = superview {
-            superview.constraints.first { $0.firstAnchor == anchorY }?.isActive = false
-        }
+    func remove(anchorY: NSLayoutYAxisAnchor) {
+        constraints.first { $0.firstAnchor == anchorY }?.isActive = false
     }
 
-    private func remove(_ view: UIView? = nil, dimension: NSLayoutDimension) {
-        if let view = view {
-            view.constraints.first { $0.firstAnchor == dimension }?.isActive = false
-        } else if let superview = superview {
-            superview.constraints.first { $0.firstAnchor == dimension }?.isActive = false
-        }
+    func remove(dimension: NSLayoutDimension) {
+        constraints.first { $0.firstAnchor == dimension }?.isActive = false
     }
 
     func edges(equalTo view: UIView? = nil, constant: CGFloat = 0.0) {
@@ -267,52 +245,46 @@ extension UIView {
         }
     }
 
-    private func remake(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor? = nil, constant: CGFloat) -> Constraint? {
-        guard let toAnchorX = toAnchorX else { return nil }
-        remove(anchorX: anchorX)
+    @discardableResult
+    func remake(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat) -> Constraint? {
+        guard let superview = superview else { return nil }
+        anchorX.remove(superview: superview)
         return make(anchorX: anchorX, toAnchorX: toAnchorX, constant: constant)
     }
 
-    private func remake(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor? = nil, constant: CGFloat) -> Constraint? {
-        guard let toAnchorY = toAnchorY else { return nil }
-        remove(anchorY: anchorY)
+    @discardableResult
+    private func remake(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat) -> Constraint? {
+        guard let superview = superview else { return nil }
+        anchorY.remove(superview: superview)
         return make(anchorY: anchorY, toAnchorY: toAnchorY, constant: constant)
     }
 
+    @discardableResult
     private func remake(dimension: NSLayoutDimension, toDimension: NSLayoutDimension? = nil, constant: CGFloat, multiplier: CGFloat) -> Constraint? {
-        guard let toDimension = toDimension else { return nil }
-        remove(dimension: dimension)
+        guard let superview = superview else { return nil }
+        dimension.remove(superview: superview)
         return make(dimension: dimension, toDimension: toDimension, constant: constant, multiplier: multiplier)
     }
 
-    private func make(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor? = nil, constant: CGFloat) -> Constraint? {
-        guard let toAnchorX = toAnchorX else { return nil }
-        var constraint: Constraint = Constraint()
-        constraint = anchorX.constraint(equalTo: toAnchorX, constant: constant)
-        constraint.isActive = true
-        return constraint
+    @discardableResult
+    private func make(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat) -> Constraint? {
+        return anchorX.constraint(anchor: toAnchorX, constant: constant)
     }
 
-    private func make(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor? = nil, constant: CGFloat) -> Constraint? {
-        guard let toAnchorY = toAnchorY else { return nil }
-        var constraint: Constraint = Constraint()
-        constraint = anchorY.constraint(equalTo: toAnchorY, constant: constant)
-        constraint.isActive = true
-        return constraint
+    @discardableResult
+    private func make(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat) -> Constraint? {
+        return anchorY.constraint(anchor: toAnchorY, constant: constant)
     }
 
+    @discardableResult
     private func make(dimension: NSLayoutDimension, toDimension: NSLayoutDimension? = nil, constant: CGFloat, multiplier: CGFloat) -> Constraint? {
-        var constraint: Constraint = Constraint()
-
         if let toDimension = toDimension {
-            constraint = dimension.constraint(equalTo: toDimension, multiplier: multiplier, constant: constant)
+            return dimension.constraint(anchor: toDimension, constant: constant, multiplier: multiplier)
         } else if constant > 0.0 {
-            constraint = dimension.constraint(equalToConstant: constant)
+            return dimension.constraint(constant: constant)
         } else {
             return nil
         }
-        constraint.isActive = true
-        return constraint
     }
 
     @discardableResult
@@ -327,12 +299,12 @@ extension UIView {
 
     @discardableResult
     func right(equalTo toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat = 0.0) -> Constraint? {
-        return remake(anchorX: rightAnchor, toAnchorX: toAnchorX, constant: constant)
+        return remake(anchorX: rightAnchor, toAnchorX: toAnchorX, constant: -constant)
     }
 
     @discardableResult
     func bottom(equalTo toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> Constraint? {
-        return remake(anchorY: bottomAnchor, toAnchorY: toAnchorY, constant: constant)
+        return remake(anchorY: bottomAnchor, toAnchorY: toAnchorY, constant: -constant)
     }
 
     @discardableResult
@@ -370,9 +342,59 @@ extension UIView {
         centerY(equalTo: view, constant: constant)
     }
 
+    // superview
+
+    func removeAnchor(
+        top: UIView? = nil,
+        left: UIView? = nil,
+        right: UIView? = nil,
+        bottom: UIView? = nil,
+        width: UIView? = nil,
+        height: UIView? = nil,
+        centerX: UIView? = nil,
+        centerY: UIView? = nil,
+        center: UIView? = nil,
+        edges: UIView? = nil
+    ) {
+        if let top = top, let superview = top.superview {
+            superview.remove(anchorY: top.topAnchor)
+        }
+        if let left = left, let superview = left.superview {
+            superview.remove(anchorX: left.leftAnchor)
+        }
+        if let right = right, let superview = right.superview {
+            superview.remove(anchorX: right.rightAnchor)
+        }
+        if let bottom = bottom, let superview = bottom.superview {
+            superview.remove(anchorY: bottom.bottomAnchor)
+        }
+        if let width = width, let superview = width.superview {
+            superview.remove(dimension: width.widthAnchor)
+        }
+        if let height = height, let superview = height.superview {
+            superview.remove(dimension: height.heightAnchor)
+        }
+        if let centerX = centerX, let superview = centerX.superview {
+            superview.remove(anchorX: centerX.centerXAnchor)
+        }
+        if let centerY = centerY, let superview = centerY.superview {
+            superview.remove(anchorY: centerY.centerYAnchor)
+        }
+        if let center = center, let superview = center.superview {
+            superview.remove(anchorX: center.centerXAnchor)
+            superview.remove(anchorY: center.centerYAnchor)
+        }
+        if let edges = edges, let superview = edges.superview {
+            superview.remove(anchorY: edges.topAnchor)
+            superview.remove(anchorX: edges.leftAnchor)
+            superview.remove(anchorX: edges.rightAnchor)
+            superview.remove(anchorY: edges.bottomAnchor)
+        }
+    }
+
     // MARK: - Layout Attribute
 
-    private func removeConstraint(attribute: LayoutAttribute) {
+    private func removeConstraint(attribute: NSLayoutConstraint.Attribute) {
         constraints.forEach { constraint in
             if constraint.firstAttribute == attribute {
                 removeConstraint(constraint)
@@ -380,7 +402,7 @@ extension UIView {
         }
     }
 
-    private func remakeConstraint(_ attribute: LayoutAttribute, _ constant: CGFloat, _ multiplier: CGFloat) {
+    private func remakeConstraint(_ attribute: NSLayoutConstraint.Attribute, _ constant: CGFloat, _ multiplier: CGFloat) {
         removeConstraint(attribute: attribute)
         addConstraint(
             Constraint(
