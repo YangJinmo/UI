@@ -38,13 +38,8 @@ final class ReviewViewController: BaseViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.addSubviews(
-            presentButton
-        )
+        view.add(subview: presentButton, heightConstant: 44, center: view)
         
-        presentButton.center()
-        presentButton.height(44)
-
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
     }
 

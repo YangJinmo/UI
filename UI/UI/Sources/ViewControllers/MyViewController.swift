@@ -38,13 +38,8 @@ final class MyViewController: BaseViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.addSubviews(
-            pushButton
-        )
+        view.add(subview: pushButton, heightConstant: 44, center: view)
         
-        pushButton.center()
-        pushButton.height(44)
-
         pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
     }
 
