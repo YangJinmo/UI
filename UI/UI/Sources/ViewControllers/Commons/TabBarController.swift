@@ -27,8 +27,8 @@ final class TabBarController: UITabBarController {
 
     // MARK: - View Life Cycle
 
-    override func loadView() {
-        super.loadView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         view.backgroundColor = Color.viewBackgroundColor
 

@@ -43,14 +43,10 @@ final class ScrollViewController: UIViewController {
 
     // MARK: - View Life Cycle
 
-    override func loadView() {
-        super.loadView()
-
-        setupViews()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupViews()
 
         view.safeAreaInsets.top.description.log()
         view.safeAreaInsets.bottom.description.log()

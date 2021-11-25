@@ -23,15 +23,10 @@ final class ReviewWriteViewController: BasePresentViewController {
 
     // MARK: - View Life Cycle
 
-    override func loadView() {
-        super.loadView()
-
-        setupViews()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViews()
         setTitleLabel(vcName)
     }
 

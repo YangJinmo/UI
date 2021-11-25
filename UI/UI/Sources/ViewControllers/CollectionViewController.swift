@@ -45,15 +45,10 @@ final class CollectionViewController: BaseViewController {
 
     // MARK: - View Life Cycle
 
-    override func loadView() {
-        super.loadView()
-
-        setupViews()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViews()
         setTitleLabel(vcName)
     }
 
@@ -72,13 +67,13 @@ final class CollectionViewController: BaseViewController {
 
     private func setupViews() {
 //        contentView.addSubviews(collectionView)
-        
+
 //        contentView.addConstraintsWithFormat("H:|[v0]|", views: collectionView)
 //        contentView.addConstraintsWithFormat("V:|[v0]|", views: collectionView)
 
 //        collectionView.edges()
 //        collectionView.edges(equalTo: contentView)
-        
+
         contentView.add(
             subview: collectionView,
             edges: contentView

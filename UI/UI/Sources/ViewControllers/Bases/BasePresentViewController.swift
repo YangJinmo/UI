@@ -10,8 +10,8 @@ import UIKit
 class BasePresentViewController: BaseViewController {
     // MARK: - View Life Cycle
 
-    override func loadView() {
-        super.loadView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         setupDismissButton()
     }

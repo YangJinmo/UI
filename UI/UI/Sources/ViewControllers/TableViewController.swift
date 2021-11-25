@@ -32,14 +32,10 @@ final class TableViewController: UIViewController {
 
     // MARK: - View Life Cycle
 
-    override func loadView() {
-        super.loadView()
-
-        setupViews()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupViews()
 
         tabBarController?.delegate = self
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)

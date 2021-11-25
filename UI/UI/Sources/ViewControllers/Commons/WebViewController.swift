@@ -12,7 +12,7 @@ final class WebViewController: BaseNavigationViewController {
     // MARK: - Constants
 
     private let scriptMessageHandler: String = "scriptHandler"
-    
+
     // MARK: - Variables
 
     private var urlString: String?
@@ -39,16 +39,11 @@ final class WebViewController: BaseNavigationViewController {
 
     // MARK: - View Life Cycle
 
-    override func loadView() {
-        super.loadView()
-
-        setWebView()
-        setupViews()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setWebView()
+        setupViews()
         setTitleLabel(titleText)
         removeCache()
         loadWebView()
