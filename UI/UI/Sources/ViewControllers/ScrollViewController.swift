@@ -68,7 +68,7 @@ final class ScrollViewController: UIViewController {
 
     // MARK: - Methods
 
-    func setupViews() {
+    private func setupViews() {
 //        view.addSubviews(scrollView)
 //        scrollView.addSubviews(contentView)
 

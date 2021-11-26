@@ -38,7 +38,7 @@ final class SettingViewController: BaseNavigationViewController {
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
     }
 
-    @objc func presentButtonTouched(_ sender: Any) {
+    @objc private func presentButtonTouched(_ sender: Any) {
         present(ReviewWriteViewController())
     }
 }

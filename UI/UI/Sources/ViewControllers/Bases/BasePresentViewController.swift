@@ -18,12 +18,12 @@ class BasePresentViewController: BaseViewController {
 
     // MARK: - Methods
 
-    func setupDismissButton() {
+    private func setupDismissButton() {
         dismissButton.addTarget(self, action: #selector(dismissButtonTouched(_:)), for: .touchUpInside)
         dismissButton.isHidden = false
     }
 
-    @objc func dismissButtonTouched(_ sender: Any) {
+    @objc private func dismissButtonTouched(_ sender: Any) {
         dismiss()
     }
 }

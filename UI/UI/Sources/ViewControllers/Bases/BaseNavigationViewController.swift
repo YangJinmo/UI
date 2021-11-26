@@ -18,12 +18,12 @@ class BaseNavigationViewController: BaseViewController {
 
     // MARK: - Methods
 
-    func setupPopButton() {
+    private func setupPopButton() {
         popButton.addTarget(self, action: #selector(popButtonTouched(_:)), for: .touchUpInside)
         popButton.isHidden = false
     }
 
-    @objc func popButtonTouched(_ sender: Any) {
+    @objc private func popButtonTouched(_ sender: Any) {
         popViewController()
     }
 }

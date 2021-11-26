@@ -38,7 +38,7 @@ final class ReviewWriteViewController: BasePresentViewController {
         pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
     }
 
-    @objc func pushButtonTouched(_ sender: Any) {
+    @objc private func pushButtonTouched(_ sender: Any) {
         pushViewController(SettingViewController())
     }
 }
