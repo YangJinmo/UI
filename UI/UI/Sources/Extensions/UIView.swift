@@ -17,7 +17,7 @@ extension UIView {
         }
     }
 
-    // MARK: - Layout Anchors
+    // MARK: - NSLayoutAnchor
 
     func add(
         subview: UIView,
@@ -392,7 +392,7 @@ extension UIView {
         }
     }
 
-    // MARK: - Layout Attribute
+    // MARK: - NSLayoutConstraint
 
     private func removeConstraint(attribute: NSLayoutConstraint.Attribute) {
         constraints.forEach { constraint in
@@ -425,7 +425,20 @@ extension UIView {
         remakeConstraint(.height, constant, multiplier)
     }
 
-    // MARK: - VisualFormat
+    // MARK: - Visual Format Language
+    /**
+     H: (Horizontal) //horizontal direction
+     V: (Vertical) //vertical direction
+     | (pipe) //superview
+     - (dash) //standard spacing (generally 8 points)
+     [] (brackets) //name of the object (uilabel, unbutton, uiview, etc.)
+     () (parentheses) //size of the object
+     == equal widths //can be omitted
+     -16- non standard spacing (16 points)
+     <= less than or equal to
+     >= greater than or equal to
+     @250 priority of the constraint //can have any value between 0 and 1000
+     */
 
     func addConstraintsWithFormat(_ format: String, views: UIView...) {
         var viewsDictionary: [String: UIView] = [String: UIView]()
