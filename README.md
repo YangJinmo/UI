@@ -6,8 +6,6 @@ UI is a DSL to make Auto Layout easy on iOS.
 
 ### Extensions
 
----
-
 - UIView (NSLayoutAnchor, NSLayoutConstraint, Visual Format Language)
 - UITableView (ReusableView)
 - UICollectionView (UICollectionReusableView, FlowLayoutMetric, SupplementaryViewKind)
@@ -16,16 +14,12 @@ UI is a DSL to make Auto Layout easy on iOS.
 
 ### Commons
 
----
-
 - TabBarController
 - WebViewController
 
 
 
 ### Bases
-
----
 
 - BaseViewController
 - BasePresentViewController
@@ -35,33 +29,29 @@ UI is a DSL to make Auto Layout easy on iOS.
 
 ### Usage
 
----
-
 - UIView
 
   ```swift
   class ViewController: UIViewController {
-    
       let pushButton = UIButton()
   
       override func viewDidLoad() {
           super.viewDidLoad()
   
           view.add(
-            subview: pushButton, 
-            heightConstant: 44, 
-            center: view
+              subview: pushButton,
+              heightConstant: 44,
+              center: view
           )
       }
   }
   ```
-
+  
   ```swift
   class ViewController: UIViewController {
-    
-    	lazy var tableView = UITableView()
-    
-    	override func viewDidLoad() {
+      lazy var tableView = UITableView()
+  
+      override func viewDidLoad() {
           super.viewDidLoad()
   
           view.add(
@@ -74,13 +64,12 @@ UI is a DSL to make Auto Layout easy on iOS.
       }
   }
   ```
-
+  
   ```swift
   class ViewController: UIViewController {
-    
-    	lazy var collectionView = UICollectionView()
-    
-    	override func viewDidLoad() {
+      lazy var collectionView = UICollectionView()
+  
+      override func viewDidLoad() {
           super.viewDidLoad()
   
           view.add(
@@ -90,22 +79,21 @@ UI is a DSL to make Auto Layout easy on iOS.
       }
   }
   ```
-
   
-
+  
+  
 - UITableView
 
   ```swift
   class ViewController: UIViewController {
-    
       let items: [Item] = ["1", "2", "3"]
   
       lazy var tableView: UITableView = {
-            let tableView: UITableView = UITableView()
-  	  	    tableView.dataSource = self
-    	      tableView.delegate = self
-            tableView.register(TableViewCell.self)
-            return tableView
+          let tableView: UITableView = UITableView()
+          tableView.dataSource = self
+          tableView.delegate = self
+          tableView.register(TableViewCell.self)
+          return tableView
       }()
   }
   
@@ -121,15 +109,14 @@ UI is a DSL to make Auto Layout easy on iOS.
       }
   }
   ```
-
   
-
+  
+  
 - UICollectionView
 
   ```swift
   class ViewController: UIViewController {
-    
-    	var searches: [Search] = [
+      var searches: [Search] = [
           Search(
               isExpand: false,
               title: "인기 검색",
@@ -146,8 +133,8 @@ UI is a DSL to make Auto Layout easy on iOS.
               terms: ["보충제", "고구마", "헬스장", "런닝머신", "다이어트"]
           ),
       ]
-    
-  	  lazy var collectionView: BaseCollectionView = {
+  
+      lazy var collectionView: BaseCollectionView = {
           let collectionView: BaseCollectionView = BaseCollectionView(layout: flowLayout())
           collectionView.dataSource = self
           collectionView.delegate = self
@@ -155,7 +142,7 @@ UI is a DSL to make Auto Layout easy on iOS.
           collectionView.register(SearchTermCell.self)
           return collectionView
       }()
-    
+  
       override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
           super.viewWillTransition(to: size, with: coordinator)
   
@@ -225,5 +212,4 @@ UI is a DSL to make Auto Layout easy on iOS.
       }
   }
   ```
-
   
