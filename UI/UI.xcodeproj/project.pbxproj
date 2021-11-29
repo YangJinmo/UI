@@ -18,6 +18,7 @@
 		093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A8273513DA00126D4E /* ReviewViewController.swift */; };
 		093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160AA2735162700126D4E /* ReviewWriteViewController.swift */; };
 		099D33E72753C83900C14F5F /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33E62753C83900C14F5F /* UIStackView.swift */; };
+		099D33EF2754678E00C14F5F /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33EE2754678E00C14F5F /* TabView.swift */; };
 		09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3483272AE8A400317254 /* BaseViewController.swift */; };
 		09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3485272AEF9A00317254 /* BasePresentViewController.swift */; };
 		09AB348E272B9B1C00317254 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348D272B9B1C00317254 /* TabBarController.swift */; };
@@ -68,6 +69,7 @@
 		093160A8273513DA00126D4E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		093160AA2735162700126D4E /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		099D33E62753C83900C14F5F /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		099D33EE2754678E00C14F5F /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		09AB3483272AE8A400317254 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09AB3485272AEF9A00317254 /* BasePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresentViewController.swift; sourceTree = "<group>"; };
 		09AB348D272B9B1C00317254 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				09ADF3A327259409004C6A97 /* DividerView.swift */,
 				09ADF3A0272592E7004C6A97 /* DividerTableViewCell.swift */,
+				099D33EE2754678E00C14F5F /* TabView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
+				099D33EF2754678E00C14F5F /* TabView.swift in Sources */,
 				E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
