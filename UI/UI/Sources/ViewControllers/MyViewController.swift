@@ -8,12 +8,40 @@
 import UIKit
 
 final class MyViewController: BaseViewController {
+    // MARK: - Constants
+    
+    private struct Image {
+        static let pencil: UIImage? = UIImage(systemName: "pencil")
+    }
+    
+    private struct Font {
+        static let nicknameButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+        static let settingButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+    }
+    
     // MARK: - Views
-
-    let pushButton: UIButton = {
+    
+    private let nicknameButton: UIButton = {
+        var configuration: UIButton.Configuration = .filled()
+        configuration.title = "Edit Nickname"
+        configuration.subtitle = "닉네임 수정"
+        configuration.buttonSize = .large
+        configuration.cornerStyle = .capsule
+        configuration.image = Image.pencil
+        configuration.imagePlacement = .leading
+        configuration.imagePadding = 16
+        configuration.baseBackgroundColor = .systemIndigo
+        configuration.baseForegroundColor = .systemPink
+        let button: UIButton = UIButton(configuration: configuration, primaryAction: nil)
+        button.sizeToFit()
+        return button
+    }()
+    
+    private let settingButton: UIButton = {
         let button: UIButton = UIButton()
-        button.setTitle("Push", for: .normal)
+        button.setTitle("설정", for: .normal)
         button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = Font.settingButton
         return button
     }()
 
@@ -33,9 +61,15 @@ final class MyViewController: BaseViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.add(subview: pushButton, heightConstant: 44, center: view)
+        view.add(subview: nicknameButton, heightConstant: 44, center: view, centerYConstant: -44)
+        view.add(subview: settingButton, heightConstant: 44, center: view)
         
-        pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
+        nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
+        settingButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func nicknameButtonTouched(_ sender: Any) {
+        pushViewController(TextViewController())
     }
 
     @objc private func pushButtonTouched(_ sender: Any) {
