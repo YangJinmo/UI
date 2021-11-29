@@ -8,6 +8,10 @@
 import UIKit
 
 final class ReviewWriteViewController: BasePresentViewController {
+    // MARK: - Constants
+
+    private let vcName: String = "리뷰 작성"
+
     // MARK: - Views
 
     private let pushButton: UIButton = {
@@ -16,10 +20,6 @@ final class ReviewWriteViewController: BasePresentViewController {
         button.setTitleColor(.label, for: .normal)
         return button
     }()
-
-    // MARK: - Constants
-
-    private let vcName: String = "리뷰 작성"
 
     // MARK: - View Life Cycle
 
@@ -34,7 +34,7 @@ final class ReviewWriteViewController: BasePresentViewController {
 
     private func setupViews() {
         view.add(subview: pushButton, heightConstant: 44, center: view)
-        
+
         pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
     }
 
