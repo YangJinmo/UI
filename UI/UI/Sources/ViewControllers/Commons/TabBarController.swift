@@ -63,7 +63,7 @@ final class TabBarController: UITabBarController {
                 image: Image.magnifyingglass
             ),
             BaseNavigationController(
-                rootViewController: ScrollViewController(),
+                rootViewController: ScrollableStackViewController(),
                 title: "Basket",
                 image: Image.bag
             ),
