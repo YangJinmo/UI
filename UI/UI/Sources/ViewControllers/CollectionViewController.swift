@@ -10,7 +10,7 @@ import UIKit
 final class CollectionViewController: BaseViewController {
     // MARK: - Constants
 
-    private let vcName: String = "검색어 추천"
+    private let vcName: String = "추천 검색어"
 
     // MARK: - Variables
 
