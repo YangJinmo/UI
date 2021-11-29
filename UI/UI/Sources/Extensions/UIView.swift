@@ -35,12 +35,11 @@ extension UIView {
         height: NSLayoutDimension? = nil,
         heightConstant: CGFloat = 0.0,
         multiplier heightMultiplier: CGFloat = 1.0,
-        centerX: UIView? = nil,
-        _ centerXConstant: CGFloat = 0.0,
-        centerY: UIView? = nil,
-        _ centerYConstant: CGFloat = 0.0,
         center: UIView? = nil,
-        _ centerConstant: CGFloat = 0.0,
+        centerX: UIView? = nil,
+        centerXConstant: CGFloat = 0.0,
+        centerY: UIView? = nil,
+        centerYConstant: CGFloat = 0.0,
         edges: UIView? = nil,
         _ edgesConstant: CGFloat = 0.0
     ) {
@@ -53,9 +52,9 @@ extension UIView {
             bottom: bottom, bottomConstant,
             width: width, widthConstant: widthConstant, multiplier: widthMultiplier,
             height: height, heightConstant: heightConstant, multiplier: heightMultiplier,
-            centerX: centerX, centerXConstant,
-            centerY: centerY, centerYConstant,
-            center: center, centerConstant,
+            center: center,
+            centerX: centerX, centerXConstant: centerXConstant,
+            centerY: centerY, centerYConstant: centerYConstant,
             edges: edges, edgesConstant
         )
     }
@@ -75,12 +74,11 @@ extension UIView {
         height: NSLayoutDimension? = nil,
         heightConstant: CGFloat = 0.0,
         multiplier heightMultiplier: CGFloat = 1.0,
-        centerX: UIView? = nil,
-        _ centerXConstant: CGFloat = 0.0,
-        centerY: UIView? = nil,
-        _ centerYConstant: CGFloat = 0.0,
         center: UIView? = nil,
-        _ centerConstant: CGFloat = 0.0,
+        centerX: UIView? = nil,
+        centerXConstant: CGFloat = 0.0,
+        centerY: UIView? = nil,
+        centerYConstant: CGFloat = 0.0,
         edges: UIView? = nil,
         _ edgesConstant: CGFloat = 0.0
     ) {
@@ -159,9 +157,9 @@ extension UIView {
             bottom: bottom, bottomConstant,
             width: width, widthConstant: widthConstant, multiplier: widthMultiplier,
             height: height, heightConstant: heightConstant, multiplier: heightMultiplier,
-            centerX: centerX, centerXConstant,
-            centerY: centerY, centerYConstant,
-            center: center, centerConstant,
+            center: center,
+            centerX: centerX, centerXConstant: centerXConstant,
+            centerY: centerY, centerYConstant: centerYConstant,
             edges: edges, edgesConstant
         )
     }
