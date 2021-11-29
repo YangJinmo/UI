@@ -10,7 +10,7 @@ import UIKit
 final class SettingViewController: BaseNavigationViewController {
     // MARK: - Views
 
-    let presentButton: UIButton = {
+    private let presentButton: UIButton = {
         let button: UIButton = UIButton()
         button.setTitle("Present", for: .normal)
         button.setTitleColor(.label, for: .normal)

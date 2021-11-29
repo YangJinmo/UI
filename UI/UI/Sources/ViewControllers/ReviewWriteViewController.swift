@@ -10,7 +10,7 @@ import UIKit
 final class ReviewWriteViewController: BasePresentViewController {
     // MARK: - Views
 
-    let pushButton: UIButton = {
+    private let pushButton: UIButton = {
         let button: UIButton = UIButton()
         button.setTitle("Push", for: .normal)
         button.setTitleColor(.label, for: .normal)

@@ -10,7 +10,7 @@ import UIKit
 final class ReviewViewController: BaseViewController {
     // MARK: - Views
 
-    let presentButton: UIButton = {
+    private let presentButton: UIButton = {
         let button: UIButton = UIButton()
         button.setTitle("Present", for: .normal)
         button.setTitleColor(.label, for: .normal)
@@ -39,7 +39,6 @@ final class ReviewViewController: BaseViewController {
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
-        // present(ReviewWriteViewController())
         presentWithNavigationController(ReviewWriteViewController())
     }
 }
