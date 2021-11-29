@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TextViewController: BaseViewController {
+final class TextViewController: BaseNavigationViewController {
     // MARK: - Constants
 
     private struct Font {
