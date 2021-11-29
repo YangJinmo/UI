@@ -18,6 +18,7 @@
 		093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A8273513DA00126D4E /* ReviewViewController.swift */; };
 		093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160AA2735162700126D4E /* ReviewWriteViewController.swift */; };
 		099D33E72753C83900C14F5F /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33E62753C83900C14F5F /* UIStackView.swift */; };
+		099D33ED27545AA500C14F5F /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33EC27545AA500C14F5F /* TextViewController.swift */; };
 		099D33EF2754678E00C14F5F /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33EE2754678E00C14F5F /* TabView.swift */; };
 		099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33F02754705000C14F5F /* ScrollableStackViewController.swift */; };
 		09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3483272AE8A400317254 /* BaseViewController.swift */; };
@@ -70,6 +71,7 @@
 		093160A8273513DA00126D4E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		093160AA2735162700126D4E /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		099D33E62753C83900C14F5F /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		099D33EC27545AA500C14F5F /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		099D33EE2754678E00C14F5F /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		099D33F02754705000C14F5F /* ScrollableStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableStackViewController.swift; sourceTree = "<group>"; };
 		09AB3483272AE8A400317254 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				093160AA2735162700126D4E /* ReviewWriteViewController.swift */,
 				093160A627350DEA00126D4E /* MyViewController.swift */,
 				09AB3492272D873100317254 /* SettingViewController.swift */,
+				099D33EC27545AA500C14F5F /* TextViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
+				099D33ED27545AA500C14F5F /* TextViewController.swift in Sources */,
 				09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */,
 				093160A727350DEA00126D4E /* MyViewController.swift in Sources */,
 				09ADF36B272521BD004C6A97 /* AppDelegate.swift in Sources */,
