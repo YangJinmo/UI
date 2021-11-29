@@ -39,6 +39,6 @@ final class SettingViewController: BaseNavigationViewController {
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
-        present(ReviewWriteViewController())
+        presentWithNavigationController(ReviewWriteViewController())
     }
 }
