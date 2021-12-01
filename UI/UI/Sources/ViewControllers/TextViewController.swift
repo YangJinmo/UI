@@ -13,29 +13,27 @@ final class TextViewController: BaseNavigationViewController {
     private struct Font {
         static let textView: UIFont = .systemFont(ofSize: 24, weight: .semibold)
     }
+    
+    private let vcName: String = "TextViewController"
 
     // MARK: - Views
 
-    private var textView: UITextView {
+    private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
         textView.font = Font.textView
         textView.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         return textView
-    }
-
-    // MARK: - Constants
-
-    private let vcName: String = "TextViewController"
+    }()
 
     // MARK: - Layout Constraints
 
-    private var bottomConstraint: Constraint? {
+    private var bottomConstraint: NSLayoutConstraint? {
         didSet {
             if oldValue != nil {
-                contentView.removeConstraint(oldValue!)
+                view.removeConstraint(oldValue!)
             }
             if bottomConstraint != nil {
-                contentView.addConstraint(bottomConstraint!)
+                view.addConstraint(bottomConstraint!)
             }
         }
     }
@@ -56,19 +54,18 @@ final class TextViewController: BaseNavigationViewController {
             subview: textView,
             top: contentView.topAnchor,
             left: contentView.leftAnchor,
-            right: contentView.rightAnchor,
-            bottom: contentView.bottomAnchor
+            right: contentView.rightAnchor
         )
 
-//        bottomConstraint = Constraint(
-//            item: textView,
-//            attribute: .bottom,
-//            relatedBy: .equal,
-//            toItem: contentView,
-//            attribute: .bottom,
-//            multiplier: 1,
-//            constant: 0
-//        )
+        bottomConstraint = Constraint(
+            item: textView,
+            attribute: .bottom,
+            relatedBy: .equal,
+            toItem: view,
+            attribute: .bottom,
+            multiplier: 1,
+            constant: 0
+        )
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -109,10 +106,6 @@ final class TextViewController: BaseNavigationViewController {
 
         bottomConstraint?.constant = isKeyboard ? -keybaordHeight : 0
 
-        UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
-            self.view.layoutIfNeeded()
-        })
-
         if let durationNumber: NSNumber = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
            let curveNumber: NSNumber = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber {
             let duration: Double = durationNumber.doubleValue
@@ -120,16 +113,12 @@ final class TextViewController: BaseNavigationViewController {
             let options: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: curve)
 
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
-                self.updateFromKeyboardChangeToFrame(keybaordHeight)
-            }, completion: { _ in
-
+                self.view.layoutIfNeeded()
             })
         } else {
-            updateFromKeyboardChangeToFrame(keybaordHeight)
+            UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
-    }
-
-    func updateFromKeyboardChangeToFrame(_ constant: CGFloat) {
-        print(constant)
     }
 }
