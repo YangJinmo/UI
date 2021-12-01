@@ -19,6 +19,8 @@ final class MyViewController: BaseViewController {
         static let settingButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
     
+    private let vcName: String = "마이"
+    
     // MARK: - Views
     
     private let nicknameButton: UIButton = {
@@ -44,10 +46,6 @@ final class MyViewController: BaseViewController {
         button.titleLabel?.font = Font.settingButton
         return button
     }()
-
-    // MARK: - Constants
-
-    private let vcName: String = "마이"
 
     // MARK: - View Life Cycle
 

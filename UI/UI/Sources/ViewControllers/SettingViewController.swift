@@ -8,6 +8,10 @@
 import UIKit
 
 final class SettingViewController: BaseNavigationViewController {
+    // MARK: - Constants
+
+    private let vcName: String = "설정"
+
     // MARK: - Views
 
     private let presentButton: UIButton = {
@@ -16,10 +20,6 @@ final class SettingViewController: BaseNavigationViewController {
         button.setTitleColor(.label, for: .normal)
         return button
     }()
-
-    // MARK: - Constants
-
-    private let vcName: String = "설정"
 
     // MARK: - View Life Cycle
 
@@ -34,7 +34,7 @@ final class SettingViewController: BaseNavigationViewController {
 
     private func setupViews() {
         view.add(subview: presentButton, heightConstant: 44, center: view)
-        
+
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
     }
 
