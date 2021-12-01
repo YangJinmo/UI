@@ -44,18 +44,6 @@ final class ScrollableStackViewController: UIViewController {
     // MARK: - View Life Cycle
 
     override func loadView() {
-        view = tabView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupViews()
-    }
-
-    // MARK: - Methods
-
-    private func setupViews() {
         presentButton.height(44)
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
         
@@ -65,6 +53,8 @@ final class ScrollableStackViewController: UIViewController {
             presentButton,
             margin: 20
         )
+        
+        view = tabView
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
