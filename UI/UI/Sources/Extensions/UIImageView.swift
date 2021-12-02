@@ -28,7 +28,7 @@ extension UIImageView {
                     self?.image = UIImage(data: data)
                 }
             } catch {
-                "Error: \(error.localizedDescription)".log()
+                error.localizedDescription.log()
             }
         }
     }
