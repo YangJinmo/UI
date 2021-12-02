@@ -65,6 +65,7 @@ class TabView: BaseView {
     private let dividerView: DividerView = DividerView()
     private let contentView: UIView = UIView()
     private let scrollView = UIScrollView()
+    private let guideView = UIView()
     private let stackView: UIStackView = {
         let stackView: UIStackView = UIStackView()
         stackView.axis = .vertical
@@ -73,7 +74,6 @@ class TabView: BaseView {
         stackView.spacing = 16
         return stackView
     }()
-    private let guideView = UIView()
 
     // MARK: - Layout Constraints
 
