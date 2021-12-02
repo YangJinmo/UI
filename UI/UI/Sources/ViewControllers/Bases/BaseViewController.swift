@@ -52,9 +52,18 @@ class BaseViewController: UIViewController {
         return button
     }()
 
-    let dividerView: DividerView = DividerView()
-
+    private let dividerView: DividerView = DividerView()
     let contentView: UIView = UIView()
+    private let scrollView = UIScrollView()
+    private let guideView = UIView()
+    private let stackView: UIStackView = {
+        let stackView: UIStackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.spacing = 0
+        return stackView
+    }()
 
     // MARK: - View Life Cycle
 
@@ -112,5 +121,40 @@ class BaseViewController: UIViewController {
 
     func setTitleLabel(_ text: String) {
         titleLabel.text = text
+    }
+    
+    func hideDivider() {
+        dividerView.isHidden = true
+    }
+
+    func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0) {
+        view.addSubviews(scrollView)
+        scrollView.addSubviews(guideView)
+        guideView.addSubviews(stackView)
+        views.forEach { stackView.addArrangedSubview($0) }
+
+        let contentViewHeightConstraint = guideView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        contentViewHeightConstraint.priority = .defaultLow
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            guideView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            guideView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            guideView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            guideView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            guideView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+
+            stackView.topAnchor.constraint(greaterThanOrEqualTo: guideView.topAnchor, constant: margin),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: guideView.bottomAnchor, constant: -margin),
+            stackView.leadingAnchor.constraint(equalTo: guideView.leadingAnchor, constant: margin),
+            stackView.trailingAnchor.constraint(equalTo: guideView.trailingAnchor, constant: -margin),
+            stackView.centerYAnchor.constraint(equalTo: guideView.centerYAnchor),
+
+            contentViewHeightConstraint,
+        ])
     }
 }
