@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/11/07.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     var encode: String? {
@@ -16,6 +16,17 @@ extension String {
 
     var url: URL? {
         return URL(string: self)
+    }
+
+    var image: UIImage? {
+        guard
+            let url: URL = url,
+            let data: Data = try? Data(contentsOf: url),
+            let image: UIImage = UIImage(data: data)
+        else {
+            return nil
+        }
+        return image
     }
 
     func open() {
