@@ -31,7 +31,7 @@ final class ScrollableStackViewController: UIViewController {
         label.sizeToFit()
         return label
     }()
-    
+
     private let presentButton: UIButton = {
         let button: UIButton = UIButton()
         button.setTitle("Present", for: .normal)
@@ -46,18 +46,19 @@ final class ScrollableStackViewController: UIViewController {
     override func loadView() {
         presentButton.height(44)
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
-        
+
         tabView.setupScrollableStackView(
             titleLabel,
             subtitleLabel,
             presentButton,
             margin: 20
         )
-        
+
         view = tabView
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
-        presentWithNavigationController(ReviewWriteViewController())
+        let imageUrl: String = "https://blog.kakaocdn.net/dn/0ZgUD/btqDljigiKg/JhrTd8H9kF2KOztZ7HhFu1/img.jpg"
+        present(ImagePresentViewController(imageUrl: imageUrl))
     }
 }
