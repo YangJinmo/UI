@@ -10,6 +10,20 @@ import UIKit
 extension UIImageView {
     // MARK: - Methods
 
+    func getAspectRatioConstraint(_ image: UIImage) -> Constraint {
+        let constraint: Constraint = Constraint(
+            item: self,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .height,
+            multiplier: image.aspect,
+            constant: 0.0
+        )
+        constraint.priority = UILayoutPriority(rawValue: 999)
+        return constraint
+    }
+
     func setImage(urlString: String?) {
         let url: URL? = urlString.flatMap { $0.url }
         setImage(url: url)
