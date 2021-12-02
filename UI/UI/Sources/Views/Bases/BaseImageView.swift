@@ -30,7 +30,7 @@ class BaseImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var constraint: Constraint? {
+    private var constraint: Constraint? {
         didSet {
             if oldValue != nil {
                 removeConstraint(oldValue!)
