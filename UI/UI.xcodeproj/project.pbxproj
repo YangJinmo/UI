@@ -18,6 +18,7 @@
 		093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A8273513DA00126D4E /* ReviewViewController.swift */; };
 		093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160AA2735162700126D4E /* ReviewWriteViewController.swift */; };
 		0977F7892759119E002700A5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977F7882759119E002700A5 /* UIImageView.swift */; };
+		0977F78B275924A8002700A5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977F78A275924A8002700A5 /* UIImage.swift */; };
 		099D33E72753C83900C14F5F /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33E62753C83900C14F5F /* UIStackView.swift */; };
 		099D33ED27545AA500C14F5F /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33EC27545AA500C14F5F /* TextViewController.swift */; };
 		099D33EF2754678E00C14F5F /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33EE2754678E00C14F5F /* TabView.swift */; };
@@ -72,6 +73,7 @@
 		093160A8273513DA00126D4E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		093160AA2735162700126D4E /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		0977F7882759119E002700A5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		0977F78A275924A8002700A5 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		099D33E62753C83900C14F5F /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		099D33EC27545AA500C14F5F /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		099D33EE2754678E00C14F5F /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				09ADF38927252498004C6A97 /* UIView.swift */,
+				0977F78A275924A8002700A5 /* UIImage.swift */,
 				0977F7882759119E002700A5 /* UIImageView.swift */,
 				09ADF38D272524FB004C6A97 /* UITableView.swift */,
 				09ADF38B272524C2004C6A97 /* UICollectionView.swift */,
@@ -419,6 +422,7 @@
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,
 				09ADF3AC2725A1E4004C6A97 /* SearchTermCell.swift in Sources */,
 				09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */,
+				0977F78B275924A8002700A5 /* UIImage.swift in Sources */,
 				09ADF3A1272592E7004C6A97 /* DividerTableViewCell.swift in Sources */,
 				09ADF3922725288B004C6A97 /* BaseCollectionViewCell.swift in Sources */,
 				09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */,
