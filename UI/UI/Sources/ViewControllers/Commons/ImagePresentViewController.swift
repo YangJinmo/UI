@@ -12,12 +12,15 @@ class ImagePresentViewController: BasePresentViewController {
 
     private let vcName: String = "IU"
 
+    // MARK: - Variables
+
+    private var imageUrl: String = ""
+
     // MARK: - Views
 
     private let imageView = BaseImageView(
         image: "https://t1.daumcdn.net/thumb/R600x0/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fqna%2Fimage%2F4b035cdf8372d67108f7e8d339660479dfb41bbd".image
     )
-    private var imageUrl: String = ""
 
     // MARK: - Initialization
 
