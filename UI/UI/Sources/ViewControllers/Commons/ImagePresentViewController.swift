@@ -42,6 +42,8 @@ class ImagePresentViewController: BasePresentViewController {
         setImage(imageUrl.image)
     }
 
+    // MARK: - Methods
+
     private func setImage(_ image: UIImage?) {
         guard let image: UIImage = image else { return }
         imageView.remakeAspectRatioConstraint(image)
