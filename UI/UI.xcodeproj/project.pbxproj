@@ -17,6 +17,7 @@
 		093160A727350DEA00126D4E /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A627350DEA00126D4E /* MyViewController.swift */; };
 		093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A8273513DA00126D4E /* ReviewViewController.swift */; };
 		093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160AA2735162700126D4E /* ReviewWriteViewController.swift */; };
+		0977F78727590F61002700A5 /* ImagePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977F78627590F61002700A5 /* ImagePresentViewController.swift */; };
 		0977F7892759119E002700A5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977F7882759119E002700A5 /* UIImageView.swift */; };
 		0977F78B275924A8002700A5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977F78A275924A8002700A5 /* UIImage.swift */; };
 		0977F78D2759287C002700A5 /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977F78C2759287C002700A5 /* BaseImageView.swift */; };
@@ -73,6 +74,7 @@
 		093160A627350DEA00126D4E /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		093160A8273513DA00126D4E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		093160AA2735162700126D4E /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
+		0977F78627590F61002700A5 /* ImagePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentViewController.swift; sourceTree = "<group>"; };
 		0977F7882759119E002700A5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		0977F78A275924A8002700A5 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		0977F78C2759287C002700A5 /* BaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				09AB348D272B9B1C00317254 /* TabBarController.swift */,
 				091AC4262736592E00294EFC /* WebViewController.swift */,
+				0977F78627590F61002700A5 /* ImagePresentViewController.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
 				099D33EF2754678E00C14F5F /* TabView.swift in Sources */,
 				E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */,
+				0977F78727590F61002700A5 /* ImagePresentViewController.swift in Sources */,
 				099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
