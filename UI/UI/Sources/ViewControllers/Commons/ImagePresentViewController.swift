@@ -18,9 +18,8 @@ class ImagePresentViewController: BasePresentViewController {
 
     // MARK: - Views
 
-    private let imageView = BaseImageView(
-        image: "https://t1.daumcdn.net/thumb/R600x0/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fqna%2Fimage%2F4b035cdf8372d67108f7e8d339660479dfb41bbd".image
-    )
+    private lazy var activityIndicatorView = BaseActivityIndicatorView()
+    private lazy var imageView = BaseImageView()
 
     // MARK: - Initialization
 
@@ -38,15 +37,36 @@ class ImagePresentViewController: BasePresentViewController {
         hideDivider()
         setupScrollableStackView(imageView)
 
+        view.add(
+            subview: activityIndicatorView,
+            center: view
+        )
+
         setTitleLabel(vcName)
-        setImage(imageUrl.image)
+        setImage(urlString: imageUrl)
     }
 
     // MARK: - Methods
 
-    private func setImage(_ image: UIImage?) {
-        guard let image: UIImage = image else { return }
-        imageView.remakeAspectRatioConstraint(image)
-        imageView.image = image
+    private func setImage(urlString: String) {
+        guard let url: URL = urlString.url else { return }
+        activityIndicatorView.startAnimating()
+
+        DispatchQueue.global().async { [weak self] in
+            do {
+                let data: Data = try Data(contentsOf: url)
+
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    if let image = UIImage(data: data) {
+                        self.imageView.remakeAspectRatioConstraint(image)
+                        self.imageView.image = image
+                        self.activityIndicatorView.stopAnimating()
+                    }
+                }
+            } catch {
+                error.localizedDescription.log()
+            }
+        }
     }
 }
