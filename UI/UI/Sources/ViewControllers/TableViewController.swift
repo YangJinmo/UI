@@ -16,8 +16,8 @@ final class TableViewController: UIViewController {
 
     // MARK: - Views
 
-    private var activityIndicatorView = BaseActivityIndicatorView()
-    private var refreshControl = BaseRefreshControl()
+    private lazy var activityIndicatorView = BaseActivityIndicatorView()
+    private lazy var refreshControl = BaseRefreshControl()
 
     private lazy var tableView: BaseTableView = {
         let tableView: BaseTableView = BaseTableView()

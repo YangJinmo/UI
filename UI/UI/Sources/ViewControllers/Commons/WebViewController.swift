@@ -34,8 +34,8 @@ final class WebViewController: BaseNavigationViewController {
     // MARK: - Views
 
     private var webView: BaseWebView!
-    private var activityIndicatorView = BaseActivityIndicatorView()
-    private var progressView = BaseProgressView()
+    private lazy var activityIndicatorView = BaseActivityIndicatorView()
+    private lazy var progressView = BaseProgressView()
 
     // MARK: - View Life Cycle
 
