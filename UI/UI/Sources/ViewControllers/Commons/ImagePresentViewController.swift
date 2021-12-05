@@ -10,6 +10,10 @@ import UIKit
 class ImagePresentViewController: BasePresentViewController {
     // MARK: - Constants
 
+    private struct Image {
+        static let photo: UIImage? = UIImage(systemName: "photo") // 􀏅
+    }
+
     private let vcName: String = "IU"
 
     // MARK: - Variables
@@ -49,7 +53,10 @@ class ImagePresentViewController: BasePresentViewController {
     // MARK: - Methods
 
     private func setImage(urlString: String) {
-        guard let url: URL = urlString.url else { return }
+        guard let url: URL = urlString.url else {
+            imageView.image = Image.photo
+            return
+        }
         activityIndicatorView.startAnimating()
 
         DispatchQueue.global().async { [weak self] in
