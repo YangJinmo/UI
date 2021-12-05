@@ -20,8 +20,8 @@ class BaseViewController: UIViewController {
     }
 
     private struct Color {
-        static let leftButtonTint: UIColor = UIColor.label
-        static let rightButtonTitle: UIColor = UIColor.label
+        static let leftButtonTint: UIColor = .label
+        static let rightButtonTitle: UIColor = .label
     }
 
     // MARK: - Views
