@@ -16,6 +16,7 @@ UI is a DSL to make Auto Layout easy on iOS.
 
 - TabBarController
 - WebViewController
+- ImagePresentViewController
 
 
 
@@ -39,7 +40,7 @@ UI is a DSL to make Auto Layout easy on iOS.
           super.viewDidLoad()
   
           view.add(
-              subview: pushButton,
+              pushButton,
               heightConstant: 44,
               center: view
           )
@@ -55,7 +56,7 @@ UI is a DSL to make Auto Layout easy on iOS.
           super.viewDidLoad()
   
           view.add(
-              subview: tableView,
+              tableView,
               top: view.safeAreaLayoutGuide.topAnchor,
               left: view.safeAreaLayoutGuide.leftAnchor,
               right: view.safeAreaLayoutGuide.rightAnchor,
@@ -73,7 +74,7 @@ UI is a DSL to make Auto Layout easy on iOS.
           super.viewDidLoad()
   
           view.add(
-              subview: collectionView,
+              collectionView,
               edges: view
           )
       }
