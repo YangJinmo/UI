@@ -59,8 +59,8 @@ final class MyViewController: BaseViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.add(subview: nicknameButton, heightConstant: 44, center: view, centerYConstant: -44)
-        view.add(subview: settingButton, heightConstant: 44, center: view)
+        view.add(nicknameButton, heightConstant: 44, center: view, centerYConstant: -44)
+        view.add(settingButton, heightConstant: 44, center: view)
         
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
         settingButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)

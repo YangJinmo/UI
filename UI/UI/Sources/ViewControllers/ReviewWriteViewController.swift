@@ -33,7 +33,7 @@ final class ReviewWriteViewController: BasePresentViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.add(subview: pushButton, heightConstant: 44, center: view)
+        view.add(pushButton, heightConstant: 44, center: view)
 
         pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
     }

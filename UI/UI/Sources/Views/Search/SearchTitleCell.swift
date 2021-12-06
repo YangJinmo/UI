@@ -76,25 +76,25 @@ final class SearchTitleCell: BaseCollectionViewCell {
 //        ])
 
         contentView.add(
-            subview: titleLabel,
+            titleLabel,
             left: contentView.leftAnchor, 36,
             centerY: contentView
         )
 
         contentView.add(
-            subview: termLabel,
+            termLabel,
             center: contentView
         )
 
         contentView.add(
-            subview: dividerView,
+            dividerView,
             left: contentView.leftAnchor,
             right: contentView.rightAnchor,
             bottom: contentView.bottomAnchor
         )
 
         contentView.add(
-            subview: chevronButton,
+            chevronButton,
             right: contentView.rightAnchor, 36,
             centerY: contentView
         )

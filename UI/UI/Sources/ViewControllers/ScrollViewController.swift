@@ -101,7 +101,7 @@ final class ScrollViewController: UIViewController {
 //        ])
 
         view.add(
-            subview: scrollView,
+            scrollView,
             top: view.safeAreaLayoutGuide.topAnchor,
             bottom: view.bottomAnchor,
             width: view.widthAnchor,
@@ -109,7 +109,7 @@ final class ScrollViewController: UIViewController {
         )
 
         scrollView.add(
-            subview: contentView,
+            contentView,
             top: scrollView.topAnchor,
             bottom: scrollView.bottomAnchor,
             width: scrollView.widthAnchor,
@@ -117,14 +117,14 @@ final class ScrollViewController: UIViewController {
         )
 
         contentView.add(
-            subview: titleLabel,
+            titleLabel,
             top: contentView.topAnchor, 24,
             width: contentView.widthAnchor, multiplier: 4 / 5,
             centerX: contentView
         )
 
         contentView.add(
-            subview: subtitleLabel,
+            subtitleLabel,
             top: titleLabel.bottomAnchor, 24,
             bottom: contentView.bottomAnchor, 24,
             width: contentView.widthAnchor, multiplier: 4 / 5,

@@ -51,7 +51,7 @@ final class TextViewController: BaseNavigationViewController {
 
     private func setupViews() {
         contentView.add(
-            subview: textView,
+            textView,
             top: contentView.topAnchor,
             left: contentView.leftAnchor,
             right: contentView.rightAnchor

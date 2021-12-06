@@ -47,7 +47,7 @@ final class TableViewController: UIViewController {
 
     private func setupViews() {
         view.add(
-            subview: tableView,
+            tableView,
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.safeAreaLayoutGuide.leftAnchor,
             right: view.safeAreaLayoutGuide.rightAnchor,
@@ -55,7 +55,7 @@ final class TableViewController: UIViewController {
         )
 
         tableView.add(
-            subview: activityIndicatorView,
+            activityIndicatorView,
             center: tableView
         )
     }

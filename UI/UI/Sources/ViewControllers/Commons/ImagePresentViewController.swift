@@ -42,7 +42,7 @@ class ImagePresentViewController: BasePresentViewController {
         setupScrollableStackView(imageView)
 
         view.add(
-            subview: activityIndicatorView,
+            activityIndicatorView,
             center: view
         )
 

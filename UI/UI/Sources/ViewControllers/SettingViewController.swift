@@ -33,7 +33,7 @@ final class SettingViewController: BaseNavigationViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.add(subview: presentButton, heightConstant: 44, center: view)
+        view.add(presentButton, heightConstant: 44, center: view)
 
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
     }

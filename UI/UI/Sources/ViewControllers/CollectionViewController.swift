@@ -75,7 +75,7 @@ final class CollectionViewController: BaseViewController {
 //        collectionView.edges(equalTo: contentView)
 
         contentView.add(
-            subview: collectionView,
+            collectionView,
             edges: contentView
         )
     }

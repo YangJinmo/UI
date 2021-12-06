@@ -26,7 +26,7 @@ final class SearchTermCell: BaseCollectionViewCell {
 
     override func setupViews() {
         contentView.add(
-            subview: rankTermLabel,
+            rankTermLabel,
             center: contentView
         )
     }
