@@ -30,18 +30,22 @@ class BaseImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var constraint: Constraint? {
+    // MARK: - Variables
+    
+    private var aspectRatioConstraint: Constraint? {
         didSet {
             if oldValue != nil {
                 removeConstraint(oldValue!)
             }
-            if constraint != nil {
-                addConstraint(constraint!)
+            if aspectRatioConstraint != nil {
+                addConstraint(aspectRatioConstraint!)
             }
         }
     }
     
+    // MARK: - Methods
+    
     func remakeAspectRatioConstraint(_ image: UIImage) {
-        constraint = getAspectRatioConstraint(image)
+        aspectRatioConstraint = getAspectRatioConstraint(image)
     }
 }
