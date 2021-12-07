@@ -188,14 +188,14 @@ class TabView: BaseView {
 
             guideView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             guideView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            guideView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            guideView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            guideView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            guideView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             guideView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
             stackView.topAnchor.constraint(greaterThanOrEqualTo: guideView.topAnchor, constant: margin),
             stackView.bottomAnchor.constraint(lessThanOrEqualTo: guideView.bottomAnchor, constant: -margin),
-            stackView.leadingAnchor.constraint(equalTo: guideView.leadingAnchor, constant: margin),
-            stackView.trailingAnchor.constraint(equalTo: guideView.trailingAnchor, constant: -margin),
+            stackView.leftAnchor.constraint(equalTo: guideView.leftAnchor, constant: margin),
+            stackView.rightAnchor.constraint(equalTo: guideView.rightAnchor, constant: -margin),
             stackView.centerYAnchor.constraint(equalTo: guideView.centerYAnchor),
 
             contentViewHeightConstraint,
