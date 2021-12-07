@@ -71,7 +71,7 @@ final class TextViewController: BaseNavigationViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        setObserverKeyboard()
+        addObserverKeyboard()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,7 +80,7 @@ final class TextViewController: BaseNavigationViewController {
         removeObserverKeyboard()
     }
 
-    private func setObserverKeyboard() {
+    private func addObserverKeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
