@@ -18,17 +18,6 @@ extension String {
         return URL(string: self)
     }
 
-    var image: UIImage? {
-        guard
-            let url: URL = url,
-            let data: Data = try? Data(contentsOf: url),
-            let image: UIImage = UIImage(data: data)
-        else {
-            return nil
-        }
-        return image
-    }
-
     func open() {
         guard let url: URL = url else { return }
         url.open()
