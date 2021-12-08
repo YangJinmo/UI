@@ -83,8 +83,8 @@ final class MyViewController: BaseViewController {
     @objc private func alertButtonTouched(_ sender: Any) {
         alertController(
             style: .actionSheet,
-            title: "Title",
-            message: "Message",
+            title: "제목",
+            message: "메세지",
             actions:
             [
                 UIAlertAction("옵션 1", { _ in
