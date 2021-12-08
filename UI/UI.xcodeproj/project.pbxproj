@@ -56,6 +56,8 @@
 		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 		09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */; };
+		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
+		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
 		E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */; };
 		E8A829312743209700B3D7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A829302743209700B3D7F9 /* Main.storyboard */; };
 		E8A829332743256A00B3D7F9 /* Website.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829322743256A00B3D7F9 /* Website.swift */; };
@@ -115,6 +117,8 @@
 		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		E8A829302743209700B3D7F9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E8A829322743256A00B3D7F9 /* Website.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Website.swift; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 				09ADF38D272524FB004C6A97 /* UITableView.swift */,
 				09ADF38B272524C2004C6A97 /* UICollectionView.swift */,
 				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
+				E875E94A27607D8B002EEBE4 /* UIAlertController.swift */,
+				E875E94C276097BB002EEBE4 /* UIAlertAction.swift */,
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
 				091AC4322739142400294EFC /* WKWebView.swift */,
 				091AC4282737ED2F00294EFC /* String.swift */,
@@ -411,11 +417,13 @@
 				09ADF36B272521BD004C6A97 /* AppDelegate.swift in Sources */,
 				091AC42F273905D600294EFC /* BaseActivityIndicatorView.swift in Sources */,
 				09ADF3812725220C004C6A97 /* BaseView.swift in Sources */,
+				E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */,
 				09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */,
 				E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */,
 				091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */,
 				091AC42B2737ED5D00294EFC /* URL.swift in Sources */,
 				099D33E72753C83900C14F5F /* UIStackView.swift in Sources */,
+				E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */,
 				09ADF39E2725562D004C6A97 /* BaseCollectionReusableView.swift in Sources */,
 				09ADF3AE2725A200004C6A97 /* Search.swift in Sources */,
 				09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */,

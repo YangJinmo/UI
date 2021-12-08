@@ -9,20 +9,20 @@ import UIKit
 
 final class MyViewController: BaseViewController {
     // MARK: - Constants
-    
+
     private struct Image {
         static let pencil: UIImage? = UIImage(systemName: "pencil")
     }
-    
+
     private struct Font {
         static let nicknameButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
         static let settingButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
-    
+
     private let vcName: String = "마이"
-    
+
     // MARK: - Views
-    
+
     private let nicknameButton: UIButton = {
         var configuration: UIButton.Configuration = .filled()
         configuration.title = "Edit Nickname"
@@ -38,7 +38,15 @@ final class MyViewController: BaseViewController {
         button.sizeToFit()
         return button
     }()
-    
+
+    private let alertButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.setTitle("경보", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = Font.settingButton
+        return button
+    }()
+
     private let settingButton: UIButton = {
         let button: UIButton = UIButton()
         button.setTitle("설정", for: .normal)
@@ -60,14 +68,33 @@ final class MyViewController: BaseViewController {
 
     private func setupViews() {
         view.add(nicknameButton, heightConstant: 44, center: view, centerYConstant: -44)
-        view.add(settingButton, heightConstant: 44, center: view)
-        
+        view.add(alertButton, heightConstant: 44, center: view)
+        view.add(settingButton, heightConstant: 44, center: view, centerYConstant: 44)
+
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
+        alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
         settingButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
     }
-    
+
     @objc private func nicknameButtonTouched(_ sender: Any) {
         pushViewController(TextViewController())
+    }
+
+    @objc private func alertButtonTouched(_ sender: Any) {
+        alertController(
+            style: .actionSheet,
+            title: "Title",
+            message: "Message",
+            actions:
+            [
+                UIAlertAction("옵션 1", { _ in
+                    "옵션 1".log()
+                }),
+                UIAlertAction("옵션 2", { _ in
+                    "옵션 2".log()
+                }),
+            ]
+        )
     }
 
     @objc private func pushButtonTouched(_ sender: Any) {
