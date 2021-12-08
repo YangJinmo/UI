@@ -218,18 +218,18 @@ UI is a DSL to make Auto Layout easy on iOS.
 - UIAlertController
 
   ```swift
-    alertController(
-        style: .actionSheet,
-        title: "제목",
-        message: "메세지",
-        actions:
-        [
-            UIAlertAction("옵션 1", { _ in
-                "옵션 1".log()
-            }),
-            UIAlertAction("옵션 2", { _ in
-                "옵션 2".log()
-            }),
-        ]
-    )
+  alertController(
+      style: .actionSheet,
+      title: "제목",
+      message: "메세지",
+      actions:
+      [
+          UIAlertAction("옵션 1", { _ in
+              "옵션 1".log()
+          }),
+          UIAlertAction("옵션 2", { _ in
+              "옵션 2".log()
+          }),
+      ]
+  )
   ```
