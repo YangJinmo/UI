@@ -105,20 +105,14 @@ final class WebViewController: BaseNavigationViewController {
             let url: URL = encodedString.url,
             url.canOpenURL()
         else {
-            let alert = UIAlertController(
+            alertController(
+                style: .alert,
                 title: "실행 오류",
                 message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.",
-                preferredStyle: .alert
-            )
-            let defaultAction = UIAlertAction(
-                title: "확인",
-                style: .default,
-                handler: { _ in
-                    self.popViewController()
-                }
-            )
-            alert.addAction(defaultAction)
-            present(alert)
+                cancelTitle: "확인"
+            ) { _ in
+                self.popViewController()
+            }
             return
         }
         webView.load(url)
