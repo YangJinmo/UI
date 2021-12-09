@@ -73,7 +73,7 @@ final class MyViewController: BaseViewController {
 
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
         alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
-        settingButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
+        settingButton.addTarget(self, action: #selector(settingButtonTouched(_:)), for: .touchUpInside)
     }
 
     @objc private func nicknameButtonTouched(_ sender: Any) {
@@ -97,7 +97,7 @@ final class MyViewController: BaseViewController {
         )
     }
 
-    @objc private func pushButtonTouched(_ sender: Any) {
+    @objc private func settingButtonTouched(_ sender: Any) {
         pushViewController(SettingViewController())
     }
 }
