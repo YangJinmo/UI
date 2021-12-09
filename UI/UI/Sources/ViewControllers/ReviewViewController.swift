@@ -29,6 +29,12 @@ final class ReviewViewController: BaseViewController {
         setupViews()
         setTitleLabel(vcName)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        toast("하이")
+    }
 
     // MARK: - Methods
 
