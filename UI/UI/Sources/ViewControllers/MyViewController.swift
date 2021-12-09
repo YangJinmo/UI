@@ -67,7 +67,7 @@ final class MyViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        toast("하이", bottom: true)
+        toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.", bottom: true)
     }
 
     // MARK: - Methods

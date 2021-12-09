@@ -107,7 +107,7 @@ final class WebViewController: BaseNavigationViewController {
         else {
             let alert = UIAlertController(
                 title: "실행 오류",
-                message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다",
+                message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.",
                 preferredStyle: .alert
             )
             let defaultAction = UIAlertAction(
