@@ -40,28 +40,29 @@ extension UIViewController {
     func popToRootViewController(animated: Bool = true) {
         navigationController?.popToRootViewController(animated: animated)
     }
-    
+
     // MARK: - Toast
 
-    func toast(_ text: String, bottom: Bool = false, margin: CGFloat = 64) {
-        if text.isEmpty { return }
+    func toast(_ text: String, bottom: Bool = false) {
+        guard !text.isEmpty, let keyWindow: UIWindow = UIWindow.key else { return }
 
         let toastLabel: UILabel = UILabel()
         toastLabel.backgroundColor = UIColor.label.withAlphaComponent(0.8)
-        toastLabel.textAlignment = .center
         toastLabel.textColor = .systemBackground
+        toastLabel.textAlignment = .center
         toastLabel.text = text
         toastLabel.font = .systemFont(ofSize: 16, weight: .bold)
-        toastLabel.numberOfLines = 0
         toastLabel.lineBreakMode = .byWordWrapping
         toastLabel.layer.cornerRadius = 6
         toastLabel.clipsToBounds = true
         toastLabel.alpha = 0.0
+        toastLabel.numberOfLines = 0
+        toastLabel.spaceBetweenTheLines()
 
+        let margin: CGFloat = 36
         let width: CGFloat = toastLabel.intrinsicContentSize.width + margin
         let height: CGFloat = toastLabel.intrinsicContentSize.height + margin
 
-        guard let keyWindow: UIWindow = UIWindow.key else { return }
         keyWindow.addSubview(toastLabel)
 
         if bottom {
@@ -71,7 +72,7 @@ extension UIViewController {
                 toastLabel.bottomAnchor.constraint(equalTo: keyWindow.bottomAnchor, constant: -bottomConstant),
                 toastLabel.centerXAnchor.constraint(equalTo: keyWindow.centerXAnchor),
                 toastLabel.widthAnchor.constraint(equalToConstant: width),
-                toastLabel.heightAnchor.constraint(equalToConstant: height / 2),
+                toastLabel.heightAnchor.constraint(equalToConstant: height),
             ])
         } else {
             toastLabel.frame.size.width = width
