@@ -47,7 +47,7 @@ extension UIViewController {
         if text.isEmpty { return }
 
         let toastLabel: UILabel = UILabel()
-        toastLabel.backgroundColor = UIColor.label.withAlphaComponent(0.9)
+        toastLabel.backgroundColor = UIColor.label.withAlphaComponent(0.8)
         toastLabel.textAlignment = .center
         toastLabel.textColor = .systemBackground
         toastLabel.text = text
@@ -65,9 +65,10 @@ extension UIViewController {
         keyWindow.addSubview(toastLabel)
 
         if bottom {
+            let bottomConstant: CGFloat = keyWindow.safeAreaInsets.bottom + 64
             toastLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                toastLabel.bottomAnchor.constraint(equalTo: keyWindow.bottomAnchor, constant: -(keyWindow.safeAreaInsets.bottom)),
+                toastLabel.bottomAnchor.constraint(equalTo: keyWindow.bottomAnchor, constant: -bottomConstant),
                 toastLabel.centerXAnchor.constraint(equalTo: keyWindow.centerXAnchor),
                 toastLabel.widthAnchor.constraint(equalToConstant: width),
                 toastLabel.heightAnchor.constraint(equalToConstant: height / 2),
