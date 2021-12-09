@@ -63,6 +63,12 @@ final class MyViewController: BaseViewController {
         setupViews()
         setTitleLabel(vcName)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        toast("하이", bottom: true)
+    }
 
     // MARK: - Methods
 

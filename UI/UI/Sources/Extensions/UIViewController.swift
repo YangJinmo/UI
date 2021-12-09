@@ -40,4 +40,57 @@ extension UIViewController {
     func popToRootViewController(animated: Bool = true) {
         navigationController?.popToRootViewController(animated: animated)
     }
+    
+    // MARK: - Toast
+
+    func toast(_ text: String, bottom: Bool = false, margin: CGFloat = 64) {
+        if text.isEmpty { return }
+
+        let toastLabel: UILabel = UILabel()
+        toastLabel.backgroundColor = UIColor.label.withAlphaComponent(0.9)
+        toastLabel.textAlignment = .center
+        toastLabel.textColor = .systemBackground
+        toastLabel.text = text
+        toastLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        toastLabel.numberOfLines = 0
+        toastLabel.lineBreakMode = .byWordWrapping
+        toastLabel.layer.cornerRadius = 6
+        toastLabel.clipsToBounds = true
+        toastLabel.alpha = 0.0
+
+        let width: CGFloat = toastLabel.intrinsicContentSize.width + margin
+        let height: CGFloat = toastLabel.intrinsicContentSize.height + margin
+
+        guard let window: UIWindow = UIApplication.shared.connectedScenes
+            .filter({ $0.activationState == .foregroundActive })
+            .compactMap({ $0 as? UIWindowScene })
+            .first?.windows
+            .filter({ $0.isKeyWindow }).first else { return }
+
+        window.addSubview(toastLabel)
+
+        if bottom {
+            toastLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                toastLabel.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -(window.safeAreaInsets.bottom + 64)),
+                toastLabel.centerXAnchor.constraint(equalTo: window.centerXAnchor),
+                toastLabel.widthAnchor.constraint(equalToConstant: width),
+                toastLabel.heightAnchor.constraint(equalToConstant: height / 2),
+            ])
+        } else {
+            toastLabel.frame.size.width = width
+            toastLabel.frame.size.height = height
+            toastLabel.center = window.center
+        }
+
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 1.0
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.25, delay: 1, options: .curveEaseIn, animations: {
+                toastLabel.alpha = 0.0
+            }, completion: { _ in
+                toastLabel.removeFromSuperview()
+            })
+        })
+    }
 }
