@@ -61,26 +61,21 @@ extension UIViewController {
         let width: CGFloat = toastLabel.intrinsicContentSize.width + margin
         let height: CGFloat = toastLabel.intrinsicContentSize.height + margin
 
-        guard let window: UIWindow = UIApplication.shared.connectedScenes
-            .filter({ $0.activationState == .foregroundActive })
-            .compactMap({ $0 as? UIWindowScene })
-            .first?.windows
-            .filter({ $0.isKeyWindow }).first else { return }
-
-        window.addSubview(toastLabel)
+        guard let keyWindow: UIWindow = UIWindow.key else { return }
+        keyWindow.addSubview(toastLabel)
 
         if bottom {
             toastLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                toastLabel.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -(window.safeAreaInsets.bottom + 64)),
-                toastLabel.centerXAnchor.constraint(equalTo: window.centerXAnchor),
+                toastLabel.bottomAnchor.constraint(equalTo: keyWindow.bottomAnchor, constant: -(keyWindow.safeAreaInsets.bottom)),
+                toastLabel.centerXAnchor.constraint(equalTo: keyWindow.centerXAnchor),
                 toastLabel.widthAnchor.constraint(equalToConstant: width),
                 toastLabel.heightAnchor.constraint(equalToConstant: height / 2),
             ])
         } else {
             toastLabel.frame.size.width = width
             toastLabel.frame.size.height = height
-            toastLabel.center = window.center
+            toastLabel.center = keyWindow.center
         }
 
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
