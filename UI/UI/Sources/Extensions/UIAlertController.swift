@@ -12,7 +12,7 @@ extension UIViewController {
         style: UIAlertController.Style,
         title: String,
         message: String? = nil,
-        actions: [UIAlertAction],
+        actions: [UIAlertAction] = [],
         cancelTitle: String = "취소",
         cancelHandler: ((UIAlertAction) -> Void)? = nil,
         completion: (() -> Void)? = nil
