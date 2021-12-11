@@ -96,11 +96,12 @@ final class MyViewController: BaseViewController {
             }),
             UIAlertAction("옵션 2", { _ in
                 "옵션 2".log()
-            }),
-            cancelHandler: { _ in
-                "취소".log()
-            }
-        )
+            })
+        ) { _ in
+            "취소".log()
+        } completion: {
+            "완료".log()
+        }
     }
 
     @objc private func settingButtonTouched(_ sender: Any) {

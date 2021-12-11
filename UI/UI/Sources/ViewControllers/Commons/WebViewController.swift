@@ -105,14 +105,14 @@ final class WebViewController: BaseNavigationViewController {
             let url: URL = encodedString.url,
             url.canOpenURL()
         else {
-            alert(
-                title: "실행 오류",
-                message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다."
-            ) { _ in
-                self.popViewController()
-            }
-//            toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.")
-//            popViewController()
+//            alert(
+//                title: "실행 오류",
+//                message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다."
+//            ) { _ in
+//                self.popViewController()
+//            }
+            toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.")
+            popViewController()
             return
         }
         webView.load(url)
