@@ -217,19 +217,58 @@ UI is a DSL to make Auto Layout easy on iOS.
   
 - UIAlertController
 
-  ```swift
-  alertController(
-      style: .actionSheet,
-      title: "제목",
-      message: "메세지",
-      actions:
-      [
-          UIAlertAction("옵션 1", { _ in
-              "옵션 1".log()
-          }),
-          UIAlertAction("옵션 2", { _ in
-              "옵션 2".log()
-          }),
-      ]
-  )
-  ```
+  - alert
+  
+    ```swift
+    alert(
+        title: "실행 오류",
+        message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다."
+    ) { _ in
+        self.popViewController()
+    }
+    ```
+  
+    ```swift
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        alert(message: message) { _ in
+            completionHandler()
+        }
+    }
+    ```
+  
+  - alertOption
+  
+    ```swift
+    alertOption(
+        title: "Title",
+        message: "Message"
+    ) { _ in
+        "confirmHandler".log()
+    } cancelHandler: { _ in
+        "cancelHandler".log()
+    } completion: {
+        "completion".log()
+    }
+    ```
+  
+  - actionSheet
+  
+    ```swift
+    actionSheet(
+        title: "제목",
+        message: "메세지",
+        actions:
+        UIAlertAction("옵션 1", { _ in
+            "옵션 1".log()
+        }),
+        UIAlertAction("옵션 2", { _ in
+            "옵션 2".log()
+        })
+    ) { _ in
+        "취소".log()
+    } completion: {
+        "완료".log()
+    }
+    ```
+    
+    
