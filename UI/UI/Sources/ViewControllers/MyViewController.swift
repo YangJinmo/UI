@@ -63,10 +63,10 @@ final class MyViewController: BaseViewController {
         setupViews()
         setTitleLabel(vcName)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.", bottom: true)
     }
 
@@ -87,19 +87,19 @@ final class MyViewController: BaseViewController {
     }
 
     @objc private func alertButtonTouched(_ sender: Any) {
-        alertController(
-            style: .actionSheet,
+        actionSheet(
             title: "제목",
             message: "메세지",
             actions:
-            [
-                UIAlertAction("옵션 1", { _ in
-                    "옵션 1".log()
-                }),
-                UIAlertAction("옵션 2", { _ in
-                    "옵션 2".log()
-                }),
-            ]
+            UIAlertAction("옵션 1", { _ in
+                "옵션 1".log()
+            }),
+            UIAlertAction("옵션 2", { _ in
+                "옵션 2".log()
+            }),
+            cancelHandler: { _ in
+                "취소".log()
+            }
         )
     }
 

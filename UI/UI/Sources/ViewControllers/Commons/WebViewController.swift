@@ -105,16 +105,14 @@ final class WebViewController: BaseNavigationViewController {
             let url: URL = encodedString.url,
             url.canOpenURL()
         else {
-//            alertController(
-//                style: .alert,
-//                title: "실행 오류",
-//                message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.",
-//                cancelTitle: "확인"
-//            ) { _ in
-//                self.popViewController()
-//            }
-            toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.")
-            popViewController()
+            alert(
+                title: "실행 오류",
+                message: "주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다."
+            ) { _ in
+                self.popViewController()
+            }
+//            toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.")
+//            popViewController()
             return
         }
         webView.load(url)
@@ -134,19 +132,21 @@ final class WebViewController: BaseNavigationViewController {
 
 extension WebViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: { _ in completionHandler() })
-        alert.addAction(defaultAction)
-        present(alert)
+        alert(message: message) { _ in
+            completionHandler()
+        }
     }
 
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: { _ in completionHandler(false) })
-        let defaultAction = UIAlertAction(title: "확인", style: .default, handler: { _ in completionHandler(true) })
-        alert.addAction(cancelAction)
-        alert.addAction(defaultAction)
-        present(alert)
+        alertOption(
+            message: message,
+            confirmHandler: { _ in
+                completionHandler(true)
+            },
+            cancelHandler: { _ in
+                completionHandler(false)
+            }
+        )
     }
 }
 
