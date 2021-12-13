@@ -65,6 +65,8 @@
 		E8A829332743256A00B3D7F9 /* Website.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829322743256A00B3D7F9 /* Website.swift */; };
 		E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */; };
 		E8A829372743831A00B3D7F9 /* Websites.json in Resources */ = {isa = PBXBuildFile; fileRef = E8A829362743831A00B3D7F9 /* Websites.json */; };
+		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
+		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +130,8 @@
 		E8A829322743256A00B3D7F9 /* Website.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Website.swift; sourceTree = "<group>"; };
 		E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshControl.swift; sourceTree = "<group>"; };
 		E8A829362743831A00B3D7F9 /* Websites.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Websites.json; sourceTree = "<group>"; };
+		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
+		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 				09AB348D272B9B1C00317254 /* TabBarController.swift */,
 				091AC4262736592E00294EFC /* WebViewController.swift */,
 				0977F78627590F61002700A5 /* ImagePresentViewController.swift */,
+				E8EE7068276781150005877A /* MailComposeViewController.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				091AC4322739142400294EFC /* WKWebView.swift */,
 				091AC4282737ED2F00294EFC /* String.swift */,
 				091AC42A2737ED5D00294EFC /* URL.swift */,
+				E8EE706A276786940005877A /* Bundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -408,8 +414,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,
+				E8EE706B276786940005877A /* Bundle.swift in Sources */,
 				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
+				E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */,
 				E87889CA276252D500B9A07E /* UIWindow.swift in Sources */,
 				E87889CC27625A4E00B9A07E /* UILabel.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
