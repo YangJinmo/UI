@@ -10,7 +10,7 @@ import UIKit
 extension Bundle {
     class var appName: String {
         guard
-            let infoDictionary = Bundle.main.infoDictionary,
+            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleName"] as? String
         else {
             return "Unknown"
@@ -20,7 +20,7 @@ extension Bundle {
 
     class var appDisplayName: String {
         guard
-            let infoDictionary = Bundle.main.infoDictionary,
+            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleDisplayName"] as? String
         else {
             return appName
@@ -30,7 +30,7 @@ extension Bundle {
 
     class var appVersion: String {
         guard
-            let infoDictionary = Bundle.main.infoDictionary,
+            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleShortVersionString"] as? String
         else {
             return "Unknown"
@@ -40,7 +40,7 @@ extension Bundle {
 
     class var appBuild: String {
         guard
-            let infoDictionary = Bundle.main.infoDictionary,
+            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleVersion"] as? String
         else {
             return "Unknown"
@@ -50,7 +50,7 @@ extension Bundle {
 
     class var bundle: String {
         guard
-            let infoDictionary = Bundle.main.infoDictionary,
+            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleIdentifier"] as? String
         else {
             return "Unknown"
