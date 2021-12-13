@@ -16,7 +16,7 @@ final class MyViewController: BaseViewController {
 
     private struct Font {
         static let nicknameButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
-        static let settingButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+        static let mailButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
 
     private let vcName: String = "마이"
@@ -43,15 +43,15 @@ final class MyViewController: BaseViewController {
         let button: UIButton = UIButton()
         button.setTitle("경보", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.settingButton
+        button.titleLabel?.font = Font.mailButton
         return button
     }()
 
-    private let settingButton: UIButton = {
+    private let mailButton: UIButton = {
         let button: UIButton = UIButton()
-        button.setTitle("설정", for: .normal)
+        button.setTitle("메일", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.settingButton
+        button.titleLabel?.font = Font.mailButton
         return button
     }()
 
@@ -75,11 +75,11 @@ final class MyViewController: BaseViewController {
     private func setupViews() {
         view.add(nicknameButton, heightConstant: 44, center: view, centerYConstant: -44)
         view.add(alertButton, heightConstant: 44, center: view)
-        view.add(settingButton, heightConstant: 44, center: view, centerYConstant: 44)
+        view.add(mailButton, heightConstant: 44, center: view, centerYConstant: 44)
 
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
         alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
-        settingButton.addTarget(self, action: #selector(settingButtonTouched(_:)), for: .touchUpInside)
+        mailButton.addTarget(self, action: #selector(mailButtonTouched(_:)), for: .touchUpInside)
     }
 
     @objc private func nicknameButtonTouched(_ sender: Any) {
@@ -104,7 +104,7 @@ final class MyViewController: BaseViewController {
         }
     }
 
-    @objc private func settingButtonTouched(_ sender: Any) {
-        pushViewController(SettingViewController())
+    @objc private func mailButtonTouched(_ sender: Any) {
+        pushViewController(MailComposeViewController())
     }
 }
