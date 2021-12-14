@@ -8,7 +8,15 @@
 import UIKit
 
 extension UIAlertAction {
-    convenience init(_ title: String, _ handler: ((UIAlertAction) -> Void)? = nil) {
-        self.init(title: title, style: .default, handler: handler)
+    static func `default`(_ title: String, _ handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+        return UIAlertAction(title: title, style: .default, handler: handler)
+    }
+
+    static func cancel(_ title: String, _ handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+        return UIAlertAction(title: title, style: .cancel, handler: handler)
+    }
+
+    static func destructive(_ title: String, _ handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+        return UIAlertAction(title: title, style: .destructive, handler: handler)
     }
 }
