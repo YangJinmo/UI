@@ -18,6 +18,7 @@ UI is a DSL to make Auto Layout easy on iOS.
 - TabBarController
 - WebViewController
 - ImagePresentViewController
+- MailComposeViewController
 
 
 
