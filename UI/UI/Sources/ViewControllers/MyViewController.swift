@@ -88,19 +88,19 @@ final class MyViewController: BaseViewController {
 
     @objc private func alertButtonTouched(_ sender: Any) {
         actionSheet(
-            title: "제목",
-            message: "메세지",
+            title: "title",
+            message: "message",
             actions:
-            UIAlertAction("옵션 1", { _ in
-                "옵션 1".log()
+            .default("default", { _ in
+                "default".log()
             }),
-            UIAlertAction("옵션 2", { _ in
-                "옵션 2".log()
+            .destructive("destructive", { _ in
+                "destructive".log()
             })
         ) { _ in
-            "취소".log()
+            "cancel".log()
         } completion: {
-            "완료".log()
+            "completion".log()
         }
     }
 
