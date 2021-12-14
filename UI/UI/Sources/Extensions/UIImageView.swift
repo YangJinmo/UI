@@ -8,8 +8,6 @@
 import UIKit
 
 extension UIImageView {
-    // MARK: - Methods
-
     func getAspectRatioConstraint(_ image: UIImage) -> Constraint {
         let constraint: Constraint = Constraint(
             item: self,
