@@ -118,8 +118,8 @@ extension TableViewController {
         guard let path: String = Bundle.main.path(forResource: "Websites", ofType: "json") else { return }
 
         do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let websites = try JSONDecoder().decode([Website].self, from: data)
+            let data: Data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let websites: [Website] = try JSONDecoder().decode([Website].self, from: data)
 
             self.websites = websites
         } catch {
