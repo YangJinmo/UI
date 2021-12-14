@@ -15,7 +15,7 @@ class MailComposeViewController: BaseNavigationViewController {
     }
 
     func sendEmail() {
-        let email: String = "yjnmo@naver.com"
+        let email: String = "didwlsah9@gmail.com"
 
         guard MFMailComposeViewController.canSendMail() else {
             UIPasteboard.general.string = email
