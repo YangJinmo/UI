@@ -240,8 +240,8 @@ UI is a DSL to make Auto Layout easy on iOS.
   
     ```swift
     alertOption(
-        title: "Title",
-        message: "Message"
+        title: "title",
+        message: "message"
     ) { _ in
         "confirmHandler".log()
     } cancelHandler: { _ in
@@ -255,19 +255,19 @@ UI is a DSL to make Auto Layout easy on iOS.
   
     ```swift
     actionSheet(
-        title: "제목",
-        message: "메세지",
+        title: "title",
+        message: "message",
         actions:
-        UIAlertAction("옵션 1", { _ in
-            "옵션 1".log()
+        .default("default", { _ in
+            "default".log()
         }),
-        UIAlertAction("옵션 2", { _ in
-            "옵션 2".log()
+        .destructive("destructive", { _ in
+            "destructive".log()
         })
     ) { _ in
-        "취소".log()
+        "cancel".log()
     } completion: {
-        "완료".log()
+        "completion".log()
     }
     ```
     
