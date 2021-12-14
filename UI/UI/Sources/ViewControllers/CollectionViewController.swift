@@ -123,7 +123,7 @@ extension CollectionViewController: UICollectionViewDelegate {
             let sections: IndexSet = IndexSet(integer: indexPath.section)
             collectionView.reloadSections(sections)
         } else {
-            print(searches[indexPath.section].terms[indexPath.item - 1])
+            searches[indexPath.section].terms[indexPath.item - 1].log()
         }
     }
 }
