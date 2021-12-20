@@ -63,7 +63,6 @@ extension UIImageView {
         guard let url: URL = url else { return }
 
         getData(with: url) { [weak self] data, response, error in
-
             if let error = error {
                 error.localizedDescription.log()
                 return
@@ -103,7 +102,6 @@ extension UIImageView {
             image = cachedImage
         } else {
             getData(with: url) { [weak self] data, response, error in
-
                 if let error = error {
                     error.localizedDescription.log()
                     return
@@ -174,7 +172,6 @@ extension UIImageView {
             setImage(url: fileURL)
         } else {
             getData(with: url) { [weak self] data, response, error in
-
                 if let error = error {
                     error.localizedDescription.log()
                     return
@@ -198,7 +195,6 @@ extension UIImageView {
                 }
 
                 guard let pngData: Data = image.pngData() else { return }
-
                 fileManager.createFile(atPath: filePath, contents: pngData, attributes: nil)
             }
         }
