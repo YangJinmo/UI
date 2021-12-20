@@ -26,4 +26,17 @@ extension String {
     func log(function: String = #function, _ value: Any = "", _ comment: String = "") {
         print("func \(function) \(comment)\(self)")
     }
+
+    func dateForamt(_ format: String = "yyyy-MM-dd HH:mm:ss.s") -> String {
+        let getDateFormatter: DateFormatter = DateFormatter()
+        getDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.s"
+
+        let updateDateFormatter: DateFormatter = DateFormatter()
+        updateDateFormatter.dateFormat = format
+        updateDateFormatter.amSymbol = "오전"
+        updateDateFormatter.pmSymbol = "오후"
+
+        guard let date: Date = getDateFormatter.date(from: self) else { return self }
+        return updateDateFormatter.string(from: date)
+    }
 }
