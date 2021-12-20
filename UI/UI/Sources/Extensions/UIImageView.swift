@@ -84,7 +84,7 @@ extension UIImageView {
             DispatchQueue.main.async {
                 self?.image = image
             }
-        }
+        }.resume()
     }
 
     // MARK: - Retrieve Memory Cache
@@ -120,7 +120,7 @@ extension UIImageView {
                     ImageCacheManager.shared.setObject(image, forKey: cacheKey) // 다운로드된 이미지를 캐시에 저장
                     self?.image = image
                 }
-            }
+            }.resume()
         }
     }
 
@@ -192,7 +192,7 @@ extension UIImageView {
 
                 guard let pngData: Data = image.pngData() else { return }
                 fileManager.createFile(atPath: filePath, contents: pngData, attributes: nil)
-            }
+            }.resume()
         }
     }
 }
