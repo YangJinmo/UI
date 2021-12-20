@@ -62,7 +62,7 @@ extension UIImageView {
     func setImageDownload(url: URL?) {
         guard let url: URL = url else { return }
 
-        getData(with: url) { [weak self] data, response, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let error = error {
                 error.localizedDescription.log()
                 return
@@ -87,10 +87,6 @@ extension UIImageView {
         }
     }
 
-    private func getData(with url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-
     // MARK: - Retrieve Memory Cache
 
     func setImageRetrieveInMemoryCache(url: URL?) {
@@ -101,7 +97,7 @@ extension UIImageView {
         if let cachedImage: UIImage = ImageCacheManager.shared.object(forKey: cacheKey) { // 해당 Key에 캐시이미지가 저장되어 있으면 이미지를 사용
             image = cachedImage
         } else {
-            getData(with: url) { [weak self] data, response, error in
+            URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 if let error = error {
                     error.localizedDescription.log()
                     return
@@ -171,7 +167,7 @@ extension UIImageView {
             "\(fileName)이 존재합니다.".log()
             setImage(url: fileURL)
         } else {
-            getData(with: url) { [weak self] data, response, error in
+            URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 if let error = error {
                     error.localizedDescription.log()
                     return
