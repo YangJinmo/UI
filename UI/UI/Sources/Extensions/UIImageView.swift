@@ -69,8 +69,8 @@ extension UIImageView {
             }
 
             guard
-                let httpResponse: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(httpResponse.statusCode),
-                let mimeType: String = httpResponse.mimeType, mimeType.hasPrefix("image"),
+                let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode),
+                let mimeType: String = response.mimeType, mimeType.hasPrefix("image"),
                 let data: Data = data,
                 let image: UIImage = UIImage(data: data)
             else {
@@ -78,7 +78,7 @@ extension UIImageView {
                 return
             }
 
-            let filename: String = httpResponse.suggestedFilename ?? url.lastPathComponent
+            let filename: String = response.suggestedFilename ?? url.lastPathComponent
             filename.log()
 
             DispatchQueue.main.async {
@@ -104,8 +104,8 @@ extension UIImageView {
                 }
 
                 guard
-                    let httpResponse: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(httpResponse.statusCode),
-                    let mimeType: String = httpResponse.mimeType, mimeType.hasPrefix("image"),
+                    let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode),
+                    let mimeType: String = response.mimeType, mimeType.hasPrefix("image"),
                     let data: Data = data,
                     let image: UIImage = UIImage(data: data)
                 else {
@@ -113,7 +113,7 @@ extension UIImageView {
                     return
                 }
 
-                let filename: String = httpResponse.suggestedFilename ?? url.lastPathComponent
+                let filename: String = response.suggestedFilename ?? url.lastPathComponent
                 filename.log()
 
                 DispatchQueue.main.async {
@@ -174,8 +174,8 @@ extension UIImageView {
                 }
 
                 guard
-                    let httpResponse: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(httpResponse.statusCode),
-                    let mimeType: String = httpResponse.mimeType, mimeType.hasPrefix("image"),
+                    let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode),
+                    let mimeType: String = response.mimeType, mimeType.hasPrefix("image"),
                     let data: Data = data,
                     let image: UIImage = UIImage(data: data)
                 else {
@@ -183,7 +183,7 @@ extension UIImageView {
                     return
                 }
 
-                let filename: String = httpResponse.suggestedFilename ?? url.lastPathComponent
+                let filename: String = response.suggestedFilename ?? url.lastPathComponent
                 filename.log()
 
                 DispatchQueue.main.async {
