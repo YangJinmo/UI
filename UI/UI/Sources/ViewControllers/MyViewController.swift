@@ -200,7 +200,7 @@ final class MyViewController: BaseViewController {
         present(DelegateViewController(delegate: self))
     }
 
-    func getRandomColor() -> UIColor {
+    private func getRandomColor() -> UIColor {
         return UIColor(
             red: CGFloat(drand48()),
             green: CGFloat(drand48()),
@@ -213,6 +213,7 @@ final class MyViewController: BaseViewController {
 extension MyViewController: ChangeUIDelegate {
     func changeUI() {
         view.backgroundColor = getRandomColor()
+
         toast("UI가 변경되었습니다.", bottom: true)
     }
 }
