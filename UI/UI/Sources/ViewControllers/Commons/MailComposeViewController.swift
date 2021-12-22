@@ -8,9 +8,45 @@
 import MessageUI
 
 class MailComposeViewController: BaseNavigationViewController {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    private struct Font {
+        static let basicButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+    }
 
+    private let vcName: String = "MailCompose"
+    
+    // MARK: - Views
+
+    private let sendEmailButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.setTitle("sendEmail", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = Font.basicButton
+        return button
+    }()
+
+    // MARK: - View Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupViews()
+        setTitleLabel(vcName)
+    }
+
+    // MARK: - Methods
+
+    private func setupViews() {
+        view.add(
+            sendEmailButton,
+            heightConstant: 44,
+            center: view
+        )
+
+        sendEmailButton.addTarget(self, action: #selector(sendEmailButtonTouched(_:)), for: .touchUpInside)
+    }
+
+    @objc private func sendEmailButtonTouched(_ sender: Any) {
         sendEmail()
     }
 
