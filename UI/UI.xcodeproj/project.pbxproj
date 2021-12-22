@@ -65,6 +65,7 @@
 		E8A829332743256A00B3D7F9 /* Website.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829322743256A00B3D7F9 /* Website.swift */; };
 		E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */; };
 		E8A829372743831A00B3D7F9 /* Websites.json in Resources */ = {isa = PBXBuildFile; fileRef = E8A829362743831A00B3D7F9 /* Websites.json */; };
+		E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878827733DF400E04F43 /* DelegateViewController.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 /* End PBXBuildFile section */
@@ -130,6 +131,7 @@
 		E8A829322743256A00B3D7F9 /* Website.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Website.swift; sourceTree = "<group>"; };
 		E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshControl.swift; sourceTree = "<group>"; };
 		E8A829362743831A00B3D7F9 /* Websites.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Websites.json; sourceTree = "<group>"; };
+		E8AF878827733DF400E04F43 /* DelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -337,6 +339,7 @@
 				093160A627350DEA00126D4E /* MyViewController.swift */,
 				09AB3492272D873100317254 /* SettingViewController.swift */,
 				099D33EC27545AA500C14F5F /* TextViewController.swift */,
+				E8AF878827733DF400E04F43 /* DelegateViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				09AB348E272B9B1C00317254 /* TabBarController.swift in Sources */,
 				091AC4292737ED2F00294EFC /* String.swift in Sources */,
 				09ADF39627252989004C6A97 /* UIEdgeInsets.swift in Sources */,
+				E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */,
 				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
 				E8A829332743256A00B3D7F9 /* Website.swift in Sources */,
 				091AC4332739142400294EFC /* WKWebView.swift in Sources */,

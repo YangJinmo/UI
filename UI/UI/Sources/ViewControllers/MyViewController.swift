@@ -16,7 +16,7 @@ final class MyViewController: BaseViewController {
 
     private struct Font {
         static let nicknameButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
-        static let mailButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+        static let basicButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
 
     private let vcName: String = "마이"
@@ -43,7 +43,7 @@ final class MyViewController: BaseViewController {
         let button: UIButton = UIButton()
         button.setTitle("Email", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.mailButton
+        button.titleLabel?.font = Font.basicButton
         return button
     }()
 
@@ -51,7 +51,7 @@ final class MyViewController: BaseViewController {
         let button: UIButton = UIButton()
         button.setTitle("alert", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.mailButton
+        button.titleLabel?.font = Font.basicButton
         return button
     }()
 
@@ -59,7 +59,7 @@ final class MyViewController: BaseViewController {
         let button: UIButton = UIButton()
         button.setTitle("alertOption", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.mailButton
+        button.titleLabel?.font = Font.basicButton
         return button
     }()
 
@@ -67,7 +67,15 @@ final class MyViewController: BaseViewController {
         let button: UIButton = UIButton()
         button.setTitle("actionSheet", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.mailButton
+        button.titleLabel?.font = Font.basicButton
+        return button
+    }()
+
+    private let delegateButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.setTitle("delegate", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = Font.basicButton
         return button
     }()
 
@@ -121,12 +129,21 @@ final class MyViewController: BaseViewController {
             heightConstant: 44
         )
 
+        view.add(
+            delegateButton,
+            top: actionSheetButton.bottomAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            heightConstant: 44
+        )
+
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
 
         mailButton.addTarget(self, action: #selector(mailButtonTouched(_:)), for: .touchUpInside)
         alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
         alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched(_:)), for: .touchUpInside)
         actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched(_:)), for: .touchUpInside)
+        delegateButton.addTarget(self, action: #selector(delegateButtonTouched(_:)), for: .touchUpInside)
     }
 
     @objc private func nicknameButtonTouched(_ sender: Any) {
@@ -177,5 +194,27 @@ final class MyViewController: BaseViewController {
         } completion: {
             "completion".log()
         }
+    }
+
+    @objc private func delegateButtonTouched(_ sender: Any) {
+        let vc = DelegateViewController()
+        vc.delegate = self
+        present(vc)
+    }
+
+    func getRandomColor() -> UIColor {
+        return UIColor(
+            red: CGFloat(drand48()),
+            green: CGFloat(drand48()),
+            blue: CGFloat(drand48()),
+            alpha: 0.5
+        )
+    }
+}
+
+extension MyViewController: ChangeUIDelegate {
+    func changeUI() {
+        view.backgroundColor = getRandomColor()
+        toast("UI가 변경되었습니다.", bottom: true)
     }
 }
