@@ -39,17 +39,33 @@ final class MyViewController: BaseViewController {
         return button
     }()
 
-    private let alertButton: UIButton = {
+    private let mailButton: UIButton = {
         let button: UIButton = UIButton()
-        button.setTitle("경보", for: .normal)
+        button.setTitle("Email", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Font.mailButton
         return button
     }()
 
-    private let mailButton: UIButton = {
+    private let alertButton: UIButton = {
         let button: UIButton = UIButton()
-        button.setTitle("메일", for: .normal)
+        button.setTitle("alert", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = Font.mailButton
+        return button
+    }()
+
+    private let alertOptionButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.setTitle("alertOption", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = Font.mailButton
+        return button
+    }()
+
+    private let actionSheetButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.setTitle("actionSheet", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Font.mailButton
         return button
@@ -64,29 +80,88 @@ final class MyViewController: BaseViewController {
         setTitleLabel(vcName)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.", bottom: true)
-    }
-
     // MARK: - Methods
 
     private func setupViews() {
-        view.add(nicknameButton, heightConstant: 44, center: view, centerYConstant: -44)
-        view.add(alertButton, heightConstant: 44, center: view)
-        view.add(mailButton, heightConstant: 44, center: view, centerYConstant: 44)
+        view.add(
+            nicknameButton,
+            heightConstant: 44,
+            center: view
+        )
+
+        view.add(
+            mailButton,
+            top: contentView.topAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            heightConstant: 44
+        )
+
+        view.add(
+            alertButton,
+            top: mailButton.bottomAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            heightConstant: 44
+        )
+
+        view.add(
+            alertOptionButton,
+            top: alertButton.bottomAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            heightConstant: 44
+        )
+
+        view.add(
+            actionSheetButton,
+            top: alertOptionButton.bottomAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            heightConstant: 44
+        )
 
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
-        alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
+
         mailButton.addTarget(self, action: #selector(mailButtonTouched(_:)), for: .touchUpInside)
+        alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
+        alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched(_:)), for: .touchUpInside)
+        actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched(_:)), for: .touchUpInside)
     }
 
     @objc private func nicknameButtonTouched(_ sender: Any) {
         pushViewController(TextViewController())
     }
 
+    @objc private func mailButtonTouched(_ sender: Any) {
+        pushViewController(MailComposeViewController())
+    }
+
     @objc private func alertButtonTouched(_ sender: Any) {
+        alert(
+            title: "title",
+            message: "message"
+        ) { _ in
+            "cancelHandler".log()
+        } completion: {
+            "completion".log()
+        }
+    }
+
+    @objc private func alertOptionButtonTouched(_ sender: Any) {
+        alertOption(
+            title: "title",
+            message: "message"
+        ) { _ in
+            "confirmHandler".log()
+        } cancelHandler: { _ in
+            "cancelHandler".log()
+        } completion: {
+            "completion".log()
+        }
+    }
+
+    @objc private func actionSheetButtonTouched(_ sender: Any) {
         actionSheet(
             title: "title",
             message: "message",
@@ -102,9 +177,5 @@ final class MyViewController: BaseViewController {
         } completion: {
             "completion".log()
         }
-    }
-
-    @objc private func mailButtonTouched(_ sender: Any) {
-        pushViewController(MailComposeViewController())
     }
 }
