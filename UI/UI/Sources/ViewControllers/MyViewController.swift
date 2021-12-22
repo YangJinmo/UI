@@ -197,9 +197,7 @@ final class MyViewController: BaseViewController {
     }
 
     @objc private func delegateButtonTouched(_ sender: Any) {
-        let vc = DelegateViewController()
-        vc.delegate = self
-        present(vc)
+        present(DelegateViewController(delegate: self))
     }
 
     func getRandomColor() -> UIColor {
