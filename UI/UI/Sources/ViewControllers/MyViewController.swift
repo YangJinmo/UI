@@ -179,6 +179,11 @@ final class MyViewController: BaseViewController {
     }
 
     @objc private func actionSheetButtonTouched(_ sender: Any) {
+        //actionSheetImplementedInUIViewControllerExtension()
+        actionSheetImplementedInUIAlertControllerExtension()
+    }
+
+    private func actionSheetImplementedInUIViewControllerExtension() {
         actionSheet(
             title: "title",
             message: "message",
@@ -192,6 +197,24 @@ final class MyViewController: BaseViewController {
         ) { _ in
             "cancel".log()
         } completion: {
+            "completion".log()
+        }
+    }
+
+    private func actionSheetImplementedInUIAlertControllerExtension() {
+        present(
+            UIAlertController
+                .actionSheet(title: "title", message: "message")
+                .action(title: "default", style: .default) { _ in
+                    "default".log()
+                }
+                .action(title: "destructive", style: .destructive) { _ in
+                    "destructive".log()
+                }
+                .action(title: "취소", style: .cancel) { _ in
+                    "cancel".log()
+                }
+        ) {
             "completion".log()
         }
     }
