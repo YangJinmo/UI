@@ -18,27 +18,27 @@ extension UIViewController {
 
     // MARK: - UINavigationController
 
-    func presentWithNavigationController(_ rootViewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+    func presentWithNavigationController(_ rootViewController: UIViewController, completion: (() -> Void)? = nil) {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.isNavigationBarHidden = true
-        present(navigationController, animated: animated, completion: completion)
+        present(navigationController, animated: true, completion: completion)
     }
 
-    func pushViewController(_ viewController: UIViewController, animated: Bool = true, hidesBottomBarWhenPushed: Bool = true) {
+    func pushViewController(_ viewController: UIViewController, hidesBottomBarWhenPushed: Bool = true) {
         viewController.hidesBottomBarWhenPushed = hidesBottomBarWhenPushed
-        navigationController?.pushViewController(viewController, animated: animated)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
-    func popViewController(animated: Bool = true) {
-        navigationController?.popViewController(animated: animated)
+    func popViewController() {
+        navigationController?.popViewController(animated: true)
     }
 
-    func popToViewController(_ viewController: UIViewController, animated: Bool = true) {
-        navigationController?.popToViewController(viewController, animated: animated)
+    func popToViewController(_ viewController: UIViewController) {
+        navigationController?.popToViewController(viewController, animated: true)
     }
 
-    func popToRootViewController(animated: Bool = true) {
-        navigationController?.popToRootViewController(animated: animated)
+    func popToRootViewController() {
+        navigationController?.popToRootViewController(animated: true)
     }
 
     // MARK: - Toast
