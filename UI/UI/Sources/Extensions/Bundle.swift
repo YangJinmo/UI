@@ -8,7 +8,7 @@
 import UIKit
 
 extension Bundle {
-    class var appName: String {
+    static var appName: String {
         guard
             let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleName"] as? String
@@ -18,7 +18,7 @@ extension Bundle {
         return value
     }
 
-    class var appDisplayName: String {
+    static var appDisplayName: String {
         guard
             let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleDisplayName"] as? String
@@ -28,7 +28,7 @@ extension Bundle {
         return value
     }
 
-    class var appVersion: String {
+    static var appVersion: String {
         guard
             let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleShortVersionString"] as? String
@@ -38,7 +38,7 @@ extension Bundle {
         return value
     }
 
-    class var appBuild: String {
+    static var appBuild: String {
         guard
             let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleVersion"] as? String
@@ -48,7 +48,7 @@ extension Bundle {
         return value
     }
 
-    class var bundle: String {
+    static var bundle: String {
         guard
             let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
             let value: String = infoDictionary["CFBundleIdentifier"] as? String
@@ -58,7 +58,7 @@ extension Bundle {
         return value
     }
 
-    class var appVersionAndBuild: String {
+    static var appVersionAndBuild: String {
         return "v\(appVersion) (\(appBuild))"
     }
 }
