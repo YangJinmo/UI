@@ -10,11 +10,11 @@ import UIKit
 final class MyViewController: BaseViewController {
     // MARK: - Constants
 
-    private struct Image {
+    private enum Image {
         static let pencil: UIImage? = UIImage(systemName: "pencil")
     }
 
-    private struct Font {
+    private enum Font {
         static let nicknameButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
         static let basicButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }

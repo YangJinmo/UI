@@ -9,7 +9,7 @@ import MessageUI
 
 class MailComposeViewController: BaseNavigationViewController {
     
-    private struct Font {
+    private enum Font {
         static let basicButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
 

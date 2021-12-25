@@ -10,7 +10,7 @@ import UIKit
 final class TextViewController: BaseNavigationViewController {
     // MARK: - Constants
 
-    private struct Font {
+    private enum Font {
         static let textView: UIFont = .systemFont(ofSize: 24, weight: .semibold)
     }
     

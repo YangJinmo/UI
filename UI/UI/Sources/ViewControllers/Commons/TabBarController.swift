@@ -10,7 +10,7 @@ import UIKit
 final class TabBarController: UITabBarController {
     // MARK: - Constants
 
-    private struct Image {
+    private enum Image {
         static let house: UIImage? = UIImage(systemName: "house")
         static let magnifyingglass: UIImage? = UIImage(systemName: "magnifyingglass")
         static let bag: UIImage? = UIImage(systemName: "bag")
@@ -18,7 +18,7 @@ final class TabBarController: UITabBarController {
         static let person: UIImage? = UIImage(systemName: "person")
     }
 
-    private struct Color {
+    private enum Color {
         static let viewBackgroundColor: UIColor = .systemBackground
         static let tabBarTintColor: UIColor = .label
         static let tabBarBackgroundColor: UIColor = .systemBackground

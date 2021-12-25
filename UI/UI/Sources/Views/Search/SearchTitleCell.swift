@@ -20,7 +20,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // MARK: - Constants
 
-    private struct Image {
+    private enum Image {
         static let chevronDownImage = UIImage(systemName: "chevron.down")
         static let chevronUpImage = UIImage(systemName: "chevron.up")
     }

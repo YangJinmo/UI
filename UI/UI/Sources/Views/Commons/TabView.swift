@@ -10,18 +10,18 @@ import UIKit
 class TabView: BaseView {
     // MARK: - Constants
 
-    private struct Image {
+    private enum Image {
         static let chevronLeft: UIImage? = UIImage(systemName: "chevron.left")
     }
 
-    private struct Font {
+    private enum Font {
         static let titleLabel: UIFont = .systemFont(ofSize: 18, weight: .bold)
         static let rightButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
 
-    private struct Color {
-        static let leftButtonTint: UIColor = UIColor.label
-        static let rightButtonTitle: UIColor = UIColor.label
+    private enum Color {
+        static let leftButtonTint: UIColor = .label
+        static let rightButtonTitle: UIColor = .label
     }
 
     private var titleText: String = ""

@@ -10,7 +10,7 @@ import UIKit
 class ImagePresentViewController: BasePresentViewController {
     // MARK: - Constants
 
-    private struct Image {
+    private enum Image {
         static let photo: UIImage? = UIImage(systemName: "photo") // 􀏅
     }
 
