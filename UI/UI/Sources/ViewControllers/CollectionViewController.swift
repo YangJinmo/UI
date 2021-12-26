@@ -100,7 +100,7 @@ extension CollectionViewController: UICollectionViewDataSource {
         switch indexPath.item {
         case 0:
             let cell: SearchTitleCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.bind(data: searches[indexPath.section])
+            cell.bind(search: searches[indexPath.section])
             return cell
         default:
             let cell: SearchTermCell = collectionView.dequeueReusableCell(for: indexPath)

@@ -98,7 +98,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
             right: contentView.rightAnchor, 36,
             centerY: contentView
         )
-        
+
 //        contentView.constraints.first { $0.firstAnchor == titleLabel.leftAnchor }?.isActive = false
 //
 //        removeAnchor(left: titleLabel, right: chevronButton)
@@ -127,18 +127,18 @@ final class SearchTitleCell: BaseCollectionViewCell {
 //        titleLabel.remake(left: contentView.leftAnchor, 60)
     }
 
-    func bind(data: Search) {
-        chevronButton.isSelected = data.isExpand
-        titleLabel.text = data.title
-        titleLabel.isHidden = data.isExpand
+    func bind(search: Search) {
+        chevronButton.isSelected = search.isExpand
+        titleLabel.text = search.title
+        titleLabel.isHidden = search.isExpand
 
-        if data.isExpand == true {
+        if search.isExpand == true {
             timer.invalidate()
             index = 0
             isTimerOn = false
-            termLabel.text = data.title
+            termLabel.text = search.title
         } else {
-            termLabel.text = "\(index + 1). \(data.terms[index])" // Default
+            setupTermLabel(search: search, index: index) // Default
 
             if isTimerOn == false {
                 isTimerOn = true
@@ -146,15 +146,22 @@ final class SearchTitleCell: BaseCollectionViewCell {
                 timer = Timer.scheduledTimer(
                     withTimeInterval: 2,
                     repeats: true,
-                    block: { _ in
-                        self.termLabel.text = "\(self.index + 1). \(data.terms[self.index])"
+                    block: { [weak self] _ in
+                        guard let self = self else { return }
+                        self.setupTermLabel(search: search, index: self.index)
                         self.index += 1
-                        if self.index == data.terms.count {
+
+                        if self.index == search.terms.count {
                             self.index = 0
                         }
                     }
                 )
             }
         }
+    }
+
+    func setupTermLabel(search: Search, index: Int) {
+        termLabel.text = "\(index + 1). \(search.terms[index])"
+        "\(index + 1). \(search.terms[index])".log()
     }
 }
