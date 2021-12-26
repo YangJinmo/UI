@@ -56,6 +56,7 @@
 		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 		09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */; };
+		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
 		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
 		E87889CA276252D500B9A07E /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87889C9276252D500B9A07E /* UIWindow.swift */; };
@@ -125,6 +126,7 @@
 		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		E87889C9276252D500B9A07E /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				09ADF39327252921004C6A97 /* FlowLayoutMetric.swift */,
 				09ADF3A52725996E004C6A97 /* SupplementaryViewKind.swift */,
+				E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				09ADF37F272521EB004C6A97 /* TableViewController.swift in Sources */,
 				09ADF3A427259409004C6A97 /* DividerView.swift in Sources */,
 				09ADF3902725286F004C6A97 /* BaseCollectionView.swift in Sources */,
+				E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
