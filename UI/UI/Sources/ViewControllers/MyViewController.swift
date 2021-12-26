@@ -39,7 +39,7 @@ final class MyViewController: BaseViewController {
         return button
     }()
 
-    private let mailButton: UIButton = {
+    private let emailButton: UIButton = {
         let button: UIButton = UIButton()
         button.setTitle("Email", for: .normal)
         button.setTitleColor(.label, for: .normal)
@@ -49,7 +49,7 @@ final class MyViewController: BaseViewController {
 
     private let alertButton: UIButton = {
         let button: UIButton = UIButton()
-        button.setTitle("alert", for: .normal)
+        button.setTitle("Alert", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Font.basicButton
         return button
@@ -57,7 +57,7 @@ final class MyViewController: BaseViewController {
 
     private let alertOptionButton: UIButton = {
         let button: UIButton = UIButton()
-        button.setTitle("alertOption", for: .normal)
+        button.setTitle("AlertOption", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Font.basicButton
         return button
@@ -65,7 +65,15 @@ final class MyViewController: BaseViewController {
 
     private let actionSheetButton: UIButton = {
         let button: UIButton = UIButton()
-        button.setTitle("actionSheet", for: .normal)
+        button.setTitle("ActionSheet", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = Font.basicButton
+        return button
+    }()
+    
+    private let searchButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.setTitle("Search", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Font.basicButton
         return button
@@ -73,7 +81,7 @@ final class MyViewController: BaseViewController {
 
     private let delegateButton: UIButton = {
         let button: UIButton = UIButton()
-        button.setTitle("delegate", for: .normal)
+        button.setTitle("Delegate", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Font.basicButton
         return button
@@ -98,7 +106,7 @@ final class MyViewController: BaseViewController {
         )
 
         view.add(
-            mailButton,
+            emailButton,
             top: contentView.topAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
@@ -107,7 +115,7 @@ final class MyViewController: BaseViewController {
 
         view.add(
             alertButton,
-            top: mailButton.bottomAnchor,
+            top: emailButton.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
             heightConstant: 44
@@ -128,21 +136,31 @@ final class MyViewController: BaseViewController {
             right: view.rightAnchor,
             heightConstant: 44
         )
-
+        
         view.add(
-            delegateButton,
+            searchButton,
             top: actionSheetButton.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
             heightConstant: 44
         )
+        
+        view.add(
+            delegateButton,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            bottom: contentView.safeAreaLayoutGuide.bottomAnchor,
+            heightConstant: 44
+        )
 
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
 
-        mailButton.addTarget(self, action: #selector(mailButtonTouched(_:)), for: .touchUpInside)
+        emailButton.addTarget(self, action: #selector(mailButtonTouched(_:)), for: .touchUpInside)
         alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
         alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched(_:)), for: .touchUpInside)
         actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched(_:)), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(searchButtonTouched(_:)), for: .touchUpInside)
+        
         delegateButton.addTarget(self, action: #selector(delegateButtonTouched(_:)), for: .touchUpInside)
     }
 
@@ -217,6 +235,10 @@ final class MyViewController: BaseViewController {
         ) {
             "completion".log()
         }
+    }
+    
+    @objc private func searchButtonTouched(_ sender: Any) {
+        present(SearchViewController())
     }
 
     @objc private func delegateButtonTouched(_ sender: Any) {
