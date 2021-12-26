@@ -58,7 +58,7 @@ final class TabBarController: UITabBarController {
                 image: Image.house
             ),
             BaseNavigationController(
-                rootViewController: CollectionViewController(),
+                rootViewController: TimerViewController(),
                 title: "Search",
                 image: Image.magnifyingglass
             ),
