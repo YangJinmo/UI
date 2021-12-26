@@ -133,8 +133,8 @@ class BaseViewController: UIViewController {
         guideView.addSubviews(stackView)
         views.forEach { stackView.addArrangedSubview($0) }
 
-        let contentViewHeightConstraint = guideView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        contentViewHeightConstraint.priority = .defaultLow
+        let guideViewHeightConstraint = guideView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        guideViewHeightConstraint.priority = .defaultLow
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
@@ -154,7 +154,7 @@ class BaseViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: guideView.trailingAnchor, constant: -margin),
             stackView.centerYAnchor.constraint(equalTo: guideView.centerYAnchor),
 
-            contentViewHeightConstraint,
+            guideViewHeightConstraint,
         ])
     }
 }
