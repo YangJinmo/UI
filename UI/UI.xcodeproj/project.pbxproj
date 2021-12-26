@@ -66,6 +66,7 @@
 		E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */; };
 		E8A829372743831A00B3D7F9 /* Websites.json in Resources */ = {isa = PBXBuildFile; fileRef = E8A829362743831A00B3D7F9 /* Websites.json */; };
 		E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878827733DF400E04F43 /* DelegateViewController.swift */; };
+		E8AF878B2778AE8400E04F43 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878A2778AE8400E04F43 /* SearchViewController.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,7 @@
 		E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshControl.swift; sourceTree = "<group>"; };
 		E8A829362743831A00B3D7F9 /* Websites.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Websites.json; sourceTree = "<group>"; };
 		E8AF878827733DF400E04F43 /* DelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
+		E8AF878A2778AE8400E04F43 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -340,6 +342,7 @@
 				09AB3492272D873100317254 /* SettingViewController.swift */,
 				099D33EC27545AA500C14F5F /* TextViewController.swift */,
 				E8AF878827733DF400E04F43 /* DelegateViewController.swift */,
+				E8AF878A2778AE8400E04F43 /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
+				E8AF878B2778AE8400E04F43 /* SearchViewController.swift in Sources */,
 				099D33ED27545AA500C14F5F /* TextViewController.swift in Sources */,
 				09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */,
 				093160A727350DEA00126D4E /* MyViewController.swift in Sources */,
