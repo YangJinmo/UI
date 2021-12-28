@@ -23,8 +23,8 @@ class NetworkHandler {
             }
 
             guard
-                let data: Data = data,
-                let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode)
+                let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode),
+                let data: Data = data
             else {
                 return
             }
