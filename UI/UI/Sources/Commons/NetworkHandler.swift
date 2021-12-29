@@ -15,7 +15,7 @@ class NetworkHandler {
         }
 
         let defaultSession: URLSession = URLSession(configuration: .default)
-        let request: URLRequest = URLRequest(url: url)
+        let request: URLRequest = url.request
         let dataTask: URLSessionDataTask = defaultSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let error: Error = error {
                 error.localizedDescription.log()
