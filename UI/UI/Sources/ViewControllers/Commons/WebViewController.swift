@@ -103,7 +103,7 @@ final class WebViewController: BaseNavigationViewController {
             let urlString: String = urlString,
             let encodedString: String = urlString.encode,
             let url: URL = encodedString.url,
-            url.canOpenURL()
+            url.canOpenURL
         else {
 //            alert(
 //                title: "실행 오류",
