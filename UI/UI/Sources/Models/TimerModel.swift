@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/12/27.
 //
 
-import Foundation
+import Foundation.NSURL
 
 struct TimerModel {
     private var startTime: Date?

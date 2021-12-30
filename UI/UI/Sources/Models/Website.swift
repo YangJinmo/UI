@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/11/16.
 //
 
-import Foundation
+import Foundation.NSURL
 
 struct Website: Decodable {
     var title = String()

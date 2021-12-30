@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/10/24.
 //
 
-import Foundation
+import Foundation.NSURL
 
 struct Search {
     var isExpand = Bool()
