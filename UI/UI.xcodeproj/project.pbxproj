@@ -57,6 +57,7 @@
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 		09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
+		E8581347277F630200CD206E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581346277F630200CD206E /* UIButton.swift */; };
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
 		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
 		E87889CA276252D500B9A07E /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87889C9276252D500B9A07E /* UIWindow.swift */; };
@@ -126,6 +127,7 @@
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		E8581346277F630200CD206E /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		E87889C9276252D500B9A07E /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				E87889C9276252D500B9A07E /* UIWindow.swift */,
 				09ADF38927252498004C6A97 /* UIView.swift */,
 				E87889CB27625A4E00B9A07E /* UILabel.swift */,
+				E8581346277F630200CD206E /* UIButton.swift */,
 				0977F78A275924A8002700A5 /* UIImage.swift */,
 				0977F7882759119E002700A5 /* UIImageView.swift */,
 				099D33E62753C83900C14F5F /* UIStackView.swift */,
@@ -463,6 +466,7 @@
 				E8A829332743256A00B3D7F9 /* Website.swift in Sources */,
 				091AC4332739142400294EFC /* WKWebView.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
+				E8581347277F630200CD206E /* UIButton.swift in Sources */,
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,
 				E8AF878D2778BBFB00E04F43 /* TimerViewController.swift in Sources */,
 				09ADF3AC2725A1E4004C6A97 /* SearchTermCell.swift in Sources */,
