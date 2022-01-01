@@ -9,8 +9,8 @@ import UIKit
 
 class BaseImageView: UIImageView {
     // MARK: - Initialization
-    
-    convenience override init(image: UIImage?) {
+
+    override convenience init(image: UIImage?) {
         self.init(frame: .zero)
 
         self.image = image
@@ -29,9 +29,9 @@ class BaseImageView: UIImageView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Variables
-    
+
     private var aspectRatioConstraint: Constraint? {
         didSet {
             if oldValue != nil {
@@ -42,9 +42,9 @@ class BaseImageView: UIImageView {
             }
         }
     }
-    
+
     // MARK: - Methods
-    
+
     func remakeAspectRatioConstraint(_ image: UIImage) {
         aspectRatioConstraint = getAspectRatioConstraint(image)
     }
