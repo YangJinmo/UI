@@ -8,6 +8,6 @@
 import Foundation.NSURL
 
 struct Website: Decodable {
-    var title = String()
-    var urlString = String()
+    var title: String?
+    var urlString: String?
 }
