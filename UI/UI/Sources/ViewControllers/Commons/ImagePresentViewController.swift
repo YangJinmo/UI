@@ -10,15 +10,11 @@ import UIKit
 class ImagePresentViewController: BasePresentViewController {
     // MARK: - Constants
 
-    private enum Image {
-        static let photo: UIImage? = UIImage(systemName: "photo") // 􀏅
-    }
-
-    private let vcName: String = "IU"
+    private let vcName = "ImagePresentViewController"
 
     // MARK: - Variables
 
-    private var imageUrl: String = ""
+    private var imageUrl: URL?
 
     // MARK: - Views
 
@@ -27,7 +23,7 @@ class ImagePresentViewController: BasePresentViewController {
 
     // MARK: - Initialization
 
-    convenience init(imageUrl: String) {
+    convenience init(imageUrl: URL) {
         self.init()
 
         self.imageUrl = imageUrl
@@ -47,32 +43,33 @@ class ImagePresentViewController: BasePresentViewController {
         )
 
         setTitleLabel(vcName)
-        setImage(urlString: imageUrl)
+        setImage(url: imageUrl)
     }
 
     // MARK: - Methods
 
-    private func setImage(urlString: String) {
-        guard let url: URL = urlString.url else {
-            imageView.image = Image.photo
-            return
-        }
+    private func setImage(url: URL?) {
+        guard let url = url else { return }
         activityIndicatorView.startAnimating()
 
         DispatchQueue.global().async { [weak self] in
             do {
-                let data: Data = try Data(contentsOf: url)
+                let data = try Data(contentsOf: url)
 
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
-                    if let image = UIImage(data: data) {
-                        self.imageView.remakeAspectRatioConstraint(image)
-                        self.imageView.image = image
-                        self.activityIndicatorView.stopAnimating()
-                    }
+                    self.activityIndicatorView.stopAnimating()
+
+                    guard let image = UIImage(data: data) else { return }
+                    self.imageView.remakeAspectRatioConstraint(image)
+                    self.imageView.image = image
                 }
             } catch {
-                error.localizedDescription.log()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.toast(error.localizedDescription)
+                    self.dismiss()
+                }
             }
         }
     }

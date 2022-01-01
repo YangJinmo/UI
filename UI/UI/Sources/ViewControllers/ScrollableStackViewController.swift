@@ -58,7 +58,20 @@ final class ScrollableStackViewController: UIViewController {
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
-        let imageUrl: String = "https://blog.kakaocdn.net/dn/0ZgUD/btqDljigiKg/JhrTd8H9kF2KOztZ7HhFu1/img.jpg"
-        present(ImagePresentViewController(imageUrl: imageUrl))
+//        let urlString: String? = ""
+//        let urlString: String? = "https"
+//        let urlString: String? = "https:"
+        let urlString: String? = "https://blog.kakaocdn.net/dn/0ZgUD/btqDljigiKg/JhrTd8H9kF2KOztZ7HhFu1/img.jpg"
+
+        guard
+            let urlString = urlString,
+            let encodedString = urlString.encode,
+            let url = encodedString.url,
+            url.canOpenURL
+        else {
+            toast("실행 오류\n\n이미지 주소가 유효하지 않기 때문에\n해당 이미지를 불러올 수 없습니다.")
+            return
+        }
+        present(ImagePresentViewController(imageUrl: url))
     }
 }
