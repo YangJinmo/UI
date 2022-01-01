@@ -38,7 +38,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
     }()
 
     private let chevronButton: UIButton = {
-        let button: UIButton = UIButton()
+        let button = UIButton()
         button.setImage(Image.chevronDownImage, for: .normal)
         button.setImage(Image.chevronUpImage, for: .selected)
         button.tintColor = .label

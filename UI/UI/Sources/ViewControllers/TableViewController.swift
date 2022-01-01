@@ -20,7 +20,7 @@ final class TableViewController: UIViewController {
     private lazy var refreshControl = BaseRefreshControl()
 
     private lazy var tableView: BaseTableView = {
-        let tableView: BaseTableView = BaseTableView()
+        let tableView = BaseTableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(DividerTableViewCell.self)

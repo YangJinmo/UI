@@ -62,8 +62,8 @@ class TabView: BaseView {
         return button
     }()
 
-    private let dividerView: DividerView = DividerView()
-    private let contentView: UIView = UIView()
+    private let dividerView = DividerView()
+    private let contentView = UIView()
     private let scrollView = UIScrollView()
     private let guideView = UIView()
     private let stackView: UIStackView = {

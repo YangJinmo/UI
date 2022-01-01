@@ -52,12 +52,12 @@ class BaseViewController: UIViewController {
         return button
     }()
 
-    private let dividerView: DividerView = DividerView()
-    let contentView: UIView = UIView()
+    private let dividerView = DividerView()
+    let contentView = UIView()
     private let scrollView = UIScrollView()
     private let guideView = UIView()
     private let stackView: UIStackView = {
-        let stackView: UIStackView = UIStackView()
+        let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fill
@@ -122,7 +122,7 @@ class BaseViewController: UIViewController {
     func setTitleLabel(_ text: String) {
         titleLabel.text = text
     }
-    
+
     func hideDivider() {
         dividerView.isHidden = true
     }
