@@ -120,8 +120,8 @@ extension UIViewController {
 
     // MARK: - Toast
 
-    func toast(_ text: String, bottom: Bool = false) {
-        guard !text.isEmpty, let keyWindow: UIWindow = UIWindow.key else { return }
+    func toast(_ text: String?, bottom: Bool = false) {
+        guard !text.isNilOrEmpty, let keyWindow: UIWindow = UIWindow.key else { return }
 
         let toastLabel: UILabel = UILabel()
         toastLabel.backgroundColor = UIColor.label.withAlphaComponent(0.8)
