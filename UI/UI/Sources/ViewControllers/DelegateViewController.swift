@@ -14,12 +14,10 @@ protocol ChangeUIDelegate: AnyObject {
 final class DelegateViewController: BasePresentViewController {
     weak var delegate: ChangeUIDelegate?
 
-    private enum Font {
-        static let basicButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
-    }
+    // MARK: - Constants
 
     private let vcName: String = "Delegate"
-    
+
     // MARK: - Initialization
 
     init(delegate: ChangeUIDelegate) {
@@ -27,20 +25,14 @@ final class DelegateViewController: BasePresentViewController {
 
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Views
 
-    private let changeButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("Change", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
-    }()
+    private lazy var changeButton = UIButton.makeForBasic("Change")
 
     // MARK: - View Life Cycle
 

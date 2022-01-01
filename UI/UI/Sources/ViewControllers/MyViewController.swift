@@ -16,14 +16,13 @@ final class MyViewController: BaseViewController {
 
     private enum Font {
         static let nicknameButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
-        static let basicButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
 
     private let vcName: String = "마이"
 
     // MARK: - Views
 
-    private let nicknameButton: UIButton = {
+    private lazy var nicknameButton: UIButton = {
         var configuration: UIButton.Configuration = .filled()
         configuration.title = "Edit Nickname"
         configuration.subtitle = "닉네임 수정"
@@ -39,53 +38,12 @@ final class MyViewController: BaseViewController {
         return button
     }()
 
-    private let emailButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("Email", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
-    }()
-
-    private let alertButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("Alert", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
-    }()
-
-    private let alertOptionButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("AlertOption", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
-    }()
-
-    private let actionSheetButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("ActionSheet", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
-    }()
-    
-    private let searchButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("Search", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
-    }()
-
-    private let delegateButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("Delegate", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
-    }()
+    private lazy var emailButton = UIButton.makeForBasic("Email")
+    private lazy var alertButton = UIButton.makeForBasic("Alert")
+    private lazy var alertOptionButton = UIButton.makeForBasic("AlertOption")
+    private lazy var actionSheetButton = UIButton.makeForBasic("ActionSheet")
+    private lazy var searchButton = UIButton.makeForBasic("Search")
+    private lazy var delegateButton = UIButton.makeForBasic("Delegate")
 
     // MARK: - View Life Cycle
 
@@ -136,7 +94,7 @@ final class MyViewController: BaseViewController {
             right: view.rightAnchor,
             heightConstant: 44
         )
-        
+
         view.add(
             searchButton,
             top: actionSheetButton.bottomAnchor,
@@ -144,7 +102,7 @@ final class MyViewController: BaseViewController {
             right: view.rightAnchor,
             heightConstant: 44
         )
-        
+
         view.add(
             delegateButton,
             left: view.leftAnchor,
@@ -160,7 +118,7 @@ final class MyViewController: BaseViewController {
         alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched(_:)), for: .touchUpInside)
         actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched(_:)), for: .touchUpInside)
         searchButton.addTarget(self, action: #selector(searchButtonTouched(_:)), for: .touchUpInside)
-        
+
         delegateButton.addTarget(self, action: #selector(delegateButtonTouched(_:)), for: .touchUpInside)
     }
 
@@ -197,7 +155,7 @@ final class MyViewController: BaseViewController {
     }
 
     @objc private func actionSheetButtonTouched(_ sender: Any) {
-        //actionSheetImplementedInUIViewControllerExtension()
+        // actionSheetImplementedInUIViewControllerExtension()
         actionSheetImplementedInUIAlertControllerExtension()
     }
 
@@ -236,7 +194,7 @@ final class MyViewController: BaseViewController {
             "completion".log()
         }
     }
-    
+
     @objc private func searchButtonTouched(_ sender: Any) {
         present(SearchViewController())
     }

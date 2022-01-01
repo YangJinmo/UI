@@ -8,22 +8,13 @@
 import MessageUI
 
 class MailComposeViewController: BaseNavigationViewController {
-    
-    private enum Font {
-        static let basicButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
-    }
+    // MARK: - Constants
 
-    private let vcName: String = "MailCompose"
-    
+    private let vcName: String = "MailComposeViewController"
+
     // MARK: - Views
 
-    private let sendEmailButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("sendEmail", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
-    }()
+    private lazy var sendEmailButton = UIButton.makeForBasic("sendEmail")
 
     // MARK: - View Life Cycle
 
