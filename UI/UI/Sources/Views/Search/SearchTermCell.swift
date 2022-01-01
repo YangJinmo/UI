@@ -8,11 +8,9 @@
 import UIKit
 
 final class SearchTermCell: BaseCollectionViewCell {
-    // MARK: - Variables
+    // MARK: - Constants
 
-    static var itemHeight: CGFloat {
-        return 44
-    }
+    static let itemHeight: CGFloat = 44
 
     // MARK: - Views
 
