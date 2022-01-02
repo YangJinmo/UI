@@ -98,7 +98,7 @@ UI is a DSL to make Auto Layout easy on iOS.
       let items: [Item] = ["1", "2", "3"]
   
       lazy var tableView: UITableView = {
-          let tableView: UITableView = UITableView()
+          let tableView = UITableView()
           tableView.dataSource = self
           tableView.delegate = self
           tableView.register(TableViewCell.self)
@@ -144,7 +144,7 @@ UI is a DSL to make Auto Layout easy on iOS.
       ]
   
       lazy var collectionView: BaseCollectionView = {
-          let collectionView: BaseCollectionView = BaseCollectionView(layout: flowLayout())
+          let collectionView = BaseCollectionView(layout: flowLayout())
           collectionView.dataSource = self
           collectionView.delegate = self
           collectionView.register(SearchTitleCell.self)
