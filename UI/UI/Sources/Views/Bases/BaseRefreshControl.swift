@@ -17,7 +17,7 @@ class BaseRefreshControl: UIRefreshControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        tintColor = .systemOrange
+        tintColor = .tint
     }
 
     required init?(coder: NSCoder) {
