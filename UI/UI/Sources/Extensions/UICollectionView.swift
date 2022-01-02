@@ -73,22 +73,22 @@ extension UICollectionView {
     }
 
     func registerNib<T: UICollectionReusableView>(_ viewClass: T.Type, kind: SupplementaryViewKind) {
-        let bundle: Bundle = Bundle(for: T.self)
-        let nib: UINib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
+        let bundle = Bundle(for: T.self)
+        let nib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
 
         register(nib, forSupplementaryViewOfKind: kind.rawValue, withReuseIdentifier: T.reuseIdentifier)
     }
 
     func registerHeaderNib<T: UICollectionReusableView>(_ viewClass: T.Type) {
-        let bundle: Bundle = Bundle(for: T.self)
-        let nib: UINib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
+        let bundle = Bundle(for: T.self)
+        let nib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
 
         register(nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: T.reuseIdentifier)
     }
 
     func registerFooterNib<T: UICollectionReusableView>(_ viewClass: T.Type) {
-        let bundle: Bundle = Bundle(for: T.self)
-        let nib: UINib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
+        let bundle = Bundle(for: T.self)
+        let nib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
 
         register(nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: T.reuseIdentifier)
     }
