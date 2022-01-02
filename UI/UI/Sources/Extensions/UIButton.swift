@@ -8,15 +8,18 @@
 import UIKit
 
 extension UIButton {
-    private enum Font {
-        static let basicButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+    convenience init(_ titleText: String? = nil, _ titleFont: UIFont = .subtitle) {
+        self.init(frame: .zero)
+
+        setTitle(titleText, for: .normal)
+        setTitleColor(.basic, for: .normal)
+        titleLabel?.font = titleFont
     }
 
-    static func makeForBasic(_ titleText: String) -> UIButton {
-        let button: UIButton = UIButton()
-        button.setTitle(titleText, for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Font.basicButton
-        return button
+    convenience init(_ image: UIImage? = nil, _ color: UIColor = .basic) {
+        self.init(frame: .zero)
+
+        setImage(image, for: .normal)
+        tintColor = color
     }
 }
