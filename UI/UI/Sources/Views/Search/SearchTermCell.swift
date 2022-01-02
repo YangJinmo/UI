@@ -14,11 +14,7 @@ final class SearchTermCell: BaseCollectionViewCell {
 
     // MARK: - Views
 
-    private let rankTermLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        return label
-    }()
+    private lazy var rankTermLabel = UILabel.makeForSubtitle()
 
     // MARK: - Methods
 

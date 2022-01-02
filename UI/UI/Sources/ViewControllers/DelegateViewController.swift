@@ -32,7 +32,7 @@ final class DelegateViewController: BasePresentViewController {
 
     // MARK: - Views
 
-    private lazy var changeButton = UIButton.makeForBasic("Change")
+    private lazy var changeButton = UIButton("Change", .title)
 
     // MARK: - View Life Cycle
 

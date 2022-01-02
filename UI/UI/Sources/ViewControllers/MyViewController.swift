@@ -38,12 +38,12 @@ final class MyViewController: BaseViewController {
         return button
     }()
 
-    private lazy var emailButton = UIButton.makeForBasic("Email")
-    private lazy var alertButton = UIButton.makeForBasic("Alert")
-    private lazy var alertOptionButton = UIButton.makeForBasic("AlertOption")
-    private lazy var actionSheetButton = UIButton.makeForBasic("ActionSheet")
-    private lazy var searchButton = UIButton.makeForBasic("Search")
-    private lazy var delegateButton = UIButton.makeForBasic("Delegate")
+    private lazy var emailButton = UIButton("Email")
+    private lazy var alertButton = UIButton("Alert")
+    private lazy var alertOptionButton = UIButton("AlertOption")
+    private lazy var actionSheetButton = UIButton("ActionSheet")
+    private lazy var searchButton = UIButton("Search")
+    private lazy var delegateButton = UIButton("Delegate")
 
     // MARK: - View Life Cycle
 

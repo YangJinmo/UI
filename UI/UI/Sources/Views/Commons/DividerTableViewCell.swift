@@ -10,7 +10,7 @@ import UIKit
 final class DividerTableViewCell: BaseTableViewCell {
     // MARK: - Views
 
-    private let dividerView = DividerView()
+    private lazy var dividerView = DividerView()
 
     // MARK: - Methods
 

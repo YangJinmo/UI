@@ -14,12 +14,7 @@ final class SettingViewController: BaseNavigationViewController {
 
     // MARK: - Views
 
-    private let presentButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("Present", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        return button
-    }()
+    private lazy var presentButton = UIButton("Present", .title)
 
     // MARK: - View Life Cycle
 

@@ -14,7 +14,7 @@ class MailComposeViewController: BaseNavigationViewController {
 
     // MARK: - Views
 
-    private lazy var sendEmailButton = UIButton.makeForBasic("sendEmail")
+    private lazy var sendEmailButton = UIButton("sendEmail")
 
     // MARK: - View Life Cycle
 

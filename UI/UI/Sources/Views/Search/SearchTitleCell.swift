@@ -25,19 +25,9 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // MARK: - Views
 
-    private let titleLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        return label
-    }()
-
-    private let termLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        return label
-    }()
-
-    private let chevronButton: UIButton = {
+    private lazy var titleLabel = UILabel.makeForSubtitle()
+    private lazy var termLabel = UILabel.makeForSubtitle()
+    private lazy var chevronButton: UIButton = {
         let button = UIButton()
         button.setImage(Image.chevronDownImage, for: .normal)
         button.setImage(Image.chevronUpImage, for: .selected)
@@ -45,8 +35,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
         button.isUserInteractionEnabled = false
         return button
     }()
-
-    private let dividerView = DividerView()
+    private lazy var dividerView = DividerView()
 
     // MARK: - Methods
 

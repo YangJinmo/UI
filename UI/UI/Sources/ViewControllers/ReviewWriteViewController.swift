@@ -14,12 +14,7 @@ final class ReviewWriteViewController: BasePresentViewController {
 
     // MARK: - Views
 
-    private let pushButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.setTitle("Push", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        return button
-    }()
+    private lazy var pushButton = UIButton("Push", .title)
 
     // MARK: - View Life Cycle
 

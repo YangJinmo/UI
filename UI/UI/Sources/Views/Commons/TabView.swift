@@ -14,16 +14,6 @@ class TabView: BaseView {
         static let chevronLeft: UIImage? = UIImage(systemName: "chevron.left")
     }
 
-    private enum Font {
-        static let titleLabel: UIFont = .systemFont(ofSize: 18, weight: .bold)
-        static let rightButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
-    }
-
-    private enum Color {
-        static let leftButtonTint: UIColor = .label
-        static let rightButtonTitle: UIColor = .label
-    }
-
     private var titleText = ""
 
     // MARK: - Initialization
@@ -36,38 +26,31 @@ class TabView: BaseView {
 
     // MARK: - Views
 
-    private let titleView: UIView = UIView()
-
-    private let titleLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.font = Font.titleLabel
+    private lazy var titleView: UIView = UIView()
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel.makeForTitle()
         label.textAlignment = .center
         return label
     }()
 
-    private let popButton: UIButton = {
-        let button: UIButton = UIButton()
+    private lazy var popButton: UIButton = {
+        let button = UIButton(Image.chevronLeft)
         button.isHidden = true
-        button.setImage(Image.chevronLeft, for: .normal)
-        button.tintColor = Color.leftButtonTint
         return button
     }()
 
-    private let dismissButton: UIButton = {
-        let button: UIButton = UIButton()
+    private lazy var dismissButton: UIButton = {
+        let button = UIButton("확인")
         button.isHidden = true
-        button.setTitle("확인", for: .normal)
-        button.setTitleColor(Color.rightButtonTitle, for: .normal)
-        button.titleLabel?.font = Font.rightButton
         return button
     }()
 
-    private let dividerView = DividerView()
-    private let contentView = UIView()
-    private let scrollView = UIScrollView()
-    private let guideView = UIView()
-    private let stackView: UIStackView = {
-        let stackView: UIStackView = UIStackView()
+    private lazy var dividerView = DividerView()
+    private lazy var contentView = UIView()
+    private lazy var scrollView = UIScrollView()
+    private lazy var guideView = UIView()
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill

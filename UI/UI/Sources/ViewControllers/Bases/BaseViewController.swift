@@ -14,49 +14,29 @@ class BaseViewController: UIViewController {
         static let chevronLeft: UIImage? = UIImage(systemName: "chevron.left")
     }
 
-    private enum Font {
-        static let titleLabel: UIFont = .systemFont(ofSize: 18, weight: .bold)
-        static let rightButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
-    }
-
-    private enum Color {
-        static let leftButtonTint: UIColor = .label
-        static let rightButtonTitle: UIColor = .label
-    }
-
     // MARK: - Views
 
-    let titleView: UIView = UIView()
-
-    let titleLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.font = Font.titleLabel
+    lazy var titleView = UIView()
+    lazy var titleLabel: UILabel = {
+        let label = UILabel.makeForTitle()
         label.textAlignment = .center
         return label
     }()
-
-    let popButton: UIButton = {
-        let button: UIButton = UIButton()
+    lazy var popButton: UIButton = {
+        let button = UIButton(Image.chevronLeft)
         button.isHidden = true
-        button.setImage(Image.chevronLeft, for: .normal)
-        button.tintColor = Color.leftButtonTint
         return button
     }()
-
-    let dismissButton: UIButton = {
-        let button: UIButton = UIButton()
+    lazy var dismissButton: UIButton = {
+        let button = UIButton("확인")
         button.isHidden = true
-        button.setTitle("확인", for: .normal)
-        button.setTitleColor(Color.rightButtonTitle, for: .normal)
-        button.titleLabel?.font = Font.rightButton
         return button
     }()
-
-    private let dividerView = DividerView()
-    let contentView = UIView()
-    private let scrollView = UIScrollView()
-    private let guideView = UIView()
-    private let stackView: UIStackView = {
+    private lazy var dividerView = DividerView()
+    lazy var contentView = UIView()
+    private lazy var scrollView = UIScrollView()
+    private lazy var guideView = UIView()
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
