@@ -47,6 +47,7 @@ final class ScrollableStackViewController: UIViewController {
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
+//        let urlString: String?
 //        let urlString: String? = ""
 //        let urlString: String? = "https"
 //        let urlString: String? = "https:"
