@@ -16,7 +16,7 @@ final class DelegateViewController: BasePresentViewController {
 
     // MARK: - Constants
 
-    private let vcName: String = "Delegate"
+    private let vcName = "Delegate"
 
     // MARK: - Initialization
 

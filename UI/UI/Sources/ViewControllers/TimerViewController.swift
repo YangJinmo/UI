@@ -31,7 +31,7 @@ final class TimerViewController: UIViewController {
     // MARK: - Views
 
     private lazy var tableView: BaseTableView = {
-        let tableView: BaseTableView = BaseTableView()
+        let tableView = BaseTableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(DividerTableViewCell.self)

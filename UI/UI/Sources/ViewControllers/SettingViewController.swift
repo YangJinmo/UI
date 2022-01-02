@@ -10,7 +10,7 @@ import UIKit
 final class SettingViewController: BaseNavigationViewController {
     // MARK: - Constants
 
-    private let vcName: String = "설정"
+    private let vcName = "설정"
 
     // MARK: - Views
 

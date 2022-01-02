@@ -18,7 +18,7 @@ final class MyViewController: BaseViewController {
         static let nicknameButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
     }
 
-    private let vcName: String = "마이"
+    private let vcName = "마이"
 
     // MARK: - Views
 
@@ -33,7 +33,7 @@ final class MyViewController: BaseViewController {
         configuration.imagePadding = 16
         configuration.baseBackgroundColor = .systemIndigo
         configuration.baseForegroundColor = .systemPink
-        let button: UIButton = UIButton(configuration: configuration, primaryAction: nil)
+        let button = UIButton(configuration: configuration, primaryAction: nil)
         button.sizeToFit()
         return button
     }()

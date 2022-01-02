@@ -19,9 +19,9 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // MARK: - Variables
 
-    private var timer: Timer = Timer()
-    private var isTimerOn: Bool = false
-    private var index: Int = 0
+    private var timer = Timer()
+    private var isTimerOn = false
+    private var index = 0
 
     // MARK: - Views
 

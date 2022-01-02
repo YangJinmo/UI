@@ -9,7 +9,7 @@ import UIKit
 
 extension UIImageView {
     func getAspectRatioConstraint(_ image: UIImage) -> Constraint {
-        let constraint: Constraint = Constraint(
+        let constraint = Constraint(
             item: self,
             attribute: .width,
             relatedBy: .equal,
@@ -23,17 +23,17 @@ extension UIImageView {
     }
 
     func setImage(urlString: String?) {
-        let url: URL? = urlString.flatMap { $0.url }
+        let url = urlString.flatMap { $0.url }
         setImage(url: url)
     }
 
     func setImage(url: URL?) {
-        guard let url: URL = url else { return }
+        guard let url = url else { return }
 
         DispatchQueue.global().async { [weak self] in
             do {
-                let data: Data = try Data(contentsOf: url)
-                let image: UIImage? = UIImage(data: data)
+                let data = try Data(contentsOf: url)
+                let image = UIImage(data: data)
 
                 DispatchQueue.main.async {
                     self?.image = image
@@ -48,8 +48,8 @@ extension UIImageView {
 
     func setImageSynchronously(resource: String?, type: String? = "jpg") {
         guard
-            let filePath: String = Bundle.main.path(forResource: resource, ofType: type),
-            let image: UIImage = UIImage(contentsOfFile: filePath)
+            let filePath = Bundle.main.path(forResource: resource, ofType: type),
+            let image = UIImage(contentsOfFile: filePath)
         else {
             return
         }
@@ -59,25 +59,25 @@ extension UIImageView {
     // MARK: - Download
 
     func setImageDownload(url: URL?) {
-        guard let url: URL = url else { return }
+        guard let url = url else { return }
 
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            if let error: Error = error {
+            if let error = error {
                 error.localizedDescription.log()
                 return
             }
 
             guard
-                let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode),
-                let mimeType: String = response.mimeType, mimeType.hasPrefix("image"),
-                let data: Data = data,
-                let image: UIImage = UIImage(data: data)
+                let response = response as? HTTPURLResponse, (200 ... 299) ~= response.statusCode,
+                let mimeType = response.mimeType, mimeType.hasPrefix("image"),
+                let data = data,
+                let image = UIImage(data: data)
             else {
                 "Error: response, data, image".log()
                 return
             }
 
-            let filename: String = response.suggestedFilename ?? url.lastPathComponent
+            let filename = response.suggestedFilename ?? url.lastPathComponent
             filename.log()
 
             DispatchQueue.main.async {
@@ -89,30 +89,30 @@ extension UIImageView {
     // MARK: - Retrieve Memory Cache
 
     func setImageRetrieveInMemoryCache(url: URL?) {
-        guard let url: URL = url else { return }
+        guard let url = url else { return }
 
-        let cacheKey: NSString = NSString(string: url.absoluteString)
+        let cacheKey = NSString(string: url.absoluteString)
 
-        if let cachedImage: UIImage = ImageCacheManager.shared.object(forKey: cacheKey) {
+        if let cachedImage = ImageCacheManager.shared.object(forKey: cacheKey) {
             image = cachedImage
         } else {
             URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-                if let error: Error = error {
+                if let error = error {
                     error.localizedDescription.log()
                     return
                 }
 
                 guard
-                    let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode),
-                    let mimeType: String = response.mimeType, mimeType.hasPrefix("image"),
-                    let data: Data = data,
-                    let image: UIImage = UIImage(data: data)
+                    let response = response as? HTTPURLResponse, (200 ... 299) ~= response.statusCode,
+                    let mimeType = response.mimeType, mimeType.hasPrefix("image"),
+                    let data = data,
+                    let image = UIImage(data: data)
                 else {
                     "Error: response, data, image".log()
                     return
                 }
 
-                let filename: String = response.suggestedFilename ?? url.lastPathComponent
+                let filename = response.suggestedFilename ?? url.lastPathComponent
                 filename.log()
 
                 DispatchQueue.main.async {
@@ -126,26 +126,26 @@ extension UIImageView {
     // MARK: - Retrieve Disk Cache
 
     func setImageRetrieveInDiskCache(url: URL?) {
-        guard let url: URL = url else { return }
+        guard let url = url else { return }
 
         /**
          FileManager 인스턴스 생성. default는 FileManager 싱글톤 인스턴스를 만들어줍니다.
          FileManager는 URL 혹은 String 데이터 타입을 통해 파일에 접근할 수 있도록 합니다.
          Apple에서는 URL을 통한 파일 접근을 권장합니다.
          */
-        let fileManager: FileManager = FileManager.default // Returns the default singleton instance.
+        let fileManager = FileManager.default // Returns the default singleton instance.
 
         // 폴더 생성
-        let urls: [URL] = fileManager.urls(
+        let urls = fileManager.urls(
             for: .cachesDirectory,
             in: .userDomainMask // user's home directory --- place to install user's personal items (~)
         )
 
-        guard let documentsDirectory: URL = urls.first else { return }
+        guard let documentsDirectory = urls.first else { return }
 
-        let directoryName: String = "DiskCache"
-        let directoryURL: URL = documentsDirectory.appendingPathComponent(directoryName)
-        let directoryPath: String = directoryURL.path // .../Library/Caches/DiskCache
+        let directoryName = "DiskCache"
+        let directoryURL = documentsDirectory.appendingPathComponent(directoryName)
+        let directoryPath = directoryURL.path // .../Library/Caches/DiskCache
 
         if !fileManager.fileExists(atPath: directoryPath) {
             "\(directoryName)가 존재하지 않습니다.".log()
@@ -158,38 +158,38 @@ extension UIImageView {
         }
 
         // 파일 생성
-        let fileName: String = "project_lunch.png"
-        let fileURL: URL = directoryURL.appendingPathComponent(fileName)
-        let filePath: String = fileURL.path
+        let fileName = "project_lunch.png"
+        let fileURL = directoryURL.appendingPathComponent(fileName)
+        let filePath = fileURL.path
 
         if fileManager.fileExists(atPath: filePath) {
             "\(fileName)이 존재합니다.".log()
             setImage(url: fileURL)
         } else {
             URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-                if let error: Error = error {
+                if let error = error {
                     error.localizedDescription.log()
                     return
                 }
 
                 guard
-                    let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode),
-                    let mimeType: String = response.mimeType, mimeType.hasPrefix("image"),
-                    let data: Data = data,
-                    let image: UIImage = UIImage(data: data)
+                    let response = response as? HTTPURLResponse, (200 ... 299) ~= response.statusCode,
+                    let mimeType = response.mimeType, mimeType.hasPrefix("image"),
+                    let data = data,
+                    let image = UIImage(data: data)
                 else {
                     "Error: response, data, image".log()
                     return
                 }
 
-                let filename: String = response.suggestedFilename ?? url.lastPathComponent
+                let filename = response.suggestedFilename ?? url.lastPathComponent
                 filename.log()
 
                 DispatchQueue.main.async {
                     self?.image = image
                 }
 
-                guard let pngData: Data = image.pngData() else { return }
+                guard let pngData = image.pngData() else { return }
                 fileManager.createFile(atPath: filePath, contents: pngData, attributes: nil)
             }.resume()
         }

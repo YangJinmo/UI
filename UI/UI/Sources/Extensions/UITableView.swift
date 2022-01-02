@@ -54,8 +54,8 @@ extension UITableView {
     }
 
     func registerNib<T: UITableViewCell>(_: T.Type) {
-        let bundle: Bundle = Bundle(for: T.self)
-        let nib: UINib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
+        let bundle = Bundle(for: T.self)
+        let nib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
 
         register(nib, forCellReuseIdentifier: T.reuseIdentifier)
     }
@@ -74,8 +74,8 @@ extension UITableView {
     }
 
     func registerNib<T: UITableViewHeaderFooterView>(_ aClass: T.Type) {
-        let bundle: Bundle = Bundle(for: T.self)
-        let nib: UINib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
+        let bundle = Bundle(for: T.self)
+        let nib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
 
         register(nib, forHeaderFooterViewReuseIdentifier: T.reuseIdentifier)
     }

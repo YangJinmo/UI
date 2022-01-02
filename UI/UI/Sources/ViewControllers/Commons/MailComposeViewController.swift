@@ -10,7 +10,7 @@ import MessageUI
 class MailComposeViewController: BaseNavigationViewController {
     // MARK: - Constants
 
-    private let vcName: String = "MailComposeViewController"
+    private let vcName = "MailComposeViewController"
 
     // MARK: - Views
 
@@ -42,7 +42,7 @@ class MailComposeViewController: BaseNavigationViewController {
     }
 
     func sendEmail() {
-        let email: String = "didwlsah9@gmail.com"
+        let email = "didwlsah9@gmail.com"
 
         guard MFMailComposeViewController.canSendMail() else {
             UIPasteboard.general.string = email
@@ -50,17 +50,17 @@ class MailComposeViewController: BaseNavigationViewController {
             return
         }
 
-        let nickname: String = "getNickname"
-        let emailTitle: String = "[이용 문의 및 제안] "
-        let messageBody: String = "\n자세한 정보를 보내주시면 좀 더 빠른 해결이 가능해요!\n\n닉네임: \(nickname)\n앱버전: \(Bundle.appVersion)\n\n\n▶ 내용: \n\n\n\n\n\n\n"
-        let toRecipents: [String] = [email]
+        let nickname = "getNickname"
+        let emailTitle = "[이용 문의 및 제안] "
+        let messageBody = "\n자세한 정보를 보내주시면 좀 더 빠른 해결이 가능해요!\n\n닉네임: \(nickname)\n앱버전: \(Bundle.appVersion)\n\n\n▶ 내용: \n\n\n\n\n\n\n"
+        let toRecipents = [email]
 
-        let mc: MFMailComposeViewController = MFMailComposeViewController()
-        mc.mailComposeDelegate = self
-        mc.setSubject(emailTitle)
-        mc.setMessageBody(messageBody, isHTML: false)
-        mc.setToRecipients(toRecipents)
-        present(mc, animated: true)
+        let mailComposeViewController = MFMailComposeViewController()
+        mailComposeViewController.mailComposeDelegate = self
+        mailComposeViewController.setSubject(emailTitle)
+        mailComposeViewController.setMessageBody(messageBody, isHTML: false)
+        mailComposeViewController.setToRecipients(toRecipents)
+        present(mailComposeViewController, animated: true)
     }
 }
 

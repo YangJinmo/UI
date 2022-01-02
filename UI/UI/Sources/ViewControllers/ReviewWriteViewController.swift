@@ -10,7 +10,7 @@ import UIKit
 final class ReviewWriteViewController: BasePresentViewController {
     // MARK: - Constants
 
-    private let vcName: String = "리뷰 작성"
+    private let vcName = "리뷰 작성"
 
     // MARK: - Views
 

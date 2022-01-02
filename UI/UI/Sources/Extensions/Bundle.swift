@@ -10,8 +10,8 @@ import UIKit
 extension Bundle {
     static var appName: String {
         guard
-            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
-            let value: String = infoDictionary["CFBundleName"] as? String
+            let infoDictionary = Bundle.main.infoDictionary,
+            let value = infoDictionary["CFBundleName"] as? String
         else {
             return "Unknown"
         }
@@ -20,8 +20,8 @@ extension Bundle {
 
     static var appDisplayName: String {
         guard
-            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
-            let value: String = infoDictionary["CFBundleDisplayName"] as? String
+            let infoDictionary = Bundle.main.infoDictionary,
+            let value = infoDictionary["CFBundleDisplayName"] as? String
         else {
             return appName
         }
@@ -30,8 +30,8 @@ extension Bundle {
 
     static var appVersion: String {
         guard
-            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
-            let value: String = infoDictionary["CFBundleShortVersionString"] as? String
+            let infoDictionary = Bundle.main.infoDictionary,
+            let value = infoDictionary["CFBundleShortVersionString"] as? String
         else {
             return "Unknown"
         }
@@ -41,7 +41,7 @@ extension Bundle {
     static var appBuild: String {
         guard
             let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
-            let value: String = infoDictionary["CFBundleVersion"] as? String
+            let value = infoDictionary["CFBundleVersion"] as? String
         else {
             return "Unknown"
         }
@@ -50,8 +50,8 @@ extension Bundle {
 
     static var bundle: String {
         guard
-            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
-            let value: String = infoDictionary["CFBundleIdentifier"] as? String
+            let infoDictionary = Bundle.main.infoDictionary,
+            let value = infoDictionary["CFBundleIdentifier"] as? String
         else {
             return "Unknown"
         }

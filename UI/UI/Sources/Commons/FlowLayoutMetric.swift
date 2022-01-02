@@ -18,7 +18,7 @@ protocol FlowLayoutMetric {
 
 extension FlowLayoutMetric {
     func flowLayout() -> UICollectionViewFlowLayout {
-        let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = sectionInset
         flowLayout.minimumLineSpacing = minimumLineSpacing
         flowLayout.minimumInteritemSpacing = minimumInteritemSpacing
@@ -26,7 +26,7 @@ extension FlowLayoutMetric {
     }
 
     func itemSize(width view: UIView, height: CGFloat) -> CGSize {
-        let horizontalInset: CGFloat = sectionInset.left + sectionInset.right
+        let horizontalInset = sectionInset.left + sectionInset.right
         return CGSize(width: view.safeAreaLayoutGuide.layoutFrame.width - (horizontalInset * 2), height: height)
     }
 }

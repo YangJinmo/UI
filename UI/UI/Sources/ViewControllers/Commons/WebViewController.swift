@@ -11,12 +11,12 @@ import WebKit
 final class WebViewController: BaseNavigationViewController {
     // MARK: - Constants
 
-    private let scriptMessageHandler: String = "scriptHandler"
+    private let scriptMessageHandler = "scriptHandler"
 
     // MARK: - Variables
 
     private var urlString: String?
-    private var titleText: String = ""
+    private var titleText = ""
 
     // MARK: - Initialization
 
@@ -100,9 +100,9 @@ final class WebViewController: BaseNavigationViewController {
 
     private func loadWebView() {
         guard
-            let urlString: String = urlString,
-            let encodedString: String = urlString.encode,
-            let url: URL = encodedString.url,
+            let urlString = urlString,
+            let encodedString = urlString.encode,
+            let url = encodedString.url,
             url.canOpenURL
         else {
 //            alert(
@@ -158,7 +158,7 @@ extension WebViewController: WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        guard let url: URL = navigationAction.request.url else { return }
+        guard let url = navigationAction.request.url else { return }
         url.log()
         decisionHandler(.allow)
     }

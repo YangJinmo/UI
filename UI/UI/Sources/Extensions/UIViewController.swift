@@ -49,7 +49,7 @@ extension UIViewController {
         confirmHandler: ((UIAlertAction) -> Void)? = nil,
         completion: (() -> Void)? = nil
     ) {
-        let alertController: UIAlertController = UIAlertController(
+        let alertController = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
@@ -71,7 +71,7 @@ extension UIViewController {
         cancelHandler: ((UIAlertAction) -> Void)? = nil,
         completion: (() -> Void)? = nil
     ) {
-        let alertController: UIAlertController = UIAlertController(
+        let alertController = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
@@ -100,7 +100,7 @@ extension UIViewController {
         cancelHandler: ((UIAlertAction) -> Void)? = nil,
         completion: (() -> Void)? = nil
     ) {
-        let alertController: UIAlertController = UIAlertController(
+        let alertController = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .actionSheet
@@ -121,9 +121,9 @@ extension UIViewController {
     // MARK: - Toast
 
     func toast(_ text: String?, bottom: Bool = false) {
-        guard !text.isNilOrEmpty, let keyWindow: UIWindow = UIWindow.key else { return }
+        guard !text.isNilOrEmpty, let keyWindow = UIWindow.key else { return }
 
-        let toastLabel: UILabel = UILabel()
+        let toastLabel = UILabel()
         toastLabel.backgroundColor = UIColor.label.withAlphaComponent(0.8)
         toastLabel.textColor = .systemBackground
         toastLabel.textAlignment = .center

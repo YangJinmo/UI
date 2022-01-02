@@ -24,7 +24,7 @@ class TabView: BaseView {
         static let rightButtonTitle: UIColor = .label
     }
 
-    private var titleText: String = ""
+    private var titleText = ""
 
     // MARK: - Initialization
 

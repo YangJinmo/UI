@@ -19,7 +19,7 @@ extension String {
     }
 
     func open() {
-        guard let url: URL = url else { return }
+        guard let url = url else { return }
         url.open()
     }
 

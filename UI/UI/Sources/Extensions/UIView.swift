@@ -439,10 +439,10 @@ extension UIView {
      */
 
     func addConstraintsWithFormat(_ format: String, views: UIView...) {
-        var viewsDictionary: [String: UIView] = [String: UIView]()
+        var viewsDictionary = [String: UIView]()
 
         for (index, view) in views.enumerated() {
-            let key: String = "v\(index)"
+            let key = "v\(index)"
             viewsDictionary[key] = view
         }
 

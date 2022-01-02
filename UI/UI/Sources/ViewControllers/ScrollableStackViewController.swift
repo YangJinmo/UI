@@ -10,7 +10,7 @@ import UIKit
 final class ScrollableStackViewController: UIViewController {
     // MARK: - Constants
 
-    private let vcName: String = "ScrollableStackViewController"
+    private let vcName = "ScrollableStackViewController"
 
     // MARK: - Views
 

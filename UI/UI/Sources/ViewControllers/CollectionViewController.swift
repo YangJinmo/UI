@@ -10,7 +10,7 @@ import UIKit
 final class CollectionViewController: BaseViewController {
     // MARK: - Constants
 
-    private let vcName: String = "추천 검색어"
+    private let vcName = "추천 검색어"
 
     // MARK: - Variables
 
@@ -35,7 +35,7 @@ final class CollectionViewController: BaseViewController {
     // MARK: - Views
 
     private lazy var collectionView: BaseCollectionView = {
-        let collectionView: BaseCollectionView = BaseCollectionView(layout: flowLayout())
+        let collectionView = BaseCollectionView(layout: flowLayout())
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(SearchTitleCell.self)

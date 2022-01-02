@@ -10,7 +10,7 @@ import UIKit
 final class ReviewViewController: BaseViewController {
     // MARK: - Constants
 
-    private let vcName: String = "리뷰"
+    private let vcName = "리뷰"
 
     // MARK: - Views
 
