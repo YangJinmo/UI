@@ -11,7 +11,7 @@ extension UIButton {
     convenience init(
         _ titleText: String? = nil,
         _ titleFont: UIFont = .subtitle,
-        _ titleColor: UIColor = .basic
+        _ titleColor: UIColor = .base
     ) {
         self.init(frame: .zero)
 
@@ -22,7 +22,7 @@ extension UIButton {
 
     convenience init(
         _ image: UIImage? = nil,
-        _ color: UIColor = .basic
+        _ color: UIColor = .base
     ) {
         self.init(frame: .zero)
 

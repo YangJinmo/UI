@@ -9,5 +9,5 @@ import UIKit
 
 extension UIColor {
     static let tint: UIColor = .systemOrange
-    static let basic: UIColor = .label
+    static let base: UIColor = .label
 }
