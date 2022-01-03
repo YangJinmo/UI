@@ -41,8 +41,8 @@ extension UILabel {
     func spaceBetweenTheLines(_ alignment: NSTextAlignment = .center, _ lineSpacing: CGFloat = 2) {
         guard let text = self.text else { return }
 
-        let mutableAttributedString: NSMutableAttributedString = NSMutableAttributedString(string: text)
-        let mutableParagraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
+        let mutableAttributedString = NSMutableAttributedString(string: text)
+        let mutableParagraphStyle = NSMutableParagraphStyle()
         mutableParagraphStyle.lineSpacing = lineSpacing
         mutableParagraphStyle.alignment = alignment
         mutableAttributedString.addAttribute(.paragraphStyle, value: mutableParagraphStyle, range: NSMakeRange(0, mutableAttributedString.length))
