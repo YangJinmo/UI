@@ -9,9 +9,9 @@ import UIKit
 
 extension String {
     var encode: String? {
-        var allowedQueryParamAndKey: CharacterSet = .urlQueryAllowed
-        allowedQueryParamAndKey.remove(charactersIn: ";/?:@&=+$, ")
-        return addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        var allowedQueryParamAndKey: CharacterSet = .urlQueryAllowed // ! $ & \ ( ) * +  - . / : ; = ? @ _ ~
+        allowedQueryParamAndKey.insert("#")
+        return addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)
     }
 
     var url: URL? {
