@@ -59,6 +59,7 @@
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
 		E8581343277F584400CD206E /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581342277F584400CD206E /* Optional.swift */; };
 		E8581347277F630200CD206E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581346277F630200CD206E /* UIButton.swift */; };
+		E8581349277F682E00CD206E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581348277F682E00CD206E /* Data.swift */; };
 		E858134B277F696900CD206E /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134A277F696900CD206E /* Encodable.swift */; };
 		E858134D278056BD00CD206E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134C278056BD00CD206E /* UIFont.swift */; };
 		E858134F27805F7600CD206E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134E27805F7600CD206E /* UIColor.swift */; };
@@ -133,6 +134,7 @@
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		E8581342277F584400CD206E /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		E8581346277F630200CD206E /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		E8581348277F682E00CD206E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		E858134A277F696900CD206E /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		E858134C278056BD00CD206E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E858134E27805F7600CD206E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				091AC4282737ED2F00294EFC /* String.swift */,
 				091AC42A2737ED5D00294EFC /* URL.swift */,
 				E8581342277F584400CD206E /* Optional.swift */,
+				E8581348277F682E00CD206E /* Data.swift */,
 				E858134A277F696900CD206E /* Encodable.swift */,
 			);
 			path = Extensions;
@@ -449,6 +452,7 @@
 				E87889CC27625A4E00B9A07E /* UILabel.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
 				099D33EF2754678E00C14F5F /* TabView.swift in Sources */,
+				E8581349277F682E00CD206E /* Data.swift in Sources */,
 				E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */,
 				0977F78727590F61002700A5 /* ImagePresentViewController.swift in Sources */,
 				099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */,
