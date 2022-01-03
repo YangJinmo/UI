@@ -4,9 +4,25 @@
 		"urlString" : "https://github.com/YangJinmo"
 	},
 	{
-		"title" : "Notion",
+		"title" : "Resume",
 		"urlString" : "https://www.notion.so/zzimss/zzimss-085677b5dff74118b3cbafd68adee38b"
 	},
+    {
+        "title" : "Algorithm",
+        "urlString" : "https://github.com/YangJinmo/Algorithm#algorithm"
+    },
+    {
+        "title" : "Swift",
+        "urlString" : "https://zzimss.notion.site/Swift-d9525761805c482c8c4ce61c2cf4e435"
+    },
+    {
+        "title" : "RxSwift",
+        "urlString" : "https://zzimss.notion.site/RxSwift-81aceeff6afc43bebfeccdbde5d68275"
+    },
+    {
+        "title" : "SwiftUI",
+        "urlString" : "https://github.com/YangJinmo/SwiftUI"
+    },
 	{
 		"title" : "Naver",
 		"urlString" : "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=동탄호수공원"
