@@ -256,7 +256,19 @@ alertOption(
     "completion".log()
 }
 ```
-  
+```swift
+func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+    alertOption(
+        message: message,
+        confirmHandler: { _ in
+            completionHandler(true)
+        },
+        cancelHandler: { _ in
+            completionHandler(false)
+        }
+    )
+}
+```
 **actionSheet**
   
 ```swift
