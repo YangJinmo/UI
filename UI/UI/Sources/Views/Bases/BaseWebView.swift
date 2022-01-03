@@ -18,6 +18,10 @@ class BaseWebView: WKWebView {
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame: frame, configuration: configuration)
 
+        isOpaque = false
+        backgroundColor = .systemBackground
+        scrollView.backgroundColor = .systemBackground
+        
         allowsBackForwardNavigationGestures = true
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
