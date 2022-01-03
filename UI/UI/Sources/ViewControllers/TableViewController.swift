@@ -18,7 +18,6 @@ final class TableViewController: UIViewController {
 
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
     private lazy var refreshControl = BaseRefreshControl()
-
     private lazy var tableView: BaseTableView = {
         let tableView = BaseTableView()
         tableView.dataSource = self
@@ -81,8 +80,8 @@ extension TableViewController: UITableViewDelegate {
         let website: Website = websites[indexPath.row]
         pushViewController(
             WebViewController(
-                urlString: website.urlString,
-                titleText: website.title
+                urlString: website.urlString ?? "",
+                titleText: website.title ?? ""
             )
         )
     }
@@ -118,8 +117,9 @@ extension TableViewController {
         guard let path = Bundle.main.path(forResource: "Websites", ofType: "json") else { return }
 
         do {
-            let data: Data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let websites: [Website] = try JSONDecoder().decode([Website].self, from: data)
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            // let websites: [Website] = try JSONDecoder().decode([Website].self, from: data)
+            let websites = try data.decoded() as [Website]
 
             self.websites = websites
         } catch {
