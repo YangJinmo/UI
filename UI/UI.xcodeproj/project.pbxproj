@@ -59,6 +59,8 @@
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
 		E8581343277F584400CD206E /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581342277F584400CD206E /* Optional.swift */; };
 		E8581347277F630200CD206E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581346277F630200CD206E /* UIButton.swift */; };
+		E858134D278056BD00CD206E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134C278056BD00CD206E /* UIFont.swift */; };
+		E858134F27805F7600CD206E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134E27805F7600CD206E /* UIColor.swift */; };
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
 		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
 		E87889CA276252D500B9A07E /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87889C9276252D500B9A07E /* UIWindow.swift */; };
@@ -130,6 +132,8 @@
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		E8581342277F584400CD206E /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		E8581346277F630200CD206E /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		E858134C278056BD00CD206E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		E858134E27805F7600CD206E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		E87889C9276252D500B9A07E /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
@@ -259,10 +263,12 @@
 		09ADF38827252483004C6A97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E858134C278056BD00CD206E /* UIFont.swift */,
+				E87889CB27625A4E00B9A07E /* UILabel.swift */,
+				E858134E27805F7600CD206E /* UIColor.swift */,
+				E8581346277F630200CD206E /* UIButton.swift */,
 				E87889C9276252D500B9A07E /* UIWindow.swift */,
 				09ADF38927252498004C6A97 /* UIView.swift */,
-				E87889CB27625A4E00B9A07E /* UILabel.swift */,
-				E8581346277F630200CD206E /* UIButton.swift */,
 				0977F78A275924A8002700A5 /* UIImage.swift */,
 				0977F7882759119E002700A5 /* UIImageView.swift */,
 				099D33E62753C83900C14F5F /* UIStackView.swift */,
@@ -273,9 +279,9 @@
 				E875E94C276097BB002EEBE4 /* UIAlertAction.swift */,
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
 				091AC4322739142400294EFC /* WKWebView.swift */,
+				E8EE706A276786940005877A /* Bundle.swift */,
 				091AC4282737ED2F00294EFC /* String.swift */,
 				091AC42A2737ED5D00294EFC /* URL.swift */,
-				E8EE706A276786940005877A /* Bundle.swift */,
 				E8581342277F584400CD206E /* Optional.swift */,
 			);
 			path = Extensions;
@@ -432,6 +438,7 @@
 			files = (
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,
 				E8EE706B276786940005877A /* Bundle.swift in Sources */,
+				E858134D278056BD00CD206E /* UIFont.swift in Sources */,
 				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */,
@@ -455,6 +462,7 @@
 				09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */,
 				E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */,
 				091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */,
+				E858134F27805F7600CD206E /* UIColor.swift in Sources */,
 				091AC42B2737ED5D00294EFC /* URL.swift in Sources */,
 				099D33E72753C83900C14F5F /* UIStackView.swift in Sources */,
 				E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */,
