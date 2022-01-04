@@ -76,6 +76,7 @@
 		E8AF878B2778AE8400E04F43 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878A2778AE8400E04F43 /* SearchViewController.swift */; };
 		E8AF878D2778BBFB00E04F43 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */; };
 		E8AF878F2778C12000E04F43 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878E2778C12000E04F43 /* TimerModel.swift */; };
+		E8CF006A277C65F7009B3128 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF0069277C65F7009B3128 /* Track.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 /* End PBXBuildFile section */
@@ -152,6 +153,7 @@
 		E8AF878A2778AE8400E04F43 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		E8AF878E2778C12000E04F43 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		E8CF0069277C65F7009B3128 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -340,6 +342,7 @@
 				09ADF3AD2725A200004C6A97 /* Search.swift */,
 				E8A829322743256A00B3D7F9 /* Website.swift */,
 				E8AF878E2778C12000E04F43 /* TimerModel.swift */,
+				E8CF0069277C65F7009B3128 /* Track.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				09AB3490272D860000317254 /* BaseNavigationViewController.swift in Sources */,
 				09ADF37F272521EB004C6A97 /* TableViewController.swift in Sources */,
 				09ADF3A427259409004C6A97 /* DividerView.swift in Sources */,
+				E8CF006A277C65F7009B3128 /* Track.swift in Sources */,
 				09ADF3902725286F004C6A97 /* BaseCollectionView.swift in Sources */,
 				E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */,
 			);
