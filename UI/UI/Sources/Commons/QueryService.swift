@@ -43,8 +43,8 @@ final class QueryService {
             }
 
             guard
-                let response: HTTPURLResponse = response as? HTTPURLResponse, (200 ... 299).contains(response.statusCode),
-                let data: Data = data
+                let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode,
+                let data = data
             else {
                 return
             }
