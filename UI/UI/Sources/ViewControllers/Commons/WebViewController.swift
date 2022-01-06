@@ -61,10 +61,10 @@ final class WebViewController: BaseNavigationViewController {
         let contentController = WKUserContentController()
         contentController.add(self, name: scriptMessageHandler)
 
-        let config = WKWebViewConfiguration()
-        config.userContentController = contentController
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController = contentController
 
-        webView = BaseWebView(configuration: config)
+        webView = BaseWebView(configuration: configuration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
