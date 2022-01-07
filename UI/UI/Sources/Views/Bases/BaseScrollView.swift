@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseScrollView: UIScrollView {
+final class BaseScrollView: UIScrollView {
     // MARK: - Initialization
 
     convenience init() {

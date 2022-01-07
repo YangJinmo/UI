@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseRefreshControl: UIRefreshControl {
+final class BaseRefreshControl: UIRefreshControl {
     // MARK: - Initialization
 
     override convenience init() {

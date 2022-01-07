@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseActivityIndicatorView: UIActivityIndicatorView {
+final class BaseActivityIndicatorView: UIActivityIndicatorView {
     // MARK: - Initialization
 
     override init(style: UIActivityIndicatorView.Style = .medium) {

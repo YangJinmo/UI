@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseTableView: UITableView {
+final class BaseTableView: UITableView {
     // MARK: - Initialization
 
     convenience init(style: UITableView.Style = .plain) {

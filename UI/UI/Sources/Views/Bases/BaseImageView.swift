@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseImageView: UIImageView {
+final class BaseImageView: UIImageView {
     // MARK: - Initialization
 
     override convenience init(image: UIImage?) {

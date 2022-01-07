@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class BaseWebView: WKWebView {
+final class BaseWebView: WKWebView {
     // MARK: - Initialization
 
     convenience init(configuration: WKWebViewConfiguration) {

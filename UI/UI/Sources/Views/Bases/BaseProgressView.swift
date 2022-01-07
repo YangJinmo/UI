@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseProgressView: UIProgressView {
+final class BaseProgressView: UIProgressView {
     // MARK: - Initialization
 
     convenience init() {

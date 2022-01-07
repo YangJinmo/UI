@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseCollectionView: UICollectionView {
+final class BaseCollectionView: UICollectionView {
     // MARK: - Initialization
 
     convenience init(layout: UICollectionViewLayout) {

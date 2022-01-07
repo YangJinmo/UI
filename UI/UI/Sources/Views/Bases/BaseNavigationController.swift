@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController {
+final class BaseNavigationController: UINavigationController {
     // MARK: - Initialization
 
     convenience init(rootViewController: UIViewController, title text: String, image: UIImage?) {
