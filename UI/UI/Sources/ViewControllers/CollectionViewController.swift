@@ -120,7 +120,7 @@ extension CollectionViewController: UICollectionViewDelegate {
         if indexPath.item == 0 {
             searches[indexPath.section].isExpand.toggle()
 
-            let sections: IndexSet = IndexSet(integer: indexPath.section)
+            let sections = IndexSet(integer: indexPath.section)
             collectionView.reloadSections(sections)
         } else {
             searches[indexPath.section].terms[indexPath.item - 1].log()

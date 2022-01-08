@@ -72,6 +72,7 @@ final class TimerViewController: UIViewController {
 
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { [weak self] timer in
             guard let self = self, let indexPaths = self.tableView.indexPathsForVisibleRows else { return }
+            
             for indexPath in indexPaths {
                 let timer = self.timers[indexPath.row]
 

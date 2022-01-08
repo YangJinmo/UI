@@ -96,21 +96,21 @@ final class TextViewController: BaseNavigationViewController {
 
     @objc private func handleKeyboard(notification: NSNotification) {
         guard
-            let userInfo: [AnyHashable: Any] = notification.userInfo,
-            let keyboardFrame: NSValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+            let userInfo = notification.userInfo,
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
         else {
             return
         }
-        let keybaordHeight: CGFloat = keyboardFrame.cgRectValue.height
-        let isKeyboard: Bool = notification.name == UIResponder.keyboardWillShowNotification
+        let keybaordHeight = keyboardFrame.cgRectValue.height
+        let isKeyboard = notification.name == UIResponder.keyboardWillShowNotification
 
         bottomConstraint?.constant = isKeyboard ? -keybaordHeight : 0
 
-        if let durationNumber: NSNumber = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
-           let curveNumber: NSNumber = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber {
-            let duration: Double = durationNumber.doubleValue
-            let curve: UInt = curveNumber.uintValue
-            let options: UIView.AnimationOptions = UIView.AnimationOptions(rawValue: curve)
+        if let durationNumber = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
+           let curveNumber = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber {
+            let duration = durationNumber.doubleValue
+            let curve = curveNumber.uintValue
+            let options = UIView.AnimationOptions(rawValue: curve)
 
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
                 self.view.layoutIfNeeded()
