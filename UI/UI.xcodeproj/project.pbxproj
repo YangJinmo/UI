@@ -64,6 +64,7 @@
 		E858134B277F696900CD206E /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134A277F696900CD206E /* Encodable.swift */; };
 		E858134D278056BD00CD206E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134C278056BD00CD206E /* UIFont.swift */; };
 		E858134F27805F7600CD206E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134E27805F7600CD206E /* UIColor.swift */; };
+		E86134B9278AE93B00E40407 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86134B8278AE93B00E40407 /* HTTPMethod.swift */; };
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
 		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
 		E87889CA276252D500B9A07E /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87889C9276252D500B9A07E /* UIWindow.swift */; };
@@ -142,6 +143,7 @@
 		E858134A277F696900CD206E /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		E858134C278056BD00CD206E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E858134E27805F7600CD206E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E86134B8278AE93B00E40407 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		E87889C9276252D500B9A07E /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				09ADF3A52725996E004C6A97 /* SupplementaryViewKind.swift */,
 				E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */,
 				E8CF006B277C6770009B3128 /* QueryService.swift */,
+				E86134B8278AE93B00E40407 /* HTTPMethod.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				E8581343277F584400CD206E /* Optional.swift in Sources */,
 				09ADF3922725288B004C6A97 /* BaseCollectionViewCell.swift in Sources */,
 				0977F78D2759287C002700A5 /* BaseImageView.swift in Sources */,
+				E86134B9278AE93B00E40407 /* HTTPMethod.swift in Sources */,
 				09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */,
 				09AB3493272D873100317254 /* SettingViewController.swift in Sources */,
 				09ADF38E272524FB004C6A97 /* UITableView.swift in Sources */,
