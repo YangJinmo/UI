@@ -243,6 +243,7 @@
 		09ADF38527252432004C6A97 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E86134BA278C731800E40407 /* Networking */,
 				09ADF38627252451004C6A97 /* Delegates */,
 				09ADF3AF2725A236004C6A97 /* Models */,
 				09ADF39F272592D5004C6A97 /* Views */,
@@ -267,9 +268,6 @@
 			children = (
 				09ADF39327252921004C6A97 /* FlowLayoutMetric.swift */,
 				09ADF3A52725996E004C6A97 /* SupplementaryViewKind.swift */,
-				E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */,
-				E8CF006B277C6770009B3128 /* QueryService.swift */,
-				E86134B8278AE93B00E40407 /* HTTPMethod.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -381,6 +379,16 @@
 				E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E86134BA278C731800E40407 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E86134B8278AE93B00E40407 /* HTTPMethod.swift */,
+				E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */,
+				E8CF006B277C6770009B3128 /* QueryService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
