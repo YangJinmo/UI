@@ -244,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				E86134BA278C731800E40407 /* Networking */,
+				E8B448CC278DD12A005881B9 /* Services */,
 				09ADF38627252451004C6A97 /* Delegates */,
 				09ADF3AF2725A236004C6A97 /* Models */,
 				09ADF39F272592D5004C6A97 /* Views */,
@@ -389,6 +390,13 @@
 				E8CF006B277C6770009B3128 /* QueryService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		E8B448CC278DD12A005881B9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
