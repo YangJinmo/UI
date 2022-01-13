@@ -78,6 +78,7 @@
 		E8AF878D2778BBFB00E04F43 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */; };
 		E8AF878F2778C12000E04F43 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878E2778C12000E04F43 /* TimerModel.swift */; };
 		E8B448D0278F1ED6005881B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448CF278F1ED6005881B9 /* API.swift */; };
+		E8B448D227906F09005881B9 /* IssuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448D127906F09005881B9 /* IssuesService.swift */; };
 		E8B448D427906F41005881B9 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448D327906F41005881B9 /* APIError.swift */; };
 		E8CF006A277C65F7009B3128 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF0069277C65F7009B3128 /* Track.swift */; };
 		E8CF006C277C6770009B3128 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF006B277C6770009B3128 /* QueryService.swift */; };
@@ -159,6 +160,7 @@
 		E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		E8AF878E2778C12000E04F43 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		E8B448CF278F1ED6005881B9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E8B448D127906F09005881B9 /* IssuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesService.swift; sourceTree = "<group>"; };
 		E8B448D327906F41005881B9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E8CF0069277C65F7009B3128 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E8CF006B277C6770009B3128 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				E86134B8278AE93B00E40407 /* HTTPMethod.swift */,
 				E8B448CF278F1ED6005881B9 /* API.swift */,
 				E8B448D327906F41005881B9 /* APIError.swift */,
+				E8B448D127906F09005881B9 /* IssuesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				0977F78727590F61002700A5 /* ImagePresentViewController.swift in Sources */,
 				099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
+				E8B448D227906F09005881B9 /* IssuesService.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
 				E8AF878B2778AE8400E04F43 /* SearchViewController.swift in Sources */,
 				099D33ED27545AA500C14F5F /* TextViewController.swift in Sources */,
