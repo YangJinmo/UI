@@ -78,6 +78,7 @@
 		E8AF878D2778BBFB00E04F43 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */; };
 		E8AF878F2778C12000E04F43 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878E2778C12000E04F43 /* TimerModel.swift */; };
 		E8B448D0278F1ED6005881B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448CF278F1ED6005881B9 /* API.swift */; };
+		E8B448D427906F41005881B9 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448D327906F41005881B9 /* APIError.swift */; };
 		E8CF006A277C65F7009B3128 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF0069277C65F7009B3128 /* Track.swift */; };
 		E8CF006C277C6770009B3128 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF006B277C6770009B3128 /* QueryService.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
@@ -158,6 +159,7 @@
 		E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		E8AF878E2778C12000E04F43 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		E8B448CF278F1ED6005881B9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E8B448D327906F41005881B9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E8CF0069277C65F7009B3128 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E8CF006B277C6770009B3128 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 			children = (
 				E86134B8278AE93B00E40407 /* HTTPMethod.swift */,
 				E8B448CF278F1ED6005881B9 /* API.swift */,
+				E8B448D327906F41005881B9 /* APIError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				E8A829332743256A00B3D7F9 /* Website.swift in Sources */,
 				091AC4332739142400294EFC /* WKWebView.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
+				E8B448D427906F41005881B9 /* APIError.swift in Sources */,
 				E8581347277F630200CD206E /* UIButton.swift in Sources */,
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,
 				E8AF878D2778BBFB00E04F43 /* TimerViewController.swift in Sources */,
