@@ -12,10 +12,6 @@ extension URL {
         return URLRequest(url: self)
     }
 
-    func log() {
-        absoluteString.log()
-    }
-
     // MARK: - UIApplication
 
     var canOpenURL: Bool {
