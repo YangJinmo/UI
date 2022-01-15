@@ -159,7 +159,8 @@ extension WebViewController: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else { return }
-        url.log()
+        url.absoluteString.log()
+
         decisionHandler(.allow)
     }
 
