@@ -8,10 +8,26 @@
 import Foundation.NSURL
 
 final class IssuesService {
+    // MARK: - Constants
+
+    let defaultSession = URLSession(configuration: .default)
+
+    // MARK: - Variables And Properties
+
+    var dataTask: URLSessionDataTask?
+
+    // MARK: - Internal Methods
+
     func getIssues<T: Decodable>(api: API, completion: @escaping (Result<[T], APIError>) -> Void) {
+        dataTask?.cancel()
+
         guard let url = api.path.url else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+
+        dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            defer {
+                self?.dataTask = nil
+            }
+
             guard error == nil else {
                 completion(.failure(.error(error!)))
                 return
@@ -29,14 +45,17 @@ final class IssuesService {
                 return
             }
             do {
-                let result = try JSONDecoder().decode([T].self, from: data)
-                
+                // let result = try JSONDecoder().decode([T].self, from: data)
+                let result = try data.decoded() as [T]
+
                 DispatchQueue.main.async {
                     completion(.success(result))
                 }
             } catch {
                 completion(.failure(.parseError))
             }
-        }.resume()
+        }
+
+        dataTask?.resume()
     }
 }
