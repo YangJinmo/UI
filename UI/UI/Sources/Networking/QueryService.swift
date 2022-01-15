@@ -84,7 +84,7 @@ final class QueryService {
             guard
                 let trackDictionary = trackDictionary as? JSONDictionary,
                 let previewURLString = trackDictionary["previewUrl"] as? String,
-                let previewURL = URL(string: previewURLString),
+                let previewURL = previewURLString.url,
                 let name = trackDictionary["trackName"] as? String,
                 let artist = trackDictionary["artistName"] as? String
             else {
