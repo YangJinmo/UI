@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/12/29.
 //
 
-import Foundation
+import Foundation.NSURL
 
 final class QueryService {
     // MARK: - Constants
