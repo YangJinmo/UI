@@ -21,7 +21,7 @@ final class BaseWebView: WKWebView {
         isOpaque = false
         backgroundColor = .systemBackground
         scrollView.backgroundColor = .systemBackground
-        
+
         allowsBackForwardNavigationGestures = true
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
