@@ -17,6 +17,10 @@ extension String {
     var url: URL? {
         return URL(string: self)
     }
+    
+    var urlComponents: URLComponents? {
+        return URLComponents(string: self)
+    }
 
     func open() {
         guard let url = url else { return }
