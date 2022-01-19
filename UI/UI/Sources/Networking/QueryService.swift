@@ -28,7 +28,7 @@ final class QueryService {
     func getSearchResults(searchTerm: String, completion: @escaping QueryResult) {
         dataTask?.cancel()
 
-        guard var urlComponents = URLComponents(string: "https://itunes.apple.com/search") else { return }
+        guard var urlComponents = "https://itunes.apple.com/search".urlComponents else { return }
         urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
 
         guard let url = urlComponents.url else { return }
