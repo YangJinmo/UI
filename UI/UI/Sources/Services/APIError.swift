@@ -8,6 +8,7 @@
 import Foundation.NSURL
 
 enum APIError {
+    case urlNotSupport
     case error(Error)
     case noData
     case noResponse
@@ -19,6 +20,8 @@ enum APIError {
 extension APIError: LocalizedError {
     var description: String? {
         switch self {
+        case .urlNotSupport:
+            return "Error: URL not Supported"
         case .error(let error):
             return "Error: error calling GET: \(error)"
         case .noData:

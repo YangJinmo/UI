@@ -21,7 +21,10 @@ final class IssuesService {
     func getIssues<T: Decodable>(api: API, completion: @escaping (Result<[T], APIError>) -> Void) {
         dataTask?.cancel()
 
-        guard let url = api.path.url else { return }
+        guard let url = api.path.url else {
+            completion(.failure(.urlNotSupport))
+            return
+        }
 
         dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
             defer {
