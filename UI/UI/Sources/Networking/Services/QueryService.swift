@@ -31,7 +31,10 @@ final class QueryService {
         guard var urlComponents = "https://itunes.apple.com/search".urlComponents else { return }
         urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
 
-        guard let url = urlComponents.url else { return }
+        guard let url = urlComponents.url else {
+            errorMessage += "Error: " + urlComponents.description + "\n"
+            return
+        }
 
         dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
             defer {
