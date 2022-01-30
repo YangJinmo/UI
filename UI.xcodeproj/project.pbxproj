@@ -55,7 +55,6 @@
 		09ADF3AE2725A200004C6A97 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3AD2725A200004C6A97 /* Search.swift */; };
 		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
-		09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */; };
 		E83137662783185E007145E2 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83137652783185E007145E2 /* CGFloat.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
 		E8581343277F584400CD206E /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581342277F584400CD206E /* Optional.swift */; };
@@ -85,6 +84,7 @@
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 		E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */; };
+		E8F6543327A6EB6300FD44B8 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,7 +138,6 @@
 		09ADF3AD2725A200004C6A97 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		E83137652783185E007145E2 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		E8581342277F584400CD206E /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
@@ -168,6 +167,7 @@
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +238,6 @@
 				09ADF38F2725286F004C6A97 /* BaseCollectionView.swift */,
 				09ADF3912725288B004C6A97 /* BaseCollectionViewCell.swift */,
 				09ADF39D2725562D004C6A97 /* BaseCollectionReusableView.swift */,
-				09BD4EDC27355D8F00C48138 /* BaseNavigationController.swift */,
 				091AC42C273903EC00294EFC /* BaseWebView.swift */,
 				091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */,
 				091AC4302739078D00294EFC /* BaseProgressView.swift */,
@@ -283,6 +282,10 @@
 		09ADF38827252483004C6A97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */,
+				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
+				E875E94A27607D8B002EEBE4 /* UIAlertController.swift */,
+				E875E94C276097BB002EEBE4 /* UIAlertAction.swift */,
 				E858134C278056BD00CD206E /* UIFont.swift */,
 				E87889CB27625A4E00B9A07E /* UILabel.swift */,
 				E858134E27805F7600CD206E /* UIColor.swift */,
@@ -294,9 +297,6 @@
 				099D33E62753C83900C14F5F /* UIStackView.swift */,
 				09ADF38D272524FB004C6A97 /* UITableView.swift */,
 				09ADF38B272524C2004C6A97 /* UICollectionView.swift */,
-				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
-				E875E94A27607D8B002EEBE4 /* UIAlertController.swift */,
-				E875E94C276097BB002EEBE4 /* UIAlertAction.swift */,
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
 				091AC4322739142400294EFC /* WKWebView.swift */,
 				E83137652783185E007145E2 /* CGFloat.swift */,
@@ -517,7 +517,6 @@
 				091AC42F273905D600294EFC /* BaseActivityIndicatorView.swift in Sources */,
 				09ADF3812725220C004C6A97 /* BaseView.swift in Sources */,
 				E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */,
-				09BD4EDD27355D8F00C48138 /* BaseNavigationController.swift in Sources */,
 				E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */,
 				091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */,
 				E858134F27805F7600CD206E /* UIColor.swift in Sources */,
@@ -551,6 +550,7 @@
 				E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */,
 				0977F78D2759287C002700A5 /* BaseImageView.swift in Sources */,
 				E86134B9278AE93B00E40407 /* HTTPMethod.swift in Sources */,
+				E8F6543327A6EB6300FD44B8 /* UINavigationController.swift in Sources */,
 				09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */,
 				09AB3493272D873100317254 /* SettingViewController.swift in Sources */,
 				09ADF38E272524FB004C6A97 /* UITableView.swift in Sources */,

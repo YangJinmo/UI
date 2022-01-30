@@ -52,30 +52,45 @@ final class TabBarController: UITabBarController {
 
     private func setupViewControllers() {
         viewControllers = [
-            BaseNavigationController(
+            UINavigationController(
                 rootViewController: TableViewController(),
-                title: "Home",
-                image: Image.house
+                tabBarItem: UITabBarItem(
+                    title: "Home",
+                    image: Image.house,
+                    selectedImage: Image.house
+                )
             ),
-            BaseNavigationController(
+            UINavigationController(
                 rootViewController: TimerViewController(),
-                title: "Search",
-                image: Image.magnifyingglass
+                tabBarItem: UITabBarItem(
+                    title: "Search",
+                    image: Image.magnifyingglass,
+                    selectedImage: Image.magnifyingglass
+                )
             ),
-            BaseNavigationController(
+            UINavigationController(
                 rootViewController: ScrollableStackViewController(),
-                title: "Basket",
-                image: Image.bag
+                tabBarItem: UITabBarItem(
+                    title: "Basket",
+                    image: Image.bag,
+                    selectedImage: Image.bag
+                )
             ),
-            BaseNavigationController(
+            UINavigationController(
                 rootViewController: ReviewViewController(),
-                title: "Review",
-                image: Image.message
+                tabBarItem: UITabBarItem(
+                    title: "Review",
+                    image: Image.message,
+                    selectedImage: Image.message
+                )
             ),
-            BaseNavigationController(
+            UINavigationController(
                 rootViewController: MyViewController(),
-                title: "My",
-                image: Image.person
+                tabBarItem: UITabBarItem(
+                    title: "My",
+                    image: Image.person,
+                    selectedImage: Image.person
+                )
             ),
         ]
     }
