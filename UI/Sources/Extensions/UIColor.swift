@@ -11,17 +11,10 @@ extension UIColor {
     static let tint: UIColor = .systemOrange
     static let base: UIColor = .label
 
-    static func random() -> UIColor {
-        return UIColor(
-            red: .random(),
-            green: .random(),
-            blue: .random(),
-            alpha: 1.0
-        )
+    static func random(a: CGFloat = 1.0) -> UIColor {
+        return .init(red: .random(), green: .random(), blue: .random(), alpha: a)
     }
-}
 
-extension UIColor {
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) -> UIColor {
         return .init(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
     }
