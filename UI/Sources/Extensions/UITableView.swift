@@ -7,21 +7,6 @@
 
 import UIKit
 
-public protocol ReusableView {
-}
-
-extension ReusableView where Self: UIView {
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
-}
-
-extension UITableViewCell: ReusableView {
-}
-
-extension UITableViewHeaderFooterView: ReusableView {
-}
-
 extension UITableView {
     func reloadData(completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0) {

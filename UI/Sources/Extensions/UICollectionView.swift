@@ -7,12 +7,6 @@
 
 import UIKit
 
-extension UICollectionReusableView {
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
-}
-
 extension UICollectionView {
     func reloadData(completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0) {

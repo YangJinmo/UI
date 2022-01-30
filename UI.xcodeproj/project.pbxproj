@@ -84,6 +84,7 @@
 		E8CF006C277C6770009B3128 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF006B277C6770009B3128 /* QueryService.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
+		E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +167,7 @@
 		E8CF006B277C6770009B3128 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +306,7 @@
 				E8581342277F584400CD206E /* Optional.swift */,
 				E8581348277F682E00CD206E /* Data.swift */,
 				E858134A277F696900CD206E /* Encodable.swift */,
+				E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				09ADF3A1272592E7004C6A97 /* DividerTableViewCell.swift in Sources */,
 				E8581343277F584400CD206E /* Optional.swift in Sources */,
 				09ADF3922725288B004C6A97 /* BaseCollectionViewCell.swift in Sources */,
+				E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */,
 				0977F78D2759287C002700A5 /* BaseImageView.swift in Sources */,
 				E86134B9278AE93B00E40407 /* HTTPMethod.swift in Sources */,
 				09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */,
@@ -701,7 +705,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YX26TXJ785;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UI/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -728,7 +732,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YX26TXJ785;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UI/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
