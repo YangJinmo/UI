@@ -8,6 +8,11 @@
 import UIKit
 
 extension UIViewController {
+    static func from(storyboardName: UIStoryboard.Name, bundle: Bundle? = nil) -> Self {
+        let storyboard = UIStoryboard(name: storyboardName.filename, bundle: bundle)
+        return storyboard.instantiateViewController(withIdentifier: Self.identifier) as? Self ?? Self()
+    }
+
     func present(_ viewControllerToPresent: UIViewController, completion: (() -> Void)? = nil) {
         present(viewControllerToPresent, animated: true, completion: completion)
     }
