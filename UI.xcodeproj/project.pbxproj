@@ -56,6 +56,7 @@
 		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 		E83137662783185E007145E2 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83137652783185E007145E2 /* CGFloat.swift */; };
+		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
 		E8581343277F584400CD206E /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581342277F584400CD206E /* Optional.swift */; };
 		E8581347277F630200CD206E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581346277F630200CD206E /* UIButton.swift */; };
@@ -139,6 +140,7 @@
 		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E83137652783185E007145E2 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		E8581342277F584400CD206E /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		E8581346277F630200CD206E /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				E83137652783185E007145E2 /* CGFloat.swift */,
 				E8EE706A276786940005877A /* Bundle.swift */,
 				091AC4282737ED2F00294EFC /* String.swift */,
+				E84B78D127A83151007581EB /* StringProtocol.swift */,
 				091AC42A2737ED5D00294EFC /* URL.swift */,
 				E8581342277F584400CD206E /* Optional.swift */,
 				E8581348277F682E00CD206E /* Data.swift */,
@@ -510,6 +513,7 @@
 				E8B448D227906F09005881B9 /* IssuesService.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
 				E8AF878B2778AE8400E04F43 /* SearchViewController.swift in Sources */,
+				E84B78D227A83151007581EB /* StringProtocol.swift in Sources */,
 				099D33ED27545AA500C14F5F /* TextViewController.swift in Sources */,
 				09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */,
 				093160A727350DEA00126D4E /* MyViewController.swift in Sources */,
