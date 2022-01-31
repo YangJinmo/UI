@@ -25,3 +25,6 @@ extension UITableViewHeaderFooterView: Identifiable {
 
 extension UICollectionReusableView: Identifiable {
 }
+
+extension UIViewController: Identifiable {
+}
