@@ -90,7 +90,7 @@ extension UIImageView {
 
     // MARK: - Download
 
-    func downloadImage(urlString: String?, placeholder: UIImage?, completion: @escaping () -> Void) {
+    func downloadImage(urlString: String?, placeholder: UIImage? = nil, completion: @escaping () -> Void) {
         if image == nil {
             image = placeholder
         }
