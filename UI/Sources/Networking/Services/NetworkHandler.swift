@@ -27,12 +27,12 @@ final class NetworkHandler {
     func getData(resource: String, completion: @escaping (Any) -> Void) {
         dataTask?.cancel()
 
-        guard let url = resource.url else {
+        guard let url = resource.toURL else {
             print("Error: cannot create URL")
             return
         }
 
-        var urlRequest = url.request
+        var urlRequest = url.toURLRequest
         urlRequest.httpMethod = "GET"
 
         dataTask = defaultSession.dataTask(with: urlRequest) { [weak self] data, response, error in
@@ -68,12 +68,12 @@ final class NetworkHandler {
     func requestGet(resource: String, completion: @escaping (Any) -> Void) {
         dataTask?.cancel()
 
-        guard let url = resource.url else {
+        guard let url = resource.toURL else {
             print("Error: cannot create URL")
             return
         }
 
-        var urlRequest = url.request
+        var urlRequest = url.toURLRequest
         urlRequest.httpMethod = "GET"
 
         dataTask = defaultSession.dataTask(with: urlRequest) { [weak self] data, response, error in
@@ -111,12 +111,12 @@ final class NetworkHandler {
 
         let sendData = try! JSONSerialization.data(withJSONObject: param, options: [])
 
-        guard let url = resource.url else {
+        guard let url = resource.toURL else {
             print("Error: cannot create URL")
             return
         }
 
-        var urlRequest = url.request
+        var urlRequest = url.toURLRequest
         urlRequest.httpMethod = method
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpBody = sendData

@@ -102,7 +102,7 @@ final class WebViewController: BaseNavigationViewController {
         guard
             let urlString = urlString,
             let encodedString = urlString.encode,
-            let url = encodedString.url,
+            let url = encodedString.toURL,
             url.canOpenURL
         else {
 //            alert(

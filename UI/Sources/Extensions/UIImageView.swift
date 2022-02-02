@@ -23,7 +23,7 @@ extension UIImageView {
     }
 
     func setImage(urlString: String?) {
-        let url = urlString.flatMap { $0.url }
+        let url = urlString.flatMap { $0.toURL }
         setImage(url: url)
     }
 

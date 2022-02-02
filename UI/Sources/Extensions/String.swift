@@ -14,16 +14,16 @@ extension String {
         return addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)
     }
 
-    var url: URL? {
+    var toURL: URL? {
         return URL(string: self)
     }
     
-    var urlComponents: URLComponents? {
+    var toURLComponents: URLComponents? {
         return URLComponents(string: self)
     }
 
     func open() {
-        guard let url = url else { return }
+        guard let url = toURL else { return }
         url.open()
     }
 

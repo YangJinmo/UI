@@ -8,7 +8,7 @@
 import UIKit
 
 extension URL {
-    var request: URLRequest {
+    var toURLRequest: URLRequest {
         return URLRequest(url: self)
     }
 

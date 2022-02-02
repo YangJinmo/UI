@@ -28,7 +28,7 @@ final class QueryService {
     func getSearchResults(searchTerm: String, completion: @escaping QueryResult) {
         dataTask?.cancel()
 
-        guard var urlComponents = "https://itunes.apple.com/search".urlComponents else { return }
+        guard var urlComponents = "https://itunes.apple.com/search".toURLComponents else { return }
         urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
 
         guard let url = urlComponents.url else {
@@ -87,7 +87,7 @@ final class QueryService {
             guard
                 let trackDictionary = trackDictionary as? JSONDictionary,
                 let previewURLString = trackDictionary["previewUrl"] as? String,
-                let previewURL = previewURLString.url,
+                let previewURL = previewURLString.toURL,
                 let name = trackDictionary["trackName"] as? String,
                 let artist = trackDictionary["artistName"] as? String
             else {
