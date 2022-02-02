@@ -17,13 +17,16 @@ extension String {
     var toURL: URL? {
         return URL(string: self)
     }
-    
+
     var toURLComponents: URLComponents? {
         return URLComponents(string: self)
     }
 
     func open() {
-        guard let url = toURL else { return }
+        guard let url = toURL else {
+            "Error: urlString is URL not Supported \(self)".log()
+            return
+        }
         url.open()
     }
 
