@@ -7,29 +7,61 @@
 
 import UIKit
 
+final class ImageCacheManager {
+    static let shared = NSCache<NSString, UIImage>()
+
+    private init() {}
+}
+
 extension UIImageView {
-    func getAspectRatioConstraint(_ image: UIImage) -> Constraint {
-        let constraint = Constraint(
-            item: self,
-            attribute: .width,
-            relatedBy: .equal,
-            toItem: self,
-            attribute: .height,
-            multiplier: image.aspect,
-            constant: 0.0
-        )
-        constraint.priority = UILayoutPriority(rawValue: 999)
-        return constraint
+    // MARK: - Error
+
+    private func toURL(urlString: String?) -> URL? {
+        guard let urlString = urlString else {
+            "Error: urlString is Nil".log()
+            return nil
+        }
+        guard !urlString.isEmpty else {
+            "Error: urlString is Empty".log()
+            return nil
+        }
+        guard let url = urlString.toURL else {
+            "Error: urlString is URL not Supported \(urlString)".log()
+            return nil
+        }
+        return url
     }
+
+    private func toData(data: Data?, response: URLResponse?, error: Error?) -> Data? {
+        guard error == nil else {
+            "\(error!)".log()
+            return nil
+        }
+        guard let response = response as? HTTPURLResponse else {
+            "Error: HTTP request failed".log()
+            return nil
+        }
+        guard (200 ..< 300) ~= response.statusCode else {
+            "Error: Status code: \(response.statusCode)".log()
+            return nil
+        }
+        guard let mimeType = response.mimeType, mimeType.hasPrefix("image") else {
+            "Error: MIMEType is not an image".log()
+            return nil
+        }
+        guard let data = data else {
+            "Error: Did not receive data".log()
+            return nil
+        }
+        return data
+    }
+
+    // MARK: - Asynchronously
 
     func setImage(urlString: String?) {
-        let url = urlString.flatMap { $0.toURL }
-        setImage(url: url)
-    }
-
-    func setImage(url: URL?) {
-        guard let url = url else { return }
-
+        guard let url = toURL(urlString: urlString) else {
+            return
+        }
         DispatchQueue.global().async { [weak self] in
             do {
                 let data = try Data(contentsOf: url)
@@ -39,7 +71,7 @@ extension UIImageView {
                     self?.image = image
                 }
             } catch {
-                error.localizedDescription.log()
+                "Error: \(error)".log()
             }
         }
     }
@@ -58,61 +90,50 @@ extension UIImageView {
 
     // MARK: - Download
 
-    func setImageDownload(url: URL?) {
-        guard let url = url else { return }
-
+    func downloadImage(urlString: String?, placeholder: UIImage?, completion: @escaping () -> Void) {
+        if image == nil {
+            image = placeholder
+        }
+        guard let url = toURL(urlString: urlString) else {
+            return
+        }
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            if let error = error {
-                error.localizedDescription.log()
+            guard let data = self?.toData(data: data, response: response, error: error) else {
                 return
             }
-
-            guard
-                let response = response as? HTTPURLResponse, (200 ... 299) ~= response.statusCode,
-                let mimeType = response.mimeType, mimeType.hasPrefix("image"),
-                let data = data,
-                let image = UIImage(data: data)
-            else {
-                "Error: response, data, image".log()
-                return
-            }
-
-            let filename = response.suggestedFilename ?? url.lastPathComponent
+            let filename = response?.suggestedFilename ?? url.lastPathComponent
             filename.log()
 
-            DispatchQueue.main.async {
-                self?.image = image
-            }
-        }.resume()
+            DispatchQueue.main.async(execute: { () -> Void in
+                self?.image = UIImage(data: data)
+                self?.setNeedsLayout()
+                completion()
+            })
+//            DispatchQueue.main.async {
+//                self?.image = UIImage(data: data)
+//            }
+        }
     }
 
     // MARK: - Retrieve Memory Cache
 
-    func setImageRetrieveInMemoryCache(url: URL?) {
-        guard let url = url else { return }
-
+    func retrieveImageInMemoryCache(urlString: String?) {
+        guard let url = toURL(urlString: urlString) else {
+            return
+        }
         let cacheKey = NSString(string: url.absoluteString)
 
         if let cachedImage = ImageCacheManager.shared.object(forKey: cacheKey) {
             image = cachedImage
         } else {
             URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-                if let error = error {
-                    error.localizedDescription.log()
-                    return
-                }
-
                 guard
-                    let response = response as? HTTPURLResponse, (200 ... 299) ~= response.statusCode,
-                    let mimeType = response.mimeType, mimeType.hasPrefix("image"),
-                    let data = data,
+                    let data = self?.toData(data: data, response: response, error: error),
                     let image = UIImage(data: data)
                 else {
-                    "Error: response, data, image".log()
                     return
                 }
-
-                let filename = response.suggestedFilename ?? url.lastPathComponent
+                let filename = response?.suggestedFilename ?? url.lastPathComponent
                 filename.log()
 
                 DispatchQueue.main.async {
@@ -125,9 +146,10 @@ extension UIImageView {
 
     // MARK: - Retrieve Disk Cache
 
-    func setImageRetrieveInDiskCache(url: URL?) {
-        guard let url = url else { return }
-
+    func retrieveImageInDiskCache(urlString: String?) {
+        guard let url = toURL(urlString: urlString) else {
+            return
+        }
         /**
          FileManager 인스턴스 생성. default는 FileManager 싱글톤 인스턴스를 만들어줍니다.
          FileManager는 URL 혹은 String 데이터 타입을 통해 파일에 접근할 수 있도록 합니다.
@@ -141,8 +163,9 @@ extension UIImageView {
             in: .userDomainMask // user's home directory --- place to install user's personal items (~)
         )
 
-        guard let documentsDirectory = urls.first else { return }
-
+        guard let documentsDirectory = urls.first else {
+            return
+        }
         let directoryName = "DiskCache"
         let directoryURL = documentsDirectory.appendingPathComponent(directoryName)
         let directoryPath = directoryURL.path // .../Library/Caches/DiskCache
@@ -164,40 +187,43 @@ extension UIImageView {
 
         if fileManager.fileExists(atPath: filePath) {
             "\(fileName)이 존재합니다.".log()
-            setImage(url: fileURL)
+            setImage(urlString: fileURL.absoluteString)
         } else {
             URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-                if let error = error {
-                    error.localizedDescription.log()
-                    return
-                }
-
                 guard
-                    let response = response as? HTTPURLResponse, (200 ... 299) ~= response.statusCode,
-                    let mimeType = response.mimeType, mimeType.hasPrefix("image"),
-                    let data = data,
+                    let data = self?.toData(data: data, response: response, error: error),
                     let image = UIImage(data: data)
                 else {
-                    "Error: response, data, image".log()
                     return
                 }
-
-                let filename = response.suggestedFilename ?? url.lastPathComponent
+                let filename = response?.suggestedFilename ?? url.lastPathComponent
                 filename.log()
 
                 DispatchQueue.main.async {
                     self?.image = image
                 }
 
-                guard let pngData = image.pngData() else { return }
+                guard let pngData = image.pngData() else {
+                    return
+                }
                 fileManager.createFile(atPath: filePath, contents: pngData, attributes: nil)
             }.resume()
         }
     }
-}
 
-final class ImageCacheManager {
-    static let shared = NSCache<NSString, UIImage>()
+    // MARK: - Constraint
 
-    private init() {}
+    func getAspectRatioConstraint(_ image: UIImage) -> Constraint {
+        let constraint = Constraint(
+            item: self,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .height,
+            multiplier: image.aspect,
+            constant: 0.0
+        )
+        constraint.priority = UILayoutPriority(rawValue: 999)
+        return constraint
+    }
 }
