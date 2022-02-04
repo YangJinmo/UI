@@ -14,6 +14,8 @@ extension UIViewController {
     }
 
     func present(_ viewControllerToPresent: UIViewController, completion: (() -> Void)? = nil) {
+        viewControllerToPresent.modalPresentationStyle = .fullScreen
+        viewControllerToPresent.modalTransitionStyle = .coverVertical
         present(viewControllerToPresent, animated: true, completion: completion)
     }
 
@@ -26,7 +28,7 @@ extension UIViewController {
     func presentWithNavigationController(_ rootViewController: UIViewController, completion: (() -> Void)? = nil) {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.isNavigationBarHidden = true
-        present(navigationController, animated: true, completion: completion)
+        present(navigationController, completion: completion)
     }
 
     func pushViewController(_ viewController: UIViewController, hidesBottomBarWhenPushed: Bool = true) {
