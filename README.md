@@ -22,6 +22,7 @@ UI is a DSL to make Auto Layout easy on iOS.
 - [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UILabel.swift) (spaceBetweenTheLines)
 - [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIColor.swift) (rgb, white, random)
 - [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Optional.swift) (isNilOrEmpty)
+- [NSMutableAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/NSMutableAttributedString.swift)
 
 
 
@@ -422,6 +423,17 @@ isNilOrEmpty
 func toast(_ text: String?) {
     guard !text.isNilOrEmpty else { return }
     print(text)
+}
+```
+### [NSMutableAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/NSMutableAttributedString.swift)
+```swift
+lazy var explainLabel: UILabel = {
+    let label = UILabel()
+    label.numberOfLines = 0
+    label.attributedText = NSMutableAttributedString()
+            .light("안녕하세요!\n", size: 22)
+            .medium("감사합니다!", size: 22)
+    return label
 }
 ```
     
