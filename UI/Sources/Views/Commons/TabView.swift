@@ -11,7 +11,8 @@ class TabView: BaseView {
     // MARK: - Constants
 
     private enum Image {
-        static let chevronLeft: UIImage? = UIImage(systemName: "chevron.left")
+        static let chevronLeft = UIImage(systemName: "chevron.left")
+        static let xmark = UIImage(systemName: "xmark")
     }
 
     private var titleText = ""
@@ -40,7 +41,7 @@ class TabView: BaseView {
     }()
 
     private lazy var dismissButton: UIButton = {
-        let button = UIButton("확인")
+        let button = UIButton(Image.xmark)
         button.isHidden = true
         return button
     }()
