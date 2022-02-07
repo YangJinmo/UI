@@ -17,6 +17,21 @@ extension UIView {
         }
     }
 
+    func addBottomBorder() {
+        let dividerView = UIView()
+        dividerView.backgroundColor = .secondarySystemBackground
+        dividerView.translatesAutoresizingMaskIntoConstraints = false
+
+        addSubview(dividerView)
+
+        Constraint.activate([
+            dividerView.leftAnchor.constraint(equalTo: leftAnchor),
+            dividerView.rightAnchor.constraint(equalTo: rightAnchor),
+            dividerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            dividerView.heightAnchor.constraint(equalToConstant: 1),
+        ])
+    }
+
     // MARK: - NSLayoutAnchor
 
     func add(
