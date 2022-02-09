@@ -33,4 +33,10 @@ extension String {
     func log(function: String = #function, _ value: Any = "", _ comment: String = "") {
         print("func \(function) \(comment)\(self)")
     }
+    
+    func toDate(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.date(from: self) ?? Date()
+    }
 }
