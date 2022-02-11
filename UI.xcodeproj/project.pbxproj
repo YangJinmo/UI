@@ -69,6 +69,7 @@
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
 		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
 		E876669427B511F200480E6A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876669327B511F200480E6A /* Int.swift */; };
+		E876669827B61DE700480E6A /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876669727B61DE700480E6A /* Collection.swift */; };
 		E87889CA276252D500B9A07E /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87889C9276252D500B9A07E /* UIWindow.swift */; };
 		E87889CC27625A4E00B9A07E /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87889CB27625A4E00B9A07E /* UILabel.swift */; };
 		E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */; };
@@ -156,6 +157,7 @@
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		E876669327B511F200480E6A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		E876669727B61DE700480E6A /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		E87889C9276252D500B9A07E /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		E87889CB27625A4E00B9A07E /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				E858134A277F696900CD206E /* Encodable.swift */,
 				E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */,
 				E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */,
+				E876669727B61DE700480E6A /* Collection.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				09ADF39427252921004C6A97 /* FlowLayoutMetric.swift in Sources */,
 				0977F7892759119E002700A5 /* UIImageView.swift in Sources */,
 				09ADF3832725223D004C6A97 /* BaseTableView.swift in Sources */,
+				E876669827B61DE700480E6A /* Collection.swift in Sources */,
 				093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */,
 				09ADF38C272524C2004C6A97 /* UICollectionView.swift in Sources */,
 				09AB3490272D860000317254 /* BaseNavigationViewController.swift in Sources */,
