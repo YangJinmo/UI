@@ -11,11 +11,11 @@ final class MyViewController: BaseViewController {
     // MARK: - Constants
 
     private enum Image {
-        static let pencil: UIImage? = UIImage(systemName: "pencil")
+        static let pencil = UIImage(systemName: "pencil")
     }
 
     private enum Font {
-        static let nicknameButton: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+        static let nicknameButton = UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
 
     private let vcName = "마이"

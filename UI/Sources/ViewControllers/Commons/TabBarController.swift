@@ -11,18 +11,18 @@ final class TabBarController: UITabBarController {
     // MARK: - Constants
 
     private enum Image {
-        static let house: UIImage? = UIImage(systemName: "house")
-        static let magnifyingglass: UIImage? = UIImage(systemName: "magnifyingglass")
-        static let bag: UIImage? = UIImage(systemName: "bag")
-        static let message: UIImage? = UIImage(systemName: "message")
-        static let person: UIImage? = UIImage(systemName: "person")
+        static let house = UIImage(systemName: "house")
+        static let magnifyingglass = UIImage(systemName: "magnifyingglass")
+        static let bag = UIImage(systemName: "bag")
+        static let message = UIImage(systemName: "message")
+        static let person = UIImage(systemName: "person")
     }
 
     private enum Color {
-        static let viewBackgroundColor: UIColor = .systemBackground
-        static let tabBarTintColor: UIColor = .label
-        static let tabBarBackgroundColor: UIColor = .systemBackground
-        static let topBorderBackgroundColor: CGColor = UIColor.secondarySystemBackground.cgColor
+        static let viewBackgroundColor = UIColor.systemBackground
+        static let tabBarTintColor = UIColor.label
+        static let tabBarBackgroundColor = UIColor.systemBackground
+        static let topBorderBackgroundColor = UIColor.secondarySystemBackground.cgColor
     }
 
     // MARK: - View Life Cycle
