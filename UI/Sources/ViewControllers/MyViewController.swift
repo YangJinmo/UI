@@ -216,7 +216,12 @@ final class MyViewController: BaseViewController {
     @objc private func bottomSheetButtonTouched(_ sender: Any) {
         let vc = BottomSheetViewController()
         vc.modalPresentationStyle = .overFullScreen
+        vc.bind(action: completeButtonTouched)
         present(vc, animated: false)
+    }
+
+    private func completeButtonTouched() {
+        "".log()
     }
 }
 

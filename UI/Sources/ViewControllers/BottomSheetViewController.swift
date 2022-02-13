@@ -12,6 +12,19 @@ class BottomSheetViewController: UIViewController {
 
     private var contentViewHeight: CGFloat = 300
     private var contentViewTopConstraint: NSLayoutConstraint!
+    private var contentViewTopConstraintConstant: CGFloat {
+        return safeAreaHeight + bottomPadding
+    }
+
+    private var safeAreaHeight: CGFloat {
+        return view.safeAreaLayoutGuide.layoutFrame.height
+    }
+
+    private var bottomPadding: CGFloat {
+        return view.safeAreaInsets.bottom
+    }
+
+    private var action: Action?
 
     // MARK: - Views
 
@@ -21,7 +34,7 @@ class BottomSheetViewController: UIViewController {
         view.alpha = 0
         return view
     }()
-    
+
     private lazy var contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -35,17 +48,19 @@ class BottomSheetViewController: UIViewController {
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         return view
     }()
-    
+
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         return stackView
     }()
 
+    private lazy var completeButton = RecommendedButton("완료", recommended: .main, isRecommended: false)
+
     // MARK: - View Life Cycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
 
         setupViews()
     }
@@ -74,26 +89,34 @@ class BottomSheetViewController: UIViewController {
 
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
-        let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.height
-        let bottomPadding: CGFloat = view.safeAreaInsets.bottom
-        let contentViewTopConstant = safeAreaHeight + bottomPadding
-        contentViewTopConstraint = contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: contentViewTopConstant)
+        contentViewTopConstraint = contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: contentViewTopConstraintConstant)
 
         Constraint.activate([
             contentViewTopConstraint,
             contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: contentViewHeight),
+        ])
+
+        stackView.addArrangedSubview(completeButton)
+
+        contentView.addSubview(stackView)
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomPadding.description.log()
+        Constraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(bottomPadding + 20)),
         ])
 
         backgroundView.addTapGestureRecognizer(self, action: #selector(backgroundViewTouched(_:)))
+
+        completeButton.addTarget(self, action: #selector(completeButtonTouched(_:)), for: .touchUpInside)
     }
 
     private func showBottomSheet() {
-        let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.height
-        let bottomPadding: CGFloat = view.safeAreaInsets.bottom
-
-        contentViewTopConstraint.constant = (safeAreaHeight + bottomPadding) - contentViewHeight
+        contentViewTopConstraint.constant = contentViewTopConstraintConstant - contentViewHeight
 
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
             self.backgroundView.alpha = 1
@@ -101,23 +124,31 @@ class BottomSheetViewController: UIViewController {
         })
     }
 
-    private func hideBottomSheetAndDismiss() {
-        let safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height
-        let bottomPadding = view.safeAreaInsets.bottom
-
-        contentViewTopConstraint.constant = safeAreaHeight + bottomPadding
+    private func hideBottomSheetAndDismiss(completion: (() -> Void)? = nil) {
+        contentViewTopConstraint.constant = contentViewTopConstraintConstant
 
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
-            self.backgroundView.alpha = 0.0
+            self.backgroundView.alpha = 0
             self.view.layoutIfNeeded()
         }) { _ in
             if self.presentingViewController != nil {
-                self.dismiss(animated: false)
+                self.dismiss(animated: false, completion: completion)
             }
         }
     }
 
     @objc private func backgroundViewTouched(_ tapRecognizer: UITapGestureRecognizer) {
         hideBottomSheetAndDismiss()
+    }
+
+    func bind(action: @escaping Action) {
+        self.action = action
+    }
+
+    @objc private func completeButtonTouched(_ sender: Any) {
+        hideBottomSheetAndDismiss {
+            guard let action = self.action else { return }
+            action()
+        }
     }
 }
