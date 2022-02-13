@@ -8,8 +8,8 @@
 import UIKit.UIColor
 
 extension UIColor {
-    static let tint: UIColor = .systemOrange
-    static let base: UIColor = .label
+    static let tint = UIColor.systemOrange
+    static let base = UIColor.label
 
     static func random(a: CGFloat = 1.0) -> UIColor {
         return .init(red: .random(), green: .random(), blue: .random(), alpha: a)
@@ -25,6 +25,9 @@ extension UIColor {
 }
 
 extension CGColor {
+    static let tint = UIColor.tint.cgColor
+    static let base = UIColor.base.cgColor
+
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) -> CGColor {
         return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a).cgColor
     }
