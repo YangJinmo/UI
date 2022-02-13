@@ -103,7 +103,7 @@ class BottomSheetViewController: UIViewController {
         contentView.addSubview(stackView)
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        bottomPadding.description.log()
+
         Constraint.activate([
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
