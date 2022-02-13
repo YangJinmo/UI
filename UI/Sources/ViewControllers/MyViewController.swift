@@ -22,6 +22,13 @@ final class MyViewController: BaseViewController {
 
     // MARK: - Views
 
+    private lazy var emailButton = UIButton("Email")
+    private lazy var alertButton = UIButton("Alert")
+    private lazy var alertOptionButton = UIButton("AlertOption")
+    private lazy var actionSheetButton = UIButton("ActionSheet")
+    private lazy var searchButton = UIButton("Search")
+    private lazy var delegateButton = UIButton("Delegate")
+    private lazy var bottomSheetButton = UIButton("BottomSheet")
     private lazy var nicknameButton: UIButton = {
         var configuration: UIButton.Configuration = .filled()
         configuration.title = "Edit Nickname"
@@ -38,13 +45,6 @@ final class MyViewController: BaseViewController {
         return button
     }()
 
-    private lazy var emailButton = UIButton("Email")
-    private lazy var alertButton = UIButton("Alert")
-    private lazy var alertOptionButton = UIButton("AlertOption")
-    private lazy var actionSheetButton = UIButton("ActionSheet")
-    private lazy var searchButton = UIButton("Search")
-    private lazy var delegateButton = UIButton("Delegate")
-
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -57,12 +57,6 @@ final class MyViewController: BaseViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.add(
-            nicknameButton,
-            heightConstant: 44,
-            center: view
-        )
-
         view.add(
             emailButton,
             top: contentView.topAnchor,
@@ -105,10 +99,25 @@ final class MyViewController: BaseViewController {
 
         view.add(
             delegateButton,
+            top: searchButton.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            bottom: contentView.safeAreaLayoutGuide.bottomAnchor,
             heightConstant: 44
+        )
+
+        view.add(
+            bottomSheetButton,
+            top: delegateButton.bottomAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            heightConstant: 44
+        )
+
+        view.add(
+            nicknameButton,
+            bottom: contentView.safeAreaLayoutGuide.bottomAnchor, 20,
+            heightConstant: 44,
+            centerX: contentView
         )
 
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
@@ -120,6 +129,7 @@ final class MyViewController: BaseViewController {
         searchButton.addTarget(self, action: #selector(searchButtonTouched(_:)), for: .touchUpInside)
 
         delegateButton.addTarget(self, action: #selector(delegateButtonTouched(_:)), for: .touchUpInside)
+        bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched(_:)), for: .touchUpInside)
     }
 
     @objc private func nicknameButtonTouched(_ sender: Any) {
@@ -201,6 +211,12 @@ final class MyViewController: BaseViewController {
 
     @objc private func delegateButtonTouched(_ sender: Any) {
         present(DelegateViewController(delegate: self))
+    }
+
+    @objc private func bottomSheetButtonTouched(_ sender: Any) {
+        let vc = BottomSheetViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: false)
     }
 }
 
