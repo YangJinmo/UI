@@ -57,6 +57,7 @@
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 		E83137662783185E007145E2 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83137652783185E007145E2 /* CGFloat.swift */; };
 		E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405227B9173A002913FA /* BottomSheetViewController.swift */; };
+		E835405727B950BF002913FA /* RecommendedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405627B950BF002913FA /* RecommendedButton.swift */; };
 		E835405927B950DD002913FA /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405827B950DD002913FA /* BaseButton.swift */; };
 		E835405B27B951DF002913FA /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405A27B951DF002913FA /* Typealias.swift */; };
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
@@ -148,6 +149,7 @@
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E83137652783185E007145E2 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		E835405227B9173A002913FA /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		E835405627B950BF002913FA /* RecommendedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedButton.swift; sourceTree = "<group>"; };
 		E835405827B950DD002913FA /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		E835405A27B951DF002913FA /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				09ADF3A327259409004C6A97 /* DividerView.swift */,
 				09ADF3A0272592E7004C6A97 /* DividerTableViewCell.swift */,
 				099D33EE2754678E00C14F5F /* TabView.swift */,
+				E835405627B950BF002913FA /* RecommendedButton.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				E8DB4BA427AC2D8000E29CF1 /* NSMutableAttributedString.swift in Sources */,
 				E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */,
 				0977F78727590F61002700A5 /* ImagePresentViewController.swift in Sources */,
+				E835405727B950BF002913FA /* RecommendedButton.swift in Sources */,
 				099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				E8B448D227906F09005881B9 /* IssuesService.swift in Sources */,
