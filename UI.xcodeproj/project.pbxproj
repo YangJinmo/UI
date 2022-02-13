@@ -57,6 +57,7 @@
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 		E83137662783185E007145E2 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83137652783185E007145E2 /* CGFloat.swift */; };
 		E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405227B9173A002913FA /* BottomSheetViewController.swift */; };
+		E835405B27B951DF002913FA /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405A27B951DF002913FA /* Typealias.swift */; };
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
 		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
@@ -146,6 +147,7 @@
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E83137652783185E007145E2 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		E835405227B9173A002913FA /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		E835405A27B951DF002913FA /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		09ADF3872725246B004C6A97 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				E835405A27B951DF002913FA /* Typealias.swift */,
 				09ADF39327252921004C6A97 /* FlowLayoutMetric.swift */,
 				09ADF3A52725996E004C6A97 /* SupplementaryViewKind.swift */,
 			);
@@ -541,6 +544,7 @@
 				E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */,
 				091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */,
 				E858134F27805F7600CD206E /* UIColor.swift in Sources */,
+				E835405B27B951DF002913FA /* Typealias.swift in Sources */,
 				091AC42B2737ED5D00294EFC /* URL.swift in Sources */,
 				E83137662783185E007145E2 /* CGFloat.swift in Sources */,
 				099D33E72753C83900C14F5F /* UIStackView.swift in Sources */,
