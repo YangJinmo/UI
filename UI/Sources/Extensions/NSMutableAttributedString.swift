@@ -8,72 +8,78 @@
 import UIKit
 
 extension NSMutableAttributedString {
-    private func mutableAttributedStringFont(_ text: String, ofSize size: CGFloat, weight: UIFont.Weight = .regular) -> NSMutableAttributedString {
-        return NSMutableAttributedString(
-            string: text,
-            attributes: [.font: UIFont.systemFont(ofSize: size, weight: weight)]
-        )
-    }
-
     @discardableResult
-    private func addUnderlineStyle(_ text: String) -> NSMutableAttributedString {
-        let underlineStyle: Int = NSUnderlineStyle.single.rawValue
-        let nsString: NSString = NSString(string: text)
-        let substringRange: NSRange = nsString.range(of: text)
-
-        addAttribute(
-            .underlineStyle,
-            value: underlineStyle,
-            range: substringRange
+    func string(_ string: String, color: UIColor = .black) -> NSMutableAttributedString {
+        append(
+            NSMutableAttributedString(string: string)
+                .foregroundColor(color)
         )
         return self
     }
 
     @discardableResult
-    func light(_ text: String, size: CGFloat = 12) -> NSMutableAttributedString {
-        append(mutableAttributedStringFont(text, ofSize: size, weight: .light))
+    func string(_ string: String, font: UIFont) -> NSMutableAttributedString {
+        append(
+            NSMutableAttributedString(string: string)
+                .font(font)
+        )
         return self
     }
 
     @discardableResult
-    func regular(_ text: String, size: CGFloat = 12) -> NSMutableAttributedString {
-        append(mutableAttributedStringFont(text, ofSize: size, weight: .regular))
+    func stringUnderline(_ string: String) -> NSMutableAttributedString {
+        append(
+            NSMutableAttributedString(string: string)
+                .underline()
+        )
         return self
     }
 
     @discardableResult
-    func medium(_ text: String, size: CGFloat = 12) -> NSMutableAttributedString {
-        append(mutableAttributedStringFont(text, ofSize: size, weight: .medium))
+    func light(_ text: String, size: CGFloat = 13, color: UIColor = .black) -> NSMutableAttributedString {
+        append(NSMutableAttributedString(string: string).font(.systemFont(ofSize: size, weight: .light)).foregroundColor(color))
         return self
     }
 
     @discardableResult
-    func bold(_ text: String, size: CGFloat = 12) -> NSMutableAttributedString {
-        append(mutableAttributedStringFont(text, ofSize: size, weight: .bold))
+    func regular(_ text: String, size: CGFloat = 13, color: UIColor = .black) -> NSMutableAttributedString {
+        append(NSMutableAttributedString(string: string).font(.systemFont(ofSize: size, weight: .regular)).foregroundColor(color))
         return self
     }
 
     @discardableResult
-    func lightAndUnderline(_ text: String, size: CGFloat = 12) -> NSMutableAttributedString {
-        append(mutableAttributedStringFont(text, ofSize: size, weight: .light).addUnderlineStyle(text))
+    func medium(_ text: String, size: CGFloat = 13, color: UIColor = .black) -> NSMutableAttributedString {
+        append(NSMutableAttributedString(string: string).font(.systemFont(ofSize: size, weight: .medium)).foregroundColor(color))
         return self
     }
 
     @discardableResult
-    func regularAndUnderline(_ text: String, size: CGFloat = 12) -> NSMutableAttributedString {
-        append(mutableAttributedStringFont(text, ofSize: size, weight: .regular).addUnderlineStyle(text))
+    func bold(_ text: String, size: CGFloat = 13, color: UIColor = .black) -> NSMutableAttributedString {
+        append(NSMutableAttributedString(string: string).font(.systemFont(ofSize: size, weight: .bold)).foregroundColor(color))
         return self
     }
 
     @discardableResult
-    func mediumAndUnderline(_ text: String, size: CGFloat = 12) -> NSMutableAttributedString {
-        append(mutableAttributedStringFont(text, ofSize: size, weight: .medium).addUnderlineStyle(text))
+    func lightAndUnderline(_ text: String, size: CGFloat = 13, color: UIColor = .black) -> NSMutableAttributedString {
+        append(NSMutableAttributedString(string: string).font(.systemFont(ofSize: size, weight: .bold)).foregroundColor(color).underline())
         return self
     }
 
     @discardableResult
-    func boldAndUnderline(_ text: String, size: CGFloat = 12) -> NSMutableAttributedString {
-        append(mutableAttributedStringFont(text, ofSize: size, weight: .bold).addUnderlineStyle(text))
+    func regularAndUnderline(_ text: String, size: CGFloat = 13, color: UIColor = .black) -> NSMutableAttributedString {
+        append(NSMutableAttributedString(string: string).font(.systemFont(ofSize: size, weight: .bold)).foregroundColor(color).underline())
+        return self
+    }
+
+    @discardableResult
+    func mediumAndUnderline(_ text: String, size: CGFloat = 13, color: UIColor = .black) -> NSMutableAttributedString {
+        append(NSMutableAttributedString(string: string).font(.systemFont(ofSize: size, weight: .bold)).foregroundColor(color).underline())
+        return self
+    }
+
+    @discardableResult
+    func boldAndUnderline(_ text: String, size: CGFloat = 13, color: UIColor = .black) -> NSMutableAttributedString {
+        append(NSMutableAttributedString(string: string).font(.systemFont(ofSize: size, weight: .bold)).foregroundColor(color).underline())
         return self
     }
 }
