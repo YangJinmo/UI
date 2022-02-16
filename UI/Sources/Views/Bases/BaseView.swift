@@ -17,7 +17,7 @@ class BaseView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        setupViews()
+        initialize()
     }
 
     required init?(coder: NSCoder) {
@@ -26,6 +26,6 @@ class BaseView: UIView {
 
     // MARK: - Methods
 
-    func setupViews() {
+    func initialize() {
     }
 }

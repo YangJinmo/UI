@@ -10,7 +10,7 @@ import UIKit
 final class DividerTableViewCell: BaseTableViewCell {
     // MARK: - Methods
 
-    override func setupViews() {
+    override func initialize() {
         contentView.addBottomBorder()
     }
 }

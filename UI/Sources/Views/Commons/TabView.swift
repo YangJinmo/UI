@@ -74,7 +74,7 @@ class TabView: BaseView {
 
     // MARK: - Methods
 
-    override func setupViews() {
+    override func initialize() {
         backgroundColor = .systemBackground
 
         addSubviews(

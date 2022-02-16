@@ -39,7 +39,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // MARK: - Methods
 
-    override func setupViews() {
+    override func initialize() {
 //        contentView.addSubviews(
 //            titleLabel,
 //            termLabel,
