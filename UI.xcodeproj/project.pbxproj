@@ -426,17 +426,9 @@
 				E86134B8278AE93B00E40407 /* HTTPMethod.swift */,
 				E8B448CF278F1ED6005881B9 /* API.swift */,
 				E8B448D327906F41005881B9 /* APIError.swift */,
-				E86C9DEB2799BE2C0073C2A9 /* Models */,
 				E8B448CC278DD12A005881B9 /* Services */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		E86C9DEB2799BE2C0073C2A9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		E8B448CC278DD12A005881B9 /* Services */ = {
