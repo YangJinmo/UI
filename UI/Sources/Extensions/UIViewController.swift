@@ -141,7 +141,7 @@ extension UIViewController {
         toastLabel.clipsToBounds = true
         toastLabel.alpha = 0.0
         toastLabel.numberOfLines = 0
-        toastLabel.spaceBetweenTheLines()
+        toastLabel.spaceBetweenTheLines(.center)
 
         let margin: CGFloat = 36
         let width: CGFloat = toastLabel.intrinsicContentSize.width + margin
