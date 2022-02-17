@@ -13,6 +13,7 @@ class BaseNavigationViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
         setupPopButton()
     }
 
@@ -25,5 +26,11 @@ class BaseNavigationViewController: BaseViewController {
 
     @objc private func popButtonTouched(_ sender: Any) {
         popViewController()
+    }
+}
+
+extension BaseNavigationViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
