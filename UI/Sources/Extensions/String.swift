@@ -30,7 +30,7 @@ extension String {
         url.open()
     }
 
-    func log(function: String = #function, _ value: Any = "", _ comment: String = "") {
+    func log(function: String = #function, _ comment: String = "") {
         print("func \(function) \(comment)\(self)")
     }
 
