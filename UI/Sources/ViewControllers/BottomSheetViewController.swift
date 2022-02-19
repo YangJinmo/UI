@@ -95,7 +95,7 @@ class BottomSheetViewController: UIViewController {
             contentViewTopConstraint,
             contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: contentViewHeight),
+            contentView.heightAnchor.constraint(equalToConstant: contentViewHeight + bottomPadding),
         ])
 
         stackView.addArrangedSubview(completeButton)
@@ -116,7 +116,7 @@ class BottomSheetViewController: UIViewController {
     }
 
     private func showBottomSheet() {
-        contentViewTopConstraint.constant = contentViewTopConstraintConstant - contentViewHeight
+        contentViewTopConstraint.constant = contentViewTopConstraintConstant - contentViewHeight - bottomPadding
 
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
             self.backgroundView.alpha = 1
