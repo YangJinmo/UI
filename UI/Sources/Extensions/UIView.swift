@@ -17,6 +17,11 @@ extension UIView {
         }
     }
 
+    func addTapGestureRecognizer(_ target: Any?, action: Selector?) {
+        isUserInteractionEnabled = true
+        addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
+    }
+
     func addBottomBorder() {
         let dividerView = UIView()
         dividerView.backgroundColor = .secondarySystemBackground
@@ -32,9 +37,25 @@ extension UIView {
         ])
     }
 
-    func addTapGestureRecognizer(_ target: Any?, action: Selector?) {
-        isUserInteractionEnabled = true
-        addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
+    func setBottomShadow() {
+        setShadow(radius: 1.6, opacity: 0.04, width: 0.0, height: 1.6)
+    }
+    
+    func hideShadow() {
+        layer.shadowOpacity = 0
+    }
+
+    func setShadow(
+        radius: CGFloat,
+        opacity: Float,
+        width: CGFloat,
+        height: CGFloat
+    ) {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = CGSize(width: width, height: height)
     }
 
     // MARK: - NSLayoutAnchor
