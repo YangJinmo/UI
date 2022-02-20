@@ -21,7 +21,13 @@ class BaseViewController: UIViewController {
 
     // MARK: - Views
 
-    lazy var titleView = UIView()
+    lazy var titleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.setBottomShadow()
+        return view
+    }()
+
     lazy var titleLabel: UILabel = {
         let label = UILabel.makeForTitle()
         label.textAlignment = .center
@@ -40,7 +46,6 @@ class BaseViewController: UIViewController {
         return button
     }()
 
-    private lazy var dividerView = DividerView()
     lazy var contentView = UIView()
     private lazy var scrollView = UIScrollView()
     private lazy var guideView = UIView()
@@ -67,12 +72,8 @@ class BaseViewController: UIViewController {
         view.backgroundColor = .systemBackground
 
         view.addSubviews(
-            titleView,
-            popButton,
-            dismissButton,
-            titleLabel,
-            dividerView,
-            contentView
+            contentView,
+            titleView
         )
 
         Constraint.activate([
@@ -81,6 +82,19 @@ class BaseViewController: UIViewController {
             titleView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             titleView.heightAnchor.constraint(equalToConstant: Height.navigationController),
 
+            contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            contentView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+        ])
+
+        titleView.addSubviews(
+            popButton,
+            dismissButton,
+            titleLabel
+        )
+
+        Constraint.activate([
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
@@ -95,24 +109,15 @@ class BaseViewController: UIViewController {
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             titleLabel.leftAnchor.constraint(equalTo: popButton.rightAnchor),
             titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor),
-
-            dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
-            dividerView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            dividerView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-
-            contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
-            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            contentView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            contentView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
         ])
     }
 
     func setTitleLabel(_ text: String) {
         titleLabel.text = text
     }
-
-    func hideDivider() {
-        dividerView.isHidden = true
+    
+    func hideShadowTitleView() {
+        titleView.hideShadow()
     }
 
     func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0) {
