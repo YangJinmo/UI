@@ -21,12 +21,7 @@ class BaseViewController: UIViewController {
 
     // MARK: - Views
 
-    lazy var titleView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.setBottomShadow()
-        return view
-    }()
+    lazy var titleView = UIView()
 
     lazy var titleLabel: UILabel = {
         let label = UILabel.makeForTitle()
@@ -114,10 +109,9 @@ class BaseViewController: UIViewController {
 
     func setTitleLabel(_ text: String) {
         titleLabel.text = text
-    }
-    
-    func hideShadowTitleView() {
-        titleView.hideShadow()
+        
+        titleView.backgroundColor = .white
+        titleView.setBottomShadow()
     }
 
     func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0) {
