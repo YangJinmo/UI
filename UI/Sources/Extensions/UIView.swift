@@ -38,7 +38,7 @@ extension UIView {
     }
 
     func setBottomShadow() {
-        setShadow(radius: 1.6, opacity: 0.04, width: 0.0, height: 1.6)
+        setShadow(x: 0, y: 1.6, blur: 1.6, alpha: 0.04)
     }
     
     func hideShadow() {
@@ -46,16 +46,16 @@ extension UIView {
     }
 
     func setShadow(
-        radius: CGFloat,
-        opacity: Float,
-        width: CGFloat,
-        height: CGFloat
+        x: CGFloat,
+        y: CGFloat,
+        blur: CGFloat,
+        alpha: Float
     ) {
         layer.masksToBounds = false
+        layer.shadowOffset = CGSize(width: x, height: y)
+        layer.shadowRadius = blur
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-        layer.shadowOffset = CGSize(width: width, height: height)
+        layer.shadowOpacity = alpha
     }
 
     // MARK: - NSLayoutAnchor
