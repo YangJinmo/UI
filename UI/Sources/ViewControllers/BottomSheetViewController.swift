@@ -13,15 +13,7 @@ class BottomSheetViewController: UIViewController {
     private var contentViewHeight: CGFloat = 300
     private var contentViewTopConstraint: NSLayoutConstraint!
     private var contentViewTopConstraintConstant: CGFloat {
-        return safeAreaHeight + bottomPadding
-    }
-
-    private var safeAreaHeight: CGFloat {
-        return view.safeAreaLayoutGuide.layoutFrame.height
-    }
-
-    private var bottomPadding: CGFloat {
-        return view.safeAreaInsets.bottom
+        return safeAreaHeight + safeAreaBottom
     }
 
     private var action: Action?
@@ -95,7 +87,7 @@ class BottomSheetViewController: UIViewController {
             contentViewTopConstraint,
             contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: contentViewHeight + bottomPadding),
+            contentView.heightAnchor.constraint(equalToConstant: contentViewHeight + safeAreaBottom),
         ])
 
         stackView.addArrangedSubview(completeButton)
@@ -107,7 +99,7 @@ class BottomSheetViewController: UIViewController {
         Constraint.activate([
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(bottomPadding + 20)),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(safeAreaBottom + 20)),
         ])
 
         backgroundView.addTapGestureRecognizer(self, action: #selector(backgroundViewTouched(_:)))
@@ -116,7 +108,7 @@ class BottomSheetViewController: UIViewController {
     }
 
     private func showBottomSheet() {
-        contentViewTopConstraint.constant = contentViewTopConstraintConstant - contentViewHeight - bottomPadding
+        contentViewTopConstraint.constant = contentViewTopConstraintConstant - contentViewHeight - safeAreaBottom
 
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
             self.backgroundView.alpha = 1
