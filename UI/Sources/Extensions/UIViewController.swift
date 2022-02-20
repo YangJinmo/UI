@@ -8,6 +8,14 @@
 import UIKit
 
 extension UIViewController {
+    var safeAreaHeight: CGFloat {
+        return view.safeAreaLayoutGuide.layoutFrame.height
+    }
+
+    var safeAreaBottom: CGFloat {
+        return view.safeAreaInsets.bottom
+    }
+
     static func from(storyboardName: UIStoryboard.Name, bundle: Bundle? = nil) -> Self {
         let storyboard = UIStoryboard(name: storyboardName.filename, bundle: bundle)
         return storyboard.instantiateViewController(withIdentifier: Self.identifier) as? Self ?? Self()
