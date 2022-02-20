@@ -34,15 +34,14 @@ class ImagePresentViewController: BasePresentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        hideDivider()
+        setTitleLabel(vcName)
         setupScrollableStackView(imageView)
 
-        view.add(
+        imageView.add(
             activityIndicatorView,
-            center: view
+            center: imageView
         )
 
-        setTitleLabel(vcName)
         setImage(url: imageUrl)
     }
 
