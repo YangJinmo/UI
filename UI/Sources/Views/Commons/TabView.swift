@@ -15,6 +15,10 @@ class TabView: BaseView {
         static let xmark = UIImage(systemName: "xmark")
     }
 
+    private enum Height {
+        static let navigationController: CGFloat = 56
+    }
+
     private var titleText = ""
 
     // MARK: - Initialization
@@ -27,7 +31,13 @@ class TabView: BaseView {
 
     // MARK: - Views
 
-    private lazy var titleView: UIView = UIView()
+    private lazy var titleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.setBottomShadow()
+        return view
+    }()
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel.makeForTitle()
         label.textAlignment = .center
@@ -46,7 +56,6 @@ class TabView: BaseView {
         return button
     }()
 
-    private lazy var dividerView = DividerView()
     private lazy var contentView = UIView()
     private lazy var scrollView = UIScrollView()
     private lazy var guideView = UIView()
@@ -78,43 +87,43 @@ class TabView: BaseView {
         backgroundColor = .systemBackground
 
         addSubviews(
-            titleView,
-            popButton,
-            dismissButton,
-            titleLabel,
-            dividerView,
-            contentView
+            contentView,
+            titleView
         )
 
         Constraint.activate([
             titleView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             titleView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             titleView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
-            titleView.heightAnchor.constraint(equalToConstant: 44),
+            titleView.heightAnchor.constraint(equalToConstant: Height.navigationController),
 
+            contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            contentView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
+
+        titleView.addSubviews(
+            popButton,
+            dismissButton,
+            titleLabel
+        )
+
+        Constraint.activate([
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            popButton.widthAnchor.constraint(equalToConstant: 56),
+            popButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
 
             dismissButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             dismissButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             dismissButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            dismissButton.widthAnchor.constraint(equalToConstant: 56),
+            dismissButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
 
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             titleLabel.leftAnchor.constraint(equalTo: popButton.rightAnchor),
             titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor),
-
-            dividerView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
-            dividerView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            dividerView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-
-            contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
-            contentView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
         ])
     }
 
