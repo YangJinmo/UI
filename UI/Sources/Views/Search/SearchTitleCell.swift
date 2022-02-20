@@ -35,33 +35,10 @@ final class SearchTitleCell: BaseCollectionViewCell {
         button.isUserInteractionEnabled = false
         return button
     }()
-    private lazy var dividerView = DividerView()
 
     // MARK: - Methods
 
     override func initialize() {
-//        contentView.addSubviews(
-//            titleLabel,
-//            termLabel,
-//            dividerView,
-//            chevronButton
-//        )
-
-//        Constraint.activate([
-//            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 36),
-//            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//
-//            termLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            termLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//
-//            dividerView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-//            dividerView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-//            dividerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-//
-//            chevronButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            chevronButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -36),
-//        ])
-
         contentView.add(
             titleLabel,
             left: contentView.leftAnchor, 36,
@@ -74,17 +51,12 @@ final class SearchTitleCell: BaseCollectionViewCell {
         )
 
         contentView.add(
-            dividerView,
-            left: contentView.leftAnchor,
-            right: contentView.rightAnchor,
-            bottom: contentView.bottomAnchor
-        )
-
-        contentView.add(
             chevronButton,
             right: contentView.rightAnchor, 36,
             centerY: contentView
         )
+        
+        contentView.addBottomBorder()
 
 //        contentView.constraints.first { $0.firstAnchor == titleLabel.leftAnchor }?.isActive = false
 //
