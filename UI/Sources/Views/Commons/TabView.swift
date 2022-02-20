@@ -21,14 +21,6 @@ class TabView: BaseView {
 
     private var titleText = ""
 
-    // MARK: - Initialization
-
-    convenience init(titleText: String) {
-        self.init()
-
-        titleLabel.text = titleText
-    }
-
     // MARK: - Views
 
     private lazy var titleView: UIView = {
@@ -81,7 +73,13 @@ class TabView: BaseView {
         }
     }
 
-    // MARK: - Methods
+    // MARK: - Initialization
+
+    convenience init(titleText: String) {
+        self.init()
+
+        titleLabel.text = titleText
+    }
 
     override func initialize() {
         backgroundColor = .systemBackground
@@ -126,6 +124,8 @@ class TabView: BaseView {
             titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor),
         ])
     }
+
+    // MARK: - Methods
 
     func setupScrollableStackView(_ views: UIView...) {
         contentView.addSubviews(scrollView)
