@@ -15,6 +15,10 @@ class BaseViewController: UIViewController {
         static let xmark = UIImage(systemName: "xmark")
     }
 
+    private enum Height {
+        static let navigationController: CGFloat = 56
+    }
+
     // MARK: - Views
 
     lazy var titleView = UIView()
@@ -75,17 +79,17 @@ class BaseViewController: UIViewController {
             titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             titleView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            titleView.heightAnchor.constraint(equalToConstant: 44),
+            titleView.heightAnchor.constraint(equalToConstant: Height.navigationController),
 
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            popButton.widthAnchor.constraint(equalToConstant: 56),
+            popButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
 
             dismissButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             dismissButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             dismissButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            dismissButton.widthAnchor.constraint(equalToConstant: 56),
+            dismissButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
 
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
