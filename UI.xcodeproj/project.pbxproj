@@ -47,7 +47,6 @@
 		09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF39727252A7F004C6A97 /* BaseTableViewCell.swift */; };
 		09ADF39E2725562D004C6A97 /* BaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF39D2725562D004C6A97 /* BaseCollectionReusableView.swift */; };
 		09ADF3A1272592E7004C6A97 /* DividerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3A0272592E7004C6A97 /* DividerTableViewCell.swift */; };
-		09ADF3A427259409004C6A97 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3A327259409004C6A97 /* DividerView.swift */; };
 		09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3A52725996E004C6A97 /* SupplementaryViewKind.swift */; };
 		09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3A727259A73004C6A97 /* CollectionViewController.swift */; };
 		09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3A92725A1BC004C6A97 /* SearchTitleCell.swift */; };
@@ -140,7 +139,6 @@
 		09ADF39727252A7F004C6A97 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		09ADF39D2725562D004C6A97 /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
 		09ADF3A0272592E7004C6A97 /* DividerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTableViewCell.swift; sourceTree = "<group>"; };
-		09ADF3A327259409004C6A97 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		09ADF3A52725996E004C6A97 /* SupplementaryViewKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryViewKind.swift; sourceTree = "<group>"; };
 		09ADF3A727259A73004C6A97 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		09ADF3A92725A1BC004C6A97 /* SearchTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleCell.swift; sourceTree = "<group>"; };
@@ -370,7 +368,6 @@
 		09ADF3A2272593EB004C6A97 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				09ADF3A327259409004C6A97 /* DividerView.swift */,
 				09ADF3A0272592E7004C6A97 /* DividerTableViewCell.swift */,
 				099D33EE2754678E00C14F5F /* TabView.swift */,
 				E835405627B950BF002913FA /* RecommendedButton.swift */,
@@ -593,7 +590,6 @@
 				09ADF38C272524C2004C6A97 /* UICollectionView.swift in Sources */,
 				09AB3490272D860000317254 /* BaseNavigationViewController.swift in Sources */,
 				09ADF37F272521EB004C6A97 /* TableViewController.swift in Sources */,
-				09ADF3A427259409004C6A97 /* DividerView.swift in Sources */,
 				E8CF006A277C65F7009B3128 /* Track.swift in Sources */,
 				09ADF3902725286F004C6A97 /* BaseCollectionView.swift in Sources */,
 				E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */,
