@@ -37,7 +37,7 @@ extension UIViewController {
         dismiss(animated: true, completion: completion)
     }
 
-    // MARK: - UINavigationController
+    // MARK: - Navigation Controller
 
     func presentWithNavigationController(_ rootViewController: UIViewController, completion: (() -> Void)? = nil) {
         let navigationController = UINavigationController(rootViewController: rootViewController)
