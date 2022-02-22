@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseNavigationViewController: BaseViewController {
+class BaseNavigationViewController: BaseTabViewController {
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {

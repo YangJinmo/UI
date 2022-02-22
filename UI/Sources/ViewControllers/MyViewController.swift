@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MyViewController: BaseViewController {
+final class MyViewController: BaseTabViewController {
     // MARK: - Constants
 
     private enum Image {
@@ -17,8 +17,6 @@ final class MyViewController: BaseViewController {
     private enum Font {
         static let nicknameButton = UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
-
-    private let vcName = "마이"
 
     // MARK: - Views
 
@@ -46,12 +44,15 @@ final class MyViewController: BaseViewController {
     }()
 
     // MARK: - View Life Cycle
+    
+    override convenience init() {
+        self.init(title: "마이")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - Methods

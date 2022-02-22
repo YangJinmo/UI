@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BasePresentViewController: BaseViewController {
+class BasePresentViewController: BaseTabViewController {
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {

@@ -81,7 +81,7 @@ extension TableViewController: UITableViewDelegate {
         pushViewController(
             WebViewController(
                 urlString: website.urlString ?? "",
-                titleText: website.title ?? ""
+                title: website.title ?? ""
             )
         )
     }

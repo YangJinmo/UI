@@ -7,11 +7,7 @@
 
 import UIKit
 
-final class CollectionViewController: BaseViewController {
-    // MARK: - Constants
-
-    private let vcName = "추천 검색어"
-
+final class CollectionViewController: BaseTabViewController {
     // MARK: - Variables
 
     private var searches: [Search] = [
@@ -45,11 +41,14 @@ final class CollectionViewController: BaseViewController {
 
     // MARK: - View Life Cycle
 
+    override convenience init() {
+        self.init(title: "추천 검색어")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - UIViewController Transition Coordinator

@@ -8,21 +8,20 @@
 import UIKit
 
 final class ReviewWriteViewController: BasePresentViewController {
-    // MARK: - Constants
-
-    private let vcName = "리뷰 작성"
-
     // MARK: - Views
 
     private lazy var pushButton = UIButton("Push", .title)
 
     // MARK: - View Life Cycle
 
+    override convenience init() {
+        self.init(title: "리뷰 작성")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - Methods

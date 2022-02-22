@@ -8,10 +8,6 @@
 import UIKit
 
 final class SearchViewController: BasePresentViewController {
-    // MARK: - Constants
-
-    private let vcName = "추천 검색어"
-
     // MARK: - Variables
 
     private var searches: [Search] = [
@@ -45,11 +41,14 @@ final class SearchViewController: BasePresentViewController {
 
     // MARK: - View Life Cycle
 
+    override convenience init() {
+        self.init(title: "추천 검색어")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - UIViewController Transition Coordinator

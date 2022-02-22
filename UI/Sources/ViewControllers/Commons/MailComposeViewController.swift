@@ -8,21 +8,20 @@
 import MessageUI
 
 class MailComposeViewController: BaseNavigationViewController {
-    // MARK: - Constants
-
-    private let vcName = "MailComposeViewController"
-
     // MARK: - Views
 
     private lazy var sendEmailButton = UIButton("sendEmail")
 
     // MARK: - View Life Cycle
 
+    override convenience init() {
+        self.init(title: "MailComposeViewController")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - Methods

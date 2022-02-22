@@ -12,23 +12,9 @@ protocol ChangeUIDelegate: AnyObject {
 }
 
 final class DelegateViewController: BasePresentViewController {
+    // MARK: - Properties
+
     weak var delegate: ChangeUIDelegate?
-
-    // MARK: - Constants
-
-    private let vcName = "Delegate"
-
-    // MARK: - Initialization
-
-    init(delegate: ChangeUIDelegate) {
-        self.delegate = delegate
-
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     // MARK: - Views
 
@@ -36,11 +22,20 @@ final class DelegateViewController: BasePresentViewController {
 
     // MARK: - View Life Cycle
 
+    init(delegate: ChangeUIDelegate) {
+        self.delegate = delegate
+
+        super.init(title: "Delegate")
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - Methods

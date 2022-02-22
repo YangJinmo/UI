@@ -16,15 +16,13 @@ final class WebViewController: BaseNavigationViewController {
     // MARK: - Variables
 
     private var urlString: String?
-    private var titleText = ""
 
     // MARK: - Initialization
 
-    init(urlString: String, titleText: String = "") {
+    init(urlString: String, title: String = "") {
         self.urlString = urlString
-        self.titleText = titleText
 
-        super.init(nibName: nil, bundle: nil)
+        super.init(title: title)
     }
 
     required init?(coder: NSCoder) {
@@ -44,7 +42,6 @@ final class WebViewController: BaseNavigationViewController {
 
         setWebView()
         setupViews()
-        setTitleLabel(titleText)
         removeCache()
         loadWebView()
     }

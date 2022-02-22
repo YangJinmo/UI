@@ -13,8 +13,6 @@ final class TextViewController: BaseNavigationViewController {
     private enum Font {
         static let textView: UIFont = .systemFont(ofSize: 24, weight: .semibold)
     }
-    
-    private let vcName = "TextViewController"
 
     // MARK: - Views
 
@@ -40,11 +38,14 @@ final class TextViewController: BaseNavigationViewController {
 
     // MARK: - View Life Cycle
 
+    override convenience init() {
+        self.init(title: "TextViewController")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - Methods

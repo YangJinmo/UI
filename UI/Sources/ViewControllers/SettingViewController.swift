@@ -8,21 +8,20 @@
 import UIKit
 
 final class SettingViewController: BaseNavigationViewController {
-    // MARK: - Constants
-
-    private let vcName = "설정"
-
     // MARK: - Views
 
     private lazy var presentButton = UIButton("Present", .title)
 
     // MARK: - View Life Cycle
 
+    override convenience init() {
+        self.init(title: "설정")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - Methods

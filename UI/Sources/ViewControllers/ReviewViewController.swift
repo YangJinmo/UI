@@ -7,22 +7,21 @@
 
 import UIKit
 
-final class ReviewViewController: BaseViewController {
-    // MARK: - Constants
-
-    private let vcName = "리뷰"
-
+final class ReviewViewController: BaseTabViewController {
     // MARK: - Views
 
     private lazy var presentButton = UIButton("Present", .title)
 
     // MARK: - View Life Cycle
 
+    override convenience init() {
+        self.init(title: "리뷰")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
-        setTitleLabel(vcName)
     }
 
     // MARK: - Methods

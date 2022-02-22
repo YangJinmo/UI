@@ -8,11 +8,7 @@
 import UIKit
 
 class ImagePresentViewController: BasePresentViewController {
-    // MARK: - Constants
-
-    private let vcName = "ImagePresentViewController"
-
-    // MARK: - Variables
+    // MARK: - Properties
 
     private var imageUrl: URL?
 
@@ -24,7 +20,7 @@ class ImagePresentViewController: BasePresentViewController {
     // MARK: - Initialization
 
     convenience init(imageUrl: URL) {
-        self.init()
+        self.init(title: "ImagePresentViewController")
 
         self.imageUrl = imageUrl
     }
@@ -34,7 +30,6 @@ class ImagePresentViewController: BasePresentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setTitleLabel(vcName)
         setupScrollableStackView(imageView)
 
         imageView.add(
