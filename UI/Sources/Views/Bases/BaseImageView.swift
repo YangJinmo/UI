@@ -11,7 +11,7 @@ final class BaseImageView: UIImageView {
     // MARK: - Initialization
 
     override convenience init(image: UIImage?) {
-        self.init(frame: .zero)
+        self.init()
 
         self.image = image
     }
