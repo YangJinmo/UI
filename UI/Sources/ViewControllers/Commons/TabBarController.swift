@@ -39,15 +39,22 @@ final class TabBarController: UITabBarController {
     // MARK: - Methods
 
     private func setupTabBar() {
-        tabBar.tintColor = Color.tabBarTintColor
+//        tabBar.tintColor = Color.tabBarTintColor
+//        tabBar.backgroundColor = Color.tabBarBackgroundColor
+
+//        let topBorder = CALayer()
+//        topBorder.frame = CGRect(x: 0, y: 0, width: 1000, height: 1)
+//        topBorder.backgroundColor = Color.topBorderBackgroundColor
+//
+//        tabBar.layer.addSublayer(topBorder)
+//        tabBar.clipsToBounds = true
+        
+        tabBar.shadowImage = UIImage()
+        tabBar.backgroundImage = UIImage()
         tabBar.backgroundColor = Color.tabBarBackgroundColor
-
-        let topBorder = CALayer()
-        topBorder.frame = CGRect(x: 0, y: 0, width: 1000, height: 1)
-        topBorder.backgroundColor = Color.topBorderBackgroundColor
-
-        tabBar.layer.addSublayer(topBorder)
-        tabBar.clipsToBounds = true
+        tabBar.tintColor = Color.tabBarTintColor
+        tabBar.roundCorners(corners: [.topLeft, .topRight], radius: 25)
+        tabBar.setShadow(x: 0, y: -2, blur: 2, alpha: 0.07)
     }
 
     private func setupViewControllers() {
