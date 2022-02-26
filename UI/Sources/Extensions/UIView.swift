@@ -40,7 +40,7 @@ extension UIView {
     func setBottomShadow() {
         setShadow(x: 0, y: 1.6, blur: 1.6, alpha: 0.04)
     }
-    
+
     func hideShadow() {
         layer.shadowOpacity = 0
     }
@@ -56,6 +56,26 @@ extension UIView {
         layer.shadowRadius = blur
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = alpha
+    }
+
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        if #available(iOS 11.0, *) {
+            clipsToBounds = true
+            layer.cornerRadius = radius
+            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
+        } else {
+            let bezierPath = UIBezierPath(
+                roundedRect: bounds,
+                byRoundingCorners: corners,
+                cornerRadii: CGSize(width: radius, height: radius)
+            )
+
+            let shapeLayer = CAShapeLayer()
+            // shapeLayer.frame = bounds
+            shapeLayer.path = bezierPath.cgPath
+
+            layer.mask = shapeLayer
+        }
     }
 
     // MARK: - NSLayoutAnchor
