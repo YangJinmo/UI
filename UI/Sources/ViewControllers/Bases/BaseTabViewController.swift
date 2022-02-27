@@ -116,7 +116,7 @@ class BaseTabViewController: BaseViewController {
     func setTitleLabel(_ text: String?) {
         titleLabel.text = text
 
-        titleView.backgroundColor = .white
+        titleView.backgroundColor = .systemBackground
         titleView.setBottomShadow()
     }
 
