@@ -44,7 +44,7 @@ final class MyViewController: BaseTabViewController {
     }()
 
     // MARK: - View Life Cycle
-    
+
     override convenience init() {
         self.init(title: "마이")
     }
@@ -228,7 +228,8 @@ final class MyViewController: BaseTabViewController {
 
 extension MyViewController: ChangeUIDelegate {
     func changeUI() {
-        view.backgroundColor = .random()
+        contentView.backgroundColor = .random()
+
         toast("UI가 변경되었습니다.", bottom: true)
     }
 }
