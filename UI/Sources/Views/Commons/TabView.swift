@@ -19,7 +19,7 @@ class TabView: BaseView {
         static let navigationController: CGFloat = 56
     }
 
-    private var titleText = ""
+    private var title = ""
 
     // MARK: - Views
 
@@ -75,10 +75,10 @@ class TabView: BaseView {
 
     // MARK: - Initialization
 
-    convenience init(titleText: String) {
+    convenience init(title: String) {
         self.init()
 
-        titleLabel.text = titleText
+        titleLabel.text = title
     }
 
     override func initialize() {
