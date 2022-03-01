@@ -144,18 +144,18 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
 
 extension CollectionViewController: FlowLayoutMetric {
     var numberOfItemForRow: CGFloat {
-        1
+        1.0
     }
 
     var sectionInset: UIEdgeInsets {
-        .uniform(size: 0)
+        .uniform(size: 0.0)
     }
 
     var minimumLineSpacing: CGFloat {
-        1
+        1.0
     }
 
     var minimumInteritemSpacing: CGFloat {
-        0
+        0.0
     }
 }

@@ -22,7 +22,7 @@ class BaseTabViewController: BaseViewController {
     }
 
     private enum Height {
-        static let navigationController: CGFloat = 56
+        static let navigationController: CGFloat = 56.0
     }
 
     // MARK: - Views
@@ -120,7 +120,7 @@ class BaseTabViewController: BaseViewController {
         titleView.setBottomShadow()
     }
 
-    func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0) {
+    func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0.0) {
         view.addSubviews(scrollView)
         scrollView.addSubviews(guideView)
         guideView.addSubviews(stackView)

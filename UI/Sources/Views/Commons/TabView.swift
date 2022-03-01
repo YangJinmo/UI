@@ -16,7 +16,7 @@ class TabView: BaseView {
     }
 
     private enum Height {
-        static let navigationController: CGFloat = 56
+        static let navigationController: CGFloat = 56.0
     }
 
     private var title = ""

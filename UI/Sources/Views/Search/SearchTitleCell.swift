@@ -10,7 +10,7 @@ import UIKit
 final class SearchTitleCell: BaseCollectionViewCell {
     // MARK: - Constants
 
-    static let itemHeight: CGFloat = 76
+    static let itemHeight: CGFloat = 76.0
 
     private enum Image {
         static let chevronDownImage = UIImage(systemName: "chevron.down")

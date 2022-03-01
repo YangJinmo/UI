@@ -38,7 +38,7 @@ extension UILabel {
     }
 
     /// 행간
-    func spaceBetweenTheLines(_ alignment: NSTextAlignment = .left, _ lineSpacing: CGFloat = 2) {
+    func spaceBetweenTheLines(_ alignment: NSTextAlignment = .left, _ lineSpacing: CGFloat = 2.0) {
         guard let text = self.text else { return }
 
         let mutableAttributedString = NSMutableAttributedString(string: text)

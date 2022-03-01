@@ -10,7 +10,7 @@ import UIKit
 class BottomSheetViewController: UIViewController {
     // MARK: - Properties
 
-    private var contentViewHeight: CGFloat = 300
+    private var contentViewHeight: CGFloat = 300.0
     private var contentViewTopConstraint: NSLayoutConstraint!
     private var contentViewTopConstraintConstant: CGFloat {
         return safeAreaHeight + safeAreaBottom

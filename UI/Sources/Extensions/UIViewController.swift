@@ -157,14 +157,14 @@ extension UIViewController {
         toastLabel.numberOfLines = 0
         toastLabel.spaceBetweenTheLines(.center)
 
-        let margin: CGFloat = 36
+        let margin: CGFloat = 36.0
         let width: CGFloat = toastLabel.intrinsicContentSize.width + margin
         let height: CGFloat = toastLabel.intrinsicContentSize.height + margin
 
         keyWindow.addSubview(toastLabel)
 
         if bottom {
-            let bottomConstant: CGFloat = keyWindow.safeAreaInsets.bottom + 64
+            let bottomConstant: CGFloat = keyWindow.safeAreaInsets.bottom + 64.0
             toastLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 toastLabel.bottomAnchor.constraint(equalTo: keyWindow.bottomAnchor, constant: -bottomConstant),

@@ -48,7 +48,7 @@ final class RecommendedButton: BaseButton {
 
     // MARK: - Methods
 
-    func setHeight(_ height: CGFloat = 46) {
+    func setHeight(_ height: CGFloat = 46.0) {
         layer.masksToBounds = true
         layer.cornerRadius = height / 2
 
