@@ -16,7 +16,7 @@ class BottomSheetViewController: UIViewController {
         return safeAreaHeight + safeAreaBottom
     }
 
-    private var action: Action?
+    private var action: Closure?
 
     // MARK: - Views
 
@@ -133,7 +133,7 @@ class BottomSheetViewController: UIViewController {
         hideBottomSheetAndDismiss()
     }
 
-    func bind(action: @escaping Action) {
+    func bind(action: @escaping Closure) {
         self.action = action
     }
 
