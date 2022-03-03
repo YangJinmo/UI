@@ -59,6 +59,7 @@
 		E835405727B950BF002913FA /* RecommendedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405627B950BF002913FA /* RecommendedButton.swift */; };
 		E835405927B950DD002913FA /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405827B950DD002913FA /* BaseButton.swift */; };
 		E835405B27B951DF002913FA /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405A27B951DF002913FA /* Typealias.swift */; };
+		E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83581EE27D0CA3A00179090 /* UIScrollView.swift */; };
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
 		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
@@ -152,6 +153,7 @@
 		E835405627B950BF002913FA /* RecommendedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedButton.swift; sourceTree = "<group>"; };
 		E835405827B950DD002913FA /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		E835405A27B951DF002913FA /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		E83581EE27D0CA3A00179090 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				099D33E62753C83900C14F5F /* UIStackView.swift */,
 				09ADF38D272524FB004C6A97 /* UITableView.swift */,
 				09ADF38B272524C2004C6A97 /* UICollectionView.swift */,
+				E83581EE27D0CA3A00179090 /* UIScrollView.swift */,
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
 				091AC4322739142400294EFC /* WKWebView.swift */,
 				E83137652783185E007145E2 /* CGFloat.swift */,
@@ -561,6 +564,7 @@
 				09AB348E272B9B1C00317254 /* TabBarController.swift in Sources */,
 				091AC4292737ED2F00294EFC /* String.swift in Sources */,
 				09ADF39627252989004C6A97 /* UIEdgeInsets.swift in Sources */,
+				E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */,
 				E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */,
 				E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */,
 				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
