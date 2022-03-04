@@ -8,27 +8,19 @@
 import UIKit
 
 extension UITableView {
+    // MARK: - Reload Completion
+
     func reloadData(completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0) {
-            self.reloadData()
-        } completion: { _ in
+        reloadData()
+        performBatchUpdates {
             completion()
         }
     }
 
-    func reloadRows(indexPath: IndexPath, completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0) {
-            self.reloadRows(indexPath: indexPath)
-        } completion: { _ in
+    func reloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .fade, completion: @escaping () -> Void) {
+        reloadRows(at: indexPaths, with: animation)
+        performBatchUpdates {
             completion()
-        }
-    }
-
-    func reloadRows(indexPath: IndexPath, with animation: UITableView.RowAnimation = .none) {
-        DispatchQueue.main.async {
-            UIView.performWithoutAnimation {
-                self.reloadRows(at: [indexPath], with: animation)
-            }
         }
     }
 

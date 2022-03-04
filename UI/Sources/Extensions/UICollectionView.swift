@@ -8,27 +8,19 @@
 import UIKit
 
 extension UICollectionView {
+    // MARK: - Reload Completion
+
     func reloadData(completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0) {
-            self.reloadData()
-        } completion: { _ in
+        reloadData()
+        performBatchUpdates {
             completion()
         }
     }
 
-    func reloadItems(indexPath: IndexPath, completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0) {
-            self.reloadItems(indexPath: indexPath)
-        } completion: { _ in
+    func reloadItems(at indexPaths: [IndexPath], completion: @escaping () -> Void) {
+        reloadItems(at: indexPaths)
+        performBatchUpdates {
             completion()
-        }
-    }
-
-    func reloadItems(indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            UIView.performWithoutAnimation {
-                self.reloadItems(at: [indexPath])
-            }
         }
     }
 
