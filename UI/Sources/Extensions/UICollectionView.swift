@@ -11,15 +11,17 @@ extension UICollectionView {
     // MARK: - Reload Completion
 
     func reloadData(completion: @escaping () -> Void) {
-        reloadData()
-        performBatchUpdates {
+        UIView.animate(withDuration: 0) {
+            self.reloadData()
+        } completion: { _ in
             completion()
         }
     }
 
     func reloadItems(at indexPaths: [IndexPath], completion: @escaping () -> Void) {
-        reloadItems(at: indexPaths)
-        performBatchUpdates {
+        UIView.animate(withDuration: 0) {
+            self.reloadItems(at: indexPaths)
+        } completion: { _ in
             completion()
         }
     }

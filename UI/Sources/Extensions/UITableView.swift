@@ -11,15 +11,25 @@ extension UITableView {
     // MARK: - Reload Completion
 
     func reloadData(completion: @escaping () -> Void) {
-        reloadData()
-        performBatchUpdates {
+        UIView.animate(withDuration: 0) {
+            self.reloadData()
+        } completion: { _ in
             completion()
         }
     }
 
     func reloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .fade, completion: @escaping () -> Void) {
-        reloadRows(at: indexPaths, with: animation)
-        performBatchUpdates {
+        UIView.animate(withDuration: 0) {
+            self.reloadRows(at: indexPaths, with: animation)
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func deleteRows(at: [IndexPath], with: UITableView.RowAnimation = .fade, completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0) {
+            self.deleteRows(at: at, with: with)
+        } completion: { _ in
             completion()
         }
     }
