@@ -18,11 +18,19 @@ extension UITableView {
         }
     }
 
-    func reloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .fade, completion: @escaping () -> Void) {
+    func reloadRows(indexPath: IndexPath, completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0) {
-            self.reloadRows(at: indexPaths, with: animation)
+            self.reloadRows(indexPath: indexPath)
         } completion: { _ in
             completion()
+        }
+    }
+
+    func reloadRows(indexPath: IndexPath, with animation: UITableView.RowAnimation = .none) {
+        DispatchQueue.main.async {
+            UIView.performWithoutAnimation {
+                self.reloadRows(at: [indexPath], with: animation)
+            }
         }
     }
 

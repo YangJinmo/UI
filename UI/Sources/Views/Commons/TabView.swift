@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabView: BaseView {
+final class TabView: BaseView {
     // MARK: - Constants
 
     private enum Image {

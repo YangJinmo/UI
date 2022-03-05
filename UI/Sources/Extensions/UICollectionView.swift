@@ -18,11 +18,19 @@ extension UICollectionView {
         }
     }
 
-    func reloadItems(at indexPaths: [IndexPath], completion: @escaping () -> Void) {
+    func reloadItems(indexPath: IndexPath, completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0) {
-            self.reloadItems(at: indexPaths)
+            self.reloadItems(indexPath: indexPath)
         } completion: { _ in
             completion()
+        }
+    }
+
+    func reloadItems(indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            UIView.performWithoutAnimation {
+                self.reloadItems(at: [indexPath])
+            }
         }
     }
 
