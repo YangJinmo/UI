@@ -92,6 +92,7 @@
 		E8CF006A277C65F7009B3128 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF0069277C65F7009B3128 /* Track.swift */; };
 		E8CF006C277C6770009B3128 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF006B277C6770009B3128 /* QueryService.swift */; };
 		E8DB4BA427AC2D8000E29CF1 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */; };
+		E8DB51AA27D4BA850080CA6B /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51A927D4BA850080CA6B /* GradationView.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 		E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */; };
@@ -186,6 +187,7 @@
 		E8CF0069277C65F7009B3128 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E8CF006B277C6770009B3128 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
+		E8DB51A927D4BA850080CA6B /* GradationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				09ADF3A0272592E7004C6A97 /* DividerTableViewCell.swift */,
 				099D33EE2754678E00C14F5F /* TabView.swift */,
 				E835405627B950BF002913FA /* RecommendedButton.swift */,
+				E8DB51A927D4BA850080CA6B /* GradationView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				E8CF006C277C6770009B3128 /* QueryService.swift in Sources */,
+				E8DB51AA27D4BA850080CA6B /* GradationView.swift in Sources */,
 				E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */,
 				E87889CA276252D500B9A07E /* UIWindow.swift in Sources */,
 				E87889CC27625A4E00B9A07E /* UILabel.swift in Sources */,
