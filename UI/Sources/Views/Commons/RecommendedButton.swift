@@ -52,9 +52,7 @@ final class RecommendedButton: BaseButton {
         layer.masksToBounds = true
         layer.cornerRadius = height / 2
 
-        Constraint.activate([
-            heightAnchor.constraint(equalToConstant: height),
-        ])
+        self.height(height)
     }
 
     private func setIsRecommended(_ isRecommended: Bool) {
