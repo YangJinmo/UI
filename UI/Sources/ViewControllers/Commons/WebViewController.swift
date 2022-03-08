@@ -75,12 +75,19 @@ final class WebViewController: BaseNavigationViewController {
 
     private func setupViews() {
         view.addSubviews(
-            webView,
-            activityIndicatorView,
             progressView
         )
 
+        contentView.addSubviews(
+            webView,
+            activityIndicatorView
+        )
+
         Constraint.activate([
+            progressView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
+            progressView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
+            progressView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
+
             webView.topAnchor.constraint(equalTo: contentView.topAnchor),
             webView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             webView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
@@ -88,10 +95,6 @@ final class WebViewController: BaseNavigationViewController {
 
             activityIndicatorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-
-            progressView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            progressView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            progressView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
         ])
     }
 
