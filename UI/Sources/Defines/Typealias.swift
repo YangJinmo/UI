@@ -6,3 +6,4 @@
 //
 
 typealias Closure = () -> Void
+typealias ReturnString = (String) -> Void

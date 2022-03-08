@@ -7,7 +7,7 @@
 
 import UIKit
 
-public enum SupplementaryViewKind: String {
+enum SupplementaryViewKind: String {
     case header, footer
 
     public init?(rawValue: String) {
