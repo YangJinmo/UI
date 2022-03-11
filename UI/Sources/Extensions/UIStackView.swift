@@ -8,8 +8,21 @@
 import UIKit
 
 extension UIStackView {
+    convenience init(axis: NSLayoutConstraint.Axis = .horizontal, spacing: CGFloat = 0) {
+        self.init(frame: .zero)
+
+        self.axis = axis
+        self.spacing = spacing
+    }
+
+    var height: CGFloat {
+        systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+    }
+
     func addArrangedSubviews(_ views: UIView...) {
-        views.forEach { addArrangedSubview($0) }
+        views.forEach {
+            addArrangedSubview($0)
+        }
     }
 
     func removeAllArrangedSubviews() {

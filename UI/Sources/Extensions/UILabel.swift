@@ -8,17 +8,28 @@
 import UIKit
 
 extension UILabel {
-    convenience init(_ text: String? = nil, _ font: UIFont? = nil) {
+    convenience init(
+        _ text: String? = nil,
+        _ font: UIFont? = nil
+    ) {
         self.init(frame: .zero)
 
         self.text = text
         self.font = font
+    }
+    
+    static func navigationTitleLabel(_ text: String? = nil) -> UILabel {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .semibold)
+        label.textAlignment = .center
+        return label
     }
 
     static func makeForTitle(_ text: String? = nil) -> UILabel {
         let label = UILabel(text, .title)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.75
+        label.textAlignment = .center
         return label
     }
 
