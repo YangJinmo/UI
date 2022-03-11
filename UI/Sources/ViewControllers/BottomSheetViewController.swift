@@ -7,16 +7,24 @@
 
 import UIKit
 
-class BottomSheetViewController: UIViewController {
+final class BottomSheetViewController: UIViewController {
     // MARK: - Properties
 
-    private var contentViewHeight: CGFloat = 300.0
+    private var margin = CGFloat(16)
     private var contentViewTopConstraint: NSLayoutConstraint!
-    private var contentViewTopConstraintConstant: CGFloat {
+    private var contentViewTop: CGFloat {
         return safeAreaHeight + safeAreaBottom
     }
 
-    private var action: Closure?
+    private var contentViewHeightConstraint: NSLayoutConstraint!
+    private var contentViewHeight: CGFloat {
+        return Height.navigationController + collectionViewHeight + safeAreaBottom + margin
+    }
+
+    private var collectionViewHeight: CGFloat {
+        collectionView.layoutIfNeeded()
+        return collectionView.contentSize.height
+    }
 
     // MARK: - Views
 
@@ -33,7 +41,7 @@ class BottomSheetViewController: UIViewController {
         let rectCorner: UIRectCorner = [.topLeft, .topRight]
         view.layer.masksToBounds = false
         view.layer.maskedCorners = CACornerMask(rawValue: rectCorner.rawValue)
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 14
         view.layer.shadowRadius = 10
         view.layer.shadowOpacity = 0.5
         view.layer.shadowColor = UIColor.black.cgColor
@@ -41,13 +49,14 @@ class BottomSheetViewController: UIViewController {
         return view
     }()
 
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        return stackView
+    private lazy var navigationView = NavigationView()
+    private lazy var collectionView: BaseCollectionView = {
+        let collectionView = BaseCollectionView(layout: flowLayout())
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(SelectableTitleCell.self)
+        return collectionView
     }()
-
-    private lazy var completeButton = RecommendedButton("완료", recommended: .main, isRecommended: false)
 
     // MARK: - View Life Cycle
 
@@ -66,9 +75,7 @@ class BottomSheetViewController: UIViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.addSubview(backgroundView)
-
-        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubviews(backgroundView)
 
         Constraint.activate([
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -77,49 +84,54 @@ class BottomSheetViewController: UIViewController {
             backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
 
-        view.addSubview(contentView)
+        view.addSubviews(contentView)
 
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-
-        contentViewTopConstraint = contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: contentViewTopConstraintConstant)
+        contentViewTopConstraint = contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: contentViewTop)
+        contentViewHeightConstraint = contentView.heightAnchor.constraint(equalToConstant: contentViewHeight)
 
         Constraint.activate([
             contentViewTopConstraint,
             contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: contentViewHeight + safeAreaBottom),
+            contentViewHeightConstraint,
         ])
 
-        stackView.addArrangedSubview(completeButton)
-
-        contentView.addSubview(stackView)
-
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubviews(navigationView)
 
         Constraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(safeAreaBottom + 20)),
+            navigationView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            navigationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            navigationView.heightAnchor.constraint(equalToConstant: Height.navigationController),
+        ])
+
+        contentView.addSubviews(collectionView)
+
+        Constraint.activate([
+            collectionView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(safeAreaBottom + margin)),
         ])
 
         backgroundView.addTapGestureRecognizer(self, action: #selector(backgroundViewTouched(_:)))
-
-        completeButton.addTarget(self, action: #selector(completeButtonTouched(_:)), for: .touchUpInside)
+        navigationView.addDismissButton(dismissButtonTouched)
     }
 
     private func showBottomSheet() {
-        contentViewTopConstraint.constant = contentViewTopConstraintConstant - contentViewHeight - safeAreaBottom
+        contentViewTopConstraint.constant = contentViewTop - contentViewHeight
+        contentViewHeightConstraint.constant = contentViewHeight
 
-        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
             self.backgroundView.alpha = 1
             self.view.layoutIfNeeded()
         })
     }
 
     private func hideBottomSheetAndDismiss(completion: (() -> Void)? = nil) {
-        contentViewTopConstraint.constant = contentViewTopConstraintConstant
+        contentViewTopConstraint.constant = contentViewTop
 
-        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
             self.backgroundView.alpha = 0
             self.view.layoutIfNeeded()
         }) { _ in
@@ -133,14 +145,103 @@ class BottomSheetViewController: UIViewController {
         hideBottomSheetAndDismiss()
     }
 
-    func bind(action: @escaping Closure) {
-        self.action = action
+    @objc private func dismissButtonTouched() {
+        hideBottomSheetAndDismiss()
     }
 
-    @objc private func completeButtonTouched(_ sender: Any) {
-        hideBottomSheetAndDismiss {
-            guard let action = self.action else { return }
-            action()
+    func setTitleLabel(_ text: String?) {
+        navigationView.setTitleLabel(text)
+    }
+
+    private var sorts = [Sort]()
+    private var selectedSort = Sort.dateOrder
+
+    func bind(sorts: [Sort], selectedSort: Sort) {
+        self.sorts = sorts
+        self.selectedSort = selectedSort
+
+        collectionView.reloadData { [weak self] in
+            self?.selectedItem(selectedSort: selectedSort)
         }
+    }
+
+    private var didSelectRowAt: ((Sort) -> Void)?
+
+    func bind(didSelectRowAt: @escaping (Sort) -> Void) {
+        self.didSelectRowAt = didSelectRowAt
+    }
+
+    func selectedItem(selectedSort: Sort) {
+        var indexPath: IndexPath?
+
+        for (index, sort) in sorts.enumerated() {
+            if sort == selectedSort {
+                indexPath = IndexPath(item: index, section: 0)
+            }
+        }
+        selectItem(indexPath: indexPath)
+    }
+
+    private func selectItem(indexPath: IndexPath? = IndexPath(item: 0, section: 0)) {
+        collectionView.selectItem(
+            at: indexPath,
+            animated: true,
+            scrollPosition: .centeredVertically
+        )
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension BottomSheetViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sorts.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: SelectableTitleCell = collectionView.dequeueReusableCell(for: indexPath)
+        let sort = sorts[indexPath.row]
+        cell.setTitleLabel(sort.description)
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension BottomSheetViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedSort = sorts[indexPath.row]
+
+        hideBottomSheetAndDismiss { [weak self] in
+            self?.didSelectRowAt?(selectedSort)
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension BottomSheetViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return itemSize(width: collectionView, height: SelectableTitleCell.itemHeight)
+    }
+}
+
+// MARK: - FlowLayoutMetric
+
+extension BottomSheetViewController: FlowLayoutMetric {
+    var numberOfItemForRow: CGFloat {
+        1.0
+    }
+
+    var sectionInset: UIEdgeInsets {
+        .uniform(size: 0.0)
+    }
+
+    var minimumLineSpacing: CGFloat {
+        1.0
+    }
+
+    var minimumInteritemSpacing: CGFloat {
+        0.0
     }
 }

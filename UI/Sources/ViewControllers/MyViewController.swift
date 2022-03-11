@@ -216,13 +216,17 @@ final class MyViewController: BaseTabViewController {
 
     @objc private func bottomSheetButtonTouched(_ sender: Any) {
         let vc = BottomSheetViewController()
+        vc.setTitleLabel("정렬")
+        vc.bind(sorts: Sort.allCases, selectedSort: selectedSort)
+        vc.bind(didSelectRowAt: didSelectRowAt)
         vc.modalPresentationStyle = .overFullScreen
-        vc.bind(action: completeButtonTouched)
         present(vc, animated: false)
     }
+    
+    private var selectedSort = Sort.dateOrder
 
-    private func completeButtonTouched() {
-        "".log()
+    private func didSelectRowAt(selectedSort: Sort) {
+        self.selectedSort = selectedSort
     }
 }
 
