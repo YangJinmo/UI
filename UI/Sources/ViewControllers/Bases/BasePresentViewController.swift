@@ -13,17 +13,12 @@ class BasePresentViewController: BaseTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupDismissButton()
+        navigationView.addDismissButton(dismissButtonTouched)
     }
 
     // MARK: - Methods
 
-    private func setupDismissButton() {
-        dismissButton.addTarget(self, action: #selector(dismissButtonTouched(_:)), for: .touchUpInside)
-        dismissButton.isHidden = false
-    }
-
-    @objc private func dismissButtonTouched(_ sender: Any) {
+    @objc private func dismissButtonTouched() {
         dismiss()
     }
 }

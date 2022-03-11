@@ -21,32 +21,9 @@ class BaseTabViewController: BaseViewController {
         static let xmark = UIImage(systemName: "xmark")
     }
 
-    private enum Height {
-        static let navigationController: CGFloat = 56.0
-    }
-
     // MARK: - Views
 
-    lazy var titleView = UIView()
-
-    lazy var titleLabel: UILabel = {
-        let label = UILabel.makeForTitle()
-        label.textAlignment = .center
-        return label
-    }()
-
-    lazy var popButton: UIButton = {
-        let button = UIButton(Image.chevronLeft)
-        button.isHidden = true
-        return button
-    }()
-
-    lazy var dismissButton: UIButton = {
-        let button = UIButton(Image.xmark)
-        button.isHidden = true
-        return button
-    }()
-
+    lazy var navigationView = NavigationView()
     lazy var contentView = UIView()
     private lazy var scrollView = UIScrollView()
     private lazy var guideView = UIView()
@@ -74,50 +51,25 @@ class BaseTabViewController: BaseViewController {
 
         view.addSubviews(
             contentView,
-            titleView
+            navigationView
         )
 
         Constraint.activate([
-            titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            titleView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            titleView.heightAnchor.constraint(equalToConstant: Height.navigationController),
+            navigationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            navigationView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            navigationView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            navigationView.heightAnchor.constraint(equalToConstant: Height.navigationController),
 
-            contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            contentView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             contentView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
         ])
-
-        titleView.addSubviews(
-            popButton,
-            dismissButton,
-            titleLabel
-        )
-
-        Constraint.activate([
-            popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
-            popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
-            popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            popButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
-
-            dismissButton.topAnchor.constraint(equalTo: titleView.topAnchor),
-            dismissButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
-            dismissButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            dismissButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
-
-            titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: popButton.rightAnchor),
-            titleLabel.rightAnchor.constraint(equalTo: dismissButton.leftAnchor),
-        ])
     }
 
     func setTitleLabel(_ text: String?) {
-        titleLabel.text = text
-
-        titleView.backgroundColor = .systemBackground
-        titleView.setBottomShadow()
+        navigationView.setNavigationViewBottomShadow()
+        navigationView.setTitleLabel(text)
     }
 
     func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0.0) {
@@ -130,7 +82,7 @@ class BaseTabViewController: BaseViewController {
         guideViewHeightConstraint.priority = .defaultLow
 
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

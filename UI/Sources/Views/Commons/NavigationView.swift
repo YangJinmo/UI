@@ -20,7 +20,7 @@ final class NavigationView: BaseView {
 
     // MARK: - Views
 
-    private lazy var titleLabel = UILabel.makeForTitle()
+    private lazy var titleLabel = UILabel.navigationTitleLabel()
     private lazy var popButton = UIButton(Image.chevronLeft, isHidden: true)
     private lazy var dismissButton = UIButton(Image.xmark, isHidden: true)
 

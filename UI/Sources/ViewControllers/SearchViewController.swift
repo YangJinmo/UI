@@ -51,8 +51,6 @@ final class SearchViewController: BasePresentViewController {
         setupViews()
     }
 
-    // MARK: - UIViewController Transition Coordinator
-
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 

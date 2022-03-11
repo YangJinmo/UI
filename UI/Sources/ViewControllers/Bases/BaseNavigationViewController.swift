@@ -14,17 +14,12 @@ class BaseNavigationViewController: BaseTabViewController {
         super.viewDidLoad()
 
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-        setupPopButton()
+        navigationView.addPopButton(popButtonTouched)
     }
 
     // MARK: - Methods
 
-    private func setupPopButton() {
-        popButton.addTarget(self, action: #selector(popButtonTouched(_:)), for: .touchUpInside)
-        popButton.isHidden = false
-    }
-
-    @objc private func popButtonTouched(_ sender: Any) {
+    @objc private func popButtonTouched() {
         popViewController()
     }
 }
