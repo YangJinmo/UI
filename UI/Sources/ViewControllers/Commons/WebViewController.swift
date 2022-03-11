@@ -84,9 +84,9 @@ final class WebViewController: BaseNavigationViewController {
         )
 
         Constraint.activate([
-            progressView.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            progressView.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            progressView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
+            progressView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            progressView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            progressView.bottomAnchor.constraint(equalTo: contentView.topAnchor),
 
             webView.topAnchor.constraint(equalTo: contentView.topAnchor),
             webView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
@@ -118,13 +118,11 @@ final class WebViewController: BaseNavigationViewController {
         webView.load(url)
     }
 
-    var passMessage: ((String) -> Void)?
+    var returnMessage: ReturnString?
 
     private func passMessage(_ message: String) {
-        if let pm: ((String) -> Void) = passMessage {
-            pm(message)
-            popViewController()
-        }
+        returnMessage?(message)
+        popViewController()
     }
 }
 
