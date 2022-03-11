@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SelectedCell: BaseCollectionViewCell {
+final class SelectableTitleCell: BaseCollectionViewCell {
     // MARK: - Properties
 
     static let itemHeight: CGFloat = 44.0
