@@ -8,6 +8,24 @@
 import UIKit
 
 extension UITableView {
+    // MARK: - Select / Deselect
+
+    func selectAll(animated: Bool = true) {
+        (0 ..< numberOfSections).compactMap { (section) -> [IndexPath]? in
+            (0 ..< numberOfRows(inSection: section)).compactMap({ (item) -> IndexPath? in
+                IndexPath(item: item, section: section)
+            })
+        }.flatMap { $0 }.forEach { indexPath in
+            selectRow(at: indexPath, animated: animated, scrollPosition: .none)
+        }
+    }
+
+    func deselectAll(animated: Bool = true) {
+        indexPathsForSelectedRows?.forEach({ indexPath in
+            deselectRow(at: indexPath, animated: animated)
+        })
+    }
+
     // MARK: - Reload Completion
 
     func reloadData(completion: @escaping () -> Void) {
