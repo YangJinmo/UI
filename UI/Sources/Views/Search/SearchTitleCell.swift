@@ -19,8 +19,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // MARK: - Variables
 
-    private var timer = Timer()
-    private var isTimerOn = false
+    private var timer: Timer?
     private var index = 0
 
     // MARK: - Views
@@ -55,7 +54,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
             right: contentView.rightAnchor, 36,
             centerY: contentView
         )
-        
+
         contentView.addBottomBorder()
 
 //        contentView.constraints.first { $0.firstAnchor == titleLabel.leftAnchor }?.isActive = false
@@ -93,35 +92,47 @@ final class SearchTitleCell: BaseCollectionViewCell {
         titleLabel.isHidden = search.isExpand
 
         if search.isExpand == true {
-            timer.invalidate()
+            timerStop()
             index = 0
-            isTimerOn = false
             termLabel.text = search.title
         } else {
-            setupTermLabel(search: search, index: index) // Default
-
-            if isTimerOn == false {
-                isTimerOn = true
-
-                timer = Timer.scheduledTimer(
-                    withTimeInterval: 2,
-                    repeats: true,
-                    block: { [weak self] _ in
-                        guard let self = self else { return }
-                        self.setupTermLabel(search: search, index: self.index)
-                        self.index += 1
-
-                        if self.index == search.terms.count {
-                            self.index = 0
-                        }
-                    }
-                )
-            }
+            timerStart(search: search)
         }
     }
 
     func setupTermLabel(search: Search, index: Int) {
         termLabel.text = "\(index + 1). \(search.terms[index])"
         "\(index + 1). \(search.terms[index])".log()
+    }
+
+    func timerStart(search: Search) {
+        timerStop()
+
+        guard timer == nil else {
+            return
+        }
+        setupTermLabel(search: search, index: index) // Default
+
+        timer = Timer.scheduledTimer(
+            withTimeInterval: 2.0,
+            repeats: true,
+            block: { [weak self] _ in
+                guard let self = self else { return }
+                self.setupTermLabel(search: search, index: self.index)
+                self.index += 1
+
+                if self.index == search.terms.count {
+                    self.index = 0
+                }
+            }
+        )
+    }
+
+    func timerStop() {
+        guard timer != nil else {
+            return
+        }
+        timer?.invalidate()
+        timer = nil
     }
 }
