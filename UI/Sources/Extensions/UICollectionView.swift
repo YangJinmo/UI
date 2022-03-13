@@ -8,6 +8,36 @@
 import UIKit
 
 extension UICollectionView {
+    // MARK: - Scroll
+
+    // For Horizontal Scrolling: .left
+    // For Vertical Scrolling - .top
+    func scrollToFirst(at scrollPosition: UICollectionView.ScrollPosition = .top, animated: Bool = true) {
+        let indexPath = IndexPath(item: 0, section: 0)
+        scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
+    }
+
+    // For Horizontal Scrolling: .right
+    // For Vertical Scrolling - .bottom
+    func scrollToLast(at scrollPosition: UICollectionView.ScrollPosition = .bottom, animated: Bool = true) {
+        guard numberOfSections > 0 else {
+            return
+        }
+
+        let lastSection = numberOfSections - 1
+
+        guard numberOfItems(inSection: lastSection) > 0 else {
+            return
+        }
+
+        let lastItem = numberOfItems(inSection: lastSection) - 1
+        let indexPath = IndexPath(item: lastItem, section: lastSection)
+
+        // For Horizontal Scrolling: .right
+        // For Vertical Scrolling - .bottom
+        scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
+    }
+
     // MARK: - Select / Deselect
 
     func selectAll(animated: Bool = true) {
