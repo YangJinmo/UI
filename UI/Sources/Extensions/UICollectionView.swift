@@ -8,6 +8,10 @@
 import UIKit
 
 extension UICollectionView {
+    convenience init(layout: UICollectionViewLayout) {
+        self.init(frame: .zero, collectionViewLayout: layout)
+    }
+
     // MARK: - Scroll
 
     // For Horizontal Scrolling: .left

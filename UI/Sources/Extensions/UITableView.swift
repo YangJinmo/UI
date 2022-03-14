@@ -8,6 +8,10 @@
 import UIKit
 
 extension UITableView {
+    convenience init(style: UITableView.Style = .plain) {
+        self.init(frame: .zero, style: style)
+    }
+
     // MARK: - Select / Deselect
 
     func selectAll(animated: Bool = true) {

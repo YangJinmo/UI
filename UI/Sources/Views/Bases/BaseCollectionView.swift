@@ -10,10 +10,6 @@ import UIKit
 final class BaseCollectionView: UICollectionView {
     // MARK: - Initialization
 
-    convenience init(layout: UICollectionViewLayout) {
-        self.init(frame: .zero, collectionViewLayout: layout)
-    }
-
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
 
