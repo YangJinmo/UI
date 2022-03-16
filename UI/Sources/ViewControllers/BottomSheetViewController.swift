@@ -96,7 +96,10 @@ final class BottomSheetViewController: UIViewController {
             contentViewHeightConstraint,
         ])
 
-        contentView.addSubviews(navigationView)
+        contentView.addSubviews(
+            collectionView,
+            navigationView
+        )
 
         Constraint.activate([
             navigationView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -104,8 +107,6 @@ final class BottomSheetViewController: UIViewController {
             navigationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             navigationView.heightAnchor.constraint(equalToConstant: Height.navigationController),
         ])
-
-        contentView.addSubviews(collectionView)
 
         Constraint.activate([
             collectionView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
@@ -165,10 +166,10 @@ final class BottomSheetViewController: UIViewController {
         }
     }
 
-    private var didSelectRowAt: ((Sort) -> Void)?
+    private var didSelectItemAt: ((Sort) -> Void)?
 
-    func bind(didSelectRowAt: @escaping (Sort) -> Void) {
-        self.didSelectRowAt = didSelectRowAt
+    func bind(didSelectItemAt: @escaping (Sort) -> Void) {
+        self.didSelectItemAt = didSelectItemAt
     }
 
     func selectedItem(selectedSort: Sort) {
@@ -213,7 +214,7 @@ extension BottomSheetViewController: UICollectionViewDelegate {
         let selectedSort = sorts[indexPath.row]
 
         hideBottomSheetAndDismiss { [weak self] in
-            self?.didSelectRowAt?(selectedSort)
+            self?.didSelectItemAt?(selectedSort)
         }
     }
 }

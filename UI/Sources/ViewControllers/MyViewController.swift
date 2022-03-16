@@ -218,14 +218,14 @@ final class MyViewController: BaseTabViewController {
         let vc = BottomSheetViewController()
         vc.setTitleLabel("정렬")
         vc.bind(sorts: Sort.allCases, selectedSort: selectedSort)
-        vc.bind(didSelectRowAt: didSelectRowAt)
+        vc.bind(didSelectItemAt: didSelectItemAt)
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false)
     }
     
     private var selectedSort = Sort.dateOrder
 
-    private func didSelectRowAt(selectedSort: Sort) {
+    private func didSelectItemAt(selectedSort: Sort) {
         self.selectedSort = selectedSort
     }
 }
