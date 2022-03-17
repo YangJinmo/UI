@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/12/03.
 //
 
-import UIKit
+import UIKit.UIImage
 
 extension UIImage {
     var aspect: CGFloat {

@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/12/13.
 //
 
-import UIKit
+import Foundation.NSBundle
 
 extension Bundle {
     static var appName: String {

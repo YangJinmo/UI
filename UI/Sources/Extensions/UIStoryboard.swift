@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/02/01.
 //
 
-import UIKit
+import UIKit.UIStoryboard
 
 extension UIStoryboard {
     enum Name: String {

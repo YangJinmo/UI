@@ -5,7 +5,7 @@
 //  Created by JMY on 2022/03/03.
 //
 
-import UIKit
+import UIKit.UIScrollView
 
 extension UIScrollView {
     convenience init(scrollIndicator: Bool) {

@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/01/03.
 //
 
-import UIKit
+import CoreGraphics
 
 extension CGFloat {
     static func random() -> CGFloat {

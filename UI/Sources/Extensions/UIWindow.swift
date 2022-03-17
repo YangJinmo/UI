@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/12/10.
 //
 
-import UIKit
+import UIKit.UIWindow
 
 extension UIWindow {
     static var key: UIWindow? {

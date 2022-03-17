@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/11/08.
 //
 
-import WebKit
+import WebKit.WKWebView
 
 extension WKWebView {
     func load(_ url: URL) {

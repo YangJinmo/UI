@@ -5,8 +5,6 @@
 //  Created by Jmy on 2022/01/01.
 //
 
-import Foundation
-
 extension Optional where Wrapped == String {
     var isNilOrEmpty: Bool {
         switch self {

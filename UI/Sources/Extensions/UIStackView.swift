@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/11/28.
 //
 
-import UIKit
+import UIKit.UIStackView
 
 extension UIStackView {
     convenience init(axis: NSLayoutConstraint.Axis = .horizontal, spacing: CGFloat = 0) {

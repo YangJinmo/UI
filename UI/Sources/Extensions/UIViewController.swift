@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/11/05.
 //
 
-import UIKit
+import UIKit.UIViewController
 
 extension UIViewController {
     // MARK: - Safe Area

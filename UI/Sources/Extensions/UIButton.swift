@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/01/01.
 //
 
-import UIKit
+import UIKit.UIButton
 
 extension UIButton {
     convenience init(

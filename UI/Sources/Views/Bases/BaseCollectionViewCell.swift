@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/10/24.
 //
 
-import UIKit
+import UIKit.UICollectionViewCell
 
 class BaseCollectionViewCell: UICollectionViewCell {
     // MARK: - Initialization

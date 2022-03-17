@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/01/01.
 //
 
-import UIKit
+import UIKit.UIFont
 
 extension UIFont {
     static let title: UIFont = .systemFont(ofSize: 18, weight: .bold)

@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/12/08.
 //
 
-import UIKit
+import UIKit.UIAlertController
 
 extension UIAlertController {
     static func alert(title: String?, message: String?) -> UIAlertController {

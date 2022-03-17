@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/12/08.
 //
 
-import UIKit
+import UIKit.UIAlertController
 
 extension UIAlertAction {
     static func `default`(_ title: String, _ handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {

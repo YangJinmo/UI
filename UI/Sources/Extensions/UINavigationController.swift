@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/01/31.
 //
 
-import UIKit
+import UIKit.UINavigationController
 
 extension UINavigationController {
     convenience init(rootViewController: UIViewController, tabBarItem: UITabBarItem) {

@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/12/02.
 //
 
-import UIKit
+import UIKit.UIImageView
 
 final class ImageCacheManager {
     static let shared = NSCache<NSString, UIImage>()

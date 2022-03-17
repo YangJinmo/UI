@@ -5,7 +5,7 @@
 //  Created by Jmy on 2021/10/24.
 //
 
-import UIKit
+import UIKit.UITableView
 
 extension UITableView {
     convenience init(style: UITableView.Style = .plain) {
