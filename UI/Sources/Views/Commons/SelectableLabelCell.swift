@@ -22,7 +22,7 @@ final class SelectableLabelCell: BaseCollectionViewCell {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
         return label
     }()
 
