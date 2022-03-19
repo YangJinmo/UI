@@ -1,5 +1,5 @@
 //
-//  SelectedCell.swift
+//  SelectableLabelCell.swift
 //  UI
 //
 //  Created by JMY on 2022/03/08.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SelectableTitleCell: BaseCollectionViewCell {
+final class SelectableLabelCell: BaseCollectionViewCell {
     // MARK: - Properties
 
     static let itemHeight: CGFloat = 44.0

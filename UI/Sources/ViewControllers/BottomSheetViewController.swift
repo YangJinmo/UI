@@ -54,7 +54,7 @@ final class BottomSheetViewController: UIViewController {
         let collectionView = BaseCollectionView(layout: flowLayout())
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(SelectableTitleCell.self)
+        collectionView.register(SelectableLabelCell.self)
         return collectionView
     }()
 
@@ -200,7 +200,7 @@ extension BottomSheetViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: SelectableTitleCell = collectionView.dequeueReusableCell(for: indexPath)
+        let cell: SelectableLabelCell = collectionView.dequeueReusableCell(for: indexPath)
         let sort = sorts[indexPath.row]
         cell.setTitleLabel(sort.description)
         return cell
@@ -223,7 +223,7 @@ extension BottomSheetViewController: UICollectionViewDelegate {
 
 extension BottomSheetViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return itemSize(width: collectionView, height: SelectableTitleCell.itemHeight)
+        return itemSize(width: collectionView, height: SelectableLabelCell.itemHeight)
     }
 }
 
