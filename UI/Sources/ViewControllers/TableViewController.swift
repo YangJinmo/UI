@@ -105,6 +105,16 @@ extension TableViewController: UITableViewDataSource {
 // MARK: - UITabBarControllerDelegate
 
 extension TableViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        guard let selectIndex = tabBarController.viewControllers?.firstIndex(of: viewController) else {
+            return false
+        }
+
+        selectIndex.description.log("Tab: \(tabBarController.selectedIndex) to ")
+
+        return true
+    }
+
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         tabBarController.selectedIndex.description.log()
     }
