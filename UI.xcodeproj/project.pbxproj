@@ -70,6 +70,7 @@
 		E858134D278056BD00CD206E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134C278056BD00CD206E /* UIFont.swift */; };
 		E858134F27805F7600CD206E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134E27805F7600CD206E /* UIColor.swift */; };
 		E859FAB227C4703A007FE276 /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859FAB127C4703A007FE276 /* BaseTabViewController.swift */; };
+		E85ABDFA27E96FD600787183 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85ABDF927E96FD600787183 /* DividerView.swift */; };
 		E86134B9278AE93B00E40407 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86134B8278AE93B00E40407 /* HTTPMethod.swift */; };
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
 		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
@@ -172,6 +173,7 @@
 		E858134C278056BD00CD206E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E858134E27805F7600CD206E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E859FAB127C4703A007FE276 /* BaseTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabViewController.swift; sourceTree = "<group>"; };
+		E85ABDF927E96FD600787183 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		E86134B8278AE93B00E40407 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				E88AECC327D706D000B14C1F /* NavigationView.swift */,
 				E8DB51A927D4BA850080CA6B /* GradationView.swift */,
 				099D33EE2754678E00C14F5F /* TabView.swift */,
+				E85ABDF927E96FD600787183 /* DividerView.swift */,
 				E8DB51AB27D64DD50080CA6B /* SelectableButton.swift */,
 				E835405627B950BF002913FA /* RecommendedButton.swift */,
 				E88AECC727D7592C00B14C1F /* SelectableLabelCell.swift */,
@@ -551,6 +554,7 @@
 				E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */,
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,
 				E8EE706B276786940005877A /* Bundle.swift in Sources */,
+				E85ABDFA27E96FD600787183 /* DividerView.swift in Sources */,
 				E858134D278056BD00CD206E /* UIFont.swift in Sources */,
 				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
