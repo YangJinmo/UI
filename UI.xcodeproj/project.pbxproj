@@ -101,6 +101,7 @@
 		E8DB51AC27D64DD50080CA6B /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51AB27D64DD50080CA6B /* SelectableButton.swift */; };
 		E8DB51B027E4D29B0080CA6B /* IndicatorCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51AF27E4D29B0080CA6B /* IndicatorCollectionReusableView.swift */; };
 		E8DB51B227E55DD60080CA6B /* SelectableRoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */; };
+		E8DB51B427EB6BB80080CA6B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B327EB6BB80080CA6B /* UIApplication.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 		E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */; };
@@ -204,6 +205,7 @@
 		E8DB51AB27D64DD50080CA6B /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		E8DB51AF27E4D29B0080CA6B /* IndicatorCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorCollectionReusableView.swift; sourceTree = "<group>"; };
 		E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableRoundCell.swift; sourceTree = "<group>"; };
+		E8DB51B327EB6BB80080CA6B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		09ADF38827252483004C6A97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E8DB51B327EB6BB80080CA6B /* UIApplication.swift */,
 				E84B78CF27A83139007581EB /* UIStoryboard.swift */,
 				E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */,
 				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
@@ -550,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8DB51B427EB6BB80080CA6B /* UIApplication.swift in Sources */,
 				E859FAB227C4703A007FE276 /* BaseTabViewController.swift in Sources */,
 				E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */,
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,
