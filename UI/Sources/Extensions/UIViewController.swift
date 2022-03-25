@@ -28,8 +28,8 @@ extension UIViewController {
     // MARK: - Modal
 
     func present(_ viewControllerToPresent: UIViewController, completion: (() -> Void)? = nil) {
-        viewControllerToPresent.modalPresentationStyle = .fullScreen
         viewControllerToPresent.modalTransitionStyle = .coverVertical
+        viewControllerToPresent.modalPresentationStyle = .fullScreen
         present(viewControllerToPresent, animated: true, completion: completion)
     }
 
@@ -142,7 +142,9 @@ extension UIViewController {
     // MARK: - Toast
 
     func toast(_ text: String?, bottom: Bool = false) {
-        guard !text.isNilOrEmpty, let keyWindow = UIWindow.key else { return }
+        guard !text.isNilOrEmpty, let keyWindow = UIWindow.key else {
+            return
+        }
 
         let toastLabel = UILabel()
         toastLabel.backgroundColor = UIColor.label.withAlphaComponent(0.8)

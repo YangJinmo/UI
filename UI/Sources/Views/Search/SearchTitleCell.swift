@@ -117,7 +117,10 @@ final class SearchTitleCell: BaseCollectionViewCell {
             withTimeInterval: 2.0,
             repeats: true,
             block: { [weak self] _ in
-                guard let self = self else { return }
+                guard let self = self else {
+                    return
+                }
+
                 self.setupTermLabel(search: search, index: self.index)
                 self.index += 1
 

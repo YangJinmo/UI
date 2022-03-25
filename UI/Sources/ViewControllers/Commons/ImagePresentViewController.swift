@@ -43,7 +43,10 @@ class ImagePresentViewController: BasePresentViewController {
     // MARK: - Methods
 
     private func setImage(url: URL?) {
-        guard let url = url else { return }
+        guard let url = url else {
+            return
+        }
+
         activityIndicatorView.startAnimating()
 
         DispatchQueue.global().async { [weak self] in
@@ -51,16 +54,25 @@ class ImagePresentViewController: BasePresentViewController {
                 let data = try Data(contentsOf: url)
 
                 DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
+                    guard let self = self else {
+                        return
+                    }
+
                     self.activityIndicatorView.stopAnimating()
 
-                    guard let image = UIImage(data: data) else { return }
+                    guard let image = UIImage(data: data) else {
+                        return
+                    }
+
                     self.imageView.remakeAspectRatioConstraint(image)
                     self.imageView.image = image
                 }
             } catch {
                 DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
+                    guard let self = self else {
+                        return
+                    }
+
                     self.toast(error.localizedDescription)
                     self.dismiss()
                 }

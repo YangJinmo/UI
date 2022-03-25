@@ -237,7 +237,9 @@ extension UIView {
         center: UIView? = nil,
         edges: UIView? = nil
     ) {
-        guard let superview = superview else { return }
+        guard let superview = superview else {
+            return
+        }
         if let _ = top {
             superview.remove(anchorY: topAnchor)
         }
@@ -306,21 +308,30 @@ extension UIView {
 
     @discardableResult
     func remake(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat) -> Constraint? {
-        guard let superview = superview else { return nil }
+        guard let superview = superview else {
+            return nil
+        }
+
         anchorX.remove(superview: superview)
         return make(anchorX: anchorX, toAnchorX: toAnchorX, constant: constant)
     }
 
     @discardableResult
     private func remake(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat) -> Constraint? {
-        guard let superview = superview else { return nil }
+        guard let superview = superview else {
+            return nil
+        }
+
         anchorY.remove(superview: superview)
         return make(anchorY: anchorY, toAnchorY: toAnchorY, constant: constant)
     }
 
     @discardableResult
     private func remake(dimension: NSLayoutDimension, toDimension: NSLayoutDimension? = nil, constant: CGFloat, multiplier: CGFloat) -> Constraint? {
-        guard let superview = superview else { return nil }
+        guard let superview = superview else {
+            return nil
+        }
+
         dimension.remove(superview: superview)
         return make(dimension: dimension, toDimension: toDimension, constant: constant, multiplier: multiplier)
     }

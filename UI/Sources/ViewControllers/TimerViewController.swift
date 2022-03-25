@@ -68,16 +68,23 @@ final class TimerViewController: UIViewController {
     private func startTimer() {
         timersActive += 1
 
-        guard timer == nil else { return }
+        guard timer == nil else {
+            return
+        }
 
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { [weak self] timer in
-            guard let self = self, let indexPaths = self.tableView.indexPathsForVisibleRows else { return }
-            
+            guard let self = self, let indexPaths = self.tableView.indexPathsForVisibleRows else {
+                return
+            }
+
             for indexPath in indexPaths {
                 let timer = self.timers[indexPath.row]
 
                 if timer.isRunning {
-                    guard let cell = self.tableView.cellForRow(at: indexPath) else { return }
+                    guard let cell = self.tableView.cellForRow(at: indexPath) else {
+                        return
+                    }
+
                     cell.textLabel?.text = self.formatter.string(from: timer.elapsed) ?? "0:00:00"
                 }
             }
@@ -87,7 +94,10 @@ final class TimerViewController: UIViewController {
     private func stopTimer() {
         timersActive -= 1
 
-        guard timersActive == 0 else { return }
+        guard timersActive == 0 else {
+            return
+        }
+
         timer?.invalidate()
         timer = nil
     }

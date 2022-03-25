@@ -124,7 +124,9 @@ extension TableViewController: UITabBarControllerDelegate {
 
 extension TableViewController {
     private func getWebsites() {
-        guard let path = Bundle.main.path(forResource: "Websites", ofType: "json") else { return }
+        guard let path = Bundle.main.path(forResource: "Websites", ofType: "json") else {
+            return
+        }
 
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)

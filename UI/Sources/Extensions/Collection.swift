@@ -6,6 +6,11 @@
 //
 
 extension Collection {
-    subscript(optional i: Index) -> Bool { indices.contains(i) }
-    subscript(optional i: Index) -> Iterator.Element? { indices.contains(i) ? self[i] : nil }
+    subscript(optional i: Index) -> Bool {
+        indices.contains(i)
+    }
+
+    subscript(optional i: Index) -> Iterator.Element? {
+        indices.contains(i) ? self[i] : nil
+    }
 }

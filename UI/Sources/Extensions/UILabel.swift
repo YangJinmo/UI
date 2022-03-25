@@ -17,7 +17,7 @@ extension UILabel {
         self.text = text
         self.font = font
     }
-    
+
     static func navigationTitleLabel(_ text: String? = nil) -> UILabel {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -50,7 +50,9 @@ extension UILabel {
 
     /// 행간
     func spaceBetweenTheLines(_ alignment: NSTextAlignment = .left, _ lineSpacing: CGFloat = 2.0) {
-        guard let text = self.text else { return }
+        guard let text = self.text else {
+            return
+        }
 
         let mutableAttributedString = NSMutableAttributedString(string: text)
         let mutableParagraphStyle = NSMutableParagraphStyle()
