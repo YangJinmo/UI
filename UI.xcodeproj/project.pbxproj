@@ -102,6 +102,7 @@
 		E8DB51B027E4D29B0080CA6B /* IndicatorCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51AF27E4D29B0080CA6B /* IndicatorCollectionReusableView.swift */; };
 		E8DB51B227E55DD60080CA6B /* SelectableRoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */; };
 		E8DB51B427EB6BB80080CA6B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B327EB6BB80080CA6B /* UIApplication.swift */; };
+		E8DB51B627EF5FC00080CA6B /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B527EF5FC00080CA6B /* FloatingButton.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 		E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */; };
@@ -206,6 +207,7 @@
 		E8DB51AF27E4D29B0080CA6B /* IndicatorCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorCollectionReusableView.swift; sourceTree = "<group>"; };
 		E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableRoundCell.swift; sourceTree = "<group>"; };
 		E8DB51B327EB6BB80080CA6B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		E8DB51B527EF5FC00080CA6B /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */,
 				09ADF3A0272592E7004C6A97 /* DividerTableViewCell.swift */,
 				E8DB51AF27E4D29B0080CA6B /* IndicatorCollectionReusableView.swift */,
+				E8DB51B527EF5FC00080CA6B /* FloatingButton.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				E8AF878F2778C12000E04F43 /* TimerModel.swift in Sources */,
 				0977F78B275924A8002700A5 /* UIImage.swift in Sources */,
 				E835405927B950DD002913FA /* BaseButton.swift in Sources */,
+				E8DB51B627EF5FC00080CA6B /* FloatingButton.swift in Sources */,
 				09ADF3A1272592E7004C6A97 /* DividerTableViewCell.swift in Sources */,
 				E8581343277F584400CD206E /* Optional.swift in Sources */,
 				09ADF3922725288B004C6A97 /* BaseCollectionViewCell.swift in Sources */,
