@@ -10,13 +10,15 @@ import UIKit
 final class FloatingButton: BaseButton {
     var floatingButtonTouch: Closure?
 
-    private lazy var scaleAnimation = CABasicAnimation(keyPath: "transform.scale").then {
-        $0.duration = 0.4
-        $0.repeatCount = .greatestFiniteMagnitude
-        $0.autoreverses = true
-        $0.fromValue = 1.00
-        $0.toValue = 1.05
-    }
+    private lazy var scaleAnimation: CABasicAnimation = {
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.duration = 0.4
+        scaleAnimation.repeatCount = .greatestFiniteMagnitude
+        scaleAnimation.autoreverses = true
+        scaleAnimation.fromValue = 1.00
+        scaleAnimation.toValue = 1.05
+        return scaleAnimation
+    }()
 
     override func initialize() {
         isHidden = true
