@@ -103,6 +103,7 @@
 		E8DB51B227E55DD60080CA6B /* SelectableRoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */; };
 		E8DB51B427EB6BB80080CA6B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B327EB6BB80080CA6B /* UIApplication.swift */; };
 		E8DB51B627EF5FC00080CA6B /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B527EF5FC00080CA6B /* FloatingButton.swift */; };
+		E8E1C24D27F1738700676A06 /* Classification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E1C24C27F1738700676A06 /* Classification.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 		E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */; };
@@ -208,6 +209,7 @@
 		E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableRoundCell.swift; sourceTree = "<group>"; };
 		E8DB51B327EB6BB80080CA6B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		E8DB51B527EF5FC00080CA6B /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		E8E1C24C27F1738700676A06 /* Classification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classification.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 			children = (
 				E835405A27B951DF002913FA /* Typealias.swift */,
 				09ADF39327252921004C6A97 /* FlowLayoutMetric.swift */,
+				E8E1C24C27F1738700676A06 /* Classification.swift */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */,
 				09ADF38C272524C2004C6A97 /* UICollectionView.swift in Sources */,
 				09AB3490272D860000317254 /* BaseNavigationViewController.swift in Sources */,
+				E8E1C24D27F1738700676A06 /* Classification.swift in Sources */,
 				09ADF37F272521EB004C6A97 /* TableViewController.swift in Sources */,
 				E8CF006A277C65F7009B3128 /* Track.swift in Sources */,
 				09ADF3902725286F004C6A97 /* BaseCollectionView.swift in Sources */,
