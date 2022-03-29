@@ -30,9 +30,15 @@ final class SettingViewController: BaseNavigationViewController {
         view.add(presentButton, heightConstant: 44, center: view)
 
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
+
+        navigationView.addDismissButton(dismissButtonTouched)
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
         presentWithNavigationController(ReviewWriteViewController())
+    }
+
+    @objc private func dismissButtonTouched() {
+        dismiss()
     }
 }
