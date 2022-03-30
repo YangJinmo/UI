@@ -27,6 +27,6 @@ extension FlowLayoutMetric {
 
     func itemSize(width view: UIView, height: CGFloat) -> CGSize {
         let horizontalInset = sectionInset.left + sectionInset.right
-        return CGSize(width: view.safeAreaLayoutGuide.layoutFrame.width - (horizontalInset * 2), height: height)
+        return CGSize(width: view.safeAreaLayoutGuide.layoutFrame.width - horizontalInset, height: height)
     }
 }
