@@ -33,7 +33,7 @@ final class TabView: BaseView {
     private lazy var contentView = UIView()
     private lazy var scrollView = UIScrollView()
     private lazy var guideView = UIView()
-    private lazy var stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill

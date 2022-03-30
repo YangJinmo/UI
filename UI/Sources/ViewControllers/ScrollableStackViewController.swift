@@ -30,6 +30,13 @@ final class ScrollableStackViewController: UIViewController {
         return button
     }()
 
+    private lazy var hideButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Hide", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        return button
+    }()
+
     // MARK: - View Life Cycle
 
     override func loadView() {
@@ -44,6 +51,30 @@ final class ScrollableStackViewController: UIViewController {
         )
 
         view = tabView
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.add(
+            hideButton,
+            top: view.safeAreaLayoutGuide.topAnchor,
+            right: view.safeAreaLayoutGuide.rightAnchor,
+            widthConstant: Height.navigationController,
+            heightConstant: Height.navigationController
+        )
+
+        hideButton.addTarget(self, action: #selector(hideButtonTouched), for: .touchUpInside)
+    }
+
+    @objc private func hideButtonTouched(_ sender: UIButton) {
+        sender.isSelected.toggle()
+
+        if sender.isSelected {
+            tabView.stackView.make(viewsHidden: [subtitleLabel], viewsVisible: [titleLabel], animated: true)
+        } else {
+            tabView.stackView.make(viewsHidden: [], viewsVisible: [titleLabel, subtitleLabel], animated: true)
+        }
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
