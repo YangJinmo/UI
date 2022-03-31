@@ -48,7 +48,7 @@ final class TabBarController: UITabBarController {
 //
 //        tabBar.layer.addSublayer(topBorder)
 //        tabBar.clipsToBounds = true
-        
+
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
         tabBar.backgroundColor = Color.tabBarBackgroundColor

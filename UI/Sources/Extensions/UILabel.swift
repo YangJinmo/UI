@@ -27,24 +27,18 @@ extension UILabel {
 
     static func makeForTitle(_ text: String? = nil) -> UILabel {
         let label = UILabel(text, .title)
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.75
         label.textAlignment = .center
         return label
     }
 
     static func makeForSubtitle(_ text: String? = nil) -> UILabel {
         let label = UILabel(text, .subtitle)
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.75
         return label
     }
 
     static func makeForText(_ text: String? = nil) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.numberOfLines = 0
-        label.sizeToFit()
+        let label = UILabel(text)
+        label.spaceBetweenTheLines()
         return label
     }
 
@@ -60,5 +54,7 @@ extension UILabel {
         mutableParagraphStyle.alignment = alignment
         mutableAttributedString.addAttribute(.paragraphStyle, value: mutableParagraphStyle, range: NSMakeRange(0, mutableAttributedString.length))
         attributedText = mutableAttributedString
+        numberOfLines = 0
+        sizeToFit()
     }
 }

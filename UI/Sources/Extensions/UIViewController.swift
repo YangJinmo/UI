@@ -156,7 +156,6 @@ extension UIViewController {
         toastLabel.layer.cornerRadius = 6
         toastLabel.clipsToBounds = true
         toastLabel.alpha = 0.0
-        toastLabel.numberOfLines = 0
         toastLabel.spaceBetweenTheLines(.center)
 
         let margin: CGFloat = 36.0

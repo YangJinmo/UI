@@ -22,11 +22,7 @@ final class SelectableRoundCell: BaseCollectionViewCell {
     // MARK: - Views
 
     private lazy var containerView = UIView()
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .semibold)
-        return label
-    }()
+    private lazy var titleLabel = UILabel.makeForSubtitle()
 
     // MARK: - View Life Cycle
 
