@@ -10,6 +10,14 @@ import UIKit.UIView
 typealias Constraint = NSLayoutConstraint
 
 extension UIView {
+    func layoutFitting() -> UIView {
+        let view: UIView = self
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        view.frame.size = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        return view
+    }
+
     func addSubviews(_ views: UIView...) {
         views.forEach {
             addSubview($0)

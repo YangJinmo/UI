@@ -17,15 +17,27 @@ final class TableViewController: UIViewController {
     // MARK: - Views
 
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
-    private lazy var refreshControl = BaseRefreshControl()
+    private lazy var refreshControl: BaseRefreshControl = {
+        let refreshControl = BaseRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControl
+    }()
+
     private lazy var tableView: BaseTableView = {
+         // let tableView = BaseTableView(style: .grouped)
         let tableView = BaseTableView()
+        tableView.refreshControl = refreshControl
+        tableView.tableHeaderView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100))
+        // tableView.tableHeaderView = TableHeaderView().layoutFitting()
+        // tableView.optimalSizeTableHeaderView = TableHeaderView()
+        tableView.register(TableSectionHeaderView.self)
+        tableView.register(DividerTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(DividerTableViewCell.self)
         tableView.estimatedRowHeight = 85.0
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.refreshControl = self.refreshControl
+        // tableView.contentInsetAdjustmentBehavior = .never
+
         return tableView
     }()
 
@@ -35,10 +47,6 @@ final class TableViewController: UIViewController {
         super.viewDidLoad()
 
         setupViews()
-
-        tabBarController?.delegate = self
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-
         getWebsites()
     }
 
@@ -100,23 +108,14 @@ extension TableViewController: UITableViewDataSource {
         cell.textLabel?.text = websites[indexPath.row].title
         return cell
     }
-}
 
-// MARK: - UITabBarControllerDelegate
-
-extension TableViewController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let selectIndex = tabBarController.viewControllers?.firstIndex(of: viewController) else {
-            return false
-        }
-
-        selectIndex.description.log("Tab: \(tabBarController.selectedIndex) to ")
-
-        return true
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header: TableSectionHeaderView = tableView.dequeueReusableHeaderFooterView()
+        return header
     }
 
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        tabBarController.selectedIndex.description.log()
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return TableSectionHeaderView.itemHeight
     }
 }
 

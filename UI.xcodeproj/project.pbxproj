@@ -87,6 +87,9 @@
 		E8A829332743256A00B3D7F9 /* Website.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829322743256A00B3D7F9 /* Website.swift */; };
 		E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */; };
 		E8A829372743831A00B3D7F9 /* Websites.json in Resources */ = {isa = PBXBuildFile; fileRef = E8A829362743831A00B3D7F9 /* Websites.json */; };
+		E8A9177C27F40A940067CC58 /* TableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9177B27F40A940067CC58 /* TableSectionHeaderView.swift */; };
+		E8A9177E27F40ABA0067CC58 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9177D27F40ABA0067CC58 /* TableHeaderView.swift */; };
+		E8A9178E27F5E1DA0067CC58 /* SelfSizedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9178D27F5E1DA0067CC58 /* SelfSizedCollectionView.swift */; };
 		E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878827733DF400E04F43 /* DelegateViewController.swift */; };
 		E8AF878B2778AE8400E04F43 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878A2778AE8400E04F43 /* SearchViewController.swift */; };
 		E8AF878D2778BBFB00E04F43 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */; };
@@ -193,6 +196,9 @@
 		E8A829322743256A00B3D7F9 /* Website.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Website.swift; sourceTree = "<group>"; };
 		E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshControl.swift; sourceTree = "<group>"; };
 		E8A829362743831A00B3D7F9 /* Websites.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Websites.json; sourceTree = "<group>"; };
+		E8A9177B27F40A940067CC58 /* TableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionHeaderView.swift; sourceTree = "<group>"; };
+		E8A9177D27F40ABA0067CC58 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
+		E8A9178D27F5E1DA0067CC58 /* SelfSizedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedCollectionView.swift; sourceTree = "<group>"; };
 		E8AF878827733DF400E04F43 /* DelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
 		E8AF878A2778AE8400E04F43 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +407,9 @@
 				09ADF3A0272592E7004C6A97 /* DividerTableViewCell.swift */,
 				E8DB51AF27E4D29B0080CA6B /* IndicatorCollectionReusableView.swift */,
 				E8DB51B527EF5FC00080CA6B /* FloatingButton.swift */,
+				E8A9177D27F40ABA0067CC58 /* TableHeaderView.swift */,
+				E8A9177B27F40A940067CC58 /* TableSectionHeaderView.swift */,
+				E8A9178D27F5E1DA0067CC58 /* SelfSizedCollectionView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -619,6 +628,7 @@
 				E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */,
 				E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */,
 				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
+				E8A9177E27F40ABA0067CC58 /* TableHeaderView.swift in Sources */,
 				E8A829332743256A00B3D7F9 /* Website.swift in Sources */,
 				091AC4332739142400294EFC /* WKWebView.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
@@ -630,11 +640,13 @@
 				09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */,
 				E8AF878F2778C12000E04F43 /* TimerModel.swift in Sources */,
 				0977F78B275924A8002700A5 /* UIImage.swift in Sources */,
+				E8A9177C27F40A940067CC58 /* TableSectionHeaderView.swift in Sources */,
 				E835405927B950DD002913FA /* BaseButton.swift in Sources */,
 				E8DB51B627EF5FC00080CA6B /* FloatingButton.swift in Sources */,
 				09ADF3A1272592E7004C6A97 /* DividerTableViewCell.swift in Sources */,
 				E8581343277F584400CD206E /* Optional.swift in Sources */,
 				09ADF3922725288B004C6A97 /* BaseCollectionViewCell.swift in Sources */,
+				E8A9178E27F5E1DA0067CC58 /* SelfSizedCollectionView.swift in Sources */,
 				E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */,
 				0977F78D2759287C002700A5 /* BaseImageView.swift in Sources */,
 				E86134B9278AE93B00E40407 /* HTTPMethod.swift in Sources */,

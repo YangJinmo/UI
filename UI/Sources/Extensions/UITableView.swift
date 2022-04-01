@@ -12,6 +12,26 @@ extension UITableView {
         self.init(frame: .zero, style: style)
     }
 
+    // MARK: - tableHeaderView, tableFooterView sizeToFit
+
+    var optimalSizeTableHeaderView: UIView? {
+        set {
+            tableHeaderView = newValue
+
+            guard let header = newValue else {
+                return
+            }
+
+            header.setNeedsLayout()
+            header.layoutIfNeeded()
+            header.frame.size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            tableHeaderView = header
+        }
+        get {
+            return tableHeaderView
+        }
+    }
+
     // MARK: - Select / Deselect
 
     func selectAll(animated: Bool = true) {

@@ -16,6 +16,12 @@ final class BaseTableView: UITableView {
         separatorStyle = .none
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+
+        sectionHeaderTopPadding = 0
+
+        if style == .grouped {
+            backgroundColor = .systemBackground
+        }
     }
 
     required init?(coder: NSCoder) {

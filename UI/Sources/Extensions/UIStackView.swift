@@ -15,10 +15,6 @@ extension UIStackView {
         self.spacing = spacing
     }
 
-    var height: CGFloat {
-        systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-    }
-
     func addArrangedSubviews(_ views: UIView...) {
         views.forEach {
             addArrangedSubview($0)
