@@ -17,12 +17,22 @@ final class SelectableButton: BaseButton {
         }
     }
 
-    var height: CGFloat = 34.0 {
+    var height: CGFloat? {
         didSet {
+            guard let height = height else {
+                return
+            }
+
             layer.masksToBounds = true
             layer.cornerRadius = height / 2.0
 
             heightConstraint.constant = height
+        }
+    }
+
+    var font: UIFont? {
+        didSet {
+            titleLabel?.font = font
         }
     }
 
@@ -41,10 +51,9 @@ final class SelectableButton: BaseButton {
     // MARK: - Initialization
 
     override func initialize() {
-        titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
-
         addConstraint(heightConstraint)
         height = 34.0
+        font = .systemFont(ofSize: 15, weight: .regular)
     }
 
     convenience init(_ text: String?, isSelected: Bool = false) {
