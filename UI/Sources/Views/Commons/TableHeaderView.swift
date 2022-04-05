@@ -14,7 +14,7 @@ final class TableHeaderView: BaseView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .light)
         label.textColor = .white(57)
-        label.text = "안녕하세요!\nDanny입니다."
+        label.text = "안녕하세요!\nzzimss입니다."
         label.spaceBetweenTheLines()
         return label
     }()
