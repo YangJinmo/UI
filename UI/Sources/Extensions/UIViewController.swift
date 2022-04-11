@@ -18,6 +18,18 @@ extension UIViewController {
         return view.safeAreaInsets.bottom
     }
 
+    // MARK: - Keyboard
+
+    func hideKeyboardWhenTappedAround() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGestureRecognizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     // MARK: - Storyboard
 
     static func from(storyboardName: UIStoryboard.Name, bundle: Bundle? = nil) -> Self {
