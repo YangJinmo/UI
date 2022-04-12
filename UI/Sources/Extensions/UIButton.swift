@@ -31,4 +31,38 @@ extension UIButton {
         self.tintColor = tintColor
         self.isHidden = isHidden
     }
+
+    func setImagePosition(_ position: Position, _ cgfloat: CGFloat = 4) {
+        let inset = position == .left ? -cgfloat : cgfloat
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: inset)
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: 0)
+        semanticContentAttribute = position.rawValue
+    }
+}
+
+
+// MARK: - Image Position
+
+enum Position {
+    case left
+    case right
+}
+
+extension Position: RawRepresentable {
+    typealias RawValue = UISemanticContentAttribute
+
+    init?(rawValue: RawValue) {
+        switch rawValue {
+        case .forceLeftToRight: self = .left
+        case .forceRightToLeft: self = .right
+        default: return nil
+        }
+    }
+
+    var rawValue: RawValue {
+        switch self {
+        case .left: return .forceLeftToRight
+        case .right: return .forceRightToLeft
+        }
+    }
 }
