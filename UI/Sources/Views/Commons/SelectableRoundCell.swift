@@ -26,7 +26,7 @@ final class SelectableRoundCell: BaseCollectionViewCell {
 
     // MARK: - View Life Cycle
 
-    override func initialize() {
+    override func commonInit() {
         contentView.add(
             containerView,
             heightConstant: height,

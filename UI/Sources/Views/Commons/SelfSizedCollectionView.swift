@@ -8,7 +8,7 @@
 import UIKit
 
 final class SelfSizedCollectionView: BaseCollectionView {
-    override func initialize() {
+    override func commonInit() {
         isScrollEnabled = false
     }
 

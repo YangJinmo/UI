@@ -8,7 +8,7 @@
 import UIKit
 
 final class DividerView: BaseView {
-    override func initialize() {
+    override func commonInit() {
         backgroundColor = .secondarySystemBackground
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 1).isActive = true

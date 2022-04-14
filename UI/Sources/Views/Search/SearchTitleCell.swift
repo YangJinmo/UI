@@ -37,7 +37,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // MARK: - Methods
 
-    override func initialize() {
+    override func commonInit() {
         contentView.add(
             titleLabel,
             left: contentView.leftAnchor, 36,

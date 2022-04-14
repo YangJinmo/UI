@@ -26,7 +26,7 @@ final class NavigationView: BaseView {
 
     // MARK: - View Life Cycle
 
-    override func initialize() {
+    override func commonInit() {
         addSubviews(
             popButton,
             dismissButton,

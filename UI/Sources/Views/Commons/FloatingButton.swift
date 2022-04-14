@@ -20,7 +20,7 @@ final class FloatingButton: BaseButton {
         return scaleAnimation
     }()
 
-    override func initialize() {
+    override func commonInit() {
         isHidden = true
         alpha = 0
         transform = CGAffineTransform(scaleX: 0, y: 0)

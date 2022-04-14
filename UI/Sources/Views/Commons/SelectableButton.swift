@@ -50,7 +50,7 @@ final class SelectableButton: BaseButton {
 
     // MARK: - Initialization
 
-    override func initialize() {
+    override func commonInit() {
         addConstraint(heightConstraint)
         height = 34.0
         font = .systemFont(ofSize: 15, weight: .regular)

@@ -24,7 +24,7 @@ final class SelectableLabelCell: BaseCollectionViewCell {
 
     // MARK: - View Life Cycle
 
-    override func initialize() {
+    override func commonInit() {
         contentView.addSubviews(titleLabel)
 
         Constraint.activate([

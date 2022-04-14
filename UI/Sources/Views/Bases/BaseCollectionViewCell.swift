@@ -17,7 +17,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        initialize()
+        commonInit()
     }
 
     required init?(coder: NSCoder) {
@@ -26,6 +26,6 @@ class BaseCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Methods
 
-    func initialize() {
+    func commonInit() {
     }
 }

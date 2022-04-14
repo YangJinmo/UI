@@ -14,7 +14,8 @@ class BaseTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         selectionStyle = .none
-        initialize()
+
+        commonInit()
     }
 
     required init?(coder: NSCoder) {
@@ -23,6 +24,6 @@ class BaseTableViewCell: UITableViewCell {
 
     // MARK: - Methods
 
-    func initialize() {
+    func commonInit() {
     }
 }

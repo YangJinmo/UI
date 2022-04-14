@@ -21,7 +21,7 @@ final class TableHeaderView: BaseView {
 
     // MARK: - View Life Cycle
 
-    override func initialize() {
+    override func commonInit() {
         backgroundColor = .secondarySystemBackground
 
         add(

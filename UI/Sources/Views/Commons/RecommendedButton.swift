@@ -31,7 +31,7 @@ final class RecommendedButton: BaseButton {
 
     // MARK: - Initialization
 
-    override func initialize() {
+    override func commonInit() {
         titleLabel?.font = .systemFont(ofSize: 17, weight: .medium)
         layer.borderColor = .tint
         setHeight()

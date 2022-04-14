@@ -16,7 +16,7 @@ class BaseCollectionView: UICollectionView {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
 
-        initialize()
+        commonInit()
     }
 
     required init?(coder: NSCoder) {
@@ -25,6 +25,6 @@ class BaseCollectionView: UICollectionView {
 
     // MARK: - Methods
 
-    func initialize() {
+    func commonInit() {
     }
 }

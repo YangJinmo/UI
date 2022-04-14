@@ -63,7 +63,7 @@ final class TabView: BaseView {
         titleLabel.text = title
     }
 
-    override func initialize() {
+    override func commonInit() {
         backgroundColor = .systemBackground
 
         addSubviews(
