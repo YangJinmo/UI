@@ -28,7 +28,6 @@ final class TableViewController: UIViewController {
         let tableView = BaseTableView()
         tableView.refreshControl = refreshControl
         tableView.tableHeaderView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100))
-        // tableView.tableHeaderView = TableHeaderView().layoutFitting()
         // tableView.optimalSizeTableHeaderView = TableHeaderView()
         tableView.register(TableSectionHeaderView.self)
         tableView.register(DividerTableViewCell.self)
