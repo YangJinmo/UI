@@ -38,12 +38,11 @@ extension UILabel {
 
     static func makeForText(_ text: String? = nil) -> UILabel {
         let label = UILabel(text)
-        label.spaceBetweenTheLines()
+        label.lineSpacing()
         return label
     }
 
-    /// 행간
-    func spaceBetweenTheLines(_ alignment: NSTextAlignment = .left, _ lineSpacing: CGFloat = 2.0) {
+    func lineSpacing(_ alignment: NSTextAlignment = .left, _ lineSpacing: CGFloat = 2.0) {
         guard let text = self.text else {
             return
         }

@@ -19,7 +19,7 @@ final class TableSectionHeaderView: UITableViewHeaderFooterView {
         label.font = .systemFont(ofSize: 13, weight: .semibold)
         label.textColor = .white(57)
         label.text = "Site"
-        label.spaceBetweenTheLines()
+        label.lineSpacing()
         return label
     }()
 

@@ -15,7 +15,7 @@ final class TableHeaderView: BaseView {
         label.font = .systemFont(ofSize: 22, weight: .light)
         label.textColor = .white(57)
         label.text = "안녕하세요!\nzzimss입니다."
-        label.spaceBetweenTheLines()
+        label.lineSpacing()
         return label
     }()
 
