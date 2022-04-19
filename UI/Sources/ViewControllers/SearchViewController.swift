@@ -34,6 +34,8 @@ final class SearchViewController: BasePresentViewController {
         let collectionView = BaseCollectionView(layout: flowLayout())
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.prefetchDataSource = self
+        collectionView.isPrefetchingEnabled = true
         collectionView.register(SearchTitleCell.self)
         collectionView.register(SearchTermCell.self)
         return collectionView
@@ -108,6 +110,14 @@ extension SearchViewController: UICollectionViewDataSource {
             return cell
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        indexPath.description.log()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        indexPath.description.log()
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -122,6 +132,18 @@ extension SearchViewController: UICollectionViewDelegate {
         } else {
             searches[indexPath.section].terms[indexPath.item - 1].log()
         }
+    }
+}
+
+// MARK: - UICollectionViewDataSourcePrefetching
+
+extension SearchViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        indexPaths.description.log()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        indexPaths.description.log()
     }
 }
 

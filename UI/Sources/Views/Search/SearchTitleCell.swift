@@ -35,7 +35,23 @@ final class SearchTitleCell: BaseCollectionViewCell {
         return button
     }()
 
-    // MARK: - Methods
+    // MARK: - View Life Cycle
+
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+
+        "".log()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        "".log()
+    }
+
+    deinit {
+        "".log()
+    }
 
     override func commonInit() {
         contentView.add(
@@ -84,6 +100,8 @@ final class SearchTitleCell: BaseCollectionViewCell {
 //        titleLabel.leftAnchor.constraint(anchor: contentView.leftAnchor, constant: 60)
 //        titleLabel.remake(left: contentView.leftAnchor, 60)
     }
+
+    // MARK: - Methods
 
     // TODO: Add Timer in model
     func bind(search: Search) {
