@@ -110,14 +110,6 @@ extension SearchViewController: UICollectionViewDataSource {
             return cell
         }
     }
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        indexPath.description.log()
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        indexPath.description.log()
-    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -132,6 +124,14 @@ extension SearchViewController: UICollectionViewDelegate {
         } else {
             searches[indexPath.section].terms[indexPath.item - 1].log()
         }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        indexPath.description.log()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        indexPath.description.log()
     }
 }
 
