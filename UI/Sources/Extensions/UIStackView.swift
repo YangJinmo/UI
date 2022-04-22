@@ -27,10 +27,10 @@ extension UIStackView {
             return allSubviews + [subview]
         }
 
-        for v in removedSubviews {
-            if v.superview != nil {
-                NSLayoutConstraint.deactivate(v.constraints)
-                v.removeFromSuperview()
+        for view in removedSubviews {
+            if view.superview != nil {
+                NSLayoutConstraint.deactivate(view.constraints)
+                view.removeFromSuperview()
             }
         }
     }
