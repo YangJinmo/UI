@@ -128,48 +128,5 @@ final class ScrollViewController: UIViewController {
         // ==
         // topConstraint = view.top(titleLabel.bottomAnchor, 0)
         // topConstraint?.isActive = false
-
-        scrollView.delegate = self
-    }
-}
-
-// MARK: - UIScrollViewDelegate
-
-extension ScrollViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentHeight = scrollView.contentSize.height - scrollView.frame.height
-
-        if scrollView.contentOffset.y >= contentHeight {
-//            if isLoaded && (hasMoreReviews || hasMoreRecommendReviews) {
-//                loadMore()
-//            }
-        }
-    }
-
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        startScrolling()
-    }
-
-    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        startScrolling()
-    }
-
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            stoppedScrolling(scrollView: scrollView)
-        }
-    }
-
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        stoppedScrolling(scrollView: scrollView)
-    }
-
-    private func startScrolling() {
-        view.endEditing(true)
-//        floatingButton?.hide()
-    }
-
-    private func stoppedScrolling(scrollView: UIScrollView) {
-//        scrollView.contentOffset.y == 0 ? floatingButton?.hide() : floatingButton?.show()
     }
 }

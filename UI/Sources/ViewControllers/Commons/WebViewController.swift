@@ -46,6 +46,18 @@ final class WebViewController: BaseNavigationViewController {
         loadWebView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        createFloatingButton()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        removeFloatingButton()
+    }
+
     // MARK: - Methods
 
     private func removeCache() {
@@ -65,6 +77,8 @@ final class WebViewController: BaseNavigationViewController {
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+
+        webView.scrollView.delegate = self
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
@@ -123,6 +137,40 @@ final class WebViewController: BaseNavigationViewController {
     private func passMessage(_ message: String) {
         returnMessage?(message)
         popViewController()
+    }
+
+    // MARK: - Floating Button
+
+    private var floatingButton: FloatingButton?
+
+    private func removeFloatingButton() {
+        floatingButton?.remove()
+        floatingButton = nil
+    }
+
+    private func createFloatingButton() {
+        floatingButton = FloatingButton()
+
+        guard let floatingButton = floatingButton else {
+            return
+        }
+
+        view.addSubview(floatingButton)
+
+        Constraint.activate([
+            floatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            floatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+        ])
+
+        floatingButton.floatingButtonTouch = floatingButtonTouched
+    }
+
+    @objc private func floatingButtonTouched() {
+        UIView.animate(withDuration: 0) {
+            self.webView.scrollView.setContentOffset(.zero, animated: true)
+        } completion: { _ in
+            self.floatingButton?.hide()
+        }
     }
 }
 
@@ -185,5 +233,46 @@ extension WebViewController: WKScriptMessageHandler {
         if message.name == scriptMessageHandler {
             passMessage(message.body as! String)
         }
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension WebViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentHeight = scrollView.contentSize.height - scrollView.frame.height
+
+        if scrollView.contentOffset.y >= contentHeight {
+//            if isLoaded && (hasMoreReviews || hasMoreRecommendReviews) {
+//                loadMore()
+//            }
+        }
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startScrolling()
+    }
+
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        startScrolling()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            stoppedScrolling(scrollView: scrollView)
+        }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        stoppedScrolling(scrollView: scrollView)
+    }
+
+    private func startScrolling() {
+        view.endEditing(true)
+        floatingButton?.hide()
+    }
+
+    private func stoppedScrolling(scrollView: UIScrollView) {
+        scrollView.contentOffset.y == 0 ? floatingButton?.hide() : floatingButton?.show()
     }
 }

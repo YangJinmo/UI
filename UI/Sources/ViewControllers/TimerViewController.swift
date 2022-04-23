@@ -48,6 +48,18 @@ final class TimerViewController: UIViewController {
         setupViews()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        createFloatingButton()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        removeFloatingButton()
+    }
+
     // MARK: - Methods
 
     private func setupViews() {
@@ -101,7 +113,43 @@ final class TimerViewController: UIViewController {
         timer?.invalidate()
         timer = nil
     }
+
+    // MARK: - Floating Button
+
+    private var floatingButton: FloatingButton?
+
+    private func removeFloatingButton() {
+        floatingButton?.remove()
+        floatingButton = nil
+    }
+
+    private func createFloatingButton() {
+        floatingButton = FloatingButton()
+
+        guard let floatingButton = floatingButton else {
+            return
+        }
+
+        view.addSubview(floatingButton)
+
+        Constraint.activate([
+            floatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            floatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+        ])
+
+        floatingButton.floatingButtonTouch = floatingButtonTouched
+    }
+
+    @objc private func floatingButtonTouched() {
+        UIView.animate(withDuration: 0) {
+            self.tableView.setContentOffset(.zero, animated: true)
+        } completion: { _ in
+            self.floatingButton?.hide()
+        }
+    }
 }
+
+// MARK: - UITableViewDataSource
 
 extension TimerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,6 +167,8 @@ extension TimerViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension TimerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         timers[indexPath.row].isRunning.toggle()
@@ -130,5 +180,46 @@ extension TimerViewController: UITableViewDelegate {
         } else {
             stopTimer()
         }
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension TimerViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentHeight = scrollView.contentSize.height - scrollView.frame.height
+
+        if scrollView.contentOffset.y >= contentHeight {
+//            if isLoaded && (hasMoreReviews || hasMoreRecommendReviews) {
+//                loadMore()
+//            }
+        }
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startScrolling()
+    }
+
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        startScrolling()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            stoppedScrolling(scrollView: scrollView)
+        }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        stoppedScrolling(scrollView: scrollView)
+    }
+
+    private func startScrolling() {
+        view.endEditing(true)
+        floatingButton?.hide()
+    }
+
+    private func stoppedScrolling(scrollView: UIScrollView) {
+        scrollView.contentOffset.y == 0 ? floatingButton?.hide() : floatingButton?.show()
     }
 }

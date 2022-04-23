@@ -10,6 +10,10 @@ import UIKit
 final class FloatingButton: BaseButton {
     var floatingButtonTouch: Closure?
 
+    private enum Image {
+        static let chevronUpSquare = UIImage(systemName: "chevron.up.square")
+    }
+
     private lazy var scaleAnimation: CABasicAnimation = {
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         scaleAnimation.duration = 0.4
@@ -26,7 +30,7 @@ final class FloatingButton: BaseButton {
         transform = CGAffineTransform(scaleX: 0, y: 0)
         layer.add(scaleAnimation, forKey: "scale")
 
-        setImage(UIImage(named: "scrollTopBtn"), for: .normal)
+        setImage(Image.chevronUpSquare, for: .normal)
         addTarget(self, action: #selector(floatingButtonTouched), for: .touchUpInside)
 
         translatesAutoresizingMaskIntoConstraints = false
