@@ -11,7 +11,7 @@ final class FloatingButton: BaseButton {
     var floatingButtonTouch: Closure?
 
     private enum Image {
-        static let chevronUpSquare = UIImage(systemName: "chevron.up.square")
+        static let arrowUpSquareFill = UIImage(systemName: "arrow.up.square.fill")
     }
 
     private lazy var scaleAnimation: CABasicAnimation = {
@@ -30,7 +30,7 @@ final class FloatingButton: BaseButton {
         transform = CGAffineTransform(scaleX: 0, y: 0)
         layer.add(scaleAnimation, forKey: "scale")
 
-        setImage(Image.chevronUpSquare, for: .normal)
+        setImage(Image.arrowUpSquareFill, for: .normal)
         addTarget(self, action: #selector(floatingButtonTouched), for: .touchUpInside)
 
         translatesAutoresizingMaskIntoConstraints = false
