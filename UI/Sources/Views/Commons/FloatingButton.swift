@@ -31,13 +31,14 @@ final class FloatingButton: BaseButton {
         layer.add(scaleAnimation, forKey: "scale")
 
         setImage(Image.arrowUpSquareFill, for: .normal)
+        tintColor = .base
         addTarget(self, action: #selector(floatingButtonTouched), for: .touchUpInside)
 
         translatesAutoresizingMaskIntoConstraints = false
 
         Constraint.activate([
-            widthAnchor.constraint(equalToConstant: 44),
-            heightAnchor.constraint(equalToConstant: 44),
+            widthAnchor.constraint(equalToConstant: 56),
+            heightAnchor.constraint(equalToConstant: 56),
         ])
     }
 
