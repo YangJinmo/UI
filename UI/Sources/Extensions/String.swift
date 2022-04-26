@@ -8,6 +8,18 @@
 import UIKit
 
 extension String {
+    init(intTypeNumber: Int) {
+        self = "\(intTypeNumber)"
+    }
+
+    init(doubleTypeNumber: Double) {
+        self = "\(doubleTypeNumber)"
+    }
+
+    init(floatTypeNumber: Float) {
+        self = "\(floatTypeNumber)"
+    }
+
     var encode: String? {
         var allowedQueryParamAndKey: CharacterSet = .urlQueryAllowed // ! $ & \ ( ) * +  - . / : ; = ? @ _ ~
         allowedQueryParamAndKey.insert("#")
