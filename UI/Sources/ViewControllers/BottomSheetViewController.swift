@@ -154,11 +154,10 @@ final class BottomSheetViewController: UIViewController {
         navigationView.setTitleLabel(text)
     }
 
-    private var sorts = [Sort]()
+    private var sorts = Sort.allCases
     private var selectedSort = Sort.dateOrder
 
-    func bind(sorts: [Sort], selectedSort: Sort) {
-        self.sorts = sorts
+    func bind(selectedSort: Sort) {
         self.selectedSort = selectedSort
 
         collectionView.reloadData { [weak self] in
@@ -183,6 +182,12 @@ final class BottomSheetViewController: UIViewController {
         selectItem(indexPath: indexPath)
     }
 
+    func printEnumCases<T>(_: T.Type) where T: CaseIterable & RawRepresentable {
+        for c in T.allCases {
+            print(c.rawValue)
+        }
+    }
+
     private func selectItem(indexPath: IndexPath? = IndexPath(item: 0, section: 0)) {
         collectionView.selectItem(
             at: indexPath,
@@ -201,7 +206,7 @@ extension BottomSheetViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: SelectableLabelCell = collectionView.dequeueReusableCell(for: indexPath)
-        let sort = sorts[indexPath.row]
+        let sort = sorts[indexPath.item]
         cell.setTitleLabel(sort.description)
         return cell
     }
@@ -211,7 +216,7 @@ extension BottomSheetViewController: UICollectionViewDataSource {
 
 extension BottomSheetViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedSort = sorts[indexPath.row]
+        let selectedSort = sorts[indexPath.item]
 
         hideBottomSheetAndDismiss { [weak self] in
             self?.didSelectItemAt?(selectedSort)

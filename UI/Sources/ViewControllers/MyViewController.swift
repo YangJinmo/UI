@@ -217,7 +217,7 @@ final class MyViewController: BaseTabViewController {
     @objc private func bottomSheetButtonTouched(_ sender: Any) {
         let vc = BottomSheetViewController()
         vc.setTitleLabel("정렬")
-        vc.bind(sorts: Sort.allCases, selectedSort: selectedSort)
+        vc.bind(selectedSort: selectedSort)
         vc.bind(didSelectItemAt: didSelectItemAt)
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false)
