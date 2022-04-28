@@ -116,8 +116,7 @@ final class WebViewController: BaseNavigationViewController {
         guard
             let urlString = urlString,
             let encodedString = urlString.encode,
-            let url = encodedString.toURL,
-            url.canOpenURL
+            let url = encodedString.toURL
         else {
 //            alert(
 //                title: "실행 오류",
@@ -129,7 +128,50 @@ final class WebViewController: BaseNavigationViewController {
             popViewController()
             return
         }
-        webView.load(url)
+
+        if url.scheme == "zzimss" {
+            guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+                return
+            }
+
+            let items = components.queryItems ?? []
+            print(items)
+
+            switch url.host {
+            case "terms":
+                requestTerms(items: items)
+
+            default:
+                break
+            }
+        } else {
+            if url.canOpenURL {
+                webView.load(url.toURLRequest)
+            } else {
+                toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.")
+            }
+        }
+    }
+
+    private func requestTerms(items: [URLQueryItem]) {
+        let params = items.reduce(into: [:]) { params, queryItem in
+            params[queryItem.name] = queryItem.value
+        }
+
+//        APIManager.shared.request(api: .terms, params: params) { [weak self] result in
+//            guard let self = self, let result = result else { return }
+//
+//            switch result.code {
+//            case .success:
+//                guard let info = result.info else { return }
+//
+//                if let content = info["terms_content"] as? String {
+//                    self.webView.loadHTMLString(content, baseURL: nil)
+//                }
+//            default:
+//                self.toast(result.msg)
+//            }
+//        }
     }
 
     var returnMessage: ReturnString?
