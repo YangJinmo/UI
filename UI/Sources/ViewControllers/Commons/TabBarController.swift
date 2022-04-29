@@ -140,7 +140,6 @@ final class TabBarController: UITabBarController {
 
     @objc private func didBecomeActive(_ notification: Notification) {
         notification.name.rawValue.description.log()
-        play()
     }
 }
 
