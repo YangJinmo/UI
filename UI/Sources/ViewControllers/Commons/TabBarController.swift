@@ -34,6 +34,8 @@ final class TabBarController: UITabBarController {
 
         setupTabBar()
         setupViewControllers()
+
+        addObservers()
     }
 
     // MARK: - Methods
@@ -102,6 +104,43 @@ final class TabBarController: UITabBarController {
         ]
 
         delegate = self
+    }
+
+    private func addObservers() {
+        [
+            // out
+            (UIScene.willDeactivateNotification, #selector(willDeactivate)),
+            (UIApplication.willResignActiveNotification, #selector(willResignActive)),
+
+            // in
+            (UIScene.willEnterForegroundNotification, #selector(willEnterForeground)),
+            (UIScene.didActivateNotification, #selector(didActivate)),
+            (UIApplication.didBecomeActiveNotification, #selector(didBecomeActive)),
+        ]
+        .forEach {
+            NotificationCenter.default.addObserver(self, selector: $0.1, name: $0.0, object: nil)
+        }
+    }
+
+    @objc private func willDeactivate(_ notification: Notification) {
+        notification.name.rawValue.description.log()
+    }
+
+    @objc private func willResignActive(_ notification: Notification) {
+        notification.name.rawValue.description.log()
+    }
+
+    @objc private func willEnterForeground(_ notification: Notification) {
+        notification.name.rawValue.description.log()
+    }
+
+    @objc private func didActivate(_ notification: Notification) {
+        notification.name.rawValue.description.log()
+    }
+
+    @objc private func didBecomeActive(_ notification: Notification) {
+        notification.name.rawValue.description.log()
+        play()
     }
 }
 
