@@ -86,6 +86,27 @@ extension UICollectionView {
         }
     }
 
+    // MARK: - Background View
+
+    func setBackgroundView() {
+        backgroundView = {
+            let view = UIView(
+                frame: CGRect(
+                    x: self.center.x,
+                    y: self.center.y,
+                    width: self.bounds.width,
+                    height: self.bounds.height
+                )
+            )
+            view.backgroundColor = backgroundColor
+            return view
+        }()
+    }
+
+    func restoreBackgroundView() {
+        backgroundView = nil
+    }
+
     // MARK: - UICollectionViewCell
 
     func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
