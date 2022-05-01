@@ -107,7 +107,7 @@ extension UICollectionView {
         backgroundView = nil
     }
 
-    // MARK: - UICollectionViewCell
+    // MARK: - Register UICollectionViewCell
 
     func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
         register(cellClass, forCellWithReuseIdentifier: T.identifier)
@@ -127,7 +127,7 @@ extension UICollectionView {
         return cell
     }
 
-    // MARK: - UICollectionReusableView
+    // MARK: - Register UICollectionReusableView
 
     func register<T: UICollectionReusableView>(_ viewClass: T.Type, kind: SupplementaryViewKind) {
         register(viewClass, forSupplementaryViewOfKind: kind.rawValue, withReuseIdentifier: T.identifier)
