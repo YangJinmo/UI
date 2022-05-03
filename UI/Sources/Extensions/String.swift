@@ -129,6 +129,13 @@ extension String {
         return string + asterisks + "@" + stringArr[1]
     }
 
+    func rangeByIndex(start: Int, end: Int) -> String {
+        let startIndex = index(self.startIndex, offsetBy: start)
+        let endIndex = index(self.startIndex, offsetBy: end)
+        let c = self[startIndex ... endIndex]
+        return String(c)
+    }
+
     // MARK: - NSAttributedString
 
     func foregroundColor(_ color: UIColor) -> NSAttributedString {
