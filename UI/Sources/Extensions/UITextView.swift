@@ -14,9 +14,7 @@ extension UITextView {
         return estimatedSize
     }
 
-    var numberOfLine: Int {
-        let size = CGSize(width: frame.width, height: .infinity)
-        let estimatedSize = sizeThatFits(size)
+    var numberOfLines: Int {
         return Int(estimatedSize.height / font!.lineHeight)
     }
 }
