@@ -60,6 +60,7 @@
 		E835405727B950BF002913FA /* RecommendedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405627B950BF002913FA /* RecommendedButton.swift */; };
 		E835405927B950DD002913FA /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405827B950DD002913FA /* BaseButton.swift */; };
 		E835405B27B951DF002913FA /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405A27B951DF002913FA /* Typealias.swift */; };
+		E8356DF22828092900F05BF4 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8356DF12828092900F05BF4 /* CALayer.swift */; };
 		E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83581EE27D0CA3A00179090 /* UIScrollView.swift */; };
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
 		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
@@ -172,6 +173,7 @@
 		E835405627B950BF002913FA /* RecommendedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedButton.swift; sourceTree = "<group>"; };
 		E835405827B950DD002913FA /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		E835405A27B951DF002913FA /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		E8356DF12828092900F05BF4 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		E83581EE27D0CA3A00179090 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */,
 				E876669727B61DE700480E6A /* Collection.swift */,
 				E8A2040F28240872001D5D92 /* UITextView.swift */,
+				E8356DF12828092900F05BF4 /* CALayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				091AC42F273905D600294EFC /* BaseActivityIndicatorView.swift in Sources */,
 				09ADF3812725220C004C6A97 /* BaseView.swift in Sources */,
 				E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */,
+				E8356DF22828092900F05BF4 /* CALayer.swift in Sources */,
 				E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */,
 				091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */,
 				E858134F27805F7600CD206E /* UIColor.swift in Sources */,
