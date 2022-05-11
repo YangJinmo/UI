@@ -136,6 +136,20 @@ extension String {
         return String(c)
     }
 
+    // MARK: - Size
+
+    private func size(ofFont font: UIFont) -> CGSize {
+        return size(withAttributes: [NSAttributedString.Key.font: font])
+    }
+
+    func width(ofFont font: UIFont) -> CGFloat {
+        return ceil(size(ofFont: font).width)
+    }
+
+    func height(ofFont font: UIFont) -> CGFloat {
+        return ceil(size(ofFont: font).height)
+    }
+
     // MARK: - NSAttributedString
 
     func foregroundColor(_ color: UIColor) -> NSAttributedString {
