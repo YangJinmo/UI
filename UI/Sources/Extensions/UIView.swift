@@ -16,6 +16,12 @@ extension UIView {
         frame.size = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
 
+    func rounded() {
+        layoutIfNeeded()
+        layer.cornerRadius = frame.height / 2.0
+        layer.masksToBounds = true
+    }
+
     func addSubviews(_ views: UIView...) {
         views.forEach {
             addSubview($0)
