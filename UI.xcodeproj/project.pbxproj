@@ -81,6 +81,7 @@
 		E876669C27BB2EF600480E6A /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876669B27BB2EF600480E6A /* NSAttributedString.swift */; };
 		E87889CA276252D500B9A07E /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87889C9276252D500B9A07E /* UIWindow.swift */; };
 		E87889CC27625A4E00B9A07E /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87889CB27625A4E00B9A07E /* UILabel.swift */; };
+		E878A88F2832226E00D1B9C2 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878A88E2832226E00D1B9C2 /* CaseIterable.swift */; };
 		E88AECC127D704DA00B14C1F /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC027D704DA00B14C1F /* Height.swift */; };
 		E88AECC427D706D000B14C1F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC327D706D000B14C1F /* NavigationView.swift */; };
 		E88AECC627D7242D00B14C1F /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC527D7242D00B14C1F /* Sort.swift */; };
@@ -194,6 +195,7 @@
 		E876669B27BB2EF600480E6A /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		E87889C9276252D500B9A07E /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		E87889CB27625A4E00B9A07E /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		E878A88E2832226E00D1B9C2 /* CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterable.swift; sourceTree = "<group>"; };
 		E88AECC027D704DA00B14C1F /* Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Height.swift; sourceTree = "<group>"; };
 		E88AECC327D706D000B14C1F /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		E88AECC527D7242D00B14C1F /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				E876669727B61DE700480E6A /* Collection.swift */,
 				E8A2040F28240872001D5D92 /* UITextView.swift */,
 				E8356DF12828092900F05BF4 /* CALayer.swift */,
+				E878A88E2832226E00D1B9C2 /* CaseIterable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
 				E8A9177E27F40ABA0067CC58 /* TableHeaderView.swift in Sources */,
 				E8A829332743256A00B3D7F9 /* Website.swift in Sources */,
+				E878A88F2832226E00D1B9C2 /* CaseIterable.swift in Sources */,
 				091AC4332739142400294EFC /* WKWebView.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
 				E8B448D427906F41005881B9 /* APIError.swift in Sources */,
