@@ -24,6 +24,7 @@ extension CALayer {
     func addBorder(_ edges: [UIRectEdge], color: UIColor, width: CGFloat) {
         for edge in edges {
             let border = CALayer()
+            border.name = edge.rawValue.description
 
             switch edge {
             case .top:
@@ -49,6 +50,26 @@ extension CALayer {
             border.backgroundColor = color.cgColor
 
             addSublayer(border)
+        }
+    }
+
+    func removeBorder(_ edges: [UIRectEdge]) {
+        guard let sublayers = sublayers else {
+            return
+        }
+
+        var layerForRemove: CALayer?
+
+        for edge in edges {
+            for layer in sublayers {
+                if layer.name == edge.rawValue.description {
+                    layerForRemove = layer
+                }
+            }
+        }
+
+        if let layer = layerForRemove {
+            layer.removeFromSuperlayer()
         }
     }
 }
