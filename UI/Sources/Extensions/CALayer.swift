@@ -21,35 +21,45 @@ extension CALayer {
         shadowOpacity = alpha
     }
 
+    func addBorder(color: UIColor, width: CGFloat) {
+        borderColor = color.cgColor
+        borderWidth = width
+    }
+
     func addBorder(_ edges: [UIRectEdge], color: UIColor, width: CGFloat) {
+        layoutIfNeeded()
+
         for edge in edges {
-            let border = CALayer()
-            border.name = edge.rawValue.description
+            let layer = CALayer()
+            layer.name = edge.rawValue.description
+            layer.backgroundColor = color.cgColor
 
             switch edge {
             case .top:
-                border.frame = CGRect(x: 0, y: 0, width: frame.width, height: width)
-                break
-
-            case .bottom:
-                border.frame = CGRect(x: 0, y: frame.height - width, width: frame.width, height: width)
+                layer.frame = CGRect(x: 0, y: 0, width: frame.width, height: width)
                 break
 
             case .left:
-                border.frame = CGRect(x: 0, y: 0, width: width, height: frame.height)
+                layer.frame = CGRect(x: 0, y: 0, width: width, height: frame.height)
+                break
+
+            case .bottom:
+                layer.frame = CGRect(x: 0, y: frame.height - width, width: frame.width, height: width)
                 break
 
             case .right:
-                border.frame = CGRect(x: frame.width - width, y: 0, width: width, height: frame.height)
+                layer.frame = CGRect(x: frame.width - width, y: 0, width: width, height: frame.height)
                 break
+
+            case .all:
+                addBorder(color: color, width: width)
+                return
 
             default:
                 break
             }
 
-            border.backgroundColor = color.cgColor
-
-            addSublayer(border)
+            addSublayer(layer)
         }
     }
 

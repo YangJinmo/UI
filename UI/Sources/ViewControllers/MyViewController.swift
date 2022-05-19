@@ -109,8 +109,8 @@ final class MyViewController: BaseTabViewController {
         view.add(
             bottomSheetButton,
             top: delegateButton.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
+            left: view.leftAnchor, 44,
+            right: view.rightAnchor, 44,
             heightConstant: 44
         )
 
@@ -131,6 +131,11 @@ final class MyViewController: BaseTabViewController {
 
         delegateButton.addTarget(self, action: #selector(delegateButtonTouched(_:)), for: .touchUpInside)
         bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched(_:)), for: .touchUpInside)
+
+        bottomSheetButton.backgroundColor = .red
+        bottomSheetButton.layer.addBorder(color: .label, width: 1)
+//        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
+        bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
     }
 
     @objc private func nicknameButtonTouched(_ sender: Any) {
@@ -222,7 +227,7 @@ final class MyViewController: BaseTabViewController {
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false)
     }
-    
+
     private var selectedSort = Sort.dateOrder
 
     private func didSelectItemAt(selectedSort: Sort) {
