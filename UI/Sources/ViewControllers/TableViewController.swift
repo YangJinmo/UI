@@ -65,16 +65,6 @@ final class TableViewController: UIViewController {
             activityIndicatorView,
             center: tableView
         )
-
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { _, _ in })
-    }
-
-    @objc private func pushMessage() {
-        let content = UNMutableNotificationContent()
-        content.title = "This is title"
-        content.subtitle = "This is Subtitle"
-        content.body = "This is Body"
-        content.badge = 1
     }
 
     @objc private func refresh() {

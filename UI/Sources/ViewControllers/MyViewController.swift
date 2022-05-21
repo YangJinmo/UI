@@ -27,6 +27,7 @@ final class MyViewController: BaseTabViewController {
     private lazy var searchButton = UIButton("Search")
     private lazy var delegateButton = UIButton("Delegate")
     private lazy var bottomSheetButton = UIButton("BottomSheet")
+    private lazy var pushMessageButton = UIButton("PushMessage")
     private lazy var nicknameButton: UIButton = {
         var configuration: UIButton.Configuration = .filled()
         configuration.title = "Edit Nickname"
@@ -115,6 +116,14 @@ final class MyViewController: BaseTabViewController {
         )
 
         view.add(
+            pushMessageButton,
+            top: bottomSheetButton.bottomAnchor,
+            left: view.leftAnchor, 44,
+            right: view.rightAnchor, 44,
+            heightConstant: 44
+        )
+
+        view.add(
             nicknameButton,
             bottom: contentView.safeAreaLayoutGuide.bottomAnchor, 20,
             heightConstant: 44,
@@ -136,6 +145,10 @@ final class MyViewController: BaseTabViewController {
         bottomSheetButton.layer.addBorder(color: .label, width: 1)
 //        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
         bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
+
+        pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched(_:)), for: .touchUpInside)
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { _, _ in })
     }
 
     @objc private func nicknameButtonTouched(_ sender: Any) {
@@ -226,6 +239,15 @@ final class MyViewController: BaseTabViewController {
         vc.bind(didSelectItemAt: didSelectItemAt)
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false)
+    }
+
+    @objc private func pushMessageButtonTouched(_ sender: Any) {
+        "".log()
+        let content = UNMutableNotificationContent()
+        content.title = "This is title"
+        content.subtitle = "This is Subtitle"
+        content.body = "This is Body"
+        content.badge = 1
     }
 
     private var selectedSort = Sort.dateOrder
