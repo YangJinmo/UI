@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import UserNotifications
 
 final class TableViewController: UIViewController {
     // MARK: - Variables

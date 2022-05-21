@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 final class MyViewController: BaseTabViewController {
     // MARK: - Constants
@@ -148,7 +149,23 @@ final class MyViewController: BaseTabViewController {
 
         pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched(_:)), for: .touchUpInside)
 
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { _, _ in })
+        requestAuthorizationNotification {
+            UNUserNotificationCenter.current().delegate = self
+        }
+    }
+
+    private func requestAuthorizationNotification(_ completion: (() -> Void)?) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { didAllow, error in
+            if let error = error {
+                "Error: \(error.localizedDescription)".log()
+            } else {
+                "didAllow: \(didAllow)".log()
+
+                DispatchQueue.main.async {
+                    completion?()
+                }
+            }
+        })
     }
 
     @objc private func nicknameButtonTouched(_ sender: Any) {
@@ -243,11 +260,17 @@ final class MyViewController: BaseTabViewController {
 
     @objc private func pushMessageButtonTouched(_ sender: Any) {
         "".log()
+
         let content = UNMutableNotificationContent()
         content.title = "This is title"
         content.subtitle = "This is Subtitle"
         content.body = "This is Body"
         content.badge = 1
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: "timerdone", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 
     private var selectedSort = Sort.dateOrder
@@ -262,5 +285,21 @@ extension MyViewController: ChangeUIDelegate {
         contentView.backgroundColor = .random()
 
         toast("UI가 변경되었습니다.", bottom: true)
+    }
+}
+
+extension MyViewController: UNUserNotificationCenterDelegate {
+    // To display notifications when app is running in foreground
+
+    // 앱이 foreground에 있을 때. 즉 앱안에 있어도 push알림을 받게 해줍니다.
+    // viewDidLoad()에 UNUserNotificationCenter.current().delegate = self를 추가해주는 것을 잊지마세요.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.sound, .badge, .list, .banner])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        let settingsViewController = UIViewController()
+        settingsViewController.view.backgroundColor = .gray
+        present(settingsViewController, animated: true, completion: nil)
     }
 }
