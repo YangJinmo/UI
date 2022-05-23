@@ -86,6 +86,7 @@
 		E88AECC427D706D000B14C1F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC327D706D000B14C1F /* NavigationView.swift */; };
 		E88AECC627D7242D00B14C1F /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC527D7242D00B14C1F /* Sort.swift */; };
 		E88AECC827D7592C00B14C1F /* SelectableLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC727D7592C00B14C1F /* SelectableLabelCell.swift */; };
+		E895CE66283BD45B00E85A2C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895CE65283BD45B00E85A2C /* Date.swift */; };
 		E8A2041028240872001D5D92 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2040F28240872001D5D92 /* UITextView.swift */; };
 		E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */; };
 		E8A829332743256A00B3D7F9 /* Website.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829322743256A00B3D7F9 /* Website.swift */; };
@@ -200,6 +201,7 @@
 		E88AECC327D706D000B14C1F /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		E88AECC527D7242D00B14C1F /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		E88AECC727D7592C00B14C1F /* SelectableLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableLabelCell.swift; sourceTree = "<group>"; };
+		E895CE65283BD45B00E85A2C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E8A2040F28240872001D5D92 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		E8A829322743256A00B3D7F9 /* Website.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Website.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				E8A2040F28240872001D5D92 /* UITextView.swift */,
 				E8356DF12828092900F05BF4 /* CALayer.swift */,
 				E878A88E2832226E00D1B9C2 /* CaseIterable.swift */,
+				E895CE65283BD45B00E85A2C /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				E8F6543327A6EB6300FD44B8 /* UINavigationController.swift in Sources */,
 				09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */,
 				09AB3493272D873100317254 /* SettingViewController.swift in Sources */,
+				E895CE66283BD45B00E85A2C /* Date.swift in Sources */,
 				E88AECC827D7592C00B14C1F /* SelectableLabelCell.swift in Sources */,
 				09ADF38E272524FB004C6A97 /* UITableView.swift in Sources */,
 				09ADF39427252921004C6A97 /* FlowLayoutMetric.swift in Sources */,
