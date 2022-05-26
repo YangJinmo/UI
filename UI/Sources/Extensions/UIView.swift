@@ -90,6 +90,51 @@ extension UIView {
         }
     }
 
+    // MARK: - Animate
+
+    func fadeIn(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
+        alpha = 0
+        isHidden = false
+
+        UIView.animate(withDuration: duration) {
+            self.alpha = 1
+        } completion: { _ in
+            completion?()
+        }
+    }
+
+    func fadeOut(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: duration) {
+            self.alpha = 0
+        } completion: { _ in
+            self.isHidden = true
+
+            completion?()
+        }
+    }
+
+    func openAnimatePopup() {
+        setScaleWithAlpha(value: 0)
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.5, options: .curveEaseOut, animations: {
+            self.setScaleWithAlpha(value: 1)
+        })
+    }
+
+    func closeAnimatePopup(completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.5, options: .curveEaseIn, animations: {
+            self.setScaleWithAlpha(value: 0)
+        }) { _ in
+            completion?()
+        }
+    }
+
+    func setScaleWithAlpha(value: CGFloat) {
+        let scaleValue: CGFloat = value == 0 ? 0.01 : value
+        transform = CGAffineTransform(scaleX: scaleValue, y: scaleValue)
+        alpha = value
+    }
+
     // MARK: - NSLayoutAnchor
 
     func add(
