@@ -14,7 +14,11 @@ extension UITextView {
         return estimatedSize
     }
 
+    var estimatedHeight: CGFloat {
+        return ceil(estimatedSize.height)
+    }
+
     var numberOfLines: Int {
-        return Int(estimatedSize.height / font!.lineHeight)
+        return Int(estimatedHeight / font!.lineHeight)
     }
 }
