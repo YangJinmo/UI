@@ -65,6 +65,7 @@
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
 		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
+		E85737E5284622310018DBFF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85737E4284622310018DBFF /* UserDefaults.swift */; };
 		E8581343277F584400CD206E /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581342277F584400CD206E /* Optional.swift */; };
 		E8581347277F630200CD206E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581346277F630200CD206E /* UIButton.swift */; };
 		E8581349277F682E00CD206E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581348277F682E00CD206E /* Data.swift */; };
@@ -181,6 +182,7 @@
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		E85737E4284622310018DBFF /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E8581342277F584400CD206E /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		E8581346277F630200CD206E /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		E8581348277F682E00CD206E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				E878A88E2832226E00D1B9C2 /* CaseIterable.swift */,
 				E895CE65283BD45B00E85A2C /* Date.swift */,
 				E8983717284058BF000CE96F /* Dictionary.swift */,
+				E85737E4284622310018DBFF /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				E8CF006C277C6770009B3128 /* QueryService.swift in Sources */,
 				E8C4998128113956007AA388 /* UIDevice.swift in Sources */,
+				E85737E5284622310018DBFF /* UserDefaults.swift in Sources */,
 				E8DB51AA27D4BA850080CA6B /* GradationView.swift in Sources */,
 				E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */,
 				E87889CA276252D500B9A07E /* UIWindow.swift in Sources */,
