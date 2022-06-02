@@ -18,6 +18,10 @@ extension UIViewController {
         return view.safeAreaInsets.bottom
     }
 
+    var tabBarHeight: CGFloat {
+        return tabBarController?.tabBar.frame.height ?? 49.0
+    }
+
     // MARK: - Keyboard
 
     func hideKeyboardWhenTappedAround() {
