@@ -49,6 +49,22 @@ extension UIView {
         ])
     }
 
+    /// Apple System Style
+    func addBottomBorderHalf() {
+        let dividerView = UIView()
+        dividerView.backgroundColor = .white(204)
+        dividerView.translatesAutoresizingMaskIntoConstraints = false
+
+        addSubview(dividerView)
+
+        Constraint.activate([
+            dividerView.leftAnchor.constraint(equalTo: leftAnchor),
+            dividerView.rightAnchor.constraint(equalTo: rightAnchor),
+            dividerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            dividerView.heightAnchor.constraint(equalToConstant: 0.5),
+        ])
+    }
+
     func setBottomShadow() {
         setShadow(x: 0, y: 1.6, blur: 1.6, alpha: 0.04)
     }
