@@ -154,10 +154,10 @@ final class WebViewController: BaseNavigationViewController {
     }
 
     private func requestTerms(items: [URLQueryItem]) {
-        let params = items.reduce(into: [:]) { params, queryItem in
-            params[queryItem.name] = queryItem.value
-        }
-
+//        let params = items.reduce(into: [:]) { params, queryItem in
+//            params[queryItem.name] = queryItem.value
+//        }
+//
 //        APIManager.shared.request(api: .terms, params: params) { [weak self] result in
 //            guard let self = self, let result = result else { return }
 //
