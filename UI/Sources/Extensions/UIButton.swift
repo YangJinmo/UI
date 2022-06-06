@@ -31,4 +31,13 @@ extension UIButton {
         self.tintColor = tintColor
         self.isHidden = isHidden
     }
+
+    var fontSize: CGFloat {
+        get {
+            return titleLabel?.font.pointSize ?? 17
+        }
+        set {
+            titleLabel?.font = UIFont.systemFont(ofSize: newValue)
+        }
+    }
 }
