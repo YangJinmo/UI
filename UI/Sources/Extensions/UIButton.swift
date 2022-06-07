@@ -32,6 +32,60 @@ extension UIButton {
         self.isHidden = isHidden
     }
 
+    var normalTitle: String {
+        get {
+            return title(for: .normal) ?? ""
+        }
+        set {
+            setTitle(newValue, for: .normal)
+        }
+    }
+
+    var selectedTitle: String {
+        get {
+            return title(for: .selected) ?? ""
+        }
+        set {
+            setTitle(newValue, for: .selected)
+        }
+    }
+
+    var normalTitleColor: UIColor {
+        get {
+            return titleColor(for: .normal) ?? .white
+        }
+        set {
+            setTitleColor(newValue, for: .normal)
+        }
+    }
+
+    var selectedTitleColor: UIColor {
+        get {
+            return titleColor(for: .selected) ?? .white
+        }
+        set {
+            setTitleColor(newValue, for: .selected)
+        }
+    }
+
+    var normalImage: UIImage? {
+        get {
+            return image(for: .normal)
+        }
+        set {
+            setImage(newValue, for: .normal)
+        }
+    }
+
+    var selectedImage: UIImage? {
+        get {
+            return image(for: .selected)
+        }
+        set {
+            setImage(newValue, for: .selected)
+        }
+    }
+
     var fontSize: CGFloat {
         get {
             return titleLabel?.font.pointSize ?? 17
