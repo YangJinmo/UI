@@ -94,4 +94,18 @@ extension UIButton {
             titleLabel?.font = UIFont.systemFont(ofSize: newValue)
         }
     }
+
+    public func setBackgroundColor(_ color: UIColor, for state: UIControlState) {
+        let rectangle = CGRect(size: CGSize(1))
+        UIGraphicsBeginImageContext(rectangle.size)
+
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(rectangle)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        setBackgroundImage(image!, for: state)
+    }
 }
