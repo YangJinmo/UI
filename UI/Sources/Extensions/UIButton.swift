@@ -95,9 +95,10 @@ extension UIButton {
         }
     }
 
-    public func setBackgroundColor(_ color: UIColor, for state: UIControlState) {
-        let rectangle = CGRect(size: CGSize(1))
-        UIGraphicsBeginImageContext(rectangle.size)
+    public func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+        let size = CGSize(width: 1, height: 1)
+        let rectangle = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContext(size)
 
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(color.cgColor)
