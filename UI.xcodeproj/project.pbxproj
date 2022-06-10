@@ -62,6 +62,8 @@
 		E835405B27B951DF002913FA /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405A27B951DF002913FA /* Typealias.swift */; };
 		E8356DF22828092900F05BF4 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8356DF12828092900F05BF4 /* CALayer.swift */; };
 		E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83581EE27D0CA3A00179090 /* UIScrollView.swift */; };
+		E84282CE2853630400E27E39 /* UIActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84282CD2853630400E27E39 /* UIActivity.swift */; };
+		E84282D02853633A00E27E39 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84282CF2853633A00E27E39 /* SafariActivity.swift */; };
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
 		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
@@ -180,6 +182,8 @@
 		E835405A27B951DF002913FA /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		E8356DF12828092900F05BF4 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		E83581EE27D0CA3A00179090 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		E84282CD2853630400E27E39 /* UIActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivity.swift; sourceTree = "<group>"; };
+		E84282CF2853633A00E27E39 /* SafariActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
@@ -387,6 +391,7 @@
 				E8983717284058BF000CE96F /* Dictionary.swift */,
 				E85737E4284622310018DBFF /* UserDefaults.swift */,
 				E88A3EA7284B22F600832053 /* TimeInterval.swift */,
+				E84282CD2853630400E27E39 /* UIActivity.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				E8A9177B27F40A940067CC58 /* TableSectionHeaderView.swift */,
 				E8A9178D27F5E1DA0067CC58 /* SelfSizedCollectionView.swift */,
 				E8300BFB27FFD11300512AAF /* CollectionLayout.swift */,
+				E84282CF2853633A00E27E39 /* SafariActivity.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -629,6 +635,7 @@
 				E876669C27BB2EF600480E6A /* NSAttributedString.swift in Sources */,
 				E88AECC627D7242D00B14C1F /* Sort.swift in Sources */,
 				E8AF878B2778AE8400E04F43 /* SearchViewController.swift in Sources */,
+				E84282D02853633A00E27E39 /* SafariActivity.swift in Sources */,
 				E84B78D227A83151007581EB /* StringProtocol.swift in Sources */,
 				099D33ED27545AA500C14F5F /* TextViewController.swift in Sources */,
 				09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */,
@@ -665,6 +672,7 @@
 				E8A829332743256A00B3D7F9 /* Website.swift in Sources */,
 				E878A88F2832226E00D1B9C2 /* CaseIterable.swift in Sources */,
 				091AC4332739142400294EFC /* WKWebView.swift in Sources */,
+				E84282CE2853630400E27E39 /* UIActivity.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
 				E8B448D427906F41005881B9 /* APIError.swift in Sources */,
 				E8581347277F630200CD206E /* UIButton.swift in Sources */,
