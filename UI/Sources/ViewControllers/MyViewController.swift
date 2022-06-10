@@ -29,6 +29,7 @@ final class MyViewController: BaseTabViewController {
     private lazy var delegateButton = UIButton("Delegate")
     private lazy var bottomSheetButton = UIButton("BottomSheet")
     private lazy var pushMessageButton = UIButton("PushMessage")
+    private lazy var shareButton = UIButton("Share")
     private lazy var nicknameButton: UIButton = {
         var configuration: UIButton.Configuration = .filled()
         configuration.title = "Edit Nickname"
@@ -125,6 +126,14 @@ final class MyViewController: BaseTabViewController {
         )
 
         view.add(
+            shareButton,
+            top: pushMessageButton.bottomAnchor,
+            left: view.leftAnchor, 44,
+            right: view.rightAnchor, 44,
+            heightConstant: 44
+        )
+
+        view.add(
             nicknameButton,
             bottom: contentView.safeAreaLayoutGuide.bottomAnchor, 20,
             heightConstant: 44,
@@ -148,6 +157,7 @@ final class MyViewController: BaseTabViewController {
         bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
 
         pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched(_:)), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
 
         requestAuthorizationNotification {
             UNUserNotificationCenter.current().delegate = self
@@ -271,6 +281,39 @@ final class MyViewController: BaseTabViewController {
         let request = UNNotificationRequest(identifier: "timerdone", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+
+    @objc private func shareButtonTouched() {
+        guard let url = "https://www.apple.com/".toURL else { return }
+        showShareSheet(url: url)
+    }
+
+    private func showShareSheet(url: URL) {
+        let activityViewController = UIActivityViewController(
+            activityItems: [url],
+            applicationActivities: [SafariActivity()]
+        )
+        activityViewController.popoverPresentationController?.sourceView = view
+        activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, activityItems: [Any]?, error: Error?) in
+            if completed {
+                print("share success \(activityType?.rawValue ?? "")")
+            } else {
+                print("share cancel \(activityType?.rawValue ?? "")")
+            }
+
+            if let error = error {
+                print("Oh no! Got an error! \(error.localizedDescription)")
+            }
+            guard let activityItems = activityItems else { return }
+
+            for activityItem in activityItems {
+                print("activityItem: \(activityItem)")
+            }
+        }
+
+        /// 공유하기 기능 중 제외할 기능이 있을 때 사용
+//        activityViewController.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+        present(activityViewController, animated: true)
     }
 
     private var selectedSort = Sort.dateOrder
