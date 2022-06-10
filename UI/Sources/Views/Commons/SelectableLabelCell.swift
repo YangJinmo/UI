@@ -14,7 +14,7 @@ final class SelectableLabelCell: BaseCollectionViewCell {
 
     override var isSelected: Bool {
         didSet {
-            titleLabel.textColor = isSelected ? .tint : .black
+            titleLabel.textColor = isSelected ? .tint : .label
         }
     }
 

@@ -37,7 +37,7 @@ final class BottomSheetViewController: UIViewController {
 
     private lazy var contentView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         let rectCorner: UIRectCorner = [.topLeft, .topRight]
         view.layer.masksToBounds = false
         view.layer.maskedCorners = CACornerMask(rawValue: rectCorner.rawValue)
