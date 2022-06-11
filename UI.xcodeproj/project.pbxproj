@@ -346,26 +346,7 @@
 		09ADF38827252483004C6A97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E8C4998028113956007AA388 /* UIDevice.swift */,
-				E8DB51B327EB6BB80080CA6B /* UIApplication.swift */,
-				E84B78CF27A83139007581EB /* UIStoryboard.swift */,
-				E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */,
-				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
-				E875E94A27607D8B002EEBE4 /* UIAlertController.swift */,
-				E875E94C276097BB002EEBE4 /* UIAlertAction.swift */,
-				E858134C278056BD00CD206E /* UIFont.swift */,
-				E87889CB27625A4E00B9A07E /* UILabel.swift */,
-				E858134E27805F7600CD206E /* UIColor.swift */,
-				E8581346277F630200CD206E /* UIButton.swift */,
-				E87889C9276252D500B9A07E /* UIWindow.swift */,
-				09ADF38927252498004C6A97 /* UIView.swift */,
-				0977F78A275924A8002700A5 /* UIImage.swift */,
-				0977F7882759119E002700A5 /* UIImageView.swift */,
-				099D33E62753C83900C14F5F /* UIStackView.swift */,
-				09ADF38D272524FB004C6A97 /* UITableView.swift */,
-				09ADF38B272524C2004C6A97 /* UICollectionView.swift */,
-				E83581EE27D0CA3A00179090 /* UIScrollView.swift */,
-				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
+				E8078ECE2854553800EA5D8A /* UIKit */,
 				091AC4322739142400294EFC /* WKWebView.swift */,
 				E83137652783185E007145E2 /* CGFloat.swift */,
 				E8EE706A276786940005877A /* Bundle.swift */,
@@ -380,7 +361,6 @@
 				E858134A277F696900CD206E /* Encodable.swift */,
 				E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */,
 				E876669727B61DE700480E6A /* Collection.swift */,
-				E8A2040F28240872001D5D92 /* UITextView.swift */,
 				E8356DF12828092900F05BF4 /* CALayer.swift */,
 				E878A88E2832226E00D1B9C2 /* CaseIterable.swift */,
 				E895CE65283BD45B00E85A2C /* Date.swift */,
@@ -481,6 +461,34 @@
 				E835405227B9173A002913FA /* BottomSheetViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E8078ECE2854553800EA5D8A /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E8C4998028113956007AA388 /* UIDevice.swift */,
+				E8DB51B327EB6BB80080CA6B /* UIApplication.swift */,
+				E84B78CF27A83139007581EB /* UIStoryboard.swift */,
+				E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */,
+				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
+				E875E94A27607D8B002EEBE4 /* UIAlertController.swift */,
+				E875E94C276097BB002EEBE4 /* UIAlertAction.swift */,
+				E858134C278056BD00CD206E /* UIFont.swift */,
+				E87889CB27625A4E00B9A07E /* UILabel.swift */,
+				E858134E27805F7600CD206E /* UIColor.swift */,
+				E8581346277F630200CD206E /* UIButton.swift */,
+				E87889C9276252D500B9A07E /* UIWindow.swift */,
+				09ADF38927252498004C6A97 /* UIView.swift */,
+				0977F78A275924A8002700A5 /* UIImage.swift */,
+				0977F7882759119E002700A5 /* UIImageView.swift */,
+				099D33E62753C83900C14F5F /* UIStackView.swift */,
+				09ADF38D272524FB004C6A97 /* UITableView.swift */,
+				09ADF38B272524C2004C6A97 /* UICollectionView.swift */,
+				E83581EE27D0CA3A00179090 /* UIScrollView.swift */,
+				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
+				E8A2040F28240872001D5D92 /* UITextView.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		E86134BA278C731800E40407 /* Networking */ = {
