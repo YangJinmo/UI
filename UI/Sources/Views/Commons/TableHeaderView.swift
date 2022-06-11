@@ -13,7 +13,7 @@ final class TableHeaderView: BaseView {
     private lazy var explainLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .light)
-        label.textColor = .white(57)
+        label.textColor = .secondaryLabel
         label.text = "안녕하세요!\nzzimss입니다."
         label.lineSpacing()
         return label
@@ -22,7 +22,7 @@ final class TableHeaderView: BaseView {
     // MARK: - View Life Cycle
 
     override func commonInit() {
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = .systemBackground
 
         add(
             explainLabel,

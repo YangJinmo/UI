@@ -21,7 +21,7 @@ final class TabView: BaseView {
 
     private lazy var titleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.setBottomShadow()
         return view
     }()

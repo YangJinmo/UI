@@ -17,7 +17,7 @@ final class TableSectionHeaderView: UITableViewHeaderFooterView {
     private lazy var explainLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .semibold)
-        label.textColor = .white(57)
+        label.textColor = .secondaryLabel
         label.text = "Site"
         label.lineSpacing()
         return label
