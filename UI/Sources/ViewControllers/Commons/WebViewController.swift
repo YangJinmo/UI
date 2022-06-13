@@ -145,11 +145,13 @@ final class WebViewController: BaseNavigationViewController {
                 break
             }
         } else {
-            if url.canOpenURL {
-                webView.load(url.toURLRequest)
-            } else {
+            guard url.canOpenURL else {
                 toast("실행 오류\n\n주소가 유효하지 않기 때문에\n해당 페이지를 열 수 없습니다.")
+                popViewController()
+                return
             }
+
+            webView.load(url.toURLRequest)
         }
     }
 
