@@ -50,7 +50,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
     }
 
     deinit {
-        "".log()
+        Self.identifier.log()
     }
 
     override func commonInit() {

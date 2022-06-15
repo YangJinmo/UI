@@ -25,6 +25,17 @@ final class TabBarController: UITabBarController {
         static let topBorderBackgroundColor = UIColor.secondarySystemBackground.cgColor
     }
 
+    private let observers = [
+        // out
+        (UIScene.willDeactivateNotification, #selector(willDeactivate)),
+        (UIApplication.willResignActiveNotification, #selector(willResignActive)),
+
+        // in
+        (UIScene.willEnterForegroundNotification, #selector(willEnterForeground)),
+        (UIScene.didActivateNotification, #selector(didActivate)),
+        (UIApplication.didBecomeActiveNotification, #selector(didBecomeActive)),
+    ]
+
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -36,6 +47,10 @@ final class TabBarController: UITabBarController {
         setupViewControllers()
 
         addObservers()
+    }
+
+    deinit {
+        Self.identifier.log()
     }
 
     // MARK: - Methods
@@ -106,18 +121,14 @@ final class TabBarController: UITabBarController {
         delegate = self
     }
 
-    private func addObservers() {
-        [
-            // out
-            (UIScene.willDeactivateNotification, #selector(willDeactivate)),
-            (UIApplication.willResignActiveNotification, #selector(willResignActive)),
+    private func removeObservers() {
+        observers.forEach {
+            NotificationCenter.default.removeObserver(self, name: $0.0, object: nil)
+        }
+    }
 
-            // in
-            (UIScene.willEnterForegroundNotification, #selector(willEnterForeground)),
-            (UIScene.didActivateNotification, #selector(didActivate)),
-            (UIApplication.didBecomeActiveNotification, #selector(didBecomeActive)),
-        ]
-        .forEach {
+    private func addObservers() {
+        observers.forEach {
             NotificationCenter.default.addObserver(self, selector: $0.1, name: $0.0, object: nil)
         }
     }
