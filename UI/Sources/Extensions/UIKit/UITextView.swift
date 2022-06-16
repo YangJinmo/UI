@@ -19,6 +19,6 @@ extension UITextView {
     }
 
     var numberOfLines: Int {
-        return Int(ceil(estimatedSize.height / font!.lineHeight))
+        return Int(estimatedSize.height / font!.lineHeight)
     }
 }
