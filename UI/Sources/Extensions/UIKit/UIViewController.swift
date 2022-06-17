@@ -34,6 +34,15 @@ extension UIViewController {
         view.endEditing(true)
     }
 
+    // MARK: - Window
+
+    func resetWindow() {
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            fatalError("could not get scene delegate ")
+        }
+        sceneDelegate.window?.rootViewController = self
+    }
+
     // MARK: - Storyboard
 
     static func from(storyboardName: UIStoryboard.Name, bundle: Bundle? = nil) -> Self {
