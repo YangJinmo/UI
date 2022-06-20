@@ -28,6 +28,7 @@ UI is a DSL to make Auto Layout easy on iOS.
 
 ### [Commons](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Commons)
 
+- [FloatingButton](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/FloatingButton.swift)
 - [TabView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/TabView.swift)
 - [TabBarController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Commons/TabBarController.swift)
 - [WebViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Commons/WebViewController.swift)
@@ -434,6 +435,97 @@ lazy var explainLabel: UILabel = {
             .light("안녕하세요!\n", size: 22)
             .medium("감사합니다!", size: 22)
     return label
+}
+```
+
+### [FloatingButton](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/FloatingButton.swift)
+  
+```swift
+final class ViewController: UIViewController {
+
+    // MARK: - Views
+
+    private var webView: BaseWebView!
+    private lazy var activityIndicatorView = BaseActivityIndicatorView()
+    private lazy var progressView = BaseProgressView()
+
+    // MARK: - View Life Cycle
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        createFloatingButton()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        removeFloatingButton()
+    }
+
+    // MARK: - Floating Button
+
+    private var floatingButton: FloatingButton?
+
+    private func removeFloatingButton() {
+        floatingButton?.remove()
+        floatingButton = nil
+    }
+
+    private func createFloatingButton() {
+        floatingButton = FloatingButton()
+
+        guard let floatingButton = floatingButton else {
+            return
+        }
+
+        view.addSubview(floatingButton)
+
+        Constraint.activate([
+            floatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            floatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+        ])
+
+        floatingButton.floatingButtonTouch = floatingButtonTouched
+    }
+
+    @objc private func floatingButtonTouched() {
+        UIView.animate(withDuration: 0) {
+            self.webView.scrollView.setContentOffset(.zero, animated: true)
+        } completion: { _ in
+            self.floatingButton?.hide()
+        }
+    }
+}
+```
+```swift
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startScrolling()
+    }
+
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        startScrolling()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            stoppedScrolling(scrollView: scrollView)
+        }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        stoppedScrolling(scrollView: scrollView)
+    }
+
+    private func startScrolling() {
+        view.endEditing(true)
+        floatingButton?.hide()
+    }
+
+    private func stoppedScrolling(scrollView: UIScrollView) {
+        scrollView.contentOffset.y == 0 ? floatingButton?.hide() : floatingButton?.show()
+    }
 }
 ```
     
