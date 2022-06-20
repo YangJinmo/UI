@@ -491,7 +491,7 @@ final class ViewController: UIViewController {
 
     @objc private func floatingButtonTouched() {
         UIView.animate(withDuration: 0) {
-            self.webView.scrollView.setContentOffset(.zero, animated: true)
+            self.scrollView.setContentOffset(.zero, animated: true)
         } completion: { _ in
             self.floatingButton?.hide()
         }
