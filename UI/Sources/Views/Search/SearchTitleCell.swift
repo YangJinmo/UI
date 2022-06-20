@@ -49,6 +49,20 @@ final class SearchTitleCell: BaseCollectionViewCell {
         "".log()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        "".log()
+    }
+
+    override func removeFromSuperview() {
+        removeTimer()
+
+        super.removeFromSuperview()
+
+        "".log()
+    }
+
     deinit {
         Self.identifier.log()
     }
@@ -105,11 +119,13 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // TODO: Add Timer in model
     public func bind(search: Search) {
+        search.isExpand.description.log()
+
         chevronButton.isSelected = search.isExpand
         titleLabel.text = search.title
         titleLabel.isHidden = search.isExpand
 
-        if search.isExpand == true {
+        if search.isExpand {
             removeTimer()
             index = 0
             termLabel.text = search.title
@@ -118,7 +134,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
         }
     }
 
-    private func setupTermLabel(search: Search, index: Int) {
+    private func setTermLabelText(search: Search, index: Int) {
         termLabel.text = "\(index + 1). \(search.terms[index])"
         "\(index + 1). \(search.terms[index])".log()
     }
@@ -126,33 +142,23 @@ final class SearchTitleCell: BaseCollectionViewCell {
     private func createTimer(search: Search) {
         removeTimer()
 
-        guard timer == nil else {
-            return
+        setTermLabelText(search: search, index: index) // Default
+
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(update), userInfo: search, repeats: true)
+    }
+
+    @objc private func update(_ timer: Timer) {
+        guard let search = timer.userInfo as? Search else { return }
+
+        setTermLabelText(search: search, index: index)
+        index += 1
+
+        if index == search.terms.count {
+            index = 0
         }
-        setupTermLabel(search: search, index: index) // Default
-
-        timer = Timer.scheduledTimer(
-            withTimeInterval: 2.0,
-            repeats: true,
-            block: { [weak self] _ in
-                guard let self = self else {
-                    return
-                }
-
-                self.setupTermLabel(search: search, index: self.index)
-                self.index += 1
-
-                if self.index == search.terms.count {
-                    self.index = 0
-                }
-            }
-        )
     }
 
     public func removeTimer() {
-        guard timer != nil else {
-            return
-        }
         timer?.invalidate()
         timer = nil
     }

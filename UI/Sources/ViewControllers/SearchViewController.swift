@@ -56,7 +56,7 @@ final class SearchViewController: BasePresentViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        removeTimers()
+        removeAllCells()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -85,14 +85,20 @@ final class SearchViewController: BasePresentViewController {
         )
     }
 
-    private func removeTimers() {
+    private func removeAllCells() {
         for section in 0 ..< collectionView.numberOfSections {
-            let indexPath = IndexPath(item: 0, section: section)
+            section.description.log()
 
-            if let cell = collectionView.cellForItem(at: indexPath) as? SearchTitleCell {
-                cell.removeTimer()
-            }
+            let indexPath = IndexPath(item: 0, section: section)
+            removeCell(indexPath: indexPath)
         }
+    }
+
+    private func removeCell(indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? SearchTitleCell {
+            cell.removeFromSuperview()
+        }
+        indexPath.description.log()
     }
 }
 
@@ -104,7 +110,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if searches[section].isExpand == true {
+        if searches[section].isExpand {
             return searches[section].terms.count + 1
         } else {
             return 1
@@ -133,6 +139,8 @@ extension SearchViewController: UICollectionViewDataSource {
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == 0 {
+            removeCell(indexPath: indexPath)
+
             searches[indexPath.section].isExpand.toggle()
 
             let sections = IndexSet(integer: indexPath.section)
