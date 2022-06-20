@@ -442,13 +442,10 @@ lazy var explainLabel: UILabel = {
   
 ```swift
 final class ViewController: UIViewController {
+    // MARK: - Properties
 
-    // MARK: - Views
-
-    private var webView: BaseWebView!
-    private lazy var activityIndicatorView = BaseActivityIndicatorView()
-    private lazy var progressView = BaseProgressView()
-
+    private var floatingButton: FloatingButton?
+    
     // MARK: - View Life Cycle
 
     override func viewDidAppear(_ animated: Bool) {
@@ -462,10 +459,8 @@ final class ViewController: UIViewController {
 
         removeFloatingButton()
     }
-
-    // MARK: - Floating Button
-
-    private var floatingButton: FloatingButton?
+    
+    // MARK: - Methods
 
     private func removeFloatingButton() {
         floatingButton?.remove()
