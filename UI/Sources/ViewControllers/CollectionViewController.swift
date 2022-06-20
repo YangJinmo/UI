@@ -51,6 +51,12 @@ final class CollectionViewController: BaseTabViewController {
         setupViews()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        removeTimers()
+    }
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
@@ -75,6 +81,16 @@ final class CollectionViewController: BaseTabViewController {
             collectionView,
             edges: contentView
         )
+    }
+
+    private func removeTimers() {
+        for section in 0 ..< collectionView.numberOfSections {
+            let indexPath = IndexPath(item: 0, section: section)
+
+            if let cell = collectionView.cellForItem(at: indexPath) as? SearchTitleCell {
+                cell.removeTimer()
+            }
+        }
     }
 }
 

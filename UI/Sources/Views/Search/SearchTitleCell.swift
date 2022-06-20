@@ -104,27 +104,27 @@ final class SearchTitleCell: BaseCollectionViewCell {
     // MARK: - Methods
 
     // TODO: Add Timer in model
-    func bind(search: Search) {
+    public func bind(search: Search) {
         chevronButton.isSelected = search.isExpand
         titleLabel.text = search.title
         titleLabel.isHidden = search.isExpand
 
         if search.isExpand == true {
-            timerStop()
+            removeTimer()
             index = 0
             termLabel.text = search.title
         } else {
-            timerStart(search: search)
+            createTimer(search: search)
         }
     }
 
-    func setupTermLabel(search: Search, index: Int) {
+    private func setupTermLabel(search: Search, index: Int) {
         termLabel.text = "\(index + 1). \(search.terms[index])"
         "\(index + 1). \(search.terms[index])".log()
     }
 
-    func timerStart(search: Search) {
-        timerStop()
+    private func createTimer(search: Search) {
+        removeTimer()
 
         guard timer == nil else {
             return
@@ -149,7 +149,7 @@ final class SearchTitleCell: BaseCollectionViewCell {
         )
     }
 
-    func timerStop() {
+    public func removeTimer() {
         guard timer != nil else {
             return
         }
