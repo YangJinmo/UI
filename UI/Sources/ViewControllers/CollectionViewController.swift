@@ -108,24 +108,28 @@ extension CollectionViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if searches[section].isExpand {
-            return searches[section].terms.count + 1
+        let search = searches[section]
+
+        if search.isExpand {
+            return search.terms.count + 1
         } else {
             return 1
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let search = searches[indexPath.section]
+
         switch indexPath.item {
         case 0:
             let cell: SearchTitleCell = collectionView.dequeueReusableCell(for: indexPath)
-            cell.bind(search: searches[indexPath.section])
+            cell.bind(search: search)
             return cell
         default:
             let cell: SearchTermCell = collectionView.dequeueReusableCell(for: indexPath)
             cell.bind(
                 rank: indexPath.item,
-                term: searches[indexPath.section].terms[indexPath.item - 1]
+                term: search.terms[indexPath.item - 1]
             )
             return cell
         }
