@@ -26,7 +26,7 @@ final class TabView: BaseView {
         return view
     }()
 
-    private lazy var titleLabel = UILabel.makeForTitle()
+    private lazy var titleLabel = UILabel.title()
     private lazy var popButton = UIButton(Image.chevronLeft, isHidden: true)
     private lazy var dismissButton = UIButton(Image.xmark, isHidden: true)
 

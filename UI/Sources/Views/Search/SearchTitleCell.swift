@@ -24,8 +24,8 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     // MARK: - Views
 
-    private lazy var titleLabel = UILabel.makeForSubtitle()
-    private lazy var termLabel = UILabel.makeForSubtitle()
+    private lazy var titleLabel = UILabel.subtitle()
+    private lazy var termLabel = UILabel.subtitle()
     private lazy var chevronButton: UIButton = {
         let button = UIButton()
         button.setImage(Image.chevronDownImage, for: .normal)

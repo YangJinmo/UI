@@ -20,7 +20,7 @@ final class SelectableLabelCell: BaseCollectionViewCell {
 
     // MARK: - Views
 
-    private lazy var titleLabel = UILabel.makeForSubtitle()
+    private lazy var titleLabel = UILabel.subtitle()
 
     // MARK: - View Life Cycle
 

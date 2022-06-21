@@ -18,32 +18,25 @@ extension UILabel {
         self.font = font
     }
 
-    static func navigationTitleLabel(_ text: String? = nil) -> UILabel {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .semibold)
-        label.textAlignment = .center
-        return label
-    }
-
-    static func makeForTitle(_ text: String? = nil) -> UILabel {
+    static func title(_ text: String? = nil) -> UILabel {
         let label = UILabel(text, .title)
         label.textAlignment = .center
         return label
     }
 
-    static func makeForSubtitle(_ text: String? = nil) -> UILabel {
+    static func subtitle(_ text: String? = nil) -> UILabel {
         let label = UILabel(text, .subtitle)
         return label
     }
 
-    static func makeForText(_ text: String? = nil) -> UILabel {
+    static func text(_ text: String? = nil) -> UILabel {
         let label = UILabel(text)
         label.lineSpacing()
         return label
     }
 
     func lineSpacing(_ alignment: NSTextAlignment = .left, _ lineSpacing: CGFloat = 2.0) {
-        guard let text = self.text else {
+        guard let text = text else {
             return
         }
 

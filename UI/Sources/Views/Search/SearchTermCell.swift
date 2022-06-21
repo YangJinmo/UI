@@ -14,7 +14,7 @@ final class SearchTermCell: BaseCollectionViewCell {
 
     // MARK: - Views
 
-    private lazy var rankTermLabel = UILabel.makeForSubtitle()
+    private lazy var rankTermLabel = UILabel.subtitle()
 
     // MARK: - Methods
 
