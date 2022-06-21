@@ -4,29 +4,32 @@ UI is a DSL to make Auto Layout easy on iOS.
 
 <br/>
 
-### [Extensions](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions)
+## [Extensions](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions)
 
-- [UIStoryboard](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIStoryboard.swift)
-    - [UIViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIViewController.swift)
-        - [UINavigationController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIViewController.swift)
-        - [UIAlertController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIAlertController.swift)
-            - [UIAlertAction](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIAlertAction.swift)
-        - [Toast](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIViewController.swift)
-- [Identifiable](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Identifiable.swift) (identifier)
-- [UITableView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UITableView.swift) (register, dequeueReusableCell)
-- [UICollectionView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UICollectionView.swift) (register, dequeueReusableCell)
+### [UIKit](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions/UIKit)
+- [UIStoryboard](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/s/UIStoryboard.swift)
+- [UIViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
+    - [UINavigationController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
+    - [Toast](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
+- [UIAlertController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIAlertController.swift)
+    - [UIAlertAction](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIAlertAction.swift)
+
+- [Identifiable](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/Identifiable.swift) (identifier)
+- [UITableView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UITableView.swift) (register, dequeueReusableCell)
+- [UICollectionView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UICollectionView.swift) (register, dequeueReusableCell)
     - [FlowLayoutMetric](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Defines/FlowLayoutMetric.swift)
-    - [UIEdgeInsets](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIEdgeInsets.swift)
-- [UIView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIView.swift) (NSLayoutAnchor, NSLayoutConstraint, Visual Format Language)
-- [UIImageView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIImageView.swift) (Asynchronously, Synchronously, Download, Retrieve Memory / Disk Cache)
-- [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UILabel.swift) (spaceBetweenTheLines)
-- [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIColor.swift) (rgb, white, random)
-- [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Optional.swift) (isNilOrEmpty)
-- [NSMutableAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/NSMutableAttributedString.swift)
+    - [UIEdgeInsets](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIEdgeInsets.swift)
+- [UIView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIView.swift) (NSLayoutAnchor, NSLayoutConstraint, Visual Format Language)
+- [UIImageView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIImageView.swift) (Asynchronously, Synchronously, Download, Retrieve Memory / Disk Cache)
+- [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift) (spaceBetweenTheLines)
+- [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIColor.swift) (rgb, white, random)
+### [Foundation](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions/Foundation)
+- [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/Optional.swift) (isNilOrEmpty)
+- [NSMutableAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/NSMutableAttributedString.swift)
 
 
 
-### [Commons](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Commons)
+## [Commons](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Commons)
 
 - [FloatingButton](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/FloatingButton.swift)
 - [TabView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/TabView.swift)
@@ -37,7 +40,7 @@ UI is a DSL to make Auto Layout easy on iOS.
 
 
 
-### [Bases](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Bases)
+## [Bases](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Bases)
 
 - [BaseViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BaseViewController.swift)
 - [BasePresentViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BasePresentViewController.swift)
@@ -48,7 +51,7 @@ UI is a DSL to make Auto Layout easy on iOS.
 
 ## Usage
 
-### [UIStoryboard](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIStoryboard.swift)
+### [UIStoryboard](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIStoryboard.swift)
 ```swift
 let vc = MainViewController.instantiate()
 ```
@@ -61,9 +64,9 @@ class MainViewController: UIViewController {
 }
 ```
 
-### [UIViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIViewController.swift)
+### [UIViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
 
-**[UINavigationController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIViewController.swift)**
+**[UINavigationController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)**
 
 ```swift
 present(SearchViewController())
@@ -91,7 +94,7 @@ present(
 }
 ```
 
-**[UIAlertController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIAlertController.swift)**
+**[UIAlertController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIAlertController.swift)**
 
 alert
   
@@ -159,7 +162,7 @@ actionSheet(
 }
 ```
 
-### [Toast](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIViewController.swift)
+### [Toast](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
 
 ```swift
 toast("실행 오류\n\n이미지 주소가 유효하지 않기 때문에\n해당 이미지를 불러올 수 없습니다.")
@@ -173,7 +176,7 @@ toast("UI가 변경되었습니다.", bottom: true)
 toast(error.localizedDescription)
 ```
 
-### [Identifiable](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Identifiable.swift) (identifier)
+### [Identifiable](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/Identifiable.swift) (identifier)
 
 ```swift
 class CollectionViewController: UIViewController {
@@ -196,7 +199,7 @@ extension UICollectionView {
 }
 ```
   
-### [UITableView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UITableView.swift) (register, dequeueReusableCell)
+### [UITableView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UITableView.swift) (register, dequeueReusableCell)
 
   ```swift
   class ViewController: UIViewController {
@@ -226,7 +229,7 @@ extension UICollectionView {
   
   
   
-### [UICollectionView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UICollectionView.swift) (register, dequeueReusableCell)
+### [UICollectionView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UICollectionView.swift) (register, dequeueReusableCell)
 
 ```swift
 class ViewController: UIViewController {
@@ -321,7 +324,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
 ```
 
 [FlowLayoutMetric](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Defines/FlowLayoutMetric.swift) (protocol), 
-[UIEdgeInsets](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIEdgeInsets.swift) (uniform)
+[UIEdgeInsets](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIEdgeInsets.swift) (uniform)
 
 ```swift
 extension CollectionViewController: FlowLayoutMetric {
@@ -344,7 +347,7 @@ extension CollectionViewController: FlowLayoutMetric {
 ```
   
 
-### [UIView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIView.swift)
+### [UIView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIView.swift)
 
   ```swift
   class ViewController: UIViewController {
@@ -395,7 +398,7 @@ extension CollectionViewController: FlowLayoutMetric {
   }
   ```
 
-### [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UILabel.swift)
+### [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift)
 spaceBetweenTheLines
 ```swift
 let toastLabel = UILabel()
@@ -406,7 +409,7 @@ toastLabel.numberOfLines = 0
 toastLabel.spaceBetweenTheLines()
 ```
 
-### [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIColor.swift)
+### [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIColor.swift)
 rgb, white, random
 ```swift
 let highlight = UIColor.rgb(r: 179, g: 236, b: 230)
@@ -418,7 +421,7 @@ let gray250 = UIColor.white(250)
 view.backgroundColor = .random()
 ```
 
-### [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Optional.swift)
+### [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/Optional.swift)
 isNilOrEmpty
 ```swift
 func toast(_ text: String?) {
@@ -426,7 +429,7 @@ func toast(_ text: String?) {
     print(text)
 }
 ```
-### [NSMutableAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/NSMutableAttributedString.swift)
+### [NSMutableAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/NSMutableAttributedString.swift)
 ```swift
 lazy var explainLabel: UILabel = {
     let label = UILabel()
