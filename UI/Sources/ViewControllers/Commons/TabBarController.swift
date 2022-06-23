@@ -25,15 +25,15 @@ final class TabBarController: UITabBarController {
         static let topBorderBackgroundColor = UIColor.secondarySystemBackground.cgColor
     }
 
-    private let observers: [(NSNotification.Name, Selector)] = [
+    private let observers: [NSNotification.Name: Selector] = [
         // out
-        (UIScene.willDeactivateNotification, #selector(willDeactivate)),
-        (UIApplication.willResignActiveNotification, #selector(willResignActive)),
+        UIScene.willDeactivateNotification: #selector(willDeactivate),
+        UIApplication.willResignActiveNotification: #selector(willResignActive),
 
         // in
-        (UIScene.willEnterForegroundNotification, #selector(willEnterForeground)),
-        (UIScene.didActivateNotification, #selector(didActivate)),
-        (UIApplication.didBecomeActiveNotification, #selector(didBecomeActive)),
+        UIScene.willEnterForegroundNotification: #selector(willEnterForeground),
+        UIScene.didActivateNotification: #selector(didActivate),
+        UIApplication.didBecomeActiveNotification: #selector(didBecomeActive),
     ]
 
     // MARK: - View Life Cycle
