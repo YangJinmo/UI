@@ -98,8 +98,8 @@ final class WebViewController: BaseNavigationViewController {
         )
 
         Constraint.activate([
-            progressView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            progressView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            progressView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            progressView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             progressView.bottomAnchor.constraint(equalTo: contentView.topAnchor),
 
             webView.topAnchor.constraint(equalTo: contentView.topAnchor),
