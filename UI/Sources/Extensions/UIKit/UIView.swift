@@ -108,6 +108,23 @@ extension UIView {
 
     // MARK: - Animate
 
+    /// Create a shake effect.
+    ///
+    /// - Parameters:
+    ///   - count: Shakes count. Default is 2.
+    ///   - duration: Shake duration. Default is 0.15.
+    ///   - translation: Shake translation. Default is 5.
+    public func shake(count: Float = 2, duration: TimeInterval = 0.15, translation: Float = 5) {
+        let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.repeatCount = count
+        animation.duration = duration / TimeInterval(animation.repeatCount)
+        animation.autoreverses = true
+        animation.byValue = translation
+
+        layer.add(animation, forKey: "shake")
+    }
+
     func fadeIn(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
         alpha = 0
         isHidden = false
