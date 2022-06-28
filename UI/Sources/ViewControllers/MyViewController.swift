@@ -252,7 +252,35 @@ final class MyViewController: BaseTabViewController {
     }
 
     @objc private func searchButtonTouched(_ sender: Any) {
-        present(SearchViewController())
+        let vc = SearchViewController()
+
+        /// https://sarunw.com/posts/bottom-sheet-in-ios-15-with-uisheetpresentationcontroller/
+        /// https://sarunw.com/posts/modality-changes-in-ios13/
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .pageSheet
+
+        if let sheet = nav.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+        }
+        
+        let medium = UIBarButtonItem(title: "Medium", primaryAction: .init(handler: { _ in
+            if let sheet = nav.sheetPresentationController {
+                sheet.animateChanges {
+                    sheet.detents = [.medium()]
+                }
+            }
+        }))
+        let large = UIBarButtonItem(title: "Large", primaryAction: .init(handler: { _ in
+            if let sheet = nav.sheetPresentationController {
+                sheet.animateChanges {
+                    sheet.detents = [.large()]
+                }
+            }
+        }))
+        vc.navigationItem.leftBarButtonItem = medium
+        vc.navigationItem.rightBarButtonItem = large
+
+        present(nav)
     }
 
     @objc private func delegateButtonTouched(_ sender: Any) {
