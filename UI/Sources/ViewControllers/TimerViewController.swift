@@ -50,6 +50,12 @@ final class TimerViewController: UIViewController {
         setupViews()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        floatingButton.create()
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 

@@ -62,13 +62,6 @@ final class FloatingButton: UIButton {
             widthAnchor.constraint(equalToConstant: 56),
             heightAnchor.constraint(equalToConstant: 56),
         ])
-
-        view.addSubview(self)
-
-        Constraint.activate([
-            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-        ])
     }
 
     @objc private func floatingButtonTouched() {
@@ -115,5 +108,14 @@ final class FloatingButton: UIButton {
         }
 
         removeFromSuperview()
+    }
+
+    func create() {
+        view.addSubview(self)
+
+        Constraint.activate([
+            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+        ])
     }
 }
