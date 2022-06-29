@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class FloatingButton: BaseButton {
-    var floatingButtonTouch: Closure?
+final class FloatingButton: UIButton {
+    // MARK: - Properties
 
     private enum Image {
         static let arrowUpSquareFill = UIImage(systemName: "arrow.up.square.fill")
@@ -24,7 +24,29 @@ final class FloatingButton: BaseButton {
         return scaleAnimation
     }()
 
-    override func commonInit() {
+    // MARK: - Views
+
+    private var view: UIView!
+    private var scrollView: UIScrollView!
+
+    // MARK: - View Life Cycle
+
+    init(view: UIView, scrollView: UIScrollView) {
+        self.view = view
+        self.scrollView = scrollView
+
+        super.init(frame: .zero)
+
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Methods
+
+    private func commonInit() {
         isHidden = true
         alpha = 0
         transform = CGAffineTransform(scaleX: 0, y: 0)
@@ -40,10 +62,25 @@ final class FloatingButton: BaseButton {
             widthAnchor.constraint(equalToConstant: 56),
             heightAnchor.constraint(equalToConstant: 56),
         ])
+
+        view.addSubview(self)
+
+        Constraint.activate([
+            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+        ])
     }
 
     @objc private func floatingButtonTouched() {
-        floatingButtonTouch?()
+        scrollToTop()
+    }
+
+    func scrollToTop() {
+        UIView.animate(withDuration: 0) {
+            self.scrollView.scrollToTop()
+        } completion: { _ in
+            self.hide()
+        }
     }
 
     func show() {

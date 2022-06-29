@@ -30,6 +30,8 @@ final class TimerViewController: UIViewController {
 
     // MARK: - Views
 
+    private lazy var floatingButton = FloatingButton(view: view, scrollView: tableView)
+
     private lazy var tableView: BaseTableView = {
         let tableView = BaseTableView()
         tableView.dataSource = self
@@ -48,16 +50,10 @@ final class TimerViewController: UIViewController {
         setupViews()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        createFloatingButton()
-    }
-
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        removeFloatingButton()
+        floatingButton.remove()
     }
 
     // MARK: - Methods
@@ -112,40 +108,6 @@ final class TimerViewController: UIViewController {
 
         timer?.invalidate()
         timer = nil
-    }
-
-    // MARK: - Floating Button
-
-    private var floatingButton: FloatingButton?
-
-    private func removeFloatingButton() {
-        floatingButton?.remove()
-        floatingButton = nil
-    }
-
-    private func createFloatingButton() {
-        floatingButton = FloatingButton()
-
-        guard let floatingButton = floatingButton else {
-            return
-        }
-
-        view.addSubview(floatingButton)
-
-        Constraint.activate([
-            floatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            floatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-        ])
-
-        floatingButton.floatingButtonTouch = floatingButtonTouched
-    }
-
-    @objc private func floatingButtonTouched() {
-        UIView.animate(withDuration: 0) {
-            self.tableView.setContentOffset(.zero, animated: true)
-        } completion: { _ in
-            self.floatingButton?.hide()
-        }
     }
 }
 
@@ -216,10 +178,10 @@ extension TimerViewController: UIScrollViewDelegate {
 
     private func startScrolling() {
         view.endEditing(true)
-        floatingButton?.hide()
+        floatingButton.hide()
     }
 
     private func stoppedScrolling(scrollView: UIScrollView) {
-        scrollView.contentOffset.y == 0 ? floatingButton?.hide() : floatingButton?.show()
+        scrollView.contentOffset.y == 0 ? floatingButton.hide() : floatingButton.show()
     }
 }

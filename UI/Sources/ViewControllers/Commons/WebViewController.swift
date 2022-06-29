@@ -9,12 +9,9 @@ import UIKit
 import WebKit
 
 final class WebViewController: BaseNavigationViewController {
-    // MARK: - Constants
+    // MARK: - Properties
 
     private let scriptMessageHandler = "scriptHandler"
-
-    // MARK: - Variables
-
     private var urlString: String?
 
     // MARK: - Initialization
@@ -34,6 +31,7 @@ final class WebViewController: BaseNavigationViewController {
     private var webView: BaseWebView!
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
     private lazy var progressView = BaseProgressView()
+    private lazy var floatingButton = FloatingButton(view: view, scrollView: webView.scrollView)
 
     // MARK: - View Life Cycle
 
@@ -46,16 +44,10 @@ final class WebViewController: BaseNavigationViewController {
         loadWebView()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        createFloatingButton()
-    }
-
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        removeFloatingButton()
+        floatingButton.remove()
     }
 
     // MARK: - Methods
@@ -179,40 +171,6 @@ final class WebViewController: BaseNavigationViewController {
         returnMessage?(message)
         popViewController()
     }
-
-    // MARK: - Floating Button
-
-    private var floatingButton: FloatingButton?
-
-    private func removeFloatingButton() {
-        floatingButton?.remove()
-        floatingButton = nil
-    }
-
-    private func createFloatingButton() {
-        floatingButton = FloatingButton()
-
-        guard let floatingButton = floatingButton else {
-            return
-        }
-
-        view.addSubview(floatingButton)
-
-        Constraint.activate([
-            floatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            floatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-        ])
-
-        floatingButton.floatingButtonTouch = floatingButtonTouched
-    }
-
-    @objc private func floatingButtonTouched() {
-        UIView.animate(withDuration: 0) {
-            self.webView.scrollView.setContentOffset(.zero, animated: true)
-        } completion: { _ in
-            self.floatingButton?.hide()
-        }
-    }
 }
 
 // MARK: - WKUIDelegate
@@ -310,10 +268,10 @@ extension WebViewController: UIScrollViewDelegate {
 
     private func startScrolling() {
         view.endEditing(true)
-        floatingButton?.hide()
+        floatingButton.hide()
     }
 
     private func stoppedScrolling(scrollView: UIScrollView) {
-        scrollView.contentOffset.y == 0 ? floatingButton?.hide() : floatingButton?.show()
+        scrollView.contentOffset.y == 0 ? floatingButton.hide() : floatingButton.show()
     }
 }
