@@ -16,6 +16,7 @@ final class TableViewController: UIViewController {
 
     // MARK: - Views
 
+    private lazy var floatingButton = FloatingButton(view: view, scrollView: tableView)
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
     private lazy var refreshControl: BaseRefreshControl = {
         let refreshControl = BaseRefreshControl()
@@ -47,6 +48,18 @@ final class TableViewController: UIViewController {
 
         setupViews()
         getWebsites()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        floatingButton.create()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        floatingButton.remove()
     }
 
     // MARK: - Methods
@@ -135,5 +148,36 @@ extension TableViewController {
         } catch {
             error.localizedDescription.log()
         }
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension TableViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startScrolling()
+    }
+
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        startScrolling()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            stoppedScrolling(scrollView: scrollView)
+        }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        stoppedScrolling(scrollView: scrollView)
+    }
+
+    private func startScrolling() {
+        view.endEditing(true)
+        floatingButton.hide()
+    }
+
+    private func stoppedScrolling(scrollView: UIScrollView) {
+        scrollView.contentOffset.y == 0 ? floatingButton.hide() : floatingButton.show()
     }
 }
