@@ -90,6 +90,7 @@
 		E88AECC427D706D000B14C1F /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC327D706D000B14C1F /* NavigationView.swift */; };
 		E88AECC627D7242D00B14C1F /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC527D7242D00B14C1F /* Sort.swift */; };
 		E88AECC827D7592C00B14C1F /* SelectableLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AECC727D7592C00B14C1F /* SelectableLabelCell.swift */; };
+		E88EB1F1286EF7FA00E2C4AE /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88EB1F0286EF7FA00E2C4AE /* ActionSheet.swift */; };
 		E895CE66283BD45B00E85A2C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895CE65283BD45B00E85A2C /* Date.swift */; };
 		E8983718284058BF000CE96F /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8983717284058BF000CE96F /* Dictionary.swift */; };
 		E8A2041028240872001D5D92 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2040F28240872001D5D92 /* UITextView.swift */; };
@@ -210,6 +211,7 @@
 		E88AECC327D706D000B14C1F /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		E88AECC527D7242D00B14C1F /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		E88AECC727D7592C00B14C1F /* SelectableLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableLabelCell.swift; sourceTree = "<group>"; };
+		E88EB1F0286EF7FA00E2C4AE /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		E895CE65283BD45B00E85A2C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E8983717284058BF000CE96F /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		E8A2040F28240872001D5D92 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				E8A9178D27F5E1DA0067CC58 /* SelfSizedCollectionView.swift */,
 				E8300BFB27FFD11300512AAF /* CollectionLayout.swift */,
 				E84282CF2853633A00E27E39 /* SafariActivity.swift */,
+				E88EB1F0286EF7FA00E2C4AE /* ActionSheet.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				0977F78727590F61002700A5 /* ImagePresentViewController.swift in Sources */,
 				E835405727B950BF002913FA /* RecommendedButton.swift in Sources */,
 				099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */,
+				E88EB1F1286EF7FA00E2C4AE /* ActionSheet.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				E8B448D227906F09005881B9 /* IssuesService.swift in Sources */,
 				09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */,
