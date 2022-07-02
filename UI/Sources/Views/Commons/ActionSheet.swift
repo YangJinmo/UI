@@ -12,48 +12,56 @@ final class ActionSheet {
 
     var confirmButtonTouch: (() -> Void)?
 
-    private let view: UIView = {
+    private lazy var view: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBackground
-        view.roundCorners(radius: 16)
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 16
         view.setShadow(x: 0, y: 0, blur: 8, alpha: 0.5)
         view.alpha = 0
         return view
     }()
 
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.text = "원하는 후기를 못 찾으셨나요?"
+        titleLabel.text = "원하는 결과를 못 찾으셨나요?"
         titleLabel.font = .systemFont(ofSize: 17, weight: .semibold)
         titleLabel.lineSpacing(.center)
         return titleLabel
     }()
 
-    private let messageLabel: UILabel = {
+    private lazy var messageLabel: UILabel = {
         let messageLabel = UILabel()
-        messageLabel.text = "그렇다면 HOOGi에게 물어봐 주세요!"
+        messageLabel.text = "그렇다면 저희에게 물어봐 주세요!"
         messageLabel.font = .systemFont(ofSize: 15, weight: .semibold)
         messageLabel.lineSpacing(.center)
         return messageLabel
     }()
 
-    private lazy var confirmButton = SelectableButton("HOOGi에게 물어보기!", isSelected: true).then {
-        $0.heightWithSmallCornerRadius = 46
-        $0.font = .systemFont(ofSize: 17, weight: .semibold)
-        $0.addTarget(self, action: #selector(confirmButtonTouched), for: .touchUpInside)
-    }
+    private lazy var confirmButton: SelectableButton = {
+        let button = SelectableButton("물어보기!", isSelected: true)
+        button.font = .systemFont(ofSize: 17, weight: .semibold)
+        button.height = 46
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(confirmButtonTouched), for: .touchUpInside)
+        return button
+    }()
 
-    private lazy var dismissButton = UIButton().then {
-        $0.setTitle("닫기", for: .normal)
-        $0.setTitleColor(.secondaryLabel, for: .normal)
-        $0.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
-        $0.addTarget(self, action: #selector(dismissButtonTouched), for: .touchUpInside)
-    }
+    private lazy var dismissButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("닫기", for: .normal)
+        button.setTitleColor(.secondaryLabel, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
+        button.addTarget(self, action: #selector(dismissButtonTouched), for: .touchUpInside)
+        return button
+    }()
 
-    private lazy var stackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.spacing = 8
-    }
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
+    }()
 
     func show() {
         guard let keyWindow = UIWindow.key else {
@@ -61,10 +69,8 @@ final class ActionSheet {
         }
 
         stackView.addArrangedSubviews(
-            [
-                titleLabel,
-                messageLabel,
-            ]
+            titleLabel,
+            messageLabel
         )
 
         view.addSubviews(
@@ -74,7 +80,7 @@ final class ActionSheet {
         )
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
@@ -82,14 +88,14 @@ final class ActionSheet {
         ])
 
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             confirmButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             confirmButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
             confirmButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
         ])
 
         dismissButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             dismissButton.topAnchor.constraint(equalTo: view.topAnchor),
             dismissButton.rightAnchor.constraint(equalTo: view.rightAnchor),
             dismissButton.widthAnchor.constraint(equalToConstant: 56),
@@ -99,7 +105,7 @@ final class ActionSheet {
         keyWindow.addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             view.leftAnchor.constraint(equalTo: keyWindow.leftAnchor, constant: 32),
             view.rightAnchor.constraint(equalTo: keyWindow.rightAnchor, constant: -32),
             view.bottomAnchor.constraint(equalTo: keyWindow.safeAreaLayoutGuide.bottomAnchor, constant: -16),

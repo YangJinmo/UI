@@ -81,7 +81,7 @@ class BaseTabViewController: BaseViewController {
         let guideViewHeightConstraint = guideView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         guideViewHeightConstraint.priority = .defaultLow
 
-        NSLayoutConstraint.activate([
+        Constraint.activate([
             scrollView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
