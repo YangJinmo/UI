@@ -262,7 +262,7 @@ final class MyViewController: BaseTabViewController {
         if let sheet = nav.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
         }
-        
+
         let medium = UIBarButtonItem(title: "Medium", primaryAction: .init(handler: { _ in
             if let sheet = nav.sheetPresentationController {
                 sheet.animateChanges {
@@ -332,6 +332,7 @@ final class MyViewController: BaseTabViewController {
             if let error = error {
                 print("Oh no! Got an error! \(error.localizedDescription)")
             }
+
             guard let activityItems = activityItems else { return }
 
             for activityItem in activityItems {
