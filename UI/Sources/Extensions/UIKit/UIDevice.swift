@@ -15,4 +15,8 @@ extension UIDevice {
         let bottom = keyWindow.safeAreaInsets.bottom
         return bottom > 0
     }
-}
+
+    static var isPad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+}å
