@@ -168,26 +168,18 @@ extension TableViewController: UIScrollViewDelegate {
                 actionSheet.show()
                 actionSheet.confirmButtonTouch = { [weak self] in
                     "actionSheet".log()
+
+                    if let website: Website = self?.websites.first {
+                        self?.pushViewController(
+                            WebViewController(
+                                urlString: website.urlString ?? "",
+                                title: website.title ?? ""
+                            )
+                        )
+                    }
                 }
             }
         }
-
-        // 문의하기 액션시트
-//        guard let height = heightForZeroSection else {
-//            return
-//        }
-//
-//        if reviews.count <= 10 {
-//            if scrollView.contentOffset.y >= height {
-//                showInquiryBottomSheet()
-//                heightForZeroSection = nil // 한번만 동작하기 위해서
-//            }
-//        } else {
-//            if (scrollView.contentOffset.y + scrollView.frame.height) >= height {
-//                showInquiryBottomSheet()
-//                heightForZeroSection = nil // 한번만 동작하기 위해서
-//            }
-//        }
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
