@@ -10,6 +10,7 @@ import UIKit
 final class TableViewController: UIViewController {
     // MARK: - Variables
 
+    private var hasShown = false
     private var websites: [Website] = [] {
         didSet { setWebsites() }
     }
@@ -41,6 +42,8 @@ final class TableViewController: UIViewController {
         return tableView
     }()
 
+    private let actionSheet = ActionSheet.shared
+
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -60,6 +63,7 @@ final class TableViewController: UIViewController {
         super.viewDidDisappear(animated)
 
         floatingButton.remove()
+        actionSheet.dismiss()
     }
 
     // MARK: - Methods
@@ -154,6 +158,38 @@ extension TableViewController {
 // MARK: - UIScrollViewDelegate
 
 extension TableViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentHeight = tableView.contentSize.height - tableView.frame.height
+
+        if scrollView.contentOffset.y >= contentHeight {
+            if !hasShown {
+                hasShown = true
+
+                actionSheet.show()
+                actionSheet.confirmButtonTouch = { [weak self] in
+                    "actionSheet".log()
+                }
+            }
+        }
+
+        // 문의하기 액션시트
+//        guard let height = heightForZeroSection else {
+//            return
+//        }
+//
+//        if reviews.count <= 10 {
+//            if scrollView.contentOffset.y >= height {
+//                showInquiryBottomSheet()
+//                heightForZeroSection = nil // 한번만 동작하기 위해서
+//            }
+//        } else {
+//            if (scrollView.contentOffset.y + scrollView.frame.height) >= height {
+//                showInquiryBottomSheet()
+//                heightForZeroSection = nil // 한번만 동작하기 위해서
+//            }
+//        }
+    }
+
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         startScrolling()
     }
