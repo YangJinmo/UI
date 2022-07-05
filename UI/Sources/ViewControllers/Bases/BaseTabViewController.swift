@@ -72,7 +72,7 @@ class BaseTabViewController: BaseViewController {
         navigationView.setTitleLabel(text)
     }
 
-    func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0.0) {
+    func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0) {
         view.addSubviews(scrollView)
         scrollView.addSubviews(guideView)
         guideView.addSubviews(stackView)

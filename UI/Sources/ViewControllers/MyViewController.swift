@@ -61,84 +61,30 @@ final class MyViewController: BaseTabViewController {
     // MARK: - Methods
 
     private func setupViews() {
-        view.add(
+        setupScrollableStackView(
             emailButton,
-            top: contentView.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            heightConstant: 44
-        )
-
-        view.add(
             alertButton,
-            top: emailButton.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            heightConstant: 44
-        )
-
-        view.add(
             alertOptionButton,
-            top: alertButton.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            heightConstant: 44
-        )
-
-        view.add(
             actionSheetButton,
-            top: alertOptionButton.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            heightConstant: 44
-        )
-
-        view.add(
             searchButton,
-            top: actionSheetButton.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            heightConstant: 44
-        )
-
-        view.add(
             delegateButton,
-            top: searchButton.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            heightConstant: 44
-        )
-
-        view.add(
             bottomSheetButton,
-            top: delegateButton.bottomAnchor,
-            left: view.leftAnchor, 44,
-            right: view.rightAnchor, 44,
-            heightConstant: 44
-        )
-
-        view.add(
             pushMessageButton,
-            top: bottomSheetButton.bottomAnchor,
-            left: view.leftAnchor, 44,
-            right: view.rightAnchor, 44,
-            heightConstant: 44
-        )
-
-        view.add(
             shareButton,
-            top: pushMessageButton.bottomAnchor,
-            left: view.leftAnchor, 44,
-            right: view.rightAnchor, 44,
-            heightConstant: 44
+            nicknameButton
         )
 
-        view.add(
-            nicknameButton,
-            bottom: contentView.safeAreaLayoutGuide.bottomAnchor, 20,
-            heightConstant: 44,
-            centerX: contentView
-        )
+        emailButton.height(56)
+        alertButton.height(56)
+        alertOptionButton.height(56)
+        actionSheetButton.height(56)
+        searchButton.height(56)
+        delegateButton.height(56)
+        bottomSheetButton.height(56)
+        bottomSheetButton.left(equalTo: view.leftAnchor, constant: 32)
+        pushMessageButton.height(56)
+        shareButton.height(56)
+        nicknameButton.height(56)
 
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
 

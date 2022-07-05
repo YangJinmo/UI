@@ -7,7 +7,7 @@
 
 import MessageUI
 
-class MailComposeViewController: BaseNavigationViewController {
+final class MailComposeViewController: BaseNavigationViewController {
     // MARK: - Views
 
     private lazy var sendEmailButton = UIButton("sendEmail")
