@@ -60,8 +60,8 @@ final class ScrollableStackViewController: UIViewController {
             hideButton,
             top: view.safeAreaLayoutGuide.topAnchor,
             right: view.safeAreaLayoutGuide.rightAnchor,
-            widthConstant: Height.navigationController,
-            heightConstant: Height.navigationController
+            widthConstant: navigationBarHeight,
+            heightConstant: navigationBarHeight
         )
 
         hideButton.addTarget(self, action: #selector(hideButtonTouched), for: .touchUpInside)

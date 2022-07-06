@@ -18,7 +18,7 @@ final class BottomSheetViewController: UIViewController {
 
     private var contentViewHeightConstraint: NSLayoutConstraint!
     private var contentViewHeight: CGFloat {
-        return Height.navigationController + collectionViewHeight + safeAreaBottom + margin
+        return navigationBarHeight + collectionViewHeight + safeAreaBottom + margin
     }
 
     private var collectionViewHeight: CGFloat {
@@ -105,7 +105,7 @@ final class BottomSheetViewController: UIViewController {
             navigationView.topAnchor.constraint(equalTo: contentView.topAnchor),
             navigationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             navigationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            navigationView.heightAnchor.constraint(equalToConstant: Height.navigationController),
+            navigationView.heightAnchor.constraint(equalToConstant: navigationBarHeight),
         ])
 
         Constraint.activate([

@@ -75,7 +75,7 @@ final class TabView: BaseView {
             titleView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             titleView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             titleView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
-            titleView.heightAnchor.constraint(equalToConstant: Height.navigationController),
+            titleView.heightAnchor.constraint(equalToConstant: navigationBarHeight),
 
             contentView.topAnchor.constraint(equalTo: titleView.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
@@ -93,12 +93,12 @@ final class TabView: BaseView {
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
-            popButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
+            popButton.widthAnchor.constraint(equalToConstant: navigationBarHeight),
 
             dismissButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             dismissButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             dismissButton.rightAnchor.constraint(equalTo: titleView.rightAnchor),
-            dismissButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
+            dismissButton.widthAnchor.constraint(equalToConstant: navigationBarHeight),
 
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),

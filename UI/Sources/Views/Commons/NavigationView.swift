@@ -37,17 +37,17 @@ final class NavigationView: BaseView {
             popButton.topAnchor.constraint(equalTo: topAnchor),
             popButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: leftAnchor),
-            popButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
+            popButton.widthAnchor.constraint(equalToConstant: navigationBarHeight),
 
             dismissButton.topAnchor.constraint(equalTo: topAnchor),
             dismissButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             dismissButton.rightAnchor.constraint(equalTo: rightAnchor),
-            dismissButton.widthAnchor.constraint(equalToConstant: Height.navigationController),
+            dismissButton.widthAnchor.constraint(equalToConstant: navigationBarHeight),
 
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Height.navigationController),
-            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -Height.navigationController),
+            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: navigationBarHeight),
+            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -navigationBarHeight),
         ])
     }
 

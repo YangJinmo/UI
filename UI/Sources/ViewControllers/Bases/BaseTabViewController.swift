@@ -58,7 +58,7 @@ class BaseTabViewController: BaseViewController {
             navigationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             navigationView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             navigationView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            navigationView.heightAnchor.constraint(equalToConstant: Height.navigationController),
+            navigationView.heightAnchor.constraint(equalToConstant: navigationBarHeight),
 
             contentView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

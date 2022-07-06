@@ -8,6 +8,22 @@
 import UIKit.UIViewController
 
 extension UIViewController {
+    var tabBarHeight: CGFloat {
+        if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
+            return visibleViewController.tabBarHeight
+        }
+
+        return tabBarController?.tabBar.frame.height ?? 49
+    }
+
+    var navigationBarHeight: CGFloat {
+        if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
+            return visibleViewController.navigationBarHeight
+        }
+
+        return navigationController?.navigationBar.frame.height ?? 56
+    }
+
     // MARK: - Safe Area
 
     var safeAreaHeight: CGFloat {
@@ -16,10 +32,6 @@ extension UIViewController {
 
     var safeAreaBottom: CGFloat {
         return view.safeAreaInsets.bottom
-    }
-
-    var tabBarHeight: CGFloat {
-        return tabBarController?.tabBar.frame.height ?? 49.0
     }
 
     // MARK: - Keyboard
