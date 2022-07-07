@@ -20,6 +20,8 @@ final class BaseProgressView: UIProgressView {
         progressViewStyle = .bar
         progressTintColor = .tint
         trackTintColor = .clear
+        
+//        transform = CGAffineTransform(scaleX: 1, y: 1)
     }
 
     required init?(coder: NSCoder) {
