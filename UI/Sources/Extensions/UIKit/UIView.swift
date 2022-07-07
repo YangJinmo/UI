@@ -14,6 +14,16 @@ extension UIView {
         return 56
     }
 
+    // MARK: - Safe Area
+
+    var safeAreaHeight: CGFloat {
+        return safeAreaLayoutGuide.layoutFrame.height
+    }
+
+    var safeAreaBottom: CGFloat {
+        return safeAreaInsets.bottom
+    }
+
     func layoutFitting() {
         setNeedsLayout()
         layoutIfNeeded()
