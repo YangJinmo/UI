@@ -54,6 +54,7 @@
 		09ADF3AE2725A200004C6A97 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3AD2725A200004C6A97 /* Search.swift */; };
 		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
+		E80FE0D02877C315001A96DD /* TapSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80FE0CF2877C315001A96DD /* TapSlider.swift */; };
 		E8300BFC27FFD11300512AAF /* CollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8300BFB27FFD11300512AAF /* CollectionLayout.swift */; };
 		E83137662783185E007145E2 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83137652783185E007145E2 /* CGFloat.swift */; };
 		E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405227B9173A002913FA /* BottomSheetViewController.swift */; };
@@ -174,6 +175,7 @@
 		09ADF3AD2725A200004C6A97 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E80FE0CF2877C315001A96DD /* TapSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapSlider.swift; sourceTree = "<group>"; };
 		E8300BFB27FFD11300512AAF /* CollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLayout.swift; sourceTree = "<group>"; };
 		E83137652783185E007145E2 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		E835405227B9173A002913FA /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				E8300BFB27FFD11300512AAF /* CollectionLayout.swift */,
 				E84282CF2853633A00E27E39 /* SafariActivity.swift */,
 				E88EB1F0286EF7FA00E2C4AE /* ActionSheet.swift */,
+				E80FE0CF2877C315001A96DD /* TapSlider.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				E858134D278056BD00CD206E /* UIFont.swift in Sources */,
 				091AC4272736592E00294EFC /* WebViewController.swift in Sources */,
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
+				E80FE0D02877C315001A96DD /* TapSlider.swift in Sources */,
 				E8CF006C277C6770009B3128 /* QueryService.swift in Sources */,
 				E8C4998128113956007AA388 /* UIDevice.swift in Sources */,
 				E85737E5284622310018DBFF /* UserDefaults.swift in Sources */,

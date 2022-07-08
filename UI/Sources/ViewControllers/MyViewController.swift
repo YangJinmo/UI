@@ -46,6 +46,8 @@ final class MyViewController: BaseTabViewController {
         return button
     }()
 
+    private lazy var slider = TapSlider()
+
     // MARK: - View Life Cycle
 
     override convenience init() {
@@ -61,6 +63,7 @@ final class MyViewController: BaseTabViewController {
     // MARK: - Methods
 
     private func setupViews() {
+//        view.add(slider, left: view.leftAnchor, 20, right: view.rightAnchor, 20, centerX: view, centerY: view)
         setupScrollableStackView(
             emailButton,
             alertButton,
@@ -68,6 +71,7 @@ final class MyViewController: BaseTabViewController {
             actionSheetButton,
             searchButton,
             delegateButton,
+            slider,
             bottomSheetButton,
             pushMessageButton,
             shareButton,
@@ -80,6 +84,8 @@ final class MyViewController: BaseTabViewController {
         actionSheetButton.height(56)
         searchButton.height(56)
         delegateButton.height(56)
+        slider.height(56)
+        slider.left(equalTo: view.leftAnchor, constant: 32)
         bottomSheetButton.height(56)
         bottomSheetButton.left(equalTo: view.leftAnchor, constant: 32)
         pushMessageButton.height(56)
