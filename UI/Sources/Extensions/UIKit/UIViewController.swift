@@ -74,6 +74,21 @@ extension UIViewController {
         dismiss(animated: true, completion: completion)
     }
 
+    var isModal: Bool {
+        if presentingViewController != nil {
+            return true
+        } else if navigationController?.presentingViewController?.presentedViewController == navigationController {
+            return true
+        } else if tabBarController?.presentingViewController is UITabBarController {
+            return true
+        }
+        return false
+
+//        return presentingViewController != nil
+//            || navigationController?.presentingViewController?.presentedViewController == navigationController
+//            || tabBarController?.presentingViewController is UITabBarController
+    }
+
     // MARK: - Navigation Controller
 
     func presentWithNavigationController(_ rootViewController: UIViewController, completion: (() -> Void)? = nil) {
