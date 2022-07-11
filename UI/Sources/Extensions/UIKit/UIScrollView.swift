@@ -15,6 +15,10 @@ extension UIScrollView {
         showsHorizontalScrollIndicator = scrollIndicator
     }
 
+    var isAtTop: Bool {
+        return contentOffset.y == 0
+    }
+
     var isOverflowVertical: Bool {
         return contentSize.height > bounds.height && bounds.height > 0
     }
@@ -43,6 +47,10 @@ extension UIScrollView {
     }
 
     func scrollToTop(down: CGFloat = 0, right: CGFloat = 0, animated: Bool = true) {
+        guard !isAtTop else {
+            return
+        }
+
         let point = CGPoint(
             x: right - contentInset.left,
             y: down - contentInset.top
