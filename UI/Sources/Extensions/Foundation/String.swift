@@ -123,10 +123,18 @@ extension String {
     }
 
     func toHiddenEmail() -> String {
-        let string = rangeByIndex(start: 0, end: 2)
         let stringArr = split(separator: "@")
-        let asterisks = String(repeating: "*", count: stringArr[0].count - 3)
-        return string + asterisks + "@" + stringArr[1]
+
+        if stringArr[0].count > 3 {
+            let string = rangeByIndex(start: 0, end: 2)
+            let asterisks = String(
+                repeating: "*",
+                count: stringArr[0].count - 3
+            )
+            return string + asterisks + "@" + stringArr[1]
+        } else {
+            return self
+        }
     }
 
     func rangeByIndex(start: Int, end: Int) -> String {
