@@ -55,7 +55,7 @@
 		09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */; };
 		09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD4EDA27352DCC00C48138 /* UIViewController.swift */; };
 		E80FE0D02877C315001A96DD /* TapSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80FE0CF2877C315001A96DD /* TapSlider.swift */; };
-		E8300BFC27FFD11300512AAF /* CollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8300BFB27FFD11300512AAF /* CollectionLayout.swift */; };
+		E8300BFC27FFD11300512AAF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8300BFB27FFD11300512AAF /* PinterestLayout.swift */; };
 		E83137662783185E007145E2 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83137652783185E007145E2 /* CGFloat.swift */; };
 		E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405227B9173A002913FA /* BottomSheetViewController.swift */; };
 		E835405727B950BF002913FA /* RecommendedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405627B950BF002913FA /* RecommendedButton.swift */; };
@@ -176,7 +176,7 @@
 		09ADF3B42726BA1D004C6A97 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		09BD4EDA27352DCC00C48138 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E80FE0CF2877C315001A96DD /* TapSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapSlider.swift; sourceTree = "<group>"; };
-		E8300BFB27FFD11300512AAF /* CollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLayout.swift; sourceTree = "<group>"; };
+		E8300BFB27FFD11300512AAF /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		E83137652783185E007145E2 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		E835405227B9173A002913FA /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		E835405627B950BF002913FA /* RecommendedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedButton.swift; sourceTree = "<group>"; };
@@ -403,7 +403,7 @@
 				E8A9177D27F40ABA0067CC58 /* TableHeaderView.swift */,
 				E8A9177B27F40A940067CC58 /* TableSectionHeaderView.swift */,
 				E8A9178D27F5E1DA0067CC58 /* SelfSizedCollectionView.swift */,
-				E8300BFB27FFD11300512AAF /* CollectionLayout.swift */,
+				E8300BFB27FFD11300512AAF /* PinterestLayout.swift */,
 				E84282CF2853633A00E27E39 /* SafariActivity.swift */,
 				E88EB1F0286EF7FA00E2C4AE /* ActionSheet.swift */,
 				E80FE0CF2877C315001A96DD /* TapSlider.swift */,
@@ -621,7 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8DB51B427EB6BB80080CA6B /* UIApplication.swift in Sources */,
-				E8300BFC27FFD11300512AAF /* CollectionLayout.swift in Sources */,
+				E8300BFC27FFD11300512AAF /* PinterestLayout.swift in Sources */,
 				E859FAB227C4703A007FE276 /* BaseTabViewController.swift in Sources */,
 				E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */,
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,

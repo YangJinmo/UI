@@ -1,5 +1,5 @@
 //
-//  CollectionLayout.swift
+//  PinterestLayout.swift
 //  UI
 //
 //  Created by JMY on 2022/04/08.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-@objc protocol CollectionLayoutDelegate: AnyObject {
+@objc protocol PinterestLayoutDelegate: AnyObject {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat
     func collectionView(_ collectionView: UICollectionView, heightForHeaderInSection section: Int) -> CGFloat
     @objc optional
     func collectionView(_ collectionView: UICollectionView, firstSectionMaxY maxY: CGFloat)
 }
 
-final class CollectionLayout: UICollectionViewLayout {
-    weak var delegate: CollectionLayoutDelegate!
+final class PinterestLayout: UICollectionViewLayout {
+    weak var delegate: PinterestLayoutDelegate!
 
     fileprivate var numberOfColumns = 2
     fileprivate var cellPadding: CGFloat = 8.0
@@ -38,7 +38,7 @@ final class CollectionLayout: UICollectionViewLayout {
         return CGSize(width: contentWidth, height: contentHeight)
     }
 
-    init(delegate: CollectionLayoutDelegate) {
+    init(delegate: PinterestLayoutDelegate) {
         self.delegate = delegate
 
         super.init()
