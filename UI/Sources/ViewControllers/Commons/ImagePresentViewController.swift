@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImagePresentViewController: BasePresentViewController {
+final class ImagePresentViewController: BaseTabViewController {
     // MARK: - Properties
 
     private var imageUrl: URL?
@@ -30,6 +30,12 @@ class ImagePresentViewController: BasePresentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViews()
+    }
+
+    // MARK: - Methods
+
+    private func setupViews() {
         setupScrollableStackView(imageView)
 
         imageView.add(
@@ -38,9 +44,9 @@ class ImagePresentViewController: BasePresentViewController {
         )
 
         setImage(url: imageUrl)
-    }
 
-    // MARK: - Methods
+        addDismissButton()
+    }
 
     private func setImage(url: URL?) {
         guard let url = url else {

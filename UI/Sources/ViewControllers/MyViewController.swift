@@ -25,7 +25,7 @@ final class MyViewController: BaseTabViewController {
     private lazy var alertButton = UIButton("Alert")
     private lazy var alertOptionButton = UIButton("AlertOption")
     private lazy var actionSheetButton = UIButton("ActionSheet")
-    private lazy var searchButton = UIButton("Search")
+    private lazy var modalButton = UIButton("Modal")
     private lazy var delegateButton = UIButton("Delegate")
     private lazy var bottomSheetButton = UIButton("BottomSheet")
     private lazy var pushMessageButton = UIButton("PushMessage")
@@ -69,7 +69,7 @@ final class MyViewController: BaseTabViewController {
             alertButton,
             alertOptionButton,
             actionSheetButton,
-            searchButton,
+            modalButton,
             delegateButton,
             slider,
             bottomSheetButton,
@@ -82,7 +82,7 @@ final class MyViewController: BaseTabViewController {
         alertButton.height(56)
         alertOptionButton.height(56)
         actionSheetButton.height(56)
-        searchButton.height(56)
+        modalButton.height(56)
         delegateButton.height(56)
         slider.height(56)
         slider.left(equalTo: view.leftAnchor, constant: 32)
@@ -98,7 +98,7 @@ final class MyViewController: BaseTabViewController {
         alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
         alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched(_:)), for: .touchUpInside)
         actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched(_:)), for: .touchUpInside)
-        searchButton.addTarget(self, action: #selector(searchButtonTouched(_:)), for: .touchUpInside)
+        modalButton.addTarget(self, action: #selector(modalButtonTouched(_:)), for: .touchUpInside)
 
         delegateButton.addTarget(self, action: #selector(delegateButtonTouched(_:)), for: .touchUpInside)
         bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched(_:)), for: .touchUpInside)
@@ -203,7 +203,7 @@ final class MyViewController: BaseTabViewController {
         }
     }
 
-    @objc private func searchButtonTouched(_ sender: Any) {
+    @objc private func modalButtonTouched(_ sender: Any) {
         let vc = SearchViewController()
 
         /// https://sarunw.com/posts/bottom-sheet-in-ios-15-with-uisheetpresentationcontroller/

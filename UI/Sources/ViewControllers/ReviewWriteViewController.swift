@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ReviewWriteViewController: BasePresentViewController {
+final class ReviewWriteViewController: BaseTabViewController {
     // MARK: - Views
 
     private lazy var pushButton = UIButton("Push", .title)
@@ -30,6 +30,8 @@ final class ReviewWriteViewController: BasePresentViewController {
         view.add(pushButton, heightConstant: 44, center: view)
 
         pushButton.addTarget(self, action: #selector(pushButtonTouched(_:)), for: .touchUpInside)
+
+        addDismissButton()
     }
 
     @objc private func pushButtonTouched(_ sender: Any) {

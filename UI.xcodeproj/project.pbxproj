@@ -26,9 +26,7 @@
 		099D33EF2754678E00C14F5F /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33EE2754678E00C14F5F /* TabView.swift */; };
 		099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099D33F02754705000C14F5F /* ScrollableStackViewController.swift */; };
 		09AB3484272AE8A400317254 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3483272AE8A400317254 /* BaseViewController.swift */; };
-		09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3485272AEF9A00317254 /* BasePresentViewController.swift */; };
 		09AB348E272B9B1C00317254 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348D272B9B1C00317254 /* TabBarController.swift */; };
-		09AB3490272D860000317254 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB348F272D860000317254 /* BaseNavigationViewController.swift */; };
 		09AB3493272D873100317254 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB3492272D873100317254 /* SettingViewController.swift */; };
 		09ADF36B272521BD004C6A97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF36A272521BD004C6A97 /* AppDelegate.swift */; };
 		09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADF36C272521BD004C6A97 /* SceneDelegate.swift */; };
@@ -145,9 +143,7 @@
 		099D33EE2754678E00C14F5F /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		099D33F02754705000C14F5F /* ScrollableStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableStackViewController.swift; sourceTree = "<group>"; };
 		09AB3483272AE8A400317254 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		09AB3485272AEF9A00317254 /* BasePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresentViewController.swift; sourceTree = "<group>"; };
 		09AB348D272B9B1C00317254 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		09AB348F272D860000317254 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		09AB3492272D873100317254 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		09ADF367272521BD004C6A97 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09ADF36A272521BD004C6A97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -273,8 +269,6 @@
 			children = (
 				09AB3483272AE8A400317254 /* BaseViewController.swift */,
 				E859FAB127C4703A007FE276 /* BaseTabViewController.swift */,
-				09AB3485272AEF9A00317254 /* BasePresentViewController.swift */,
-				09AB348F272D860000317254 /* BaseNavigationViewController.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -699,7 +693,6 @@
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,
 				E8AF878D2778BBFB00E04F43 /* TimerViewController.swift in Sources */,
 				09ADF3AC2725A1E4004C6A97 /* SearchTermCell.swift in Sources */,
-				09AB3486272AEF9A00317254 /* BasePresentViewController.swift in Sources */,
 				E8AF878F2778C12000E04F43 /* TimerModel.swift in Sources */,
 				0977F78B275924A8002700A5 /* UIImage.swift in Sources */,
 				E8A9177C27F40A940067CC58 /* TableSectionHeaderView.swift in Sources */,
@@ -727,7 +720,6 @@
 				093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */,
 				09ADF38C272524C2004C6A97 /* UICollectionView.swift in Sources */,
 				E8A2041028240872001D5D92 /* UITextView.swift in Sources */,
-				09AB3490272D860000317254 /* BaseNavigationViewController.swift in Sources */,
 				E8E1C24D27F1738700676A06 /* Classification.swift in Sources */,
 				09ADF37F272521EB004C6A97 /* TableViewController.swift in Sources */,
 				E8CF006A277C65F7009B3128 /* Track.swift in Sources */,

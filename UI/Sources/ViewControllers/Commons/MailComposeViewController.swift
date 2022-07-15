@@ -7,7 +7,7 @@
 
 import MessageUI
 
-final class MailComposeViewController: BaseNavigationViewController {
+final class MailComposeViewController: BaseTabViewController {
     // MARK: - Views
 
     private lazy var sendEmailButton = UIButton("sendEmail")
@@ -34,6 +34,8 @@ final class MailComposeViewController: BaseNavigationViewController {
         )
 
         sendEmailButton.addTarget(self, action: #selector(sendEmailButtonTouched(_:)), for: .touchUpInside)
+
+        addPopButton()
     }
 
     @objc private func sendEmailButtonTouched(_ sender: Any) {

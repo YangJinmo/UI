@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-final class WebViewController: BaseNavigationViewController {
+final class WebViewController: BaseTabViewController {
     // MARK: - Properties
 
     private let scriptMessageHandler = "scriptHandler"
@@ -108,6 +108,8 @@ final class WebViewController: BaseNavigationViewController {
             activityIndicatorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
+
+        addPopButton()
     }
 
     private func loadWebView() {

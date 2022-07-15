@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SearchViewController: BasePresentViewController {
+final class SearchViewController: BaseTabViewController {
     // MARK: - Variables
 
     private var searches: [Search] = [
@@ -83,6 +83,8 @@ final class SearchViewController: BasePresentViewController {
             collectionView,
             edges: contentView
         )
+
+        addDismissButton()
     }
 
     private func removeAllCells() {

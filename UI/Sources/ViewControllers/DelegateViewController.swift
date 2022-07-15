@@ -11,7 +11,7 @@ protocol ChangeUIDelegate: AnyObject {
     func changeUI()
 }
 
-final class DelegateViewController: BasePresentViewController {
+final class DelegateViewController: BaseTabViewController {
     // MARK: - Properties
 
     weak var delegate: ChangeUIDelegate?
@@ -48,6 +48,8 @@ final class DelegateViewController: BasePresentViewController {
         )
 
         changeButton.addTarget(self, action: #selector(changeButtonTouched(_:)), for: .touchUpInside)
+
+        addDismissButton()
     }
 
     @objc private func changeButtonTouched(_ sender: Any) {

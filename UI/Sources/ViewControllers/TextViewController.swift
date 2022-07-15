@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TextViewController: BaseNavigationViewController {
+final class TextViewController: BaseTabViewController {
     // MARK: - Constants
 
     private enum Font {
@@ -67,6 +67,8 @@ final class TextViewController: BaseNavigationViewController {
             multiplier: 1,
             constant: 0
         )
+
+        addPopButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -16,11 +16,6 @@ class BaseTabViewController: BaseViewController {
         }
     }
 
-    private enum Image {
-        static let chevronLeft = UIImage(systemName: "chevron.left")
-        static let xmark = UIImage(systemName: "xmark")
-    }
-
     // MARK: - Views
 
     lazy var navigationView = NavigationView()
@@ -67,10 +62,31 @@ class BaseTabViewController: BaseViewController {
         ])
     }
 
+    // MARK: - Navigation View
+
     func setTitleLabel(_ text: String?) {
         navigationView.setNavigationViewBottomShadow()
         navigationView.setTitleLabel(text)
     }
+
+    func addPopButton() {
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationView.addPopButton(popButtonTouched)
+    }
+
+    func addDismissButton() {
+        navigationView.addDismissButton(dismissButtonTouched)
+    }
+
+    @objc private func popButtonTouched() {
+        popViewController()
+    }
+
+    @objc private func dismissButtonTouched() {
+        dismiss()
+    }
+
+    // MARK: - Scrollable Stack View
 
     func setupScrollableStackView(_ views: UIView..., margin: CGFloat = 0) {
         view.addSubviews(scrollView)
@@ -101,5 +117,13 @@ class BaseTabViewController: BaseViewController {
 
             guideViewHeightConstraint,
         ])
+    }
+}
+
+// MARK: - UIGestureRecognizerDelegate
+
+extension BaseTabViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

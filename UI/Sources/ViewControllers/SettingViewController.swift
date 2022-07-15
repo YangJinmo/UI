@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingViewController: BaseNavigationViewController {
+final class SettingViewController: BaseTabViewController {
     // MARK: - Views
 
     private lazy var presentButton = UIButton("Present", .title)
@@ -31,14 +31,11 @@ final class SettingViewController: BaseNavigationViewController {
 
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
 
-        navigationView.addDismissButton(dismissButtonTouched)
+        addPopButton()
+        addDismissButton()
     }
 
     @objc private func presentButtonTouched(_ sender: Any) {
         presentWithNavigationController(ReviewWriteViewController())
-    }
-
-    @objc private func dismissButtonTouched() {
-        dismiss()
     }
 }
