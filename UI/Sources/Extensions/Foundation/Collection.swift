@@ -16,16 +16,37 @@ extension Collection {
         indices.contains(i) ? self[i] : nil
     }
 
-    /// Convert self to JSON String.
-    /// Returns: the pretty printed JSON string or an empty string if any error occur.
+    // MARK: - Convert JSON
+
     /// https://stackoverflow.com/questions/38773979/is-there-a-way-to-pretty-print-swift-dictionaries-to-the-console
-    func json() -> String {
+
+    func toJSONString(prettify: Bool = false) -> String? {
+        guard JSONSerialization.isValidJSONObject(self) else {
+            return nil
+        }
+
+        let options = prettify
+            ? JSONSerialization.WritingOptions.prettyPrinted
+            : JSONSerialization.WritingOptions()
+
         do {
-            let jsonData = try JSONSerialization.data(withJSONObject: self, options: [.prettyPrinted])
-            return String(data: jsonData, encoding: .utf8) ?? "{}"
+            let data = try JSONSerialization.data(withJSONObject: self, options: options)
+            return String(data: data, encoding: .utf8) ?? "{}"
         } catch {
             print("json serialization error: \(error)")
             return "{}"
         }
+    }
+
+    func toJSONData(prettify: Bool = false) -> Data? {
+        guard JSONSerialization.isValidJSONObject(self) else {
+            return nil
+        }
+
+        let options = prettify
+            ? JSONSerialization.WritingOptions.prettyPrinted
+            : JSONSerialization.WritingOptions()
+
+        return try? JSONSerialization.data(withJSONObject: self, options: options)
     }
 }
