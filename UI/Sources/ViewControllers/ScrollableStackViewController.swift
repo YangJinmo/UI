@@ -30,18 +30,17 @@ final class ScrollableStackViewController: UIViewController {
         return button
     }()
 
-    private lazy var hideButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Hide", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        return button
-    }()
-
     // MARK: - View Life Cycle
 
     override func loadView() {
         presentButton.height(44)
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
+
+        tabView.dismissButton.isHidden = false
+        tabView.dismissButton.setImage(nil, for: .normal)
+        tabView.dismissButton.setTitle("Hide", for: .normal)
+        tabView.dismissButton.setTitleColor(.label, for: .normal)
+        tabView.dismissButton.addTarget(self, action: #selector(dismissButtonTouched), for: .touchUpInside)
 
         tabView.setupScrollableStackView(
             titleLabel,
@@ -53,21 +52,7 @@ final class ScrollableStackViewController: UIViewController {
         view = tabView
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.add(
-            hideButton,
-            top: view.safeAreaLayoutGuide.topAnchor,
-            right: view.safeAreaLayoutGuide.rightAnchor,
-            widthConstant: navigationBarHeight,
-            heightConstant: navigationBarHeight
-        )
-
-        hideButton.addTarget(self, action: #selector(hideButtonTouched), for: .touchUpInside)
-    }
-
-    @objc private func hideButtonTouched(_ sender: UIButton) {
+    @objc private func dismissButtonTouched(_ sender: UIButton) {
         sender.isSelected.toggle()
 
         if sender.isSelected {
