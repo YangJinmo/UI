@@ -204,8 +204,10 @@ extension TableViewController: UIScrollViewDelegate {
         view.endEditing(true)
         floatingButton.hide()
     }
-
+    
     private func stoppedScrolling(scrollView: UIScrollView) {
-        scrollView.contentOffset.y == 0 ? floatingButton.hide() : floatingButton.show()
+        scrollView.contentOffset.y == 0
+            ? floatingButton.hide()
+            : floatingButton.show()
     }
 }
