@@ -67,6 +67,7 @@
 		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
 		E85664F028884F91005897A1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85664EF28884F91005897A1 /* Log.swift */; };
+		E85664F428885788005897A1 /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85664F328885788005897A1 /* BuildConfiguration.swift */; };
 		E85737E5284622310018DBFF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85737E4284622310018DBFF /* UserDefaults.swift */; };
 		E8581343277F584400CD206E /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581342277F584400CD206E /* Optional.swift */; };
 		E8581347277F630200CD206E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581346277F630200CD206E /* UIButton.swift */; };
@@ -187,6 +188,7 @@
 		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		E85664EF28884F91005897A1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		E85664F328885788005897A1 /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
 		E85737E4284622310018DBFF /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E8581342277F584400CD206E /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		E8581346277F630200CD206E /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 		E85664EE28884F7A005897A1 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				E85664F328885788005897A1 /* BuildConfiguration.swift */,
 				E85664EF28884F91005897A1 /* Log.swift */,
 			);
 			path = Commons;
@@ -680,6 +683,7 @@
 				E83137662783185E007145E2 /* CGFloat.swift in Sources */,
 				E8DB51B027E4D29B0080CA6B /* IndicatorCollectionReusableView.swift in Sources */,
 				099D33E72753C83900C14F5F /* UIStackView.swift in Sources */,
+				E85664F428885788005897A1 /* BuildConfiguration.swift in Sources */,
 				E8DB51AC27D64DD50080CA6B /* SelectableButton.swift in Sources */,
 				E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */,
 				E876669427B511F200480E6A /* Int.swift in Sources */,
