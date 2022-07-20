@@ -187,4 +187,49 @@ extension String {
     var attributed: NSAttributedString {
         return NSAttributedString(string: self)
     }
+
+    // MARK: - NSString
+
+    var toNSString: NSString {
+        return NSString(string: self)
+    }
+
+    /// Appends a path component to the string.
+    func appendingPathComponent(_ path: String) -> String {
+        let string = NSString(string: self)
+
+        return string.appendingPathComponent(path)
+    }
+
+    /// Appends a path extension to the string.
+    func appendingPathExtension(_ ext: String) -> String? {
+        let nsSt = NSString(string: self)
+
+        return nsSt.appendingPathExtension(ext)
+    }
+
+    /// Returns an array of path components.
+    var pathComponents: [String] {
+        return NSString(string: self).pathComponents
+    }
+
+    /// Delete the path extension.
+    var deletingPathExtension: String {
+        return NSString(string: self).deletingPathExtension
+    }
+
+    /// Returns the last path component.
+    var lastPathComponent: String {
+        return NSString(string: self).lastPathComponent
+    }
+
+    /// Returns the path extension.
+    var pathExtension: String {
+        return NSString(string: self).pathExtension
+    }
+
+    /// Delete the last path component.
+    var deletingLastPathComponent: String {
+        return NSString(string: self).deletingLastPathComponent
+    }
 }
