@@ -66,6 +66,7 @@
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
 		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
+		E85664F028884F91005897A1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85664EF28884F91005897A1 /* Log.swift */; };
 		E85737E5284622310018DBFF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85737E4284622310018DBFF /* UserDefaults.swift */; };
 		E8581343277F584400CD206E /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581342277F584400CD206E /* Optional.swift */; };
 		E8581347277F630200CD206E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8581346277F630200CD206E /* UIButton.swift */; };
@@ -185,6 +186,7 @@
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		E85664EF28884F91005897A1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		E85737E4284622310018DBFF /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E8581342277F584400CD206E /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		E8581346277F630200CD206E /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				09ADF39F272592D5004C6A97 /* Views */,
 				09ADF3B32725A392004C6A97 /* ViewControllers */,
 				09ADF38827252483004C6A97 /* Extensions */,
+				E85664EE28884F7A005897A1 /* Commons */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -476,6 +479,14 @@
 				091AC4322739142400294EFC /* WKWebView.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E85664EE28884F7A005897A1 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				E85664EF28884F91005897A1 /* Log.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		E86134BA278C731800E40407 /* Networking */ = {
@@ -636,6 +647,7 @@
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
 				099D33EF2754678E00C14F5F /* TabView.swift in Sources */,
 				E8B448D0278F1ED6005881B9 /* API.swift in Sources */,
+				E85664F028884F91005897A1 /* Log.swift in Sources */,
 				E88A3EA8284B22F600832053 /* TimeInterval.swift in Sources */,
 				E8581349277F682E00CD206E /* Data.swift in Sources */,
 				E8DB4BA427AC2D8000E29CF1 /* NSMutableAttributedString.swift in Sources */,
