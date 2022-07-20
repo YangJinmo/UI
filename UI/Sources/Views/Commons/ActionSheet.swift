@@ -10,7 +10,7 @@ import UIKit
 final class ActionSheet {
     static let shared = ActionSheet()
 
-    var confirmButtonTouch: (() -> Void)?
+    var confirmButtonTouch: voidHandler?
 
     private lazy var view: UIView = {
         let view = UIView()

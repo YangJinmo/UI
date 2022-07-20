@@ -5,5 +5,6 @@
 //  Created by Jmy on 2022/02/13.
 //
 
-typealias Closure = () -> Void
-typealias ReturnString = (String) -> Void
+// Type Identifier - https://docs.swift.org/swift-book/ReferenceManual/Types.html#ID447
+typealias voidHandler = () -> Void
+typealias stringHandler = (String) -> Void

@@ -173,7 +173,7 @@ final class WebViewController: BaseTabViewController {
 //        }
     }
 
-    var returnMessage: ReturnString?
+    var returnMessage: stringHandler?
 
     private func passMessage(_ message: String) {
         returnMessage?(message)
