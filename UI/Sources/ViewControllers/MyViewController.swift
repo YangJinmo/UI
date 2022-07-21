@@ -116,7 +116,7 @@ final class MyViewController: BaseTabViewController {
         }
     }
 
-    private func requestAuthorizationNotification(_ completion: voidHandler?) {
+    private func requestAuthorizationNotification(_ completion: CompletionHandler?) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { didAllow, error in
             if let error = error {
                 "Error: \(error.localizedDescription)".log()

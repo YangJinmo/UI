@@ -15,8 +15,8 @@ final class NavigationView: BaseView {
         static let xmark = UIImage(systemName: "xmark")
     }
 
-    private var popButtonTouch: voidHandler?
-    private var dismissButtonTouch: voidHandler?
+    private var popButtonTouch: CompletionHandler?
+    private var dismissButtonTouch: CompletionHandler?
 
     // MARK: - Views
 
@@ -62,14 +62,14 @@ final class NavigationView: BaseView {
         titleLabel.text = text
     }
 
-    func addPopButton(_ popButtonTouch: voidHandler?) {
+    func addPopButton(_ popButtonTouch: CompletionHandler?) {
         self.popButtonTouch = popButtonTouch
 
         popButton.isHidden = false
         popButton.addTarget(self, action: #selector(popButtonTouched), for: .touchUpInside)
     }
 
-    func addDismissButton(_ dismissButtonTouch: voidHandler?) {
+    func addDismissButton(_ dismissButtonTouch: CompletionHandler?) {
         self.dismissButtonTouch = dismissButtonTouch
 
         dismissButton.isHidden = false

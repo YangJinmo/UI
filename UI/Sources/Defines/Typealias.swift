@@ -6,5 +6,5 @@
 //
 
 // Type Identifier - https://docs.swift.org/swift-book/ReferenceManual/Types.html#ID447
-typealias voidHandler = () -> Void
-typealias stringHandler = (String) -> Void
+typealias CompletionHandler = () -> Void
+typealias StringHandler = (String) -> Void
