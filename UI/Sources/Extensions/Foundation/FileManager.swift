@@ -12,13 +12,13 @@ extension FileManager {
         if FileManager.default.fileExists(atPath: savePath) {
             do {
                 try FileManager.default.removeItem(atPath: savePath)
-            } catch let error {
+            } catch {
                 return error
             }
         }
         do {
             try data.write(to: URL(fileURLWithPath: savePath))
-        } catch let error {
+        } catch {
             return error
         }
         return nil
@@ -28,13 +28,13 @@ extension FileManager {
         if FileManager.default.fileExists(atPath: savePath) {
             do {
                 try FileManager.default.removeItem(atPath: savePath)
-            } catch let error {
+            } catch {
                 return error
             }
         }
         do {
             try content.write(to: URL(fileURLWithPath: savePath), atomically: true, encoding: .utf8)
-        } catch let error {
+        } catch {
             return error
         }
         return nil
@@ -45,8 +45,8 @@ extension FileManager {
         if !FileManager.default.fileExists(atPath: path) {
             do {
                 try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-            } catch let error {
-                print("error:\(error)")
+            } catch {
+                print("Error: \(error.localizedDescription)")
                 return error
             }
         }
@@ -58,7 +58,7 @@ extension FileManager {
         if FileManager.default.fileExists(atPath: path) {
             do {
                 try FileManager.default.removeItem(atPath: path)
-            } catch let error {
+            } catch {
                 return error
             }
             return nil
@@ -71,7 +71,7 @@ extension FileManager {
             try FileManager.default.moveItem(atPath: oldFileName, toPath: newFileName)
             return true
         } catch {
-            print("error:\(error)")
+            print("Error: \(error.localizedDescription)")
             return false
         }
     }
