@@ -68,7 +68,7 @@ final class FloatingButton: UIButton {
         scrollToTop()
     }
 
-    func scrollToTop() {
+    private func scrollToTop() {
         UIView.animate(withDuration: 0) {
             self.scrollView.scrollToTop()
         } completion: { _ in
