@@ -9,15 +9,22 @@ import UIKit
 import UserNotifications
 
 final class MyViewController: BaseTabViewController {
-    // MARK: - Constants
+    // MARK: - Properties
 
     private enum Image {
         static let pencil = UIImage(systemName: "pencil")
+        static let normal = UIImage(named: "imgNormal")
+        static let disabled = UIImage.createThumbImage(size: 18, borderWidth: 0, fillColor: .white(127), strokeColor: .white(127))
+        static let highlighted = UIImage(named: "imgHighlighted")
+        static let singleTouched = UIImage(named: "imgSingleTouched")
     }
 
     private enum Font {
         static let nicknameButton = UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
+
+    private let step: Float = 1
+    private var isSingleTouched = false
 
     // MARK: - Views
 
@@ -46,7 +53,19 @@ final class MyViewController: BaseTabViewController {
         return button
     }()
 
-    private lazy var slider = TapSlider()
+    private lazy var slider: TapSlider = {
+        let slider = TapSlider()
+        slider.minimumValue = 0
+        slider.maximumValue = 100
+        slider.isContinuous = true
+        slider.tintColor = .rgb(r: 234, g: 57, b: 92)
+//        slider.thumbTintColor = .rgb(r: 234, g: 57, b: 92)
+        slider.setThumbImage(Image.normal, for: .normal)
+        slider.setThumbImage(Image.highlighted, for: .highlighted)
+        slider.setThumbImage(Image.disabled, for: .disabled)
+        slider.addTarget(self, action: #selector(sliderValueDidChange(_:)), for: .valueChanged)
+        return slider
+    }()
 
     // MARK: - View Life Cycle
 
@@ -63,7 +82,6 @@ final class MyViewController: BaseTabViewController {
     // MARK: - Methods
 
     private func setupViews() {
-//        view.add(slider, left: view.leftAnchor, 20, right: view.rightAnchor, 20, centerX: view, centerY: view)
         setupScrollableStackView(
             emailButton,
             alertButton,
@@ -84,8 +102,10 @@ final class MyViewController: BaseTabViewController {
         actionSheetButton.height(56)
         modalButton.height(56)
         delegateButton.height(56)
+
         slider.height(56)
         slider.left(equalTo: view.leftAnchor, constant: 32)
+
         bottomSheetButton.height(56)
         bottomSheetButton.left(equalTo: view.leftAnchor, constant: 32)
         pushMessageButton.height(56)
@@ -237,6 +257,17 @@ final class MyViewController: BaseTabViewController {
 
     @objc private func delegateButtonTouched(_ sender: Any) {
         present(DelegateViewController(delegate: self))
+    }
+
+    @objc private func sliderValueDidChange(_ sender: UISlider!) {
+        sender.value = round(sender.value / step) * step
+        // score = Int(sender.value)
+
+        if isSingleTouched == false {
+            isSingleTouched = true
+
+            slider.setThumbImage(Image.singleTouched, for: .normal)
+        }
     }
 
     @objc private func bottomSheetButtonTouched(_ sender: Any) {
