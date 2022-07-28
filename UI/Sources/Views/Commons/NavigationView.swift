@@ -21,8 +21,19 @@ final class NavigationView: BaseView {
     // MARK: - Views
 
     private lazy var titleLabel = UILabel.title()
-    private lazy var popButton = UIButton(Image.chevronLeft, isHidden: true)
-    private lazy var dismissButton = UIButton(Image.xmark, isHidden: true)
+    private lazy var popButton: UIButton = {
+        let button = UIButton(Image.chevronLeft)
+        button.isHidden = true
+        button.addTarget(self, action: #selector(popButtonTouched), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var dismissButton: UIButton = {
+        let button = UIButton(Image.xmark)
+        button.isHidden = true
+        button.addTarget(self, action: #selector(dismissButtonTouched), for: .touchUpInside)
+        return button
+    }()
 
     // MARK: - View Life Cycle
 
@@ -66,14 +77,12 @@ final class NavigationView: BaseView {
         self.popButtonTouch = popButtonTouch
 
         popButton.isHidden = false
-        popButton.addTarget(self, action: #selector(popButtonTouched), for: .touchUpInside)
     }
 
     func addDismissButton(_ dismissButtonTouch: CompletionHandler?) {
         self.dismissButtonTouch = dismissButtonTouch
 
         dismissButton.isHidden = false
-        dismissButton.addTarget(self, action: #selector(dismissButtonTouched), for: .touchUpInside)
     }
 
     @objc private func popButtonTouched() {

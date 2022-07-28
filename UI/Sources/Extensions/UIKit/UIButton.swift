@@ -22,14 +22,12 @@ extension UIButton {
 
     convenience init(
         _ image: UIImage? = nil,
-        _ tintColor: UIColor = .base,
-        isHidden: Bool = false
+        _ tintColor: UIColor = .base
     ) {
         self.init(frame: .zero)
 
         setImage(image, for: .normal)
         self.tintColor = tintColor
-        self.isHidden = isHidden
     }
 
     var normalTitle: String {
