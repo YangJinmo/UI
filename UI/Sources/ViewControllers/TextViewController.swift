@@ -125,3 +125,21 @@ final class TextViewController: BaseTabViewController {
         }
     }
 }
+
+// MARK: - UITextViewDelegate
+
+extension TextViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        guard let text = textView.text else {
+            return
+        }
+
+        let totalLength = text.count
+        let newlineCount = text.filter { $0 == "\n" }.count
+        print("Total characters are \(totalLength) of which \(newlineCount) are newLines total of all characters counting newlines twice is \(totalLength + newlineCount)")
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return textView.text.count + (text.count - range.length) <= 5
+    }
+}
