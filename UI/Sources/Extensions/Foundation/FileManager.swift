@@ -13,12 +13,14 @@ extension FileManager {
             do {
                 try FileManager.default.removeItem(atPath: savePath)
             } catch {
+                print("Error: \(error.localizedDescription)")
                 return error
             }
         }
         do {
             try data.write(to: URL(fileURLWithPath: savePath))
         } catch {
+            print("Error: \(error.localizedDescription)")
             return error
         }
         return nil
@@ -29,19 +31,21 @@ extension FileManager {
             do {
                 try FileManager.default.removeItem(atPath: savePath)
             } catch {
+                print("Error: \(error.localizedDescription)")
                 return error
             }
         }
         do {
             try content.write(to: URL(fileURLWithPath: savePath), atomically: true, encoding: .utf8)
         } catch {
+            print("Error: \(error.localizedDescription)")
             return error
         }
         return nil
     }
 
     @discardableResult
-    class func create(at path: String) -> Error? {
+    class func createDirectory(at path: String) -> Error? {
         if !FileManager.default.fileExists(atPath: path) {
             do {
                 try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
@@ -54,11 +58,12 @@ extension FileManager {
     }
 
     @discardableResult
-    class func delete(at path: String) -> Error? {
+    class func removeItem(at path: String) -> Error? {
         if FileManager.default.fileExists(atPath: path) {
             do {
                 try FileManager.default.removeItem(atPath: path)
             } catch {
+                print("Error: \(error.localizedDescription)")
                 return error
             }
             return nil
@@ -66,9 +71,9 @@ extension FileManager {
         return NSError(domain: "File does not exist", code: -1, userInfo: nil) as Error
     }
 
-    class func rename(oldFileName: String, newFileName: String) -> Bool {
+    class func moveItem(srcPath: String, dstPath: String) -> Bool {
         do {
-            try FileManager.default.moveItem(atPath: oldFileName, toPath: newFileName)
+            try FileManager.default.moveItem(atPath: srcPath, toPath: dstPath)
             return true
         } catch {
             print("Error: \(error.localizedDescription)")
@@ -76,11 +81,12 @@ extension FileManager {
         }
     }
 
-    class func copy(oldFileName: String, newFileName: String) -> Bool {
+    class func copyItem(srcPath: String, dstPath: String) -> Bool {
         do {
-            try FileManager.default.copyItem(atPath: oldFileName, toPath: newFileName)
+            try FileManager.default.copyItem(atPath: srcPath, toPath: dstPath)
             return true
         } catch {
+            print("Error: \(error.localizedDescription)")
             return false
         }
     }
