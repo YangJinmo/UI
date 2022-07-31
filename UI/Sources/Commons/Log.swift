@@ -16,15 +16,14 @@ struct Log {
         var level: String {
             switch self {
             case .error:
-                return "❌ ERROR"
+                return "‼️ ERROR"
             case .warning:
                 return "⚠️ WARNING"
             case .info:
-                return "💙 INFO"
+                return "ℹ️ INFO"
             case .debug:
-                return "💚 DEBUG"
+                return "💬 DEBUG"
             }
-        }
     }
 
     // MARK: - Properties
