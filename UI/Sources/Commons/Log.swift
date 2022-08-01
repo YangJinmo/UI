@@ -24,6 +24,7 @@ struct Log {
             case .debug:
                 return "💬 DEBUG"
             }
+        }
     }
 
     // MARK: - Properties
@@ -101,7 +102,7 @@ struct Log {
             _ = FileManager.save(content: logs, savePath: path.appendingPathComponent(filename))
             return
         }
-        FileManager.create(at: fullPath)
+        FileManager.createDirectory(at: fullPath)
         _ = FileManager.save(content: logs, savePath: fullPath)
     }
 }
