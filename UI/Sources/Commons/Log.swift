@@ -93,15 +93,20 @@ struct Log {
         in path: String = FileManager.log,
         filename: String = Date().toString(dateFormat: "yyyy-MM-dd").appendingPathExtension("log")!
     ) {
-        if detailedLog.isEmpty { return }
+        if detailedLog.isEmpty {
+            return
+        }
+
         let fullPath = path.appendingPathComponent(filename)
         var logs = detailedLog
+
         if FileManager.default.fileExists(atPath: fullPath) {
             logs = try! String(contentsOfFile: fullPath, encoding: .utf8)
             logs = logs + detailedLog
             _ = FileManager.save(content: logs, savePath: path.appendingPathComponent(filename))
             return
         }
+
         FileManager.createDirectory(at: fullPath)
         _ = FileManager.save(content: logs, savePath: fullPath)
     }
