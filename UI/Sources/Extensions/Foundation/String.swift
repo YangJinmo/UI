@@ -42,8 +42,13 @@ extension String {
         url.open()
     }
 
-    func log(function: String = #function, _ comment: String = "") {
-        print("func \(function) \(comment)\(self)")
+    var source: String {
+        let components = components(separatedBy: "/")
+        return components.isEmpty ? "" : components.last!.components(separatedBy: ".").first!
+    }
+
+    func log(filename: String = #file, line: Int = #line, function: String = #function, _ comment: String = "") {
+        print("\(Date().toString()) [\(filename.source):\(line)] \(function) \(comment)\(self)")
     }
 
     func toDate(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> Date {
