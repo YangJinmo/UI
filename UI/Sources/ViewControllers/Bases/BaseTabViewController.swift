@@ -56,9 +56,9 @@ class BaseTabViewController: BaseViewController {
             navigationView.heightAnchor.constraint(equalToConstant: navigationBarHeight),
 
             contentView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
-            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             contentView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
 
@@ -104,15 +104,15 @@ class BaseTabViewController: BaseViewController {
             scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
             guideView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            guideView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             guideView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             guideView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            guideView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             guideView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
             stackView.topAnchor.constraint(greaterThanOrEqualTo: guideView.topAnchor, constant: margin),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: guideView.bottomAnchor, constant: -margin),
             stackView.leftAnchor.constraint(equalTo: guideView.leftAnchor, constant: margin),
             stackView.rightAnchor.constraint(equalTo: guideView.rightAnchor, constant: -margin),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: guideView.bottomAnchor, constant: -margin),
             stackView.centerYAnchor.constraint(equalTo: guideView.centerYAnchor),
 
             contentViewHeightConstraint,
