@@ -104,7 +104,7 @@ extension UIImageView {
             let filename = response?.suggestedFilename ?? url.lastPathComponent
             filename.log()
 
-            DispatchQueue.main.async(execute: { () -> Void in
+            DispatchQueue.main.async(execute: { () in
                 self?.image = UIImage(data: data)
                 self?.setNeedsLayout()
                 completion()
@@ -220,7 +220,7 @@ extension UIImageView {
             relatedBy: .equal,
             toItem: self,
             attribute: .height,
-            multiplier: image.aspect,
+            multiplier: image.ratio,
             constant: 0.0
         )
         constraint.priority = UILayoutPriority(rawValue: 999)
