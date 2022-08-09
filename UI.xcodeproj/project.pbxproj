@@ -121,6 +121,7 @@
 		E8DB51B227E55DD60080CA6B /* SelectableRoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */; };
 		E8DB51B427EB6BB80080CA6B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B327EB6BB80080CA6B /* UIApplication.swift */; };
 		E8DB51B627EF5FC00080CA6B /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51B527EF5FC00080CA6B /* FloatingButton.swift */; };
+		E8DF0EA128A282F700AF01AD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DF0EA028A282F700AF01AD /* Color.swift */; };
 		E8E1C24D27F1738700676A06 /* Classification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E1C24C27F1738700676A06 /* Classification.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
@@ -245,6 +246,7 @@
 		E8DB51B127E55DD60080CA6B /* SelectableRoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableRoundCell.swift; sourceTree = "<group>"; };
 		E8DB51B327EB6BB80080CA6B /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		E8DB51B527EF5FC00080CA6B /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		E8DF0EA028A282F700AF01AD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		E8E1C24C27F1738700676A06 /* Classification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classification.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				E835405A27B951DF002913FA /* Typealias.swift */,
 				09ADF39327252921004C6A97 /* FlowLayoutMetric.swift */,
 				E8E1C24C27F1738700676A06 /* Classification.swift */,
+				E8DF0EA028A282F700AF01AD /* Color.swift */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				E85737E5284622310018DBFF /* UserDefaults.swift in Sources */,
 				E8DB51AA27D4BA850080CA6B /* GradationView.swift in Sources */,
 				E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */,
+				E8DF0EA128A282F700AF01AD /* Color.swift in Sources */,
 				E87889CA276252D500B9A07E /* UIWindow.swift in Sources */,
 				E87889CC27625A4E00B9A07E /* UILabel.swift in Sources */,
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
