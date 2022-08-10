@@ -10,11 +10,6 @@ import UIKit
 final class NavigationView: BaseView {
     // MARK: - Properties
 
-    private enum Image {
-        static let chevronLeft = UIImage(systemName: "chevron.left")
-        static let xmark = UIImage(systemName: "xmark")
-    }
-
     private var popButtonTouch: CompletionHandler?
     private var dismissButtonTouch: CompletionHandler?
 

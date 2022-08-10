@@ -10,11 +10,6 @@ import UIKit
 final class TabView: BaseView {
     // MARK: - Constants
 
-    private enum Image {
-        static let chevronLeft = UIImage(systemName: "chevron.left")
-        static let xmark = UIImage(systemName: "xmark")
-    }
-
     private var title = ""
 
     // MARK: - Views
