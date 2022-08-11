@@ -8,10 +8,6 @@
 import UIKit
 
 final class ChevronDownButton: BaseButton {
-    private enum Image {
-        static let chevronDownImage = UIImage(systemName: "chevron.down")
-        static let chevronUpImage = UIImage(systemName: "chevron.up")
-    }
 
     override var isSelected: Bool {
         didSet {
@@ -29,8 +25,8 @@ final class ChevronDownButton: BaseButton {
         setTitleColor(.white(102), for: .normal)
         setTitleColor(.base, for: .selected)
 
-        setImage(Image.chevronDownImage, for: .normal)
-        setImage(Image.chevronUpImage, for: .selected)
+        setImage(Image.chevronDown, for: .normal)
+        setImage(Image.chevronUp, for: .selected)
 
         titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         semanticContentAttribute = .forceRightToLeft

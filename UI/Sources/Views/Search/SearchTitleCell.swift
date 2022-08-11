@@ -12,11 +12,6 @@ final class SearchTitleCell: BaseCollectionViewCell {
 
     static let itemHeight: CGFloat = 76.0
 
-    private enum Image {
-        static let chevronDownImage = UIImage(systemName: "chevron.down")
-        static let chevronUpImage = UIImage(systemName: "chevron.up")
-    }
-
     // MARK: - Variables
 
     private var timer: Timer?
@@ -28,8 +23,8 @@ final class SearchTitleCell: BaseCollectionViewCell {
     private lazy var termLabel = UILabel.subtitle()
     private lazy var chevronButton: UIButton = {
         let button = UIButton()
-        button.setImage(Image.chevronDownImage, for: .normal)
-        button.setImage(Image.chevronUpImage, for: .selected)
+        button.setImage(Image.chevronDown, for: .normal)
+        button.setImage(Image.chevronUp, for: .selected)
         button.tintColor = .label
         button.isUserInteractionEnabled = false
         return button
