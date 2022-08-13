@@ -8,10 +8,6 @@
 import WebKit.WKWebView
 
 extension WKWebView {
-    func load(_ url: URL) {
-        load(url.toURLRequest)
-    }
-
     // MARK: - Cookies
 
     func cleanAllCookies() {
