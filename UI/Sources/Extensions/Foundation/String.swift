@@ -116,7 +116,11 @@ extension String {
     }
 
     var removeWhitespaces: String {
-        return components(separatedBy: .whitespaces).joined()
+        return components(separatedBy: .whitespacesAndNewlines).joined()
+    }
+
+    var trimmingWhitespaces: String {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     func toPhoneNumber() -> String {
