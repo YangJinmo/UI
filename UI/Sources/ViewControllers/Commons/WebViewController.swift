@@ -208,6 +208,17 @@ extension WebViewController: WKUIDelegate {
             }
         )
     }
+
+    // href="_blank" 처리
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        guard navigationAction.targetFrame == nil else {
+            navigationAction.request.url?.absoluteString.log()
+            return nil
+        }
+
+        webView.load(navigationAction.request)
+        return nil
+    }
 }
 
 // MARK: - WKNavigationDelegate
