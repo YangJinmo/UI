@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 
+// The Ultimate Guide to WKWebView - https://www.hackingwithswift.com/articles/112/the-ultimate-guide-to-wkwebview
 final class WebViewController: BaseTabViewController {
     // MARK: - Properties
 
@@ -28,7 +29,13 @@ final class WebViewController: BaseTabViewController {
 
     // MARK: - Views
 
-    private var webView: BaseWebView!
+    private lazy var configuration: WKWebViewConfiguration = {
+        let configuration = WKWebViewConfiguration()
+        configuration.dataDetectorTypes = [.all]
+        return configuration
+    }()
+
+    private lazy var webView = BaseWebView(configuration: configuration)
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
     private lazy var progressView = BaseProgressView()
     private lazy var floatingButton = FloatingButton(view: view, scrollView: webView.scrollView)
