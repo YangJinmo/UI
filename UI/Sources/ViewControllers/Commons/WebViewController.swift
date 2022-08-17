@@ -75,6 +75,7 @@ final class WebViewController: BaseTabViewController {
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
 
         webView.scrollView.delegate = self
     }
@@ -82,6 +83,12 @@ final class WebViewController: BaseTabViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(WKWebView.estimatedProgress) {
             progressView.progress = Float(webView.estimatedProgress)
+        }
+
+        if keyPath == #keyPath(WKWebView.title) {
+            if let title = webView.title {
+                title.log()
+            }
         }
     }
 
