@@ -74,6 +74,8 @@ final class WebViewController: BaseTabViewController {
         webView = BaseWebView(configuration: configuration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
+//        webView.customUserAgent = "My Awesome App"
+
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
 
