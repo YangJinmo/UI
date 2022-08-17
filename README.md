@@ -612,16 +612,28 @@ class MyViewController: BaseViewController {
 }
 ```
 
-[BasePresentViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BasePresentViewController.swift)
+[BaseTabViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BaseTabViewController.swift)
+
+present
 
 ```swift
-class ImagePresentViewController: BasePresentViewController {
+class ImagePresentViewController: BaseTabViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        addDismissButton()
+    }
 }
 ```
 
-[BaseNavigationViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BaseNavigationViewController.swift)
+push
 
 ```swift
-class WebViewController: BaseNavigationViewController {
+class WebViewController: BaseTabViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        addPopButton()
+    }
 }
 ```
