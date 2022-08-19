@@ -30,12 +30,28 @@ final class WebViewController: BaseTabViewController {
     // MARK: - Views
 
     private lazy var configuration: WKWebViewConfiguration = {
+        let contentController = WKUserContentController()
+        contentController.add(self, name: scriptMessageHandler)
+
         let configuration = WKWebViewConfiguration()
         configuration.dataDetectorTypes = [.all]
+        configuration.userContentController = contentController
         return configuration
     }()
 
-    private lazy var webView = BaseWebView(configuration: configuration)
+    private lazy var webView: BaseWebView = {
+        let webView = BaseWebView(configuration: configuration)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+//        webView.customUserAgent = "My Awesome App"
+
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
+
+        webView.scrollView.delegate = self
+        return webView
+    }()
+
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
     private lazy var progressView = BaseProgressView()
     private lazy var floatingButton = FloatingButton(view: view, scrollView: webView.scrollView)
@@ -45,7 +61,6 @@ final class WebViewController: BaseTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setWebView()
         setupViews()
         removeCache()
         loadWebView()
@@ -69,24 +84,6 @@ final class WebViewController: BaseTabViewController {
         let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache])
         let date = Date(timeIntervalSince1970: 0)
         WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set<String>, modifiedSince: date, completionHandler: { })
-    }
-
-    private func setWebView() {
-        let contentController = WKUserContentController()
-        contentController.add(self, name: scriptMessageHandler)
-
-        let configuration = WKWebViewConfiguration()
-        configuration.userContentController = contentController
-
-        webView = BaseWebView(configuration: configuration)
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-//        webView.customUserAgent = "My Awesome App"
-
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
-
-        webView.scrollView.delegate = self
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
