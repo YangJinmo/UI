@@ -21,7 +21,7 @@ UI is a DSL to make Auto Layout easy on iOS.
     - [UIEdgeInsets](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIEdgeInsets.swift)
 - [UIView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIView.swift) (NSLayoutAnchor, NSLayoutConstraint, Visual Format Language)
 - [UIImageView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIImageView.swift) (Asynchronously, Synchronously, Download, Retrieve Memory / Disk Cache)
-- [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift) (spaceBetweenTheLines)
+- [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift) (lineSpacing)
 - [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIColor.swift) (rgb, white, random)
 ### [Foundation](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions/Foundation)
 - [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/Optional.swift) (isNilOrEmpty)
@@ -398,14 +398,13 @@ extension CollectionViewController: FlowLayoutMetric {
   ```
 
 ### [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift)
-spaceBetweenTheLines
+lineSpacing
 ```swift
 let toastLabel = UILabel()
 toastLabel.text = text
 toastLabel.font = .systemFont(ofSize: 16, weight: .bold)
 toastLabel.lineBreakMode = .byWordWrapping
-toastLabel.numberOfLines = 0
-toastLabel.spaceBetweenTheLines()
+toastLabel.lineSpacing()
 ```
 
 ### [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIColor.swift)
