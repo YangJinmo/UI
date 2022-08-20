@@ -35,18 +35,23 @@ extension UILabel {
         return label
     }
 
-    func lineSpacing(_ alignment: NSTextAlignment = .left, _ lineSpacing: CGFloat = 2.0) {
+    // MARK: - Paragraph Style
+
+    func lineSpacing(_ alignment: NSTextAlignment = .left, _ lineSpacing: CGFloat = 2.0, numberOfLines: Int = 0) {
         guard let text = text else {
             return
         }
 
-        let mutableAttributedString = NSMutableAttributedString(string: text)
         let mutableParagraphStyle = NSMutableParagraphStyle()
         mutableParagraphStyle.lineSpacing = lineSpacing
         mutableParagraphStyle.alignment = alignment
+
+        let mutableAttributedString = NSMutableAttributedString(string: text)
         mutableAttributedString.addAttribute(.paragraphStyle, value: mutableParagraphStyle, range: NSMakeRange(0, mutableAttributedString.length))
         attributedText = mutableAttributedString
-        numberOfLines = 0
+
+        self.numberOfLines = numberOfLines
+
         sizeToFit()
     }
 }
