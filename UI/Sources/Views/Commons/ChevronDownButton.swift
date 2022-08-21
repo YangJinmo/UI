@@ -8,7 +8,6 @@
 import UIKit
 
 final class ChevronDownButton: BaseButton {
-
     override var isSelected: Bool {
         didSet {
             layer.borderColor = isSelected
@@ -36,6 +35,23 @@ final class ChevronDownButton: BaseButton {
         layer.borderColor = .white(226)
         layer.borderWidth = 1
         layer.cornerRadius = 16
+
+        var configuration = UIButton.Configuration.filled()
+        configuration.title = "Edit Nickname"
+        configuration.subtitle = "닉네임 수정"
+        configuration.buttonSize = .large
+        configuration.cornerStyle = .capsule
+        configuration.image = Image.chevronDown
+        configuration.imagePlacement = .trailing
+        configuration.imagePadding = 4
+        configuration.titlePadding = 10
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+
+        configuration.baseBackgroundColor = .systemIndigo
+        configuration.baseForegroundColor = .systemPink
+
+        self.configuration = configuration
+        sizeToFit()
     }
 
     func setSelectedTitle(numberOf: Int) {
