@@ -42,6 +42,14 @@ extension UIApplication {
         return sceneDelegate.window
     }
 
+//    static var appWindow: UIWindow? {
+//        guard let appDelegate = UIApplication.appDelegate else {
+//            fatalError("could not get app delegate ")
+//        }
+//
+//        return appDelegate.window
+//    }
+
     // MARK: - Delegate
 
     static var sceneDelegate: SceneDelegate? {
