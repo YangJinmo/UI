@@ -18,17 +18,20 @@ extension UIImageView {
 
     private func toURL(urlString: String?) -> URL? {
         guard let urlString = urlString else {
-            "Error: urlString is Nil".log()
-            return nil
-        }
-        guard !urlString.isEmpty else {
-            "Error: urlString is Empty".log()
+            "Error: urlString is nil".log()
             return nil
         }
         guard let url = urlString.toURL else {
-            "Error: urlString is URL not Supported \(urlString)".log()
             return nil
         }
+//        guard !urlString.isEmpty else {
+//            "Error: urlString is empty".log()
+//            return nil
+//        }
+//        guard let url = urlString.toURL else {
+//            "Error: urlString is URL not Supported \(urlString)".log()
+//            return nil
+//        }
         return url
     }
 

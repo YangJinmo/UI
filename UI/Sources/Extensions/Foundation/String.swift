@@ -20,27 +20,7 @@ extension String {
         self = "\(floatTypeNumber)"
     }
 
-    var encode: String? {
-        var allowedQueryParamAndKey: CharacterSet = .urlQueryAllowed // ! $ & \ ( ) * +  - . / : ; = ? @ _ ~
-        allowedQueryParamAndKey.insert("#")
-        return addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)
-    }
-
-    var toURL: URL? {
-        return URL(string: self)
-    }
-
-    var toURLComponents: URLComponents? {
-        return URLComponents(string: self)
-    }
-
-    func open() {
-        guard let url = toURL else {
-            "Error: urlString is URL not Supported \(self)".log()
-            return
-        }
-        url.open()
-    }
+    // MARK: - Log
 
     var source: String {
         let components = components(separatedBy: "/")
@@ -51,10 +31,51 @@ extension String {
         print("\(Date().toString()) [\(filename.source):\(line)] \(function) \(comment)\(self)")
     }
 
+    // MARK: - Date
+
     func toDate(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         return dateFormatter.date(from: self) ?? Date()
+    }
+
+    // MARK: - URL
+
+    var encode: String? {
+        var allowedQueryParamAndKey: CharacterSet = .urlQueryAllowed // ! $ & \ ( ) * +  - . / : ; = ? @ _ ~
+        allowedQueryParamAndKey.insert("#")
+        return addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)
+    }
+
+    var toURLComponents: URLComponents? {
+        return URLComponents(string: self)
+    }
+
+    var toURL: URL? {
+//        return URL(string: self)
+        guard !isEmpty else {
+            "Error: urlString is empty".log()
+            return nil
+        }
+
+        guard let url = URL(string: self) else {
+            "Error: urlString is URL not Supported \(self)".log()
+            return nil
+        }
+
+        return url
+    }
+
+    func open() {
+        guard let url = toURL else {
+            return
+        }
+
+        guard url.canOpenURL else {
+            return
+        }
+
+        url.open()
     }
 
     // MARK: - Regular Expression
@@ -85,6 +106,16 @@ extension String {
         return false
     }
 
+    var isValidURL: Bool {
+        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: utf16.count)) {
+            // it is a link, if the match covers the whole string
+            return match.range.length == utf16.count
+        } else {
+            return false
+        }
+    }
+
     // 천지인 키보드의 ‘·(middle dot)’ 허용을 위해서 추가된 코드
     var hasCharacters: Bool {
         regex("^[0-9a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣ\\u318D\\u119E\\u11A2\\u2022\\u2025\\u00B7\\uFE55\\u4E10\\u3163\\u3161\\s]$")
@@ -92,6 +123,10 @@ extension String {
 
     var hasNumber: Bool {
         regex("^[0-9]$")
+    }
+
+    var hasPhoneNumber: Bool {
+        return hasPrefix("010") ? count == 11 : regex("^01(?:0|1|[6-9])(?:\\d{7}|\\d{8})$")
     }
 
     var isEmail: Bool {
@@ -106,10 +141,6 @@ extension String {
         return backspace == -92
     }
 
-    var hasPhoneNumber: Bool {
-        return hasPrefix("010") ? count == 11 : regex("^01(?:0|1|[6-9])(?:\\d{7}|\\d{8})$")
-    }
-
     var containsWhitespace: Bool {
         return rangeOfCharacter(from: .whitespacesAndNewlines) != nil
     }
@@ -122,15 +153,15 @@ extension String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
-    func toPhoneNumber() -> String {
+    var toPhoneNumber: String {
         return replacingOccurrences(of: "(\\d{3})(\\d{4})(\\d+)", with: " $1-$2-$3", options: .regularExpression, range: nil)
     }
 
-    func toHiddenPhoneNumber() -> String {
+    var toHiddenPhoneNumber: String {
         return replacingOccurrences(of: "(\\d{3})(\\d{4})(\\d+)", with: " $1-****-$3", options: .regularExpression, range: nil)
     }
 
-    func toHiddenEmail() -> String {
+    var toHiddenEmail: String {
         let stringArr = split(separator: "@")
 
         if stringArr[0].count > 3 {
