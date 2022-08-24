@@ -97,7 +97,6 @@ extension String {
     var isEmail: Bool {
         let regEx = "[0-9a-zA-Z._%+-]+@[0-9a-zA-Z.-]+\\.[a-zA-Z]{2,100}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regEx)
-
         return predicate.evaluate(with: self)
     }
 
@@ -185,12 +184,16 @@ extension String {
         return NSAttributedString(string: self, attributes: [.underlineColor: color])
     }
 
+    func shadow(_ shadow: NSShadow) -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: [.shadow: shadow])
+    }
+
     func font(_ font: UIFont) -> NSAttributedString {
         return NSAttributedString(string: self, attributes: [.font: font])
     }
 
-    func shadow(_ shadow: NSShadow) -> NSAttributedString {
-        return NSAttributedString(string: self, attributes: [.shadow: shadow])
+    func italic() -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
     }
 
     var attributed: NSAttributedString {
