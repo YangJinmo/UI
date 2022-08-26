@@ -10,17 +10,13 @@ import UIKit
 final class BaseProgressView: UIProgressView {
     // MARK: - Initialization
 
-    convenience init() {
-        self.init(frame: .zero)
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         progressViewStyle = .bar
         progressTintColor = .tint
         trackTintColor = .clear
-        
+
 //        transform = CGAffineTransform(scaleX: 1, y: 1)
     }
 

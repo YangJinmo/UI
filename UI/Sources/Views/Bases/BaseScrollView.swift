@@ -10,13 +10,9 @@ import UIKit
 final class BaseScrollView: UIScrollView {
     // MARK: - Initialization
 
-    convenience init() {
-        self.init(frame: .zero)
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
     }

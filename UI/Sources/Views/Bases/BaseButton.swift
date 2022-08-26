@@ -10,10 +10,6 @@ import UIKit
 class BaseButton: UIButton {
     // MARK: - Initialization
 
-    convenience init() {
-        self.init(frame: .zero)
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
 
