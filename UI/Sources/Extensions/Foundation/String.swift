@@ -31,6 +31,12 @@ extension String {
         print("\(Date().toString()) [\(filename.source):\(line)] \(function) \(comment)\(self)")
     }
 
+    // MARK: - Localized
+
+    func localized() -> String {
+        return NSLocalizedString(self, comment: "")
+    }
+
     // MARK: - Date
 
     func toDate(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> Date {
