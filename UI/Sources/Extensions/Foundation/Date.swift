@@ -9,9 +9,10 @@ import Foundation.NSDate
 
 extension Date {
     func toString(dateFormat: String = "yyyy.MM.dd HH:mm:ss") -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = dateFormat
-        return formatter.string(from: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.string(from: self)
     }
 
     // MARK: - Unix Timestamp
