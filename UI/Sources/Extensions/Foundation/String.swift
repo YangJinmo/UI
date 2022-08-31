@@ -148,6 +148,12 @@ extension String {
         return range.location != NSNotFound
     }
 
+    var isSpecialCharacter: Bool {
+        let characterSet = CharacterSet(charactersIn: "@／:;（）¥「」!,.?<>£＂、[]{}#%-*+=_\\|~＜＞$€^•'@#$%^&*()_+'\"/" + "")
+        let range = (self as NSString).rangeOfCharacter(from: characterSet)
+        return range.location != NSNotFound
+    }
+
     var isBackspace: Bool {
         let utf8Char: [CChar]? = cString(using: .utf8)
         let backspace: Int32 = strcmp(utf8Char, "\\b")
