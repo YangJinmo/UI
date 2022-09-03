@@ -17,6 +17,14 @@ extension UIColor {
     }
 
     static func random(a: CGFloat = 1.0) -> UIColor {
+        let r = CGFloat.random(in: 0 ... 1)
+        let g = CGFloat.random(in: 0 ... 1)
+        let b = CGFloat.random(in: 0 ... 1)
+        "".log("r: \(r), g: \(g), b: \(b), a: \(a)")
+        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+    }
+
+    static func random2(a: CGFloat = 1.0) -> UIColor {
         let r = CGFloat(arc4random_uniform(256))
         let g = CGFloat(arc4random_uniform(256))
         let b = CGFloat(arc4random_uniform(256))
@@ -35,6 +43,14 @@ extension CGColor {
     }
 
     static func random(a: CGFloat = 1.0) -> CGColor {
+        let r = CGFloat.random(in: 0 ... 1)
+        let g = CGFloat.random(in: 0 ... 1)
+        let b = CGFloat.random(in: 0 ... 1)
+        "".log("r: \(r), g: \(g), b: \(b), a: \(a)")
+        return CGColor(red: r, green: g, blue: b, alpha: 1.0)
+    }
+
+    static func random2(a: CGFloat = 1.0) -> CGColor {
         let r = CGFloat(arc4random_uniform(256))
         let g = CGFloat(arc4random_uniform(256))
         let b = CGFloat(arc4random_uniform(256))
