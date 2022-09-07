@@ -8,6 +8,26 @@
 import UIKit.UIColor
 
 extension UIColor {
+//    let color = UIColor(red: 0xFF, green: 0xFF, blue: 0xFF, a: 0.5)
+    convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
+        self.init(
+            red: CGFloat(red) / 255.0,
+            green: CGFloat(green) / 255.0,
+            blue: CGFloat(blue) / 255.0,
+            alpha: a
+        )
+    }
+
+//    let color = UIColor(rgb: 0xFFFFFF, a: 0.5)
+    convenience init(rgb: Int, a: CGFloat = 1.0) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF,
+            a: a
+        )
+    }
+
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) -> UIColor {
         return .init(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
     }
