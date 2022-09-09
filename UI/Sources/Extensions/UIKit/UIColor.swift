@@ -52,7 +52,7 @@ extension UIColor {
 
         "r: \(color.r), g: \(color.g), b: \(color.b), a: \(a)".log()
 
-        return .rgb(r: CGFloat(color.r), g: CGFloat(color.g), b: CGFloat(color.b), a: a)
+        return rgb(r: CGFloat(color.r), g: CGFloat(color.g), b: CGFloat(color.b), a: a)
     }
 
 //    let randomColor = UIColor.random()
