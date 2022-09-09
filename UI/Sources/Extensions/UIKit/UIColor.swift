@@ -32,16 +32,6 @@ extension UIColor {
         )
     }
 
-//    let purple = UIColor.hex(0xAB47BC)
-    static func hex(_ hex: Int, a: CGFloat = 1.0) -> UIColor {
-        let components = (
-            R: CGFloat((hex >> 16) & 0xFF) / 255,
-            G: CGFloat((hex >> 08) & 0xFF) / 255,
-            B: CGFloat((hex >> 00) & 0xFF) / 255
-        )
-        return .init(red: components.R, green: components.G, blue: components.B, alpha: a)
-    }
-
 //    let tintColor = UIColor.rgb(r: 234, g: 57, b: 92)
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) -> UIColor {
         return .init(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
@@ -50,6 +40,19 @@ extension UIColor {
 //    let backgroundColor = UIColor.white(241)
     static func white(_ w: CGFloat, a: CGFloat = 1.0) -> UIColor {
         return .init(white: w / 255, alpha: a)
+    }
+
+//    let purple = UIColor.hex(0xAB47BC)
+    static func hex(_ hex: Int, a: CGFloat = 1.0) -> UIColor {
+        let components = (
+            R: (hex >> 16) & 0xFF,
+            G: (hex >> 08) & 0xFF,
+            B: (hex >> 00) & 0xFF
+        )
+
+        "r: \(components.R), g: \(components.G), b: \(components.B), a: \(a)".log()
+
+        return .rgb(r: CGFloat(components.R), g: CGFloat(components.G), b: CGFloat(components.B), a: a)
     }
 
 //    let randomColor = UIColor.random()
