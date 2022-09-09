@@ -44,15 +44,15 @@ extension UIColor {
 
 //    let purple = UIColor.hex(0xAB47BC)
     static func hex(_ hex: Int, a: CGFloat = 1.0) -> UIColor {
-        let components = (
-            R: (hex >> 16) & 0xFF,
-            G: (hex >> 08) & 0xFF,
-            B: (hex >> 00) & 0xFF
+        let color = (
+            r: (hex >> 16) & 0xFF,
+            g: (hex >> 08) & 0xFF,
+            b: (hex >> 00) & 0xFF
         )
 
-        "r: \(components.R), g: \(components.G), b: \(components.B), a: \(a)".log()
+        "r: \(color.r), g: \(color.g), b: \(color.b), a: \(a)".log()
 
-        return .rgb(r: CGFloat(components.R), g: CGFloat(components.G), b: CGFloat(components.B), a: a)
+        return .rgb(r: CGFloat(color.r), g: CGFloat(color.g), b: CGFloat(color.b), a: a)
     }
 
 //    let randomColor = UIColor.random()
