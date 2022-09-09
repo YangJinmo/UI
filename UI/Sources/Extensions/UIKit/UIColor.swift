@@ -8,73 +8,78 @@
 import UIKit.UIColor
 
 extension UIColor {
-//    let color = UIColor(red: 0xFF, green: 0xFF, blue: 0xFF, a: 0.5)
-    convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
+//    let black = UIColor(r: 0x00, g: 0x00, b: 0x00, a: 0.5)
+    convenience init(r: Int, g: Int, b: Int, a: CGFloat = 1.0) {
+        assert(r >= 0 && r <= 255, "Invalid red component")
+        assert(g >= 0 && g <= 255, "Invalid green component")
+        assert(b >= 0 && b <= 255, "Invalid blue component")
+
         self.init(
-            red: CGFloat(red) / 255.0,
-            green: CGFloat(green) / 255.0,
-            blue: CGFloat(blue) / 255.0,
+            red: CGFloat(r) / 255,
+            green: CGFloat(g) / 255,
+            blue: CGFloat(b) / 255,
             alpha: a
         )
     }
 
-//    let color = UIColor(rgb: 0xFFFFFF, a: 0.5)
+//    let white = UIColor(rgb: 0xFFFFFF, a: 0.5)
     convenience init(rgb: Int, a: CGFloat = 1.0) {
         self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF,
+            r: (rgb >> 16) & 0xFF,
+            g: (rgb >> 8) & 0xFF,
+            b: rgb & 0xFF,
             a: a
         )
     }
 
+//    let purple = UIColor.hex(0xAB47BC)
+    static func hex(_ hex: Int, a: CGFloat = 1.0) -> UIColor {
+        let components = (
+            R: CGFloat((hex >> 16) & 0xFF) / 255,
+            G: CGFloat((hex >> 08) & 0xFF) / 255,
+            B: CGFloat((hex >> 00) & 0xFF) / 255
+        )
+        return .init(red: components.R, green: components.G, blue: components.B, alpha: a)
+    }
+
+//    let tintColor = UIColor.rgb(r: 234, g: 57, b: 92)
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) -> UIColor {
         return .init(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
     }
 
+//    let backgroundColor = UIColor.white(241)
     static func white(_ w: CGFloat, a: CGFloat = 1.0) -> UIColor {
         return .init(white: w / 255, alpha: a)
     }
 
+//    let randomColor = UIColor.random()
     static func random(a: CGFloat = 1.0) -> UIColor {
-        let r = CGFloat.random(in: 0 ... 1)
-        let g = CGFloat.random(in: 0 ... 1)
-        let b = CGFloat.random(in: 0 ... 1)
-        "".log("r: \(r), g: \(g), b: \(b), a: \(a)")
-        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
-    }
+        let r = arc4random_uniform(256)
+        let g = arc4random_uniform(256)
+        let b = arc4random_uniform(256)
 
-    static func random2(a: CGFloat = 1.0) -> UIColor {
-        let r = CGFloat(arc4random_uniform(256))
-        let g = CGFloat(arc4random_uniform(256))
-        let b = CGFloat(arc4random_uniform(256))
-        "".log("r: \(r), g: \(g), b: \(b), a: \(a)")
-        return rgb(r: r, g: g, b: b, a: a)
+        "r: \(r), g: \(g), b: \(b), a: \(a)".log()
+
+        return rgb(r: CGFloat(r), g: CGFloat(g), b: CGFloat(b), a: a)
     }
 }
 
+import CoreGraphics.CGColor
+
 extension CGColor {
+    static func hex(_ hex: Int, a: CGFloat = 1.0) -> CGColor {
+        return UIColor.hex(hex, a: a).cgColor
+    }
+
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) -> CGColor {
-        return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a).cgColor
+        return UIColor.rgb(r: r, g: g, b: b, a: a).cgColor
     }
 
     static func white(_ w: CGFloat, a: CGFloat = 1.0) -> CGColor {
-        return UIColor(white: w / 255, alpha: a).cgColor
+        return UIColor.white(w, a: a).cgColor
     }
 
     static func random(a: CGFloat = 1.0) -> CGColor {
-        let r = CGFloat.random(in: 0 ... 1)
-        let g = CGFloat.random(in: 0 ... 1)
-        let b = CGFloat.random(in: 0 ... 1)
-        "".log("r: \(r), g: \(g), b: \(b), a: \(a)")
-        return CGColor(red: r, green: g, blue: b, alpha: 1.0)
-    }
-
-    static func random2(a: CGFloat = 1.0) -> CGColor {
-        let r = CGFloat(arc4random_uniform(256))
-        let g = CGFloat(arc4random_uniform(256))
-        let b = CGFloat(arc4random_uniform(256))
-        "".log("r: \(r), g: \(g), b: \(b), a: \(a)")
-        return rgb(r: r, g: g, b: b, a: a)
+        return UIColor.random(a: a).cgColor
     }
 }
