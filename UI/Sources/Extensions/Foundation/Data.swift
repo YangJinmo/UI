@@ -5,6 +5,7 @@
 //  Created by Jmy on 2022/01/01.
 //
 
+import Foundation.NSData
 import UIKit
 
 extension Data {

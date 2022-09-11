@@ -5,7 +5,7 @@
 //  Created by JMY on 2022/05/31.
 //
 
-import Foundation
+import Foundation.NSUserDefaults
 
 extension UserDefaults {
     static func save(at value: Any?, forKey key: String) {

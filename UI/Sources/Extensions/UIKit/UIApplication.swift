@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/03/23.
 //
 
-import UIKit
+import UIKit.UIApplication
 
 extension UIApplication {
     class func topViewController(controller: UIViewController? = UIWindow.key?.rootViewController) -> UIViewController? {

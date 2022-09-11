@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/07/21.
 //
 
-import Foundation
+import Foundation.NSFileManager
 
 extension FileManager {
     class func save(_ data: Data, savePath: String) -> Error? {

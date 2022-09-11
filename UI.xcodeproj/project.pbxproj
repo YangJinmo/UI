@@ -363,6 +363,10 @@
 		09ADF38827252483004C6A97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E8E28ADA28CD915F00EDF783 /* WebKit */,
+				E8E28AD928CD914200EDF783 /* CoreAnimation  */,
+				E8E28AD828CD911F00EDF783 /* CoreGraphics */,
+				E8E28AD728CD8FD400EDF783 /* SwiftStandardLibrary  */,
 				E8985C7C285585FF00008FA7 /* Foundation */,
 				E8078ECE2854553800EA5D8A /* UIKit */,
 			);
@@ -470,6 +474,7 @@
 		E8078ECE2854553800EA5D8A /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */,
 				E8DB51B327EB6BB80080CA6B /* UIApplication.swift */,
 				E8C4998028113956007AA388 /* UIDevice.swift */,
 				E84B78CF27A83139007581EB /* UIStoryboard.swift */,
@@ -492,8 +497,6 @@
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
 				E8A2040F28240872001D5D92 /* UITextView.swift */,
 				E84282CD2853630400E27E39 /* UIActivity.swift */,
-				E8356DF12828092900F05BF4 /* CALayer.swift */,
-				091AC4322739142400294EFC /* WKWebView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -542,25 +545,15 @@
 		E8985C7C285585FF00008FA7 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				E83137652783185E007145E2 /* CGFloat.swift */,
 				E8EE706A276786940005877A /* Bundle.swift */,
-				E876669327B511F200480E6A /* Int.swift */,
-				091AC4282737ED2F00294EFC /* String.swift */,
-				E84B78D127A83151007581EB /* StringProtocol.swift */,
 				E876669B27BB2EF600480E6A /* NSAttributedString.swift */,
 				E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */,
 				091AC42A2737ED5D00294EFC /* URL.swift */,
-				E8581342277F584400CD206E /* Optional.swift */,
 				E8581348277F682E00CD206E /* Data.swift */,
-				E858134A277F696900CD206E /* Encodable.swift */,
-				E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */,
-				E876669727B61DE700480E6A /* Collection.swift */,
-				E878A88E2832226E00D1B9C2 /* CaseIterable.swift */,
 				E895CE65283BD45B00E85A2C /* Date.swift */,
-				E8983717284058BF000CE96F /* Dictionary.swift */,
 				E85737E4284622310018DBFF /* UserDefaults.swift */,
-				E88A3EA7284B22F600832053 /* TimeInterval.swift */,
 				E85664F1288856C6005897A1 /* FileManager.swift */,
+				E88A3EA7284B22F600832053 /* TimeInterval.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -573,6 +566,45 @@
 				E8B448D127906F09005881B9 /* IssuesService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E8E28AD728CD8FD400EDF783 /* SwiftStandardLibrary  */ = {
+			isa = PBXGroup;
+			children = (
+				E876669327B511F200480E6A /* Int.swift */,
+				091AC4282737ED2F00294EFC /* String.swift */,
+				E84B78D127A83151007581EB /* StringProtocol.swift */,
+				E8983717284058BF000CE96F /* Dictionary.swift */,
+				E8581342277F584400CD206E /* Optional.swift */,
+				E878A88E2832226E00D1B9C2 /* CaseIterable.swift */,
+				E858134A277F696900CD206E /* Encodable.swift */,
+				E876669727B61DE700480E6A /* Collection.swift */,
+			);
+			path = "SwiftStandardLibrary ";
+			sourceTree = "<group>";
+		};
+		E8E28AD828CD911F00EDF783 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				E83137652783185E007145E2 /* CGFloat.swift */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		E8E28AD928CD914200EDF783 /* CoreAnimation  */ = {
+			isa = PBXGroup;
+			children = (
+				E8356DF12828092900F05BF4 /* CALayer.swift */,
+			);
+			path = "CoreAnimation ";
+			sourceTree = "<group>";
+		};
+		E8E28ADA28CD915F00EDF783 /* WebKit */ = {
+			isa = PBXGroup;
+			children = (
+				091AC4322739142400294EFC /* WKWebView.swift */,
+			);
+			path = WebKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

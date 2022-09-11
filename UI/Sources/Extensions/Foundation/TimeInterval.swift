@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/06/04.
 //
 
-import Vision
+import Foundation.NSDate
 
 extension TimeInterval {
     var seconds: Int64 {

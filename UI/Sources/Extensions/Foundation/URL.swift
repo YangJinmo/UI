@@ -5,6 +5,7 @@
 //  Created by Jmy on 2021/11/07.
 //
 
+import Foundation.NSURL
 import UIKit
 
 extension URL {
