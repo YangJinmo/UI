@@ -80,6 +80,7 @@
 		E858134D278056BD00CD206E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134C278056BD00CD206E /* UIFont.swift */; };
 		E858134F27805F7600CD206E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858134E27805F7600CD206E /* UIColor.swift */; };
 		E859FAB227C4703A007FE276 /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859FAB127C4703A007FE276 /* BaseTabViewController.swift */; };
+		E85A735628CF6AC10045684F /* LiteralType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85A735528CF6AC10045684F /* LiteralType.swift */; };
 		E85ABDFA27E96FD600787183 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85ABDF927E96FD600787183 /* DividerView.swift */; };
 		E86134B9278AE93B00E40407 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86134B8278AE93B00E40407 /* HTTPMethod.swift */; };
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
@@ -207,6 +208,7 @@
 		E858134C278056BD00CD206E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E858134E27805F7600CD206E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E859FAB127C4703A007FE276 /* BaseTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabViewController.swift; sourceTree = "<group>"; };
+		E85A735528CF6AC10045684F /* LiteralType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteralType.swift; sourceTree = "<group>"; };
 		E85ABDF927E96FD600787183 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		E86134B8278AE93B00E40407 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 				E878A88E2832226E00D1B9C2 /* CaseIterable.swift */,
 				E858134A277F696900CD206E /* Encodable.swift */,
 				E876669727B61DE700480E6A /* Collection.swift */,
+				E85A735528CF6AC10045684F /* LiteralType.swift */,
 			);
 			path = "SwiftStandardLibrary ";
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				E8B448D0278F1ED6005881B9 /* API.swift in Sources */,
 				E85664F028884F91005897A1 /* Log.swift in Sources */,
 				E88A3EA8284B22F600832053 /* TimeInterval.swift in Sources */,
+				E85A735628CF6AC10045684F /* LiteralType.swift in Sources */,
 				E8581349277F682E00CD206E /* Data.swift in Sources */,
 				E8DB4BA427AC2D8000E29CF1 /* NSMutableAttributedString.swift in Sources */,
 				E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */,
