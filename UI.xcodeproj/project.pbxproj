@@ -368,7 +368,7 @@
 				E8E28ADA28CD915F00EDF783 /* WebKit */,
 				E8E28AD928CD914200EDF783 /* CoreAnimation  */,
 				E8E28AD828CD911F00EDF783 /* CoreGraphics */,
-				E8E28AD728CD8FD400EDF783 /* SwiftStandardLibrary  */,
+				E8E28AD728CD8FD400EDF783 /* SwiftStandardLibrary */,
 				E8985C7C285585FF00008FA7 /* Foundation */,
 				E8078ECE2854553800EA5D8A /* UIKit */,
 			);
@@ -570,7 +570,7 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		E8E28AD728CD8FD400EDF783 /* SwiftStandardLibrary  */ = {
+		E8E28AD728CD8FD400EDF783 /* SwiftStandardLibrary */ = {
 			isa = PBXGroup;
 			children = (
 				E876669327B511F200480E6A /* Int.swift */,
@@ -583,7 +583,7 @@
 				E876669727B61DE700480E6A /* Collection.swift */,
 				E85A735528CF6AC10045684F /* LiteralType.swift */,
 			);
-			path = "SwiftStandardLibrary ";
+			path = SwiftStandardLibrary;
 			sourceTree = "<group>";
 		};
 		E8E28AD828CD911F00EDF783 /* CoreGraphics */ = {
