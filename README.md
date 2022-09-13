@@ -1,50 +1,82 @@
 # UI
 
-UI is a DSL to make Auto Layout easy on iOS.
+UI is a DSL(Domain Specific Language) to make **Auto Layout and others** easy on iOS.
 
 <br/>
 
 ## [Extensions](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions)
 
-### [UIKit](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions/UIKit)
-- [UIStoryboard](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIStoryboard.swift)
-- [UIViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
-    - [UINavigationController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
-    - [Toast](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
-- [UIAlertController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIAlertController.swift)
-    - [UIAlertAction](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIAlertAction.swift)
+### [Swift Standard Library](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions/SwiftStandardLibrary)
+- [String](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/SwiftStandardLibrary/String.swift)
+- [Dictionary](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/SwiftStandardLibrary/Dictionary.swift)
+- [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/SwiftStandardLibrary/Optional.swift)
+- [CaseIterable](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/SwiftStandardLibrary/CaseIterable.swift)
+- [Collection](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/SwiftStandardLibrary/Collection.swift)
+- [LiteralType](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/SwiftStandardLibrary/LiteralType.swift)
 
-- [Identifiable](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/Identifiable.swift) (identifier)
-- [UITableView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UITableView.swift) (register, dequeueReusableCell)
-- [UICollectionView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UICollectionView.swift) (register, dequeueReusableCell)
-    - [FlowLayoutMetric](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Defines/FlowLayoutMetric.swift)
-    - [UIEdgeInsets](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIEdgeInsets.swift)
-- [UIView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIView.swift) (NSLayoutAnchor, NSLayoutConstraint, Visual Format Language)
-- [UIImageView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIImageView.swift) (Asynchronously, Synchronously, Download, Retrieve Memory / Disk Cache)
-- [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift) (lineSpacing)
-- [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIColor.swift) (rgb, white, random)
+<br/>
+
 ### [Foundation](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions/Foundation)
-- [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/Optional.swift) (isNilOrEmpty)
+- [Date](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/Date.swift)
+- [FileManager](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/FileManager.swift)
+- [NSAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/NSAttributedString.swift)
 - [NSMutableAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/NSMutableAttributedString.swift)
 
+<br/>
 
+### [CoreAnimation](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions/CoreAnimation)
+- [CALayer](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/CoreAnimation/CALayer.swift)
 
-## [Commons](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Commons)
+<br/>
 
-- [FloatingButton](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/FloatingButton.swift)
+### [UIKit](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Extensions/UIKit)
+- [Identifiable](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/Identifiable.swift)
+- [UIApplication](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/Foundation/UIApplication.swift)
+- [UIStoryboard](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIStoryboard.swift)
+- [UINavigationController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
+- [UIViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
+- [UIAlertController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIAlertController.swift)
+- [UIAlertAction](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIAlertAction.swift)
+- [UIActivity](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIActivity.swift)
+- [UIButton](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIButton.swift)
+- [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift)
+- [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIColor.swift)
+- [UITableView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UITableView.swift)
+- [UICollectionView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UICollectionView.swift)
+    - [FlowLayoutMetric](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Defines/FlowLayoutMetric.swift)
+- [UITextView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UITextView.swift)
+- [UIScrollView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIScrollView.swift)
+- [UIView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIView.swift) (NSLayoutAnchor, NSLayoutConstraint, Visual Format Language)
+- [UIImageView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIImageView.swift) (Asynchronously, Synchronously, Download, Retrieve Memory / Disk Cache)
+
+<br/>
+
+## [Views](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Views)
+[Commons](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Views/Commons)
+- [NavigationView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/NavigationView.swift)
 - [TabView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/TabView.swift)
+- [SelfSizedCollectionView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/SelfSizedCollectionView.swift)
+- [FloatingButton](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/FloatingButton.swift)
+- [PinterestLayout](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/PinterestLayout.swift)
+- [SafariActivity](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/SafariActivity.swift)
+- [ActionSheet](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/ActionSheet.swift)
+- [TapSlider](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/TapSlider.swift)
+- [ChevronDownButton](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/ChevronDownButton.swift)
+- [UIPlaceholderTextView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/UIPlaceholderTextView.swift)
+
+<br/>
+
+## [ViewControllers](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers)
+[Bases](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Bases)
+- [BaseViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BaseViewController.swift)
+- [BaseTabViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BaseTabViewController.swift)
+
+
+[Commons](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Commons)
 - [TabBarController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Commons/TabBarController.swift)
 - [WebViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Commons/WebViewController.swift)
 - [ImagePresentViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Commons/ImagePresentViewController.swift)
 - [MailComposeViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Commons/MailComposeViewController.swift)
-
-
-
-## [Bases](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Bases)
-
-- [BaseViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BaseViewController.swift)
-- [BaseTabViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/ViewControllers/Bases/BaseTabViewController.swift)
-
 
 <br/>
 
@@ -62,6 +94,8 @@ class MainViewController: UIViewController {
     }
 }
 ```
+
+<br/>
 
 ### [UIViewController](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
 
@@ -161,6 +195,8 @@ actionSheet(
 }
 ```
 
+<br/>
+
 ### [Toast](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIViewController.swift)
 
 ```swift
@@ -174,6 +210,8 @@ toast("UI가 변경되었습니다.", bottom: true)
 ```swift
 toast(error.localizedDescription)
 ```
+
+<br/>
 
 ### [Identifiable](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/Identifiable.swift) (identifier)
 
@@ -198,6 +236,8 @@ extension UICollectionView {
 }
 ```
   
+<br/>
+
 ### [UITableView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UITableView.swift) (register, dequeueReusableCell)
 
   ```swift
@@ -225,9 +265,9 @@ extension UICollectionView {
       }
   }
   ```
-  
-  
-  
+
+<br/>
+
 ### [UICollectionView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UICollectionView.swift) (register, dequeueReusableCell)
 
 ```swift
@@ -291,7 +331,9 @@ extension CollectionViewController: UICollectionViewDataSource {
 }
   
 ```
-  
+
+<br/>
+
 ### [FlowLayoutMetric](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Defines/FlowLayoutMetric.swift)
 
 [flowLayout](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Defines/FlowLayoutMetric.swift)
@@ -344,7 +386,8 @@ extension CollectionViewController: FlowLayoutMetric {
     }
 }
 ```
-  
+
+<br/>
 
 ### [UIView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIView.swift)
 
@@ -397,6 +440,8 @@ extension CollectionViewController: FlowLayoutMetric {
   }
   ```
 
+<br/>
+
 ### [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift)
 lineSpacing
 ```swift
@@ -406,6 +451,8 @@ toastLabel.font = .systemFont(ofSize: 16, weight: .bold)
 toastLabel.lineBreakMode = .byWordWrapping
 toastLabel.lineSpacing()
 ```
+
+<br/>
 
 ### [UIColor](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIColor.swift)
 rgb, white, random
@@ -419,6 +466,8 @@ let gray250 = UIColor.white(250)
 view.backgroundColor = .random()
 ```
 
+<br/>
+
 ### [Optional](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/Optional.swift)
 isNilOrEmpty
 ```swift
@@ -427,6 +476,9 @@ func toast(_ text: String?) {
     print(text)
 }
 ```
+
+<br/>
+
 ### [NSMutableAttributedString](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/NSMutableAttributedString.swift)
 ```swift
 lazy var explainLabel: UILabel = {
@@ -438,6 +490,8 @@ lazy var explainLabel: UILabel = {
     return label
 }
 ```
+
+<br/>
 
 ### [FloatingButton](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/FloatingButton.swift)
   
@@ -524,7 +578,9 @@ extension ViewController: UIScrollViewDelegate {
     }
 }
 ```
-    
+
+<br/>
+
 ### [TabView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/TabView.swift)
   
 ```swift
@@ -601,6 +657,8 @@ present(ImagePresentViewController(imageUrl: url))
 ```swift
 pushViewController(MailComposeViewController())
 ```
+
+<br/>
 
 ### [Bases](https://github.com/YangJinmo/UI/tree/main/UI/Sources/ViewControllers/Bases)
 
