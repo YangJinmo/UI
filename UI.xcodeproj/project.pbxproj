@@ -366,7 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				E8E28ADA28CD915F00EDF783 /* WebKit */,
-				E8E28AD928CD914200EDF783 /* CoreAnimation  */,
+				E8E28AD928CD914200EDF783 /* CoreAnimation */,
 				E8E28AD828CD911F00EDF783 /* CoreGraphics */,
 				E8E28AD728CD8FD400EDF783 /* SwiftStandardLibrary */,
 				E8985C7C285585FF00008FA7 /* Foundation */,
@@ -594,12 +594,12 @@
 			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
-		E8E28AD928CD914200EDF783 /* CoreAnimation  */ = {
+		E8E28AD928CD914200EDF783 /* CoreAnimation */ = {
 			isa = PBXGroup;
 			children = (
 				E8356DF12828092900F05BF4 /* CALayer.swift */,
 			);
-			path = "CoreAnimation ";
+			path = CoreAnimation;
 			sourceTree = "<group>";
 		};
 		E8E28ADA28CD915F00EDF783 /* WebKit */ = {
