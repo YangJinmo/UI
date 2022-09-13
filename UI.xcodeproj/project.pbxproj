@@ -365,12 +365,12 @@
 		09ADF38827252483004C6A97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E8E28ADA28CD915F00EDF783 /* WebKit */,
-				E8E28AD928CD914200EDF783 /* CoreAnimation */,
-				E8E28AD828CD911F00EDF783 /* CoreGraphics */,
 				E8E28AD728CD8FD400EDF783 /* SwiftStandardLibrary */,
 				E8985C7C285585FF00008FA7 /* Foundation */,
+				E8E28AD828CD911F00EDF783 /* CoreGraphics */,
+				E8E28AD928CD914200EDF783 /* CoreAnimation */,
 				E8078ECE2854553800EA5D8A /* UIKit */,
+				E8E28ADA28CD915F00EDF783 /* WebKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -477,8 +477,9 @@
 			isa = PBXGroup;
 			children = (
 				E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */,
-				E8DB51B327EB6BB80080CA6B /* UIApplication.swift */,
 				E8C4998028113956007AA388 /* UIDevice.swift */,
+				E8DB51B327EB6BB80080CA6B /* UIApplication.swift */,
+				E87889C9276252D500B9A07E /* UIWindow.swift */,
 				E84B78CF27A83139007581EB /* UIStoryboard.swift */,
 				E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */,
 				09BD4EDA27352DCC00C48138 /* UIViewController.swift */,
@@ -488,7 +489,6 @@
 				E87889CB27625A4E00B9A07E /* UILabel.swift */,
 				E858134E27805F7600CD206E /* UIColor.swift */,
 				E8581346277F630200CD206E /* UIButton.swift */,
-				E87889C9276252D500B9A07E /* UIWindow.swift */,
 				09ADF38927252498004C6A97 /* UIView.swift */,
 				0977F78A275924A8002700A5 /* UIImage.swift */,
 				0977F7882759119E002700A5 /* UIImageView.swift */,
