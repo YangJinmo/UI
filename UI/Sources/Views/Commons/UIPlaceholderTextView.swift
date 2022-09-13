@@ -71,6 +71,7 @@ class UIPlaceholderTextView: UITextView {
         guard isEmpty else {
             return
         }
+
         guard let placeholder = placeholder else {
             return
         }
@@ -80,12 +81,15 @@ class UIPlaceholderTextView: UITextView {
         if placeholderAttributes[NSAttributedString.Key.font] == nil {
             placeholderAttributes[NSAttributedString.Key.font] = typingAttributes[NSAttributedString.Key.font] ?? font ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)
         }
+
         if placeholderAttributes[NSAttributedString.Key.paragraphStyle] == nil {
             let typingParagraphStyle = typingAttributes[NSAttributedString.Key.paragraphStyle]
+
             if typingParagraphStyle == nil {
                 let paragraphStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
                 paragraphStyle.alignment = textAlignment
                 paragraphStyle.lineBreakMode = textContainer.lineBreakMode
+
                 placeholderAttributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
             } else {
                 placeholderAttributes[NSAttributedString.Key.paragraphStyle] = typingParagraphStyle
@@ -93,16 +97,17 @@ class UIPlaceholderTextView: UITextView {
         }
         placeholderAttributes[NSAttributedString.Key.foregroundColor] = placeholderColor
 
-        let paraph = NSMutableParagraphStyle()
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 3
 
-        paraph.lineSpacing = 3
+        placeholderAttributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
 
-        placeholderAttributes[NSAttributedString.Key.paragraphStyle] = paraph
-
-        let placeholderInsets = UIEdgeInsets(top: contentInset.top + textContainerInset.top,
-                                             left: contentInset.left + textContainerInset.left + textContainer.lineFragmentPadding,
-                                             bottom: contentInset.bottom + textContainerInset.bottom,
-                                             right: contentInset.right + textContainerInset.right + textContainer.lineFragmentPadding)
+        let placeholderInsets = UIEdgeInsets(
+            top: contentInset.top + textContainerInset.top,
+            left: contentInset.left + textContainerInset.left + textContainer.lineFragmentPadding,
+            bottom: contentInset.bottom + textContainerInset.bottom,
+            right: contentInset.right + textContainerInset.right + textContainer.lineFragmentPadding
+        )
 
         let placeholderRect = rect.inset(by: placeholderInsets)
         placeholder.draw(in: placeholderRect, withAttributes: placeholderAttributes)
