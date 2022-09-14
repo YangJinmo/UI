@@ -1,8 +1,8 @@
 //
-//  UIFont.swift
+//  Font.swift
 //  UI
 //
-//  Created by Jmy on 2022/01/01.
+//  Created by Jmy on 2022/09/13.
 //
 
 import UIKit.UIFont
