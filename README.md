@@ -581,6 +581,19 @@ extension ViewController: UIScrollViewDelegate {
 
 <br/>
 
+
+### [PinterestLayout](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/PinterestLayout.swift)
+  
+```swift
+final class ViewController: UIViewController {
+    private lazy var collectionLayout = PinterestLayout(delegate: self)
+    private lazy var collectionView = BaseCollectionView(layout: collectionLayout)
+}
+```
+
+
+<br/>
+
 ### [TabView](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Views/Commons/TabView.swift)
   
 ```swift
