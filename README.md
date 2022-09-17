@@ -463,7 +463,10 @@ let highlight = UIColor.rgb(r: 179, g: 236, b: 230)
 let gray250 = UIColor.white(250)
 ```
 ```swift
-view.backgroundColor = .random()
+let purple = UIColor.hex(0xAB47BC)
+```
+```swift
+let randomColor = UIColor.random()
 ```
 
 <br/>
