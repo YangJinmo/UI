@@ -24,6 +24,15 @@ extension UIViewController {
         return navigationController?.navigationBar.frame.height ?? 56
     }
 
+    /**
+     *  Height of status bar + navigation bar (if navigation bar exist)
+     */
+
+    var topBarHeight: CGFloat {
+        return (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0)
+            + (navigationController?.navigationBar.frame.height ?? 0.0)
+    }
+
     // MARK: - Safe Area
 
     var safeAreaHeight: CGFloat {
