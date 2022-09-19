@@ -6,6 +6,7 @@
 //
 
 import Foundation.NSBundle
+import UIKit.UIImage
 
 extension Bundle {
     static var appName: String {
@@ -60,5 +61,16 @@ extension Bundle {
 
     static var appVersionAndBuild: String {
         return "v\(appVersion) (\(appBuild))"
+    }
+
+    static var iconFilePath: String {
+        let iconFilename = Bundle.main.object(forInfoDictionaryKey: "CFBundleIconFile") as! NSString
+        let iconBasename = iconFilename.deletingPathExtension
+        let iconExtension = iconFilename.pathExtension
+        return Bundle.main.path(forResource: iconBasename, ofType: iconExtension)!
+    }
+
+    static var iconImage: UIImage? {
+        return UIImage(contentsOfFile: iconFilePath)
     }
 }
