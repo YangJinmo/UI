@@ -10,53 +10,23 @@ import UIKit.UIImage
 
 extension Bundle {
     static var appName: String {
-        guard
-            let infoDictionary = Bundle.main.infoDictionary,
-            let value = infoDictionary["CFBundleName"] as? String
-        else {
-            return "Unknown"
-        }
-        return value
+        return Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "Unknown"
     }
 
     static var appDisplayName: String {
-        guard
-            let infoDictionary = Bundle.main.infoDictionary,
-            let value = infoDictionary["CFBundleDisplayName"] as? String
-        else {
-            return appName
-        }
-        return value
+        return Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? appName
     }
 
     static var appVersion: String {
-        guard
-            let infoDictionary = Bundle.main.infoDictionary,
-            let value = infoDictionary["CFBundleShortVersionString"] as? String
-        else {
-            return "Unknown"
-        }
-        return value
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
     }
 
     static var appBuild: String {
-        guard
-            let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
-            let value = infoDictionary["CFBundleVersion"] as? String
-        else {
-            return "Unknown"
-        }
-        return value
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown"
     }
 
     static var bundle: String {
-        guard
-            let infoDictionary = Bundle.main.infoDictionary,
-            let value = infoDictionary["CFBundleIdentifier"] as? String
-        else {
-            return "Unknown"
-        }
-        return value
+        return Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String ?? "Unknown"
     }
 
     static var appVersionAndBuild: String {
