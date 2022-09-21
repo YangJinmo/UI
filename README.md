@@ -80,6 +80,12 @@ UI is a DSL(Domain Specific Language) to make **Auto Layout and others** easy on
 
 <br/>
 
+## [Commons](https://github.com/YangJinmo/UI/tree/main/UI/Sources/Commons)
+- [BuildConfiguration](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Commons/BuildConfiguration.swift)
+- [Log](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Commons/Log.swift)
+
+<br/>
+
 ## Usage
 
 ### [UIStoryboard](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UIStoryboard.swift)
@@ -708,5 +714,27 @@ class WebViewController: BaseTabViewController {
 
         addPopButton()
     }
+}
+```
+
+<br/>
+
+### [BuildConfiguration](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Commons/BuildConfiguration.swift)
+
+```swift
+debug {
+    // debug
+}
+```
+```swift
+release {
+    // release
+}
+```
+```swift
+if isDebug {
+    // debug
+} else {
+    // release
 }
 ```
