@@ -10,8 +10,8 @@ import UIKit.UIView
 typealias Constraint = NSLayoutConstraint
 
 extension UIView {
-    var navigationBarHeight: CGFloat {
-        return 56
+    static var navigationBarHeight: CGFloat {
+        return 44
     }
 
     // MARK: - Safe Area
