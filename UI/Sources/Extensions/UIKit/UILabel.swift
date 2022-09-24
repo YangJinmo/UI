@@ -42,13 +42,15 @@ extension UILabel {
             return
         }
 
-        let mutableParagraphStyle = NSMutableParagraphStyle()
-        mutableParagraphStyle.lineSpacing = lineSpacing
-        mutableParagraphStyle.alignment = alignment
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.alignment = alignment
+        paragraphStyle.lineBreakMode = .byCharWrapping
+        paragraphStyle.lineBreakStrategy = .hangulWordPriority
 
-        let mutableAttributedString = NSMutableAttributedString(string: text)
-        mutableAttributedString.addAttribute(.paragraphStyle, value: mutableParagraphStyle, range: NSMakeRange(0, mutableAttributedString.length))
-        attributedText = mutableAttributedString
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
+        attributedText = attributedString
 
         self.numberOfLines = numberOfLines
 
