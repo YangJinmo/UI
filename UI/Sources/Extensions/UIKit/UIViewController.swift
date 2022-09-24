@@ -213,7 +213,6 @@ extension UIViewController {
         toastLabel.textAlignment = .center
         toastLabel.text = text
         toastLabel.font = .systemFont(ofSize: 16, weight: .bold)
-        toastLabel.lineBreakMode = .byWordWrapping
         toastLabel.layer.cornerRadius = 6
         toastLabel.clipsToBounds = true
         toastLabel.alpha = 0.0
