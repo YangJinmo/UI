@@ -345,7 +345,7 @@ extension CollectionViewController: UICollectionViewDataSource {
 [flowLayout](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Defines/FlowLayoutMetric.swift)
 
 ```swift
-private lazy var collectionView: BaseCollectionView = {
+lazy var collectionView: BaseCollectionView = {
     let collectionView = BaseCollectionView(layout: flowLayout())
     collectionView.dataSource = self
     collectionView.delegate = self
@@ -451,7 +451,7 @@ extension CollectionViewController: FlowLayoutMetric {
 ### [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift)
 lineSpacing
 ```swift
-private lazy var explainLabel: UILabel = {
+lazy var explainLabel: UILabel = {
     let label = UILabel()
     label.font = .systemFont(ofSize: 22, weight: .light)
     label.textColor = .secondaryLabel
@@ -509,54 +509,18 @@ lazy var explainLabel: UILabel = {
   
 ```swift
 final class ViewController: UIViewController {
-    // MARK: - Properties
-
-    private var floatingButton: FloatingButton?
-    
-    // MARK: - View Life Cycle
+    lazy var floatingButton = FloatingButton(view: view, scrollView: tableView)
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        createFloatingButton()
+        floatingButton.create()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        removeFloatingButton()
-    }
-    
-    // MARK: - Methods
-
-    private func removeFloatingButton() {
-        floatingButton?.remove()
-        floatingButton = nil
-    }
-
-    private func createFloatingButton() {
-        floatingButton = FloatingButton()
-
-        guard let floatingButton = floatingButton else {
-            return
-        }
-
-        view.addSubview(floatingButton)
-
-        Constraint.activate([
-            floatingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            floatingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-        ])
-
-        floatingButton.floatingButtonTouch = floatingButtonTouched
-    }
-
-    @objc private func floatingButtonTouched() {
-        UIView.animate(withDuration: 0) {
-            self.scrollView.setContentOffset(.zero, animated: true)
-        } completion: { _ in
-            self.floatingButton?.hide()
-        }
+        floatingButton.remove()
     }
 }
 ```
@@ -586,7 +550,9 @@ extension ViewController: UIScrollViewDelegate {
     }
 
     private func stoppedScrolling(scrollView: UIScrollView) {
-        scrollView.contentOffset.y == 0 ? floatingButton?.hide() : floatingButton?.show()
+        scrollView.contentOffset.y == 0
+            ? floatingButton.hide()
+            : floatingButton.show()
     }
 }
 ```
@@ -598,8 +564,8 @@ extension ViewController: UIScrollViewDelegate {
   
 ```swift
 final class ViewController: UIViewController {
-    private lazy var collectionLayout = PinterestLayout(delegate: self)
-    private lazy var collectionView = BaseCollectionView(layout: collectionLayout)
+    lazy var collectionLayout = PinterestLayout(delegate: self)
+    lazy var collectionView = BaseCollectionView(layout: collectionLayout)
 }
 ```
 
