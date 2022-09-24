@@ -451,11 +451,14 @@ extension CollectionViewController: FlowLayoutMetric {
 ### [UILabel](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Extensions/UIKit/UILabel.swift)
 lineSpacing
 ```swift
-let toastLabel = UILabel()
-toastLabel.text = text
-toastLabel.font = .systemFont(ofSize: 16, weight: .bold)
-toastLabel.lineBreakMode = .byWordWrapping
-toastLabel.lineSpacing()
+private lazy var explainLabel: UILabel = {
+    let label = UILabel()
+    label.font = .systemFont(ofSize: 22, weight: .light)
+    label.textColor = .secondaryLabel
+    label.text = "안녕하세요!\nzzimss입니다."
+    label.lineSpacing()
+    return label
+}()
 ```
 
 <br/>
