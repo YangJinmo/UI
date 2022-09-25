@@ -36,7 +36,8 @@ extension UIApplication {
 
     static var sceneWindow: UIWindow? {
         guard let sceneDelegate = UIApplication.sceneDelegate else {
-            fatalError("could not get scene delegate ")
+            Log.info("could not get scene delegate ")
+            return
         }
 
         return sceneDelegate.window

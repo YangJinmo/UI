@@ -59,7 +59,8 @@ extension UIViewController {
 
     func resetWindow() {
         guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
-            fatalError("could not get scene delegate ")
+            Log.info("could not get scene delegate ")
+            return
         }
         sceneDelegate.window?.rootViewController = self
     }
