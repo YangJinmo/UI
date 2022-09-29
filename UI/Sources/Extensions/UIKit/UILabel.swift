@@ -56,4 +56,24 @@ extension UILabel {
 
         sizeToFit()
     }
+
+    func contentSize() -> CGSize {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = textAlignment
+        paragraphStyle.lineBreakMode = lineBreakMode
+
+        let attributes = [
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+        ]
+
+        let contentSize: CGSize = text!.boundingRect(
+            with: frame.size,
+            options: [.usesLineFragmentOrigin, .usesFontLeading],
+            attributes: attributes as [NSAttributedString.Key: Any],
+            context: nil
+        ).size
+
+        return contentSize
+    }
 }
