@@ -9,44 +9,41 @@ import Foundation
 
 extension Collection {
     subscript(optional i: Index) -> Bool {
-        indices.contains(i)
+        return indices.contains(i)
     }
 
     subscript(optional i: Index) -> Iterator.Element? {
-        indices.contains(i) ? self[i] : nil
+        return indices.contains(i) ? self[i] : nil
     }
 
-    // MARK: - Convert JSON
+    // MARK: - JSONSerialization
 
     /// https://stackoverflow.com/questions/38773979/is-there-a-way-to-pretty-print-swift-dictionaries-to-the-console
 
-    func toJSONString(prettify: Bool = false) -> String? {
-        guard JSONSerialization.isValidJSONObject(self) else {
-            return nil
-        }
-
-        let options = prettify
-            ? JSONSerialization.WritingOptions.prettyPrinted
-            : JSONSerialization.WritingOptions()
-
+    func format(options: JSONSerialization.WritingOptions) -> Any? {
         do {
-            let data = try JSONSerialization.data(withJSONObject: self, options: options)
-            return String(data: data, encoding: .utf8) ?? "{}"
+            let jsonData = try JSONSerialization.data(withJSONObject: self, options: options)
+            return try JSONSerialization.jsonObject(with: jsonData, options: [.allowFragments])
         } catch {
-            print("json serialization error: \(error)")
-            return "{}"
+            error.localizedDescription.log()
+            return nil
         }
     }
 
-    func toJSONData(prettify: Bool = false) -> Data? {
-        guard JSONSerialization.isValidJSONObject(self) else {
+    func toJSONData(options: JSONSerialization.WritingOptions = .prettyPrinted) -> Data? {
+        do {
+            return try JSONSerialization.data(withJSONObject: self, options: options)
+        } catch {
+            error.localizedDescription.log()
             return nil
         }
+    }
 
-        let options = prettify
-            ? JSONSerialization.WritingOptions.prettyPrinted
-            : JSONSerialization.WritingOptions()
+    func toJSONString(options: JSONSerialization.WritingOptions = .prettyPrinted) -> String {
+        guard let jsonData = toJSONData(options: options) else {
+            return "{}"
+        }
 
-        return try? JSONSerialization.data(withJSONObject: self, options: options)
+        return String(data: jsonData, encoding: .utf8) ?? "{}"
     }
 }
