@@ -5,18 +5,16 @@
 //  Created by JMY on 2022/05/27.
 //
 
-extension Dictionary where Key: CustomDebugStringConvertible, Value: CustomDebugStringConvertible {
-    var prettyprint: String {
+extension Dictionary { // where Key: CustomDebugStringConvertible, Value: CustomDebugStringConvertible {
+    func prettyPrint(prefixLetter: String = "") {
         for (key, value) in self {
-            print("\(key) = \(value)")
+            print("\(prefixLetter)\(key): \(value)")
         }
-
-        return description
     }
 }
 
 extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
-    var prettyPrint: String {
+    var asAnyObject: String {
         return String(describing: self as AnyObject)
     }
 }
