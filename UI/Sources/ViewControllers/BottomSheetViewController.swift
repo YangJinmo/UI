@@ -115,7 +115,7 @@ final class BottomSheetViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(safeAreaBottom + margin)),
         ])
 
-        backgroundView.addTapGestureRecognizer(self, action: #selector(backgroundViewTouched(_:)))
+        backgroundView.addTapGestureRecognizer(target: self, action: #selector(backgroundViewTouched(_:)))
         navigationView.addDismissButton(dismissButtonTouched)
     }
 

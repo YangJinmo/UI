@@ -47,7 +47,7 @@ extension UIView {
         }
     }
 
-    func addTapGestureRecognizer(_ target: Any?, action: Selector?) {
+    func addTapGestureRecognizer(target: Any?, action: Selector?) {
         isUserInteractionEnabled = true
         addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
     }
