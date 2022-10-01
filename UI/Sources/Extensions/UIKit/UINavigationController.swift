@@ -44,6 +44,18 @@ extension UINavigationController {
 
         return currentControllers
     }
+
+    @discardableResult
+    func popAllAndReplace(with controller: UIViewController) -> [UIViewController] {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.moveIn
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        view.layer.add(transition, forKey: nil)
+
+        return replaceAll(with: controller, animated: false)
+    }
 }
 
 // MARK: - UIGestureRecognizerDelegate
