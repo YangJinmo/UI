@@ -18,6 +18,14 @@ extension UIView {
         return 49
     }
 
+    var rootView: UIView {
+        if let superview = superview {
+            return superview.rootView
+        } else {
+            return self
+        }
+    }
+
     // MARK: - Safe Area
 
     var safeAreaHeight: CGFloat {
