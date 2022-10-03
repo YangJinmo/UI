@@ -60,6 +60,11 @@ extension UIView {
         addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
     }
 
+    func addLongPressGestureRecognizer(target: Any?, action: Selector?) {
+        isUserInteractionEnabled = true
+        addGestureRecognizer(UILongPressGestureRecognizer(target: target, action: action))
+    }
+
     func addBottomBorder() {
         let dividerView = UIView()
         dividerView.backgroundColor = .secondarySystemBackground
