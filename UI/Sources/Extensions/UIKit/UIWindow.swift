@@ -45,7 +45,7 @@ extension UIApplication {
 
 //    static var appWindow: UIWindow? {
 //        guard let appDelegate = UIApplication.appDelegate else {
-//            fatalError("could not get app delegate ")
+//            Log.info("could not get app delegate ")
 //        }
 //
 //        return appDelegate.window
