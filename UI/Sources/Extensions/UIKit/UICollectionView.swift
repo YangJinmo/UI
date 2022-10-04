@@ -45,8 +45,8 @@ extension UICollectionView {
     // MARK: - Select / Deselect
 
     func selectAll(animated: Bool = true) {
-        (0 ..< numberOfSections).compactMap { (section) -> [IndexPath]? in
-            (0 ..< numberOfItems(inSection: section)).compactMap({ (item) -> IndexPath? in
+        (0 ..< numberOfSections).compactMap { section -> [IndexPath]? in
+            (0 ..< numberOfItems(inSection: section)).compactMap({ item -> IndexPath? in
                 IndexPath(item: item, section: section)
             })
         }.flatMap { $0 }.forEach { indexPath in
