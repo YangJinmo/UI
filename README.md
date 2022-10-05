@@ -707,3 +707,19 @@ if isDebug {
     // release
 }
 ```
+
+<br/>
+
+### [Log](https://github.com/YangJinmo/UI/blob/main/UI/Sources/Commons/Log.swift)
+```swift
+url.absoluteString.log()
+```
+```swift
+error.localizedDescription.log()
+```
+```swift
+indexPath.description.log()
+```
+```swift
+2022.10.05 09:16:22 [WebViewController:49] webView(_: decidePolicyFor) http..
+```
