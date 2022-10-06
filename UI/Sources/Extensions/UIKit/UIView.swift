@@ -55,6 +55,12 @@ extension UIView {
         }
     }
 
+    func removeAllSubviews() {
+        subviews.forEach {
+            $0.removeFromSuperview()
+        }
+    }
+
     func addTapGestureRecognizer(target: Any?, action: Selector?) {
         isUserInteractionEnabled = true
         addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
