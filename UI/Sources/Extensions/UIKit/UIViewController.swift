@@ -203,8 +203,8 @@ extension UIViewController {
 
     // MARK: - Toast
 
-    func toast(_ text: String?, bottom: Bool = false) {
-        guard !text.isNilOrEmpty, let keyWindow = UIWindow.key else {
+    func toast(_ text: String?, bottom: Bool = false, _ vc: UIViewController? = nil) {
+        guard !text.isNilOrEmpty, let keyWindow = vc?.view ?? UIWindow.key else {
             return
         }
 
