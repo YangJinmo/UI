@@ -76,4 +76,9 @@ extension UILabel {
 
         return contentSize
     }
+
+    func makeTransparent() {
+        isOpaque = false
+        backgroundColor = .clear
+    }
 }
