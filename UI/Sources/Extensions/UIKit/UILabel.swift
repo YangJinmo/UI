@@ -81,4 +81,23 @@ extension UILabel {
         isOpaque = false
         backgroundColor = .clear
     }
+
+    func setFrameWithString(_ string: String, width: CGFloat) {
+        numberOfLines = 0
+        let attributes = [
+            NSAttributedString.Key.font: font,
+        ]
+        let resultSize: CGSize = string.boundingRect(
+            with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude),
+            options: NSStringDrawingOptions.usesLineFragmentOrigin,
+            attributes: attributes as [NSAttributedString.Key: Any],
+            context: nil
+        ).size
+        let resultHeight: CGFloat = resultSize.height
+        let resultWidth: CGFloat = resultSize.width
+        var frame: CGRect = self.frame
+        frame.size.height = resultHeight
+        frame.size.width = resultWidth
+        self.frame = frame
+    }
 }
