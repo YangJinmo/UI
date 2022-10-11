@@ -12,6 +12,11 @@ extension UITableView {
         self.init(frame: .zero, style: style)
     }
 
+    func resetInsets() {
+        contentInset = .zero
+        scrollIndicatorInsets = .zero
+    }
+
     // MARK: - tableHeaderView, tableFooterView sizeToFit
 
     var optimalSizeTableHeaderView: UIView? {
