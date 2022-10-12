@@ -12,6 +12,23 @@ extension UICollectionView {
         self.init(frame: .zero, collectionViewLayout: layout)
     }
 
+    func sectionWidth(at section: Int) -> CGFloat {
+        var width = bounds.width
+        width -= contentInset.left
+        width -= contentInset.right
+
+        if let delegate = delegate as? UICollectionViewDelegateFlowLayout,
+           let inset = delegate.collectionView?(self, layout: collectionViewLayout, insetForSectionAt: section) {
+            width -= inset.left
+            width -= inset.right
+        } else if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            width -= layout.sectionInset.left
+            width -= layout.sectionInset.right
+        }
+
+        return width
+    }
+
     // MARK: - Scroll
 
     // For Horizontal Scrolling: .left
