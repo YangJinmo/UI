@@ -29,6 +29,28 @@ extension UICollectionView {
         return width
     }
 
+    var indexPaths: [IndexPath] {
+        var indexPaths = [IndexPath]()
+
+        for section in 0 ..< numberOfSections {
+            for item in 0 ..< numberOfItems(inSection: section) {
+                indexPaths.append(IndexPath(item: item, section: section))
+            }
+        }
+
+        return indexPaths
+    }
+
+    var indexPathsForAll: [IndexPath] {
+        let indexPaths = (0 ..< numberOfSections).compactMap { section -> [IndexPath]? in
+            (0 ..< numberOfItems(inSection: section)).compactMap({ item -> IndexPath? in
+                IndexPath(item: item, section: section)
+            })
+        }.flatMap { $0 }
+
+        return indexPaths
+    }
+
     // MARK: - Scroll
 
     // For Horizontal Scrolling: .left
