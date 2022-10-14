@@ -37,14 +37,32 @@ extension UITableView {
         }
     }
 
-    // MARK: - Select / Deselect
+    var indexPaths: [IndexPath] {
+        var indexPaths = [IndexPath]()
 
-    func selectAll(animated: Bool = true) {
-        (0 ..< numberOfSections).compactMap { section -> [IndexPath]? in
+        for section in 0 ..< numberOfSections {
+            for item in 0 ..< numberOfRows(inSection: section) {
+                indexPaths.append(IndexPath(item: item, section: section))
+            }
+        }
+
+        return indexPaths
+    }
+
+    var indexPathsForAll: [IndexPath] {
+        let indexPaths = (0 ..< numberOfSections).compactMap { section -> [IndexPath]? in
             (0 ..< numberOfRows(inSection: section)).compactMap({ item -> IndexPath? in
                 IndexPath(item: item, section: section)
             })
-        }.flatMap { $0 }.forEach { indexPath in
+        }.flatMap { $0 }
+
+        return indexPaths
+    }
+
+    // MARK: - Select / Deselect
+
+    func selectAll(animated: Bool = true) {
+        indexPaths.forEach { indexPath in
             selectRow(at: indexPath, animated: animated, scrollPosition: .none)
         }
     }
