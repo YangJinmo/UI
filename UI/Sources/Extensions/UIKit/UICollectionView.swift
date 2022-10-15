@@ -51,6 +51,35 @@ extension UICollectionView {
         return indexPaths
     }
 
+    func nextIndexPath(to indexPath: IndexPath, offset: Int = 0) -> IndexPath? {
+        return UICollectionView.nextIndexPath(to: indexPath, offset: offset, source: indexPaths)
+    }
+
+    func previousIndexPath(to indexPath: IndexPath, offset: Int = 0) -> IndexPath? {
+        return UICollectionView.nextIndexPath(to: indexPath, offset: offset, source: indexPaths.reversed())
+    }
+
+    private class func nextIndexPath(to indexPath: IndexPath, offset: Int = 0, source: [IndexPath]) -> IndexPath? {
+        var found = false
+        var skippedResults = offset
+
+        for currentIndexPath in source {
+            if found == true {
+                if skippedResults <= 0 {
+                    return currentIndexPath
+                }
+
+                skippedResults -= 1
+            }
+
+            if currentIndexPath == indexPath {
+                found = true
+            }
+        }
+
+        return nil
+    }
+
     // MARK: - Scroll
 
     // For Horizontal Scrolling: .left
