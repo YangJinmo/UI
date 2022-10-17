@@ -107,6 +107,18 @@ extension UITableView {
         }
     }
 
+    func insertRowsAtBottom(_ rows: [IndexPath]) {
+        UIView.setAnimationsEnabled(false)
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        beginUpdates()
+        insertRows(at: rows, with: .none)
+        endUpdates()
+        scrollToRow(at: rows[0], at: .bottom, animated: false)
+        CATransaction.commit()
+        UIView.setAnimationsEnabled(true)
+    }
+
     // MARK: - UITableViewCell
 
     func register<T: UITableViewCell>(_ cellClass: T.Type) {
