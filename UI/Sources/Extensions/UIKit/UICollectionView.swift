@@ -64,7 +64,7 @@ extension UICollectionView {
         var skippedResults = offset
 
         for currentIndexPath in source {
-            if found == true {
+            if found {
                 if skippedResults <= 0 {
                     return currentIndexPath
                 }
