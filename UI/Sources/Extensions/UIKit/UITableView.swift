@@ -12,6 +12,10 @@ extension UITableView {
         self.init(frame: .zero, style: style)
     }
 
+    func hideEmptyCells() {
+        tableFooterView = UIView()
+    }
+
     func resetInsets() {
         contentInset = .zero
         scrollIndicatorInsets = .zero
