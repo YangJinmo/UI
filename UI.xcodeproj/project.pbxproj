@@ -69,6 +69,7 @@
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
 		E84B78D227A83151007581EB /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78D127A83151007581EB /* StringProtocol.swift */; };
 		E84D1B102770DD16003ADD82 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */; };
+		E853390528FFD37300808B5D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E853390428FFD37300808B5D /* BaseNavigationController.swift */; };
 		E85664F028884F91005897A1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85664EF28884F91005897A1 /* Log.swift */; };
 		E85664F2288856C6005897A1 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85664F1288856C6005897A1 /* FileManager.swift */; };
 		E85664F428885788005897A1 /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85664F328885788005897A1 /* BuildConfiguration.swift */; };
@@ -197,6 +198,7 @@
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		E84B78D127A83151007581EB /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		E84D1B0F2770DD16003ADD82 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		E853390428FFD37300808B5D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		E85664EF28884F91005897A1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		E85664F1288856C6005897A1 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		E85664F328885788005897A1 /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
@@ -344,10 +346,10 @@
 				09ADF3B32725A392004C6A97 /* ViewControllers */,
 				09ADF39F272592D5004C6A97 /* Views */,
 				09ADF3AF2725A236004C6A97 /* Models */,
-				E88AECC227D7066400B14C1F /* Defines */,
-				E88AECBF27D704C700B14C1F /* Emuns */,
 				E86134BA278C731800E40407 /* Networking */,
 				09ADF38827252483004C6A97 /* Extensions */,
+				E88AECC227D7066400B14C1F /* Defines */,
+				E88AECBF27D704C700B14C1F /* Emuns */,
 				E85664EE28884F7A005897A1 /* Commons */,
 			);
 			path = Sources;
@@ -505,9 +507,18 @@
 		E853390228FFD32000808B5D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E853390328FFD36200808B5D /* Bases */,
 				09AB348D272B9B1C00317254 /* TabBarController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E853390328FFD36200808B5D /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				E853390428FFD37300808B5D /* BaseNavigationController.swift */,
+			);
+			path = Bases;
 			sourceTree = "<group>";
 		};
 		E85664EE28884F7A005897A1 /* Commons */ = {
@@ -762,6 +773,7 @@
 				E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */,
 				E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */,
 				E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */,
+				E853390528FFD37300808B5D /* BaseNavigationController.swift in Sources */,
 				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
 				E8A9177E27F40ABA0067CC58 /* TableHeaderView.swift in Sources */,
 				E85664F2288856C6005897A1 /* FileManager.swift in Sources */,
