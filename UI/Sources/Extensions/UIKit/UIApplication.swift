@@ -66,20 +66,7 @@ extension UIApplication {
     }
 
     class func getMostTopViewController(base: UIViewController? = nil) -> UIViewController? {
-        var baseVC: UIViewController?
-
-        if base != nil {
-            baseVC = base
-        } else {
-            if #available(iOS 13, *) {
-                baseVC = (UIApplication.shared.connectedScenes
-                    .compactMap { $0 as? UIWindowScene }
-                    .flatMap { $0.windows }
-                    .first { $0.isKeyWindow })?.rootViewController
-            } else {
-                baseVC = UIApplication.shared.keyWindow?.rootViewController
-            }
-        }
+        let baseVC = base ?? mainKeyWindow?.rootViewController
 
         if let naviController = baseVC as? UINavigationController {
             return getMostTopViewController(base: naviController.visibleViewController)
