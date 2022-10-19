@@ -76,7 +76,7 @@ final class TabBarController: UITabBarController {
 
     private func setupViewControllers() {
         viewControllers = [
-            UINavigationController(
+            BaseNavigationController(
                 rootViewController: TableViewController(),
                 tabBarItem: UITabBarItem(
                     title: "Home",
@@ -84,7 +84,7 @@ final class TabBarController: UITabBarController {
                     selectedImage: Image.house
                 )
             ),
-            UINavigationController(
+            BaseNavigationController(
                 rootViewController: TimerViewController(),
                 tabBarItem: UITabBarItem(
                     title: "Search",
@@ -92,7 +92,7 @@ final class TabBarController: UITabBarController {
                     selectedImage: Image.magnifyingglass
                 )
             ),
-            UINavigationController(
+            BaseNavigationController(
                 rootViewController: ScrollableStackViewController(),
                 tabBarItem: UITabBarItem(
                     title: "Basket",
@@ -100,7 +100,7 @@ final class TabBarController: UITabBarController {
                     selectedImage: Image.bag
                 )
             ),
-            UINavigationController(
+            BaseNavigationController(
                 rootViewController: ReviewViewController(),
                 tabBarItem: UITabBarItem(
                     title: "Review",
@@ -108,7 +108,7 @@ final class TabBarController: UITabBarController {
                     selectedImage: Image.message
                 )
             ),
-            UINavigationController(
+            BaseNavigationController(
                 rootViewController: MyViewController(),
                 tabBarItem: UITabBarItem(
                     title: "My",
