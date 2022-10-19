@@ -274,7 +274,6 @@
 		091AC425273658B600294EFC /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				09AB348D272B9B1C00317254 /* TabBarController.swift */,
 				091AC4262736592E00294EFC /* WebViewController.swift */,
 				0977F78627590F61002700A5 /* ImagePresentViewController.swift */,
 				E8EE7068276781150005877A /* MailComposeViewController.swift */,
@@ -340,13 +339,14 @@
 		09ADF38527252432004C6A97 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				09ADF38627252451004C6A97 /* Delegates */,
+				E853390228FFD32000808B5D /* Controllers */,
+				09ADF3B32725A392004C6A97 /* ViewControllers */,
+				09ADF39F272592D5004C6A97 /* Views */,
+				09ADF3AF2725A236004C6A97 /* Models */,
 				E88AECC227D7066400B14C1F /* Defines */,
 				E88AECBF27D704C700B14C1F /* Emuns */,
 				E86134BA278C731800E40407 /* Networking */,
-				09ADF38627252451004C6A97 /* Delegates */,
-				09ADF3AF2725A236004C6A97 /* Models */,
-				09ADF39F272592D5004C6A97 /* Views */,
-				09ADF3B32725A392004C6A97 /* ViewControllers */,
 				09ADF38827252483004C6A97 /* Extensions */,
 				E85664EE28884F7A005897A1 /* Commons */,
 			);
@@ -500,6 +500,14 @@
 				E84282CD2853630400E27E39 /* UIActivity.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E853390228FFD32000808B5D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				09AB348D272B9B1C00317254 /* TabBarController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		E85664EE28884F7A005897A1 /* Commons */ = {
