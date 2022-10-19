@@ -37,9 +37,11 @@ extension BaseNavigationController: UINavigationControllerDelegate {
 
 extension BaseNavigationController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard gestureRecognizer == interactivePopGestureRecognizer,
-              let topVC = topViewController else {
-            return true // default value
+        guard
+            gestureRecognizer == interactivePopGestureRecognizer,
+            let topVC = topViewController
+        else {
+            return true
         }
 
         return viewControllers.count > 1 && duringTransition == false && isPopGestureEnable(topVC)

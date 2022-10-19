@@ -45,13 +45,15 @@ final class QueryService {
             }
 
             if let error = error {
-                self?.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+                self?.errorMessage += "Error: " + error.localizedDescription + "\n"
             }
 
-            guard
-                let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode,
-                let data = data
-            else {
+            guard let data = data else {
+                self?.errorMessage += "Error: Did not receive data"
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                self?.errorMessage += "Error: HTTP request failed"
                 return
             }
 
