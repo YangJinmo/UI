@@ -50,7 +50,7 @@ extension UIApplication {
 
     // MARK: - Delegate
 
-    class func topViewController(controller: UIViewController? = UIWindow.key?.rootViewController) -> UIViewController? {
+    class func topViewController(controller: UIViewController? = UIApplication.mainKeyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)
         }

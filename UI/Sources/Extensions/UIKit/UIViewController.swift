@@ -204,7 +204,7 @@ extension UIViewController {
     // MARK: - Toast
 
     func toast(_ text: String?, bottom: Bool = false, view: UIView? = nil) {
-        guard !text.isNilOrEmpty, let keyWindow = view ?? UIWindow.key else {
+        guard !text.isNilOrEmpty, let keyWindow = view ?? UIApplication.mainKeyWindow else {
             return
         }
 
