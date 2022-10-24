@@ -93,6 +93,16 @@ extension UITableView {
         return indexPath[row - 1]
     }
 
+    var lastIndexPath: IndexPath? {
+        var indexPaths = indexPaths
+
+        if indexPaths > 1 {
+            return IndexPath(row: indexPaths - 1, section: 0)
+        } else {
+            return nil
+        }
+    }
+
     // MARK: - Select / Deselect
 
     func selectAll(animated: Bool = true) {
