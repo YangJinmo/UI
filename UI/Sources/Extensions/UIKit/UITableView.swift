@@ -45,8 +45,8 @@ extension UITableView {
         var indexPaths = [IndexPath]()
 
         for section in 0 ..< numberOfSections {
-            for item in 0 ..< numberOfRows(inSection: section) {
-                indexPaths.append(IndexPath(item: item, section: section))
+            for row in 0 ..< numberOfRows(inSection: section) {
+                indexPaths.append(IndexPath(row: row, section: section))
             }
         }
 
@@ -55,8 +55,8 @@ extension UITableView {
 
     var indexPathsForAll: [IndexPath] {
         let indexPaths = (0 ..< numberOfSections).compactMap { section -> [IndexPath]? in
-            (0 ..< numberOfRows(inSection: section)).compactMap({ item -> IndexPath? in
-                IndexPath(item: item, section: section)
+            (0 ..< numberOfRows(inSection: section)).compactMap({ row -> IndexPath? in
+                IndexPath(row: row, section: section)
             })
         }.flatMap { $0 }
 
