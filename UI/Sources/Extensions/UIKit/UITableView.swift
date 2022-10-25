@@ -94,10 +94,10 @@ extension UITableView {
     }
 
     var lastIndexPath: IndexPath? {
-        var indexPaths = indexPaths
+        let numberOfIndexPaths = indexPaths.count
 
-        if indexPaths > 1 {
-            return IndexPath(row: indexPaths - 1, section: 0)
+        if numberOfIndexPaths > 1 {
+            return IndexPath(row: numberOfIndexPaths - 1, section: 0)
         } else {
             return nil
         }
