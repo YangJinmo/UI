@@ -74,33 +74,33 @@ extension UITableView {
     }
 
     func nextIndexPath(row: Int, forSection section: Int) -> IndexPath? {
-        let indexPath: [IndexPath] = indexPaths(section: section)
+        let indexPaths = indexPaths(section: section)
 
-        guard !indexPath.isEmpty else {
+        guard !indexPaths.isEmpty else {
             return nil
         }
 
-        return indexPath[row + 1]
+        return indexPaths[row + 1]
     }
 
     func previousIndexPath(row: Int, forSection section: Int) -> IndexPath? {
-        let indexPath: [IndexPath] = indexPaths(section: section)
+        let indexPaths = indexPaths(section: section)
 
-        guard !indexPath.isEmpty else {
+        guard !indexPaths.isEmpty else {
             return nil
         }
 
-        return indexPath[row - 1]
+        return indexPaths[row - 1]
     }
 
     var lastIndexPath: IndexPath? {
         let numberOfIndexPaths = indexPaths.count
 
-        if numberOfIndexPaths > 1 {
-            return IndexPath(row: numberOfIndexPaths - 1, section: 0)
-        } else {
+        guard numberOfIndexPaths > 1 else {
             return nil
         }
+
+        return IndexPath(row: numberOfIndexPaths - 1, section: 0)
     }
 
     // MARK: - Select / Deselect
