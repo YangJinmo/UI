@@ -151,14 +151,17 @@ extension UITableView {
         }
     }
 
-    func insertRowsAtBottom(_ rows: [IndexPath]) {
+    func insertRowsAtBottom(_ indexPaths: [IndexPath]) {
         UIView.setAnimationsEnabled(false)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         beginUpdates()
-        insertRows(at: rows, with: .none)
+        insertRows(at: indexPaths, with: .none)
         endUpdates()
-        scrollToRow(at: rows[0], at: .bottom, animated: false)
+        scrollToRow(at: indexPaths[0], at: .bottom, animated: false)
+        CATransaction.commit()
+        UIView.setAnimationsEnabled(true)
+    }
         CATransaction.commit()
         UIView.setAnimationsEnabled(true)
     }
