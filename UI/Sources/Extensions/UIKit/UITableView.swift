@@ -162,6 +162,15 @@ extension UITableView {
         CATransaction.commit()
         UIView.setAnimationsEnabled(true)
     }
+
+    func scrollBottomWithoutFlashing() {
+        guard let lastIndexPath = lastIndexPath else {
+            return
+        }
+        UIView.setAnimationsEnabled(false)
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
         CATransaction.commit()
         UIView.setAnimationsEnabled(true)
     }
