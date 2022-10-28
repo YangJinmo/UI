@@ -175,6 +175,13 @@ extension UITableView {
         UIView.setAnimationsEnabled(true)
     }
 
+    func scrollBottomToLastRow() {
+        guard let lastIndexPath = lastIndexPath else {
+            return
+        }
+        scrollToRow(at: lastIndexPath, at: .bottom, animated: false)
+    }
+
     // MARK: - UITableViewCell
 
     func register<T: UITableViewCell>(_ cellClass: T.Type) {
