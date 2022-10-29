@@ -151,7 +151,7 @@ extension UIView {
     ///   - count: Shakes count. Default is 2.
     ///   - duration: Shake duration. Default is 0.15.
     ///   - translation: Shake translation. Default is 5.
-    public func shake(count: Float = 2, duration: TimeInterval = 0.15, translation: Float = 5) {
+    func shake(count: Float = 2, duration: TimeInterval = 0.15, translation: Float = 5) {
         let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.repeatCount = count
@@ -160,6 +160,14 @@ extension UIView {
         animation.byValue = translation
 
         layer.add(animation, forKey: "shake")
+    }
+
+    func disturb() {
+        transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 150, options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction], animations: {
+            self.transform = .identity
+        }, completion: nil)
     }
 
     func fadeIn(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
