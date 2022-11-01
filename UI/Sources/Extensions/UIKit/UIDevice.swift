@@ -16,6 +16,19 @@ extension UIDevice {
         return bottom > 0
     }
 
+    static var product: String {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .unspecified: return "unspecified"
+        case .phone: return "phone"
+        case .pad: return "pad"
+        case .tv: return "tv"
+        case .carPlay: return "carPlay"
+        case .mac: return "mac"
+        @unknown default:
+            fatalError("product")
+        }
+    }
+
     static var isPad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
