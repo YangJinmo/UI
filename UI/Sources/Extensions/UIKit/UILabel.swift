@@ -101,7 +101,8 @@ extension UILabel {
         self.frame = frame
     }
 
-    // 취소선
+    // MARK: - NSAttributedString
+
     func strikethrough(text: String) {
         attributedText = NSAttributedString(string: text, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue])
     }
