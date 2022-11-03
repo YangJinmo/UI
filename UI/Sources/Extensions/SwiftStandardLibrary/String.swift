@@ -258,6 +258,10 @@ extension String {
         return NSAttributedString(string: self, attributes: [.backgroundColor: color])
     }
 
+    func strikethrough(_ style: NSUnderlineStyle = .single) -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: [.strikethroughStyle: style.rawValue])
+    }
+
     func underline(_ style: NSUnderlineStyle = .single) -> NSAttributedString {
         return NSAttributedString(string: self, attributes: [.underlineStyle: style.rawValue])
     }
