@@ -100,23 +100,4 @@ extension UILabel {
         frame.size.width = resultWidth
         self.frame = frame
     }
-
-    @IBInspectable
-    var underline: Bool {
-        get {
-            return self.underline
-        }
-        set {
-            guard let text: String = text else {
-                return
-            }
-            let textAttributes = NSMutableAttributedString(string: text)
-            if newValue {
-                textAttributes.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, text.count))
-            } else {
-                textAttributes.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, text.count))
-            }
-            attributedText = textAttributes
-        }
-    }
 }
