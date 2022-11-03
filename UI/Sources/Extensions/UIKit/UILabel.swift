@@ -100,4 +100,9 @@ extension UILabel {
         frame.size.width = resultWidth
         self.frame = frame
     }
+
+    // 취소선
+    func strikethrough(text: String) {
+        attributedText = NSAttributedString(string: text, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+    }
 }
