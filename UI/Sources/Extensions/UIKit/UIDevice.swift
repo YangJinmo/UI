@@ -72,4 +72,8 @@ extension UIDevice {
         default: return identifier
         }
     }
+
+    static var isSimulator: Bool {
+        return UIDevice.model() == "Simulator"
+    }
 }
