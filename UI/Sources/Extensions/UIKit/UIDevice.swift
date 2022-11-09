@@ -51,6 +51,11 @@ extension UIDevice {
         }
     }
 
+    /// Returns the point size of the current screen in one pixel
+    static var onePixel: CGFloat {
+        return CGFloat(1.0) / UIScreen.main.scale
+    }
+
     static func model() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
