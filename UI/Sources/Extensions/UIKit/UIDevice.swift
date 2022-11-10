@@ -33,6 +33,29 @@ extension UIDevice {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
 
+    static func totalDiskSpace() -> NSNumber {
+        do {
+            let attributes = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory())
+            return attributes[.systemSize] as? NSNumber ?? NSNumber(value: 0.0)
+        } catch {
+            return NSNumber(value: 0.0)
+        }
+    }
+
+    static func freeDiskSpace() -> NSNumber {
+        do {
+            let attributes = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory())
+            return attributes[.systemFreeSize] as? NSNumber ?? NSNumber(value: 0.0)
+        } catch {
+            return NSNumber(value: 0.0)
+        }
+    }
+
+    /// Returns the point size of the current screen in one pixel
+    static var onePixel: CGFloat {
+        return CGFloat(1.0) / UIScreen.main.scale
+    }
+
     static func model() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
