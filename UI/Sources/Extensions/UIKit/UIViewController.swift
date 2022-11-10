@@ -128,6 +128,14 @@ extension UIViewController {
         }
         return findBestViewController(UIApplication.mainKeyWindow?.rootViewController) ?? UIViewController()
     }
+
+    func findChildViewControllerOfType(_ klass: AnyClass) -> UIViewController? {
+        for child in children {
+            if child.isKind(of: klass) {
+                return child
+            }
+        }
+        return nil
     }
 
     // MARK: - Navigation Controller
