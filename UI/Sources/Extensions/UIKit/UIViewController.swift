@@ -126,7 +126,8 @@ extension UIViewController {
             }
             return controller
         }
-        return findBestViewController(UIApplication.shared.keyWindow?.rootViewController)!
+        return findBestViewController(UIApplication.mainKeyWindow?.rootViewController) ?? UIViewController()
+    }
     }
 
     // MARK: - Navigation Controller
