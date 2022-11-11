@@ -56,6 +56,10 @@ extension UIDevice {
         return CGFloat(1.0) / UIScreen.main.scale
     }
 
+    static func roundFloatToPixel(_ value: CGFloat) -> CGFloat {
+        return round(value * UIScreen.main.scale) / UIScreen.main.scale
+    }
+
     static func model() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
