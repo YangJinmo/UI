@@ -26,6 +26,16 @@ extension UIView {
         }
     }
 
+    @IBInspectable var setCornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+
     // MARK: - Safe Area
 
     var safeAreaHeight: CGFloat {
