@@ -115,6 +115,7 @@
 		E8B448D0278F1ED6005881B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448CF278F1ED6005881B9 /* API.swift */; };
 		E8B448D227906F09005881B9 /* IssuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448D127906F09005881B9 /* IssuesService.swift */; };
 		E8B448D427906F41005881B9 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448D327906F41005881B9 /* APIError.swift */; };
+		E8B695E6292369F400763E79 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B695E5292369F400763E79 /* UITextField.swift */; };
 		E8C4998128113956007AA388 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4998028113956007AA388 /* UIDevice.swift */; };
 		E8CF006A277C65F7009B3128 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF0069277C65F7009B3128 /* Track.swift */; };
 		E8CF006C277C6770009B3128 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF006B277C6770009B3128 /* QueryService.swift */; };
@@ -244,6 +245,7 @@
 		E8B448CF278F1ED6005881B9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E8B448D127906F09005881B9 /* IssuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesService.swift; sourceTree = "<group>"; };
 		E8B448D327906F41005881B9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		E8B695E5292369F400763E79 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		E8C4998028113956007AA388 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		E8CF0069277C65F7009B3128 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E8CF006B277C6770009B3128 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
 				E8A2040F28240872001D5D92 /* UITextView.swift */,
 				E84282CD2853630400E27E39 /* UIActivity.swift */,
+				E8B695E5292369F400763E79 /* UITextField.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				E84B78D227A83151007581EB /* StringProtocol.swift in Sources */,
 				099D33ED27545AA500C14F5F /* TextViewController.swift in Sources */,
 				09ADF3A62725996E004C6A97 /* SupplementaryViewKind.swift in Sources */,
+				E8B695E6292369F400763E79 /* UITextField.swift in Sources */,
 				093160A727350DEA00126D4E /* MyViewController.swift in Sources */,
 				09ADF36B272521BD004C6A97 /* AppDelegate.swift in Sources */,
 				091AC42F273905D600294EFC /* BaseActivityIndicatorView.swift in Sources */,
