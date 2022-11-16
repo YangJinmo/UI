@@ -17,7 +17,7 @@ final class DividerView: BaseView {
             return
         }
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             leftAnchor.constraint(equalTo: superview.leftAnchor),
             rightAnchor.constraint(equalTo: superview.rightAnchor),
             bottomAnchor.constraint(equalTo: superview.bottomAnchor),

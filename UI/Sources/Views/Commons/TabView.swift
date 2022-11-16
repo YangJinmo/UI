@@ -48,7 +48,7 @@ final class TabView: BaseView {
 
     // MARK: - Layout Constraints
 
-    private var bottomConstraint: Constraint? {
+    private var bottomConstraint: NSLayoutConstraint? {
         didSet {
             if oldValue != nil {
                 removeConstraint(oldValue!)
@@ -75,7 +75,7 @@ final class TabView: BaseView {
             titleView
         )
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             titleView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             titleView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             titleView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
@@ -93,7 +93,7 @@ final class TabView: BaseView {
             titleLabel
         )
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             popButton.topAnchor.constraint(equalTo: titleView.topAnchor),
             popButton.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: titleView.leftAnchor),
@@ -118,7 +118,7 @@ final class TabView: BaseView {
         scrollView.addSubviews(stackView)
         views.forEach { stackView.addArrangedSubview($0) }
 
-        bottomConstraint = Constraint(
+        bottomConstraint = NSLayoutConstraint(
             item: scrollView,
             attribute: .bottom,
             relatedBy: .equal,
@@ -128,7 +128,7 @@ final class TabView: BaseView {
             constant: 0
         )
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
@@ -147,7 +147,7 @@ final class TabView: BaseView {
         guideView.addSubviews(stackView)
         views.forEach { stackView.addArrangedSubview($0) }
 
-        bottomConstraint = Constraint(
+        bottomConstraint = NSLayoutConstraint(
             item: scrollView,
             attribute: .bottom,
             relatedBy: .equal,
@@ -160,7 +160,7 @@ final class TabView: BaseView {
         let contentViewHeightConstraint = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         contentViewHeightConstraint.priority = .defaultLow
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: contentView.rightAnchor),

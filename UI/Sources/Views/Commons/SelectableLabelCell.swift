@@ -27,7 +27,7 @@ final class SelectableLabelCell: BaseCollectionViewCell {
     override func commonInit() {
         contentView.addSubviews(titleLabel)
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
         ])

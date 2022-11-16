@@ -49,7 +49,7 @@ class BaseTabViewController: BaseViewController {
             navigationView
         )
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             navigationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             navigationView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             navigationView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
@@ -97,7 +97,7 @@ class BaseTabViewController: BaseViewController {
         let contentViewHeightConstraint = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         contentViewHeightConstraint.priority = .defaultLow
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: contentView.rightAnchor),

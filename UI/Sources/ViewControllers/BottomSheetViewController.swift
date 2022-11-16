@@ -77,7 +77,7 @@ final class BottomSheetViewController: UIViewController {
     private func setupViews() {
         view.addSubviews(backgroundView)
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -89,7 +89,7 @@ final class BottomSheetViewController: UIViewController {
         contentViewTopConstraint = contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: contentViewTop)
         contentViewHeightConstraint = contentView.heightAnchor.constraint(equalToConstant: contentViewHeight)
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             contentViewTopConstraint,
             contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -101,14 +101,14 @@ final class BottomSheetViewController: UIViewController {
             navigationView
         )
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             navigationView.topAnchor.constraint(equalTo: contentView.topAnchor),
             navigationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             navigationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             navigationView.heightAnchor.constraint(equalToConstant: navigationBarHeight),
         ])
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),

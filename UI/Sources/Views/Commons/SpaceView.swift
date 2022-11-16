@@ -23,7 +23,7 @@ final class SpaceView: BaseView {
     override func commonInit() {
         translatesAutoresizingMaskIntoConstraints = false
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: height),
         ])
     }

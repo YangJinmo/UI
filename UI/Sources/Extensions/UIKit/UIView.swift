@@ -7,8 +7,6 @@
 
 import UIKit.UIView
 
-typealias Constraint = NSLayoutConstraint
-
 extension UIView {
     var navigationBarHeight: CGFloat {
         return 44
@@ -88,7 +86,7 @@ extension UIView {
 
         addSubview(dividerView)
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             dividerView.leftAnchor.constraint(equalTo: leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: rightAnchor),
             dividerView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -104,7 +102,7 @@ extension UIView {
 
         addSubview(dividerView)
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             dividerView.leftAnchor.constraint(equalTo: leftAnchor),
             dividerView.rightAnchor.constraint(equalTo: rightAnchor),
             dividerView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -452,7 +450,7 @@ extension UIView {
     }
 
     @discardableResult
-    func remake(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat) -> Constraint? {
+    func remake(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat) -> NSLayoutConstraint? {
         guard let superview = superview else {
             return nil
         }
@@ -462,7 +460,7 @@ extension UIView {
     }
 
     @discardableResult
-    private func remake(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat) -> Constraint? {
+    private func remake(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat) -> NSLayoutConstraint? {
         guard let superview = superview else {
             return nil
         }
@@ -472,7 +470,7 @@ extension UIView {
     }
 
     @discardableResult
-    private func remake(dimension: NSLayoutDimension, toDimension: NSLayoutDimension? = nil, constant: CGFloat, multiplier: CGFloat) -> Constraint? {
+    private func remake(dimension: NSLayoutDimension, toDimension: NSLayoutDimension? = nil, constant: CGFloat, multiplier: CGFloat) -> NSLayoutConstraint? {
         guard let superview = superview else {
             return nil
         }
@@ -482,17 +480,17 @@ extension UIView {
     }
 
     @discardableResult
-    private func make(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat) -> Constraint? {
+    private func make(anchorX: NSLayoutXAxisAnchor, toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat) -> NSLayoutConstraint? {
         return anchorX.constraint(anchor: toAnchorX, constant: constant)
     }
 
     @discardableResult
-    private func make(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat) -> Constraint? {
+    private func make(anchorY: NSLayoutYAxisAnchor, toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat) -> NSLayoutConstraint? {
         return anchorY.constraint(anchor: toAnchorY, constant: constant)
     }
 
     @discardableResult
-    private func make(dimension: NSLayoutDimension, toDimension: NSLayoutDimension? = nil, constant: CGFloat, multiplier: CGFloat) -> Constraint? {
+    private func make(dimension: NSLayoutDimension, toDimension: NSLayoutDimension? = nil, constant: CGFloat, multiplier: CGFloat) -> NSLayoutConstraint? {
         if let toDimension = toDimension {
             return dimension.constraint(anchor: toDimension, constant: constant, multiplier: multiplier)
         } else if constant > 0.0 {
@@ -503,37 +501,37 @@ extension UIView {
     }
 
     @discardableResult
-    func top(equalTo toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> Constraint? {
+    func top(equalTo toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
         return remake(anchorY: topAnchor, toAnchorY: toAnchorY, constant: constant)
     }
 
     @discardableResult
-    func left(equalTo toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat = 0.0) -> Constraint? {
+    func left(equalTo toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
         return remake(anchorX: leftAnchor, toAnchorX: toAnchorX, constant: constant)
     }
 
     @discardableResult
-    func right(equalTo toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat = 0.0) -> Constraint? {
+    func right(equalTo toAnchorX: NSLayoutXAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
         return remake(anchorX: rightAnchor, toAnchorX: toAnchorX, constant: -constant)
     }
 
     @discardableResult
-    func bottom(equalTo toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> Constraint? {
+    func bottom(equalTo toAnchorY: NSLayoutYAxisAnchor, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
         return remake(anchorY: bottomAnchor, toAnchorY: toAnchorY, constant: -constant)
     }
 
     @discardableResult
-    func width(equalTo toDimension: NSLayoutDimension? = nil, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0) -> Constraint? {
+    func width(equalTo toDimension: NSLayoutDimension? = nil, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0) -> NSLayoutConstraint? {
         return remake(dimension: widthAnchor, toDimension: toDimension, constant: constant, multiplier: multiplier)
     }
 
     @discardableResult
-    func height(equalTo toDimension: NSLayoutDimension? = nil, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0) -> Constraint? {
+    func height(equalTo toDimension: NSLayoutDimension? = nil, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0) -> NSLayoutConstraint? {
         return remake(dimension: heightAnchor, toDimension: toDimension, constant: constant, multiplier: multiplier)
     }
 
     @discardableResult
-    func centerX(equalTo view: UIView? = nil, constant: CGFloat = 0.0) -> Constraint? {
+    func centerX(equalTo view: UIView? = nil, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
         if let view = view {
             return remake(anchorX: centerXAnchor, toAnchorX: view.centerXAnchor, constant: constant)
         } else if let superview = superview {
@@ -543,7 +541,7 @@ extension UIView {
     }
 
     @discardableResult
-    func centerY(equalTo view: UIView? = nil, constant: CGFloat = 0.0) -> Constraint? {
+    func centerY(equalTo view: UIView? = nil, constant: CGFloat = 0.0) -> NSLayoutConstraint? {
         if let view = view {
             return remake(anchorY: centerYAnchor, toAnchorY: view.centerYAnchor, constant: constant)
         } else if let superview = superview {
@@ -639,7 +637,7 @@ extension UIView {
     private func remakeConstraint(_ attribute: NSLayoutConstraint.Attribute, _ constant: CGFloat, _ multiplier: CGFloat) {
         removeConstraint(attribute: attribute)
         addConstraint(
-            Constraint(
+            NSLayoutConstraint(
                 item: self,
                 attribute: attribute,
                 relatedBy: .equal,
@@ -684,9 +682,9 @@ extension UIView {
         }
 
         addConstraints(
-            Constraint.constraints(
+            NSLayoutConstraint.constraints(
                 withVisualFormat: format,
-                options: Constraint.FormatOptions(),
+                options: NSLayoutConstraint.FormatOptions(),
                 metrics: nil,
                 views: viewsDictionary
             )

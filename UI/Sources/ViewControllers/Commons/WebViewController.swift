@@ -108,7 +108,7 @@ final class WebViewController: BaseTabViewController {
             activityIndicatorView
         )
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             progressView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             progressView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             progressView.bottomAnchor.constraint(equalTo: contentView.topAnchor),

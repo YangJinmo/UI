@@ -267,7 +267,7 @@ extension UIViewController {
         if bottom {
             let bottomConstant: CGFloat = keyWindow.safeAreaInsets.bottom + 64.0
             toastLabel.translatesAutoresizingMaskIntoConstraints = false
-            Constraint.activate([
+            NSLayoutConstraint.activate([
                 toastLabel.bottomAnchor.constraint(equalTo: keyWindow.bottomAnchor, constant: -bottomConstant),
                 toastLabel.centerXAnchor.constraint(equalTo: keyWindow.centerXAnchor),
                 toastLabel.widthAnchor.constraint(equalToConstant: width),

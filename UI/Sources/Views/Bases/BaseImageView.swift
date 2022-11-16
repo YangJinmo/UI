@@ -32,7 +32,7 @@ final class BaseImageView: UIImageView {
 
     // MARK: - Variables
 
-    private var aspectRatioConstraint: Constraint? {
+    private var aspectRatioConstraint: NSLayoutConstraint? {
         didSet {
             if oldValue != nil {
                 removeConstraint(oldValue!)

@@ -39,7 +39,7 @@ final class NavigationView: BaseView {
             titleLabel
         )
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             popButton.topAnchor.constraint(equalTo: topAnchor),
             popButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             popButton.leftAnchor.constraint(equalTo: leftAnchor),

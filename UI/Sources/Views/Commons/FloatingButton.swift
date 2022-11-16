@@ -58,7 +58,7 @@ final class FloatingButton: UIButton {
 
         translatesAutoresizingMaskIntoConstraints = false
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             widthAnchor.constraint(equalToConstant: 56),
             heightAnchor.constraint(equalToConstant: 56),
         ])
@@ -113,7 +113,7 @@ final class FloatingButton: UIButton {
     func create() {
         view.addSubview(self)
 
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])

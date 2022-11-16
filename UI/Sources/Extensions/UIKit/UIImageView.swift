@@ -216,8 +216,8 @@ extension UIImageView {
 
     // MARK: - Constraint
 
-    func getAspectRatioConstraint(_ image: UIImage) -> Constraint {
-        let constraint = Constraint(
+    func getAspectRatioConstraint(_ image: UIImage) -> NSLayoutConstraint {
+        let constraint = NSLayoutConstraint(
             item: self,
             attribute: .width,
             relatedBy: .equal,

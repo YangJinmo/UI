@@ -21,7 +21,7 @@ final class ScrollViewController: UIViewController {
 
     // MARK: - Layout Constraint
 
-    private var topConstraint: Constraint? {
+    private var topConstraint: NSLayoutConstraint? {
         didSet {
             if oldValue != nil {
                 view.removeConstraint(oldValue!)
@@ -63,7 +63,7 @@ final class ScrollViewController: UIViewController {
 //        view.addSubviews(scrollView)
 //        scrollView.addSubviews(contentView)
 
-//        Constraint.activate([
+//        NSLayoutConstraint.activate([
 //            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 //            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
 //            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -80,7 +80,7 @@ final class ScrollViewController: UIViewController {
 //            subtitleLabel
 //        )
 
-//        Constraint.activate([
+//        NSLayoutConstraint.activate([
 //            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
 //            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
 //            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 4 / 5),

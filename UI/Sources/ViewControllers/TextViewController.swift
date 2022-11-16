@@ -58,7 +58,7 @@ final class TextViewController: BaseTabViewController {
             right: contentView.rightAnchor
         )
 
-        bottomConstraint = Constraint(
+        bottomConstraint = NSLayoutConstraint(
             item: textView,
             attribute: .bottom,
             relatedBy: .equal,

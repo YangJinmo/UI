@@ -80,7 +80,7 @@ final class ActionSheet {
         )
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
@@ -88,14 +88,14 @@ final class ActionSheet {
         ])
 
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             confirmButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             confirmButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
             confirmButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
         ])
 
         dismissButton.translatesAutoresizingMaskIntoConstraints = false
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             dismissButton.topAnchor.constraint(equalTo: view.topAnchor),
             dismissButton.rightAnchor.constraint(equalTo: view.rightAnchor),
             dismissButton.widthAnchor.constraint(equalToConstant: 56),
@@ -105,7 +105,7 @@ final class ActionSheet {
         keyWindow.addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
-        Constraint.activate([
+        NSLayoutConstraint.activate([
             view.leftAnchor.constraint(equalTo: keyWindow.leftAnchor, constant: 32),
             view.rightAnchor.constraint(equalTo: keyWindow.rightAnchor, constant: -32),
             view.bottomAnchor.constraint(equalTo: keyWindow.safeAreaLayoutGuide.bottomAnchor, constant: -16),
