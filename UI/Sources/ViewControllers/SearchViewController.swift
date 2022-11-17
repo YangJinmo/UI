@@ -184,9 +184,9 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.item {
         case 0:
-            return itemSize(width: collectionView, height: SearchTitleCell.itemHeight)
+            return itemSize(in: collectionView, height: SearchTitleCell.itemHeight)
         default:
-            return itemSize(width: collectionView, height: SearchTermCell.itemHeight)
+            return itemSize(in: collectionView, height: SearchTermCell.itemHeight)
         }
     }
 }

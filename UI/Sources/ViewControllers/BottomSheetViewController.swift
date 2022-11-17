@@ -228,7 +228,7 @@ extension BottomSheetViewController: UICollectionViewDelegate {
 
 extension BottomSheetViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return itemSize(width: collectionView, height: SelectableLabelCell.itemHeight)
+        return itemSize(in: collectionView, height: SelectableLabelCell.itemHeight)
     }
 }
 
