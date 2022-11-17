@@ -38,10 +38,42 @@ extension FlowLayoutMetric {
         return flowLayout
     }
 
-    func itemSize(width view: UIView, height: CGFloat) -> CGSize {
+    /// width 값은 계산하고
+    /// height 값은 직접 입력
+    func itemSize(in collectionView: UICollectionView, height: CGFloat = 0) -> CGSize {
         let horizontalInset = sectionInset.left + sectionInset.right
-        let collectionWidth = view.safeAreaLayoutGuide.layoutFrame.width - horizontalInset
+        let collectionWidth = collectionView.safeAreaLayoutGuide.layoutFrame.width - horizontalInset
         let width = (collectionWidth - (minimumInteritemSpacing * (numberOfItemForRow - 1))) / numberOfItemForRow
+
+//        "width: \(width), height: \(height)".log()
+
+        return CGSize(width: width, height: height)
+    }
+
+    /// width 값은 계산하고
+    /// height 값은 width x aspectRatio + addHeight
+    func itemSize(in collectionView: UICollectionView, aspectRatio: CGFloat = 1, addHeight: CGFloat = 0) -> CGSize {
+        let horizontalInset = sectionInset.left + sectionInset.right
+        let collectionWidth = collectionView.safeAreaLayoutGuide.layoutFrame.width - horizontalInset
+        let width = (collectionWidth - (minimumInteritemSpacing * (numberOfItemForRow - 1))) / numberOfItemForRow
+        let height = width * aspectRatio + addHeight
+
+//        "width: \(width), height: \(height)".log()
+
+        return CGSize(width: width, height: height)
+    }
+
+    /// row와 column을 입력하여 width 값과 height 값을 계산
+    func itemSize(in collectionView: UICollectionView, numberOfItemForColumn: CGFloat) -> CGSize {
+        let horizontalInset = sectionInset.left + sectionInset.right
+        let verticalInset = sectionInset.top + sectionInset.bottom
+        let collectionWidth = collectionView.safeAreaLayoutGuide.layoutFrame.width - horizontalInset
+        let collectionHeight = collectionView.safeAreaLayoutGuide.layoutFrame.height - verticalInset
+        let width = collectionWidth / numberOfItemForRow
+        let height = collectionHeight / numberOfItemForColumn
+
+//        "width: \(width), height: \(height)".log()
+
         return CGSize(width: width, height: height)
     }
 }
