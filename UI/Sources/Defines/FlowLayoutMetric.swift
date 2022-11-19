@@ -38,42 +38,52 @@ extension FlowLayoutMetric {
         return flowLayout
     }
 
-    /// width 값은 계산하고
-    /// height 값은 직접 입력
-    func itemSize(in collectionView: UICollectionView, height: CGFloat = 0) -> CGSize {
+    /// collectionView의 width가 이미 정해져 있는 경우,
+    /// item의 width 값은 계산, height 값은 직접 입력
+    func itemSize(in collectionView: UICollectionView, height itemHeight: CGFloat = 0) -> CGSize {
         let horizontalInset = sectionInset.left + sectionInset.right
         let collectionWidth = collectionView.safeAreaLayoutGuide.layoutFrame.width - horizontalInset
-        let width = (collectionWidth - (minimumInteritemSpacing * (numberOfItemForRow - 1))) / numberOfItemForRow
+        let totalLineSpacing = minimumLineSpacing * (numberOfItemForRow - 1)
 
-//        "width: \(width), height: \(height)".log()
+        let itemWidth = (collectionWidth - totalLineSpacing) / numberOfItemForRow
 
-        return CGSize(width: width, height: height)
+//        "width: \(itemWidth), height: \(itemHeight)".log()
+
+        return CGSize(width: itemWidth, height: itemHeight)
     }
 
-    /// width 값은 계산하고
-    /// height 값은 width x aspectRatio + addHeight
+    /// collectionView의 width가 이미 정해져 있는 경우,
+    /// item의 width 값은 계산, height 값은 width x aspectRatio(이미지 비율) + addHeight(하단 텍스트)
     func itemSize(in collectionView: UICollectionView, aspectRatio: CGFloat = 1, addHeight: CGFloat = 0) -> CGSize {
         let horizontalInset = sectionInset.left + sectionInset.right
         let collectionWidth = collectionView.safeAreaLayoutGuide.layoutFrame.width - horizontalInset
-        let width = (collectionWidth - (minimumInteritemSpacing * (numberOfItemForRow - 1))) / numberOfItemForRow
-        let height = width * aspectRatio + addHeight
+        let totalLineSpacing = minimumLineSpacing * (numberOfItemForRow - 1)
 
-//        "width: \(width), height: \(height)".log()
+        let itemWidth = (collectionWidth - totalLineSpacing) / numberOfItemForRow
+        let itemHeight = itemWidth * aspectRatio + addHeight
 
-        return CGSize(width: width, height: height)
+//        "width: \(itemWidth), height: \(itemHeight)".log()
+
+        return CGSize(width: itemWidth, height: itemHeight)
     }
 
-    /// row와 column을 입력하여 width 값과 height 값을 계산
+    /// collectionView의 width와 height가 이미 정해져 있는 경우,
+    /// row와 column을 입력하여 item의 width 값과 height 값을 계산
     func itemSize(in collectionView: UICollectionView, numberOfItemForColumn: CGFloat) -> CGSize {
         let horizontalInset = sectionInset.left + sectionInset.right
         let verticalInset = sectionInset.top + sectionInset.bottom
+
         let collectionWidth = collectionView.safeAreaLayoutGuide.layoutFrame.width - horizontalInset
         let collectionHeight = collectionView.safeAreaLayoutGuide.layoutFrame.height - verticalInset
-        let width = collectionWidth / numberOfItemForRow
-        let height = collectionHeight / numberOfItemForColumn
 
-//        "width: \(width), height: \(height)".log()
+        let totalLineSpacing = minimumLineSpacing * (numberOfItemForRow - 1)
+        let totalInteritemSpacing = minimumInteritemSpacing * (numberOfItemForColumn - 1)
 
-        return CGSize(width: width, height: height)
+        let itemWidth = (collectionWidth - totalLineSpacing) / numberOfItemForRow
+        let itemHeight = (collectionHeight - totalInteritemSpacing) / numberOfItemForColumn
+
+//        "width: \(itemWidth), height: \(itemHeight)".log()
+
+        return CGSize(width: itemWidth, height: itemHeight)
     }
 }
