@@ -58,6 +58,7 @@
 		E82166602898168A006ADC1D /* ChevronDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E821665F2898168A006ADC1D /* ChevronDownButton.swift */; };
 		E8300BFC27FFD11300512AAF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8300BFB27FFD11300512AAF /* PinterestLayout.swift */; };
 		E83137662783185E007145E2 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83137652783185E007145E2 /* CGFloat.swift */; };
+		E8333B65292A5D7B00A3DCCF /* BaseScrollIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8333B64292A5D7B00A3DCCF /* BaseScrollIndicatorView.swift */; };
 		E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405227B9173A002913FA /* BottomSheetViewController.swift */; };
 		E835405727B950BF002913FA /* RecommendedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405627B950BF002913FA /* RecommendedButton.swift */; };
 		E835405927B950DD002913FA /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405827B950DD002913FA /* BaseButton.swift */; };
@@ -188,6 +189,7 @@
 		E821665F2898168A006ADC1D /* ChevronDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronDownButton.swift; sourceTree = "<group>"; };
 		E8300BFB27FFD11300512AAF /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		E83137652783185E007145E2 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		E8333B64292A5D7B00A3DCCF /* BaseScrollIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollIndicatorView.swift; sourceTree = "<group>"; };
 		E835405227B9173A002913FA /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		E835405627B950BF002913FA /* RecommendedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedButton.swift; sourceTree = "<group>"; };
 		E835405827B950DD002913FA /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */,
 				E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */,
 				E835405827B950DD002913FA /* BaseButton.swift */,
+				E8333B64292A5D7B00A3DCCF /* BaseScrollIndicatorView.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				09AB348E272B9B1C00317254 /* TabBarController.swift in Sources */,
 				091AC4292737ED2F00294EFC /* String.swift in Sources */,
 				09ADF39627252989004C6A97 /* UIEdgeInsets.swift in Sources */,
+				E8333B65292A5D7B00A3DCCF /* BaseScrollIndicatorView.swift in Sources */,
 				E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */,
 				E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */,
 				E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */,
