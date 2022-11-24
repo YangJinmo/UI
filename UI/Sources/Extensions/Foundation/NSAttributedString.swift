@@ -31,11 +31,15 @@ extension NSAttributedString {
         return apply([.underlineColor: color])
     }
 
+    func shadow(_ shadow: NSShadow) -> NSAttributedString {
+        return apply([.shadow: shadow])
+    }
+
     func font(_ font: UIFont) -> NSAttributedString {
         return apply([.font: font])
     }
 
-    func shadow(_ shadow: NSShadow) -> NSAttributedString {
-        return apply([.shadow: shadow])
+    func italic() -> NSAttributedString {
+        return apply([.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
     }
 }
