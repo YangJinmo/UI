@@ -1,13 +1,13 @@
 //
-//  UIPlaceholderTextView.swift
+//  PlaceholderTextView.swift
 //  UI
 //
-//  Created by Jmy on 2022/09/05.
+//  Created by Jmy on 2022/11/26.
 //
 
 import UIKit
 
-class UIPlaceholderTextView: UITextView {
+class PlaceholderTextView: UITextView {
     // MARK: - Public Properties
 
     /// Determines whether or not the placeholder text view contains text.
@@ -118,11 +118,11 @@ class UIPlaceholderTextView: UITextView {
     fileprivate func commonInitializer() {
         contentMode = .topLeft
         maxNumberOfCharacters = 0
-        NotificationCenter.default.addObserver(self, selector: #selector(UIPlaceholderTextView.handleTextViewTextDidChangeNotification(_:)), name: UITextView.textDidChangeNotification, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(PlaceholderTextView.handleTextViewTextDidChangeNotification(_:)), name: UITextView.textDidChangeNotification, object: self)
     }
 
     @objc internal func handleTextViewTextDidChangeNotification(_ notification: Notification) {
-        guard let object = notification.object as? UIPlaceholderTextView, object === self else {
+        guard let object = notification.object as? PlaceholderTextView, object === self else {
             return
         }
         if maxNumberOfCharacters != 0, text.count >= maxNumberOfCharacters {
