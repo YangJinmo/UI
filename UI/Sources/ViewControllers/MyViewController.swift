@@ -131,12 +131,10 @@ final class MyViewController: BaseTabViewController {
         pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched(_:)), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
 
-        requestAuthorizationNotification {
-            UNUserNotificationCenter.current().delegate = self
-        }
+        requestAuthorizationNotification()
     }
 
-    private func requestAuthorizationNotification(_ completion: CompletionHandler?) {
+    private func requestAuthorizationNotification() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { didAllow, error in
             if let error = error {
                 "Error: \(error.localizedDescription)".log()
@@ -144,7 +142,7 @@ final class MyViewController: BaseTabViewController {
                 "didAllow: \(didAllow)".log()
 
                 DispatchQueue.main.async {
-                    completion?()
+                    UNUserNotificationCenter.current().delegate = self
                 }
             }
         })
