@@ -17,4 +17,18 @@ extension Int {
         let seconds: Int = self % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
+
+    var rounded: String {
+        return String(Float(self * 10).rounded() / 10)
+    }
+
+    var abbreviateLocalizedNumber: String {
+        if self >= 1000000 {
+            return (self / 1000000).rounded + "M"
+        }
+        if self >= 1000 {
+            return (self / 1000).rounded + "K"
+        }
+        return String(self)
+    }
 }
