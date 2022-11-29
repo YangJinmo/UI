@@ -117,6 +117,7 @@
 		E8B448D427906F41005881B9 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448D327906F41005881B9 /* APIError.swift */; };
 		E8B695E6292369F400763E79 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B695E5292369F400763E79 /* UITextField.swift */; };
 		E8C4998128113956007AA388 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4998028113956007AA388 /* UIDevice.swift */; };
+		E8C622502935DFC80008C170 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C6224F2935DFC80008C170 /* Double.swift */; };
 		E8CF006A277C65F7009B3128 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF0069277C65F7009B3128 /* Track.swift */; };
 		E8CF006C277C6770009B3128 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF006B277C6770009B3128 /* QueryService.swift */; };
 		E8DB4BA427AC2D8000E29CF1 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */; };
@@ -249,6 +250,7 @@
 		E8B448D327906F41005881B9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		E8B695E5292369F400763E79 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		E8C4998028113956007AA388 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		E8C6224F2935DFC80008C170 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E8CF0069277C65F7009B3128 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E8CF006B277C6770009B3128 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 			isa = PBXGroup;
 			children = (
 				E876669327B511F200480E6A /* Int.swift */,
+				E8C6224F2935DFC80008C170 /* Double.swift */,
 				091AC4282737ED2F00294EFC /* String.swift */,
 				E84B78D127A83151007581EB /* StringProtocol.swift */,
 				E8983717284058BF000CE96F /* Dictionary.swift */,
@@ -792,6 +795,7 @@
 				E8A829332743256A00B3D7F9 /* Website.swift in Sources */,
 				E878A88F2832226E00D1B9C2 /* CaseIterable.swift in Sources */,
 				091AC4332739142400294EFC /* WKWebView.swift in Sources */,
+				E8C622502935DFC80008C170 /* Double.swift in Sources */,
 				E84282CE2853630400E27E39 /* UIActivity.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
 				E8B448D427906F41005881B9 /* APIError.swift in Sources */,

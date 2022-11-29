@@ -18,16 +18,12 @@ extension Int {
         return String(format: "%02d:%02d", minutes, seconds)
     }
 
-    var rounded: String {
-        return String(Float(self * 10).rounded() / 10)
-    }
-
-    var abbreviateLocalizedNumber: String {
+    var abbreviatedNumber: String {
         if self >= 1000000 {
-            return (self / 1000000).rounded + "M"
+            return "\((Double(self) / 1000000).floorNumber())M"
         }
         if self >= 1000 {
-            return (self / 1000).rounded + "K"
+            return "\((Double(self) / 1000).floorNumber())K"
         }
         return String(self)
     }
