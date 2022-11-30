@@ -73,8 +73,8 @@ final class BaseScrollIndicatorView: BaseView {
         trackTintView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             trackTintView.topAnchor.constraint(equalTo: trackView.topAnchor),
-            trackTintView.bottomAnchor.constraint(equalTo: trackView.topAnchor),
-            trackTintView.widthAnchor.constraint(equalTo: trackView.widthAnchor, constant: 54),
+            trackTintView.bottomAnchor.constraint(equalTo: trackView.bottomAnchor),
+            trackTintView.widthAnchor.constraint(equalTo: trackView.widthAnchor, multiplier: 1.0 / 5.0),
         ])
 
 //        trackTintView.snp.makeConstraints { make in
