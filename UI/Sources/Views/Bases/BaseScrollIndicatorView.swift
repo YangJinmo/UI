@@ -30,7 +30,7 @@ final class BaseScrollIndicatorView: BaseView {
         }
     }
 
-//    private var leftInsetConstraint: Constraint?
+    private var leftInsetConstraint: NSLayoutConstraint?
 
     // MARK: - UI Components
 
@@ -75,6 +75,18 @@ final class BaseScrollIndicatorView: BaseView {
             trackTintView.topAnchor.constraint(equalTo: trackView.topAnchor),
             trackTintView.bottomAnchor.constraint(equalTo: trackView.bottomAnchor),
             trackTintView.widthAnchor.constraint(equalTo: trackView.widthAnchor, multiplier: 1.0 / 5.0),
+            trackTintView.leftAnchor.constraint(greaterThanOrEqualTo: trackView.leftAnchor),
+            trackTintView.rightAnchor.constraint(lessThanOrEqualTo: trackView.rightAnchor),
+//            leftInsetConstraint = NSLayoutConstraint(
+//                item: trackTintView,
+//                attribute: .left,
+//                relatedBy: .equal,
+//                toItem: trackView,
+//                attribute: .left,
+//                multiplier: 1,
+//                constant: 0
+//            )
+//            leftInsetConstraint.priority = UILayoutPriority(rawValue: 999)
         ])
 
 //        trackTintView.snp.makeConstraints { make in
