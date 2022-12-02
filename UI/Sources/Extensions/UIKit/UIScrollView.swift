@@ -57,4 +57,30 @@ extension UIScrollView {
         )
         setContentOffset(point, animated: animated)
     }
+
+    fileprivate struct AssociatedKeys {
+        static var kKeyScrollViewVerticalIndicator = "_verticalScrollIndicator"
+        static var kKeyScrollViewHorizontalIndicator = "_horizontalScrollIndicator"
+    }
+
+    /// The vertical scroll indicator view.
+    var verticalScroller: UIView {
+        if objc_getAssociatedObject(self, #function) == nil {
+            objc_setAssociatedObject(self, #function, self.safeValueForKey(AssociatedKeys.kKeyScrollViewVerticalIndicator), objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+        }
+        return objc_getAssociatedObject(self, #function) as! UIView
+    }
+
+    /// The horizontal scroll indicator view.
+    var horizontalScroller: UIView {
+        if objc_getAssociatedObject(self, #function) == nil {
+            objc_setAssociatedObject(self, #function, self.safeValueForKey(AssociatedKeys.kKeyScrollViewHorizontalIndicator), objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+        }
+        return objc_getAssociatedObject(self, #function) as! UIView
+    }
+
+    fileprivate func safeValueForKey(_ key: String) -> AnyObject {
+        let instanceVariable: Ivar = class_getInstanceVariable(type(of: self), key.cString(using: String.Encoding.utf8)!)!
+        return object_getIvar(self, instanceVariable) as AnyObject
+    }
 }
