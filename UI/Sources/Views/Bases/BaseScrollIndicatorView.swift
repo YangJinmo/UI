@@ -12,14 +12,28 @@ final class BaseScrollIndicatorView: BaseView {
 
     var widthRatio: Double? {
         didSet {
-//            guard let widthRatio = widthRatio else { return }
-//            trackTintView.snp.remakeConstraints { make in
-//                make.top.bottom.equalToSuperview()
-//                make.width.equalToSuperview().multipliedBy(widthRatio)
-//                make.left.greaterThanOrEqualToSuperview()
-//                make.right.lessThanOrEqualToSuperview()
-//                self.leftInsetConstraint = make.left.equalToSuperview().priority(999).constraint
-//            }
+            guard let widthRatio = widthRatio else { return }
+            removeConstraints(trackTintView.constraints)
+
+            trackTintView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                trackTintView.topAnchor.constraint(equalTo: trackView.topAnchor),
+                trackTintView.bottomAnchor.constraint(equalTo: trackView.bottomAnchor),
+                trackTintView.widthAnchor.constraint(equalTo: trackView.widthAnchor, multiplier: widthRatio),
+                trackTintView.leftAnchor.constraint(greaterThanOrEqualTo: trackView.leftAnchor),
+                trackTintView.rightAnchor.constraint(lessThanOrEqualTo: trackView.rightAnchor),
+            ])
+
+            leftInsetConstraint = NSLayoutConstraint(
+                item: trackTintView,
+                attribute: .left,
+                relatedBy: .equal,
+                toItem: trackView,
+                attribute: .left,
+                multiplier: 1,
+                constant: 0
+            )
+            leftInsetConstraint?.priority = UILayoutPriority(rawValue: 999)
         }
     }
 
@@ -27,6 +41,7 @@ final class BaseScrollIndicatorView: BaseView {
         didSet {
 //            guard let leftOffsetRatio = leftOffsetRatio else { return }
 //            leftInsetConstraint?.update(inset: leftOffsetRatio * bounds.width)
+//            leftInsetConstraint?.constant = leftOffsetRatio * bounds.width
         }
     }
 
@@ -77,24 +92,17 @@ final class BaseScrollIndicatorView: BaseView {
             trackTintView.widthAnchor.constraint(equalTo: trackView.widthAnchor, multiplier: 1.0 / 5.0),
             trackTintView.leftAnchor.constraint(greaterThanOrEqualTo: trackView.leftAnchor),
             trackTintView.rightAnchor.constraint(lessThanOrEqualTo: trackView.rightAnchor),
-//            leftInsetConstraint = NSLayoutConstraint(
-//                item: trackTintView,
-//                attribute: .left,
-//                relatedBy: .equal,
-//                toItem: trackView,
-//                attribute: .left,
-//                multiplier: 1,
-//                constant: 0
-//            )
-//            leftInsetConstraint.priority = UILayoutPriority(rawValue: 999)
         ])
 
-//        trackTintView.snp.makeConstraints { make in
-//            make.top.bottom.equalToSuperview()
-//            make.width.equalToSuperview().multipliedBy(1.0 / 5.0)
-//            make.left.greaterThanOrEqualToSuperview()
-//            make.right.lessThanOrEqualToSuperview()
-//            self.leftInsetConstraint = make.left.equalToSuperview().priority(999).constraint
-//        }
+        leftInsetConstraint = NSLayoutConstraint(
+            item: trackTintView,
+            attribute: .left,
+            relatedBy: .equal,
+            toItem: trackView,
+            attribute: .left,
+            multiplier: 1,
+            constant: 0
+        )
+        leftInsetConstraint?.priority = UILayoutPriority(rawValue: 999)
     }
 }
