@@ -41,8 +41,10 @@ extension UIScrollView {
             return
         }
 
-        let y = contentSize.height - bounds.height + contentInset.bottom + safeAreaInsets.bottom + up
-        let point = CGPoint(x: 0, y: y)
+        let point = CGPoint(
+            x: 0,
+            y: contentSize.height - bounds.height + contentInset.bottom + safeAreaInsets.bottom + up
+        )
         setContentOffset(point, animated: animated)
     }
 
