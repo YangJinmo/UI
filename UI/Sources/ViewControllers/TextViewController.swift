@@ -8,7 +8,10 @@
 import UIKit
 
 final class TextViewController: BaseTabViewController {
-    // MARK: - Constants
+    // MARK: - Properties
+
+    var isScrollToBottom = false
+    var scrollToBottomUpHeight: CGFloat = 0
 
     private enum Font {
         static let textView: UIFont = .systemFont(ofSize: 24, weight: .semibold)
@@ -117,7 +120,11 @@ final class TextViewController: BaseTabViewController {
 
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
                 self.view.layoutIfNeeded()
-            })
+            }) { _ in
+                if isKeyboard, self.isScrollToBottom {
+//                    self.scrollView.scrollToBottom(up: self.scrollToBottomUpHeight)
+                }
+            }
         } else {
             UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
                 self.view.layoutIfNeeded()
