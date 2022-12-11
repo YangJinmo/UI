@@ -96,21 +96,21 @@ final class MyViewController: BaseTabViewController {
             nicknameButton
         )
 
-        emailButton.height(56)
-        alertButton.height(56)
-        alertOptionButton.height(56)
-        actionSheetButton.height(56)
-        modalButton.height(56)
-        delegateButton.height(56)
+        emailButton.height(44)
+        alertButton.height(44)
+        alertOptionButton.height(44)
+        actionSheetButton.height(44)
+        modalButton.height(44)
+        delegateButton.height(44)
 
-        slider.height(56)
+        slider.height(44)
         slider.left(equalTo: view.leftAnchor, constant: 32)
 
-        bottomSheetButton.height(56)
+        bottomSheetButton.height(44)
         bottomSheetButton.left(equalTo: view.leftAnchor, constant: 32)
-        pushMessageButton.height(56)
-        shareButton.height(56)
-        nicknameButton.height(56)
+        pushMessageButton.height(44)
+        shareButton.height(44)
+        nicknameButton.height(44)
 
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
 
