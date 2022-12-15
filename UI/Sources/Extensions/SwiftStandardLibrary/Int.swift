@@ -12,6 +12,10 @@ extension Int {
         return CGFloat(self) * .pi / 180
     }
 
+    var radiansToDegrees: CGFloat {
+        return CGFloat(self) * 180 / .pi
+    }
+
     func timeFormatted() -> String {
         let minutes: Int = (self / 60) % 60
         let seconds: Int = self % 60
