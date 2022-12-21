@@ -214,7 +214,22 @@ extension UIViewController {
         }
         present(alertController, animated: true, completion: completion)
     }
+
+    func alertActions(
+        title: String? = nil,
+        message: String? = nil,
+        actions: UIAlertAction...,
+        cancelHandler: ((UIAlertAction) -> Void)? = nil,
+        completion: (() -> Void)? = nil
+    ) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
         )
+        actions.forEach {
+            alertController.addAction($0)
+        }
         alertController.addAction(
             UIAlertAction(
                 title: "취소",
