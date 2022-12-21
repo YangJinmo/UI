@@ -186,10 +186,10 @@ extension UIViewController {
         present(alertController, animated: true, completion: completion)
     }
 
-    func alertOption(
+    func alertTwoOptions(
         title: String? = nil,
         message: String? = nil,
-        confirmHandler: ((UIAlertAction) -> Void)? = nil,
+        defaultHandler: ((UIAlertAction) -> Void)? = nil,
         cancelHandler: ((UIAlertAction) -> Void)? = nil,
         completion: (() -> Void)? = nil
     ) {
@@ -198,12 +198,22 @@ extension UIViewController {
             message: message,
             preferredStyle: .alert
         )
-        alertController.addAction(
+        [
             UIAlertAction(
                 title: "확인",
                 style: .default,
-                handler: confirmHandler
-            )
+                handler: defaultHandler
+            ),
+            UIAlertAction(
+                title: "취소",
+                style: .cancel,
+                handler: cancelHandler
+            ),
+        ].forEach {
+            alertController.addAction($0)
+        }
+        present(alertController, animated: true, completion: completion)
+    }
         )
         alertController.addAction(
             UIAlertAction(

@@ -168,7 +168,7 @@ final class MyViewController: BaseTabViewController {
     }
 
     @objc private func alertOptionButtonTouched(_ sender: Any) {
-        alertOption(
+        alertTwoOptions(
             title: "title",
             message: "message"
         ) { _ in

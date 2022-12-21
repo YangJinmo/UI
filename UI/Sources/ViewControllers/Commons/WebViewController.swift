@@ -204,9 +204,9 @@ extension WebViewController: WKUIDelegate {
     }
 
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
-        alertOption(
+        alertTwoOptions(
             message: message,
-            confirmHandler: { _ in
+            defaultHandler: { _ in
                 completionHandler(true)
             },
             cancelHandler: { _ in
