@@ -134,6 +134,7 @@
 		E8E888582930840400341BBE /* LeftAlignCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E888572930840400341BBE /* LeftAlignCollectionViewFlowLayout.swift */; };
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
+		E8EE96FA295723CC009E4D1A /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE96F9295723CC009E4D1A /* CGSize.swift */; };
 		E8F590F529324B2C003F5A08 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F590F429324B2C003F5A08 /* PlaceholderTextView.swift */; };
 		E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */; };
 		E8F6543327A6EB6300FD44B8 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */; };
@@ -269,6 +270,7 @@
 		E8E888572930840400341BBE /* LeftAlignCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		E8EE96F9295723CC009E4D1A /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		E8F590F429324B2C003F5A08 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
@@ -626,7 +628,7 @@
 		E8E28AD828CD911F00EDF783 /* CoreGraphics */ = {
 			isa = PBXGroup;
 			children = (
-				E83137652783185E007145E2 /* CGFloat.swift */,
+				E8EE96FB29572461009E4D1A /* GeometricDataTypes */,
 			);
 			path = CoreGraphics;
 			sourceTree = "<group>";
@@ -645,6 +647,15 @@
 				091AC4322739142400294EFC /* WKWebView.swift */,
 			);
 			path = WebKit;
+			sourceTree = "<group>";
+		};
+		E8EE96FB29572461009E4D1A /* GeometricDataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				E83137652783185E007145E2 /* CGFloat.swift */,
+				E8EE96F9295723CC009E4D1A /* CGSize.swift */,
+			);
+			path = GeometricDataTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -730,6 +741,7 @@
 				093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */,
 				E80FE0D02877C315001A96DD /* TapSlider.swift in Sources */,
 				E85EFD2028D0427400846931 /* Font.swift in Sources */,
+				E8EE96FA295723CC009E4D1A /* CGSize.swift in Sources */,
 				E8CF006C277C6770009B3128 /* QueryService.swift in Sources */,
 				E8E888582930840400341BBE /* LeftAlignCollectionViewFlowLayout.swift in Sources */,
 				E8A57B1E28A3D1E10023503B /* Image.swift in Sources */,

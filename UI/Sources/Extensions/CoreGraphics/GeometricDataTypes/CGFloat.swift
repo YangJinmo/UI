@@ -5,7 +5,7 @@
 //  Created by Jmy on 2022/01/03.
 //
 
-import CoreGraphics
+import CoreGraphics.CGGeometry
 
 extension CGFloat {
     /// 근사값 찾기
