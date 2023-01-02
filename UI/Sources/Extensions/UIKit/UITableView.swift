@@ -53,7 +53,7 @@ extension UITableView {
         return indexPaths
     }
 
-    var indexPathsForAll: [IndexPath] {
+    var indexPathsForAllRows: [IndexPath] {
         let indexPaths = (0 ..< numberOfSections).compactMap { section -> [IndexPath]? in
             (0 ..< numberOfRows(inSection: section)).compactMap({ row -> IndexPath? in
                 IndexPath(row: row, section: section)
@@ -66,8 +66,8 @@ extension UITableView {
     func indexPaths(section: Int) -> [IndexPath] {
         var indexPaths: [IndexPath] = []
 
-        for i in 0 ..< numberOfRows(inSection: section) {
-            indexPaths.append(IndexPath(row: i, section: section))
+        for row in 0 ..< numberOfRows(inSection: section) {
+            indexPaths.append(IndexPath(row: row, section: section))
         }
 
         return indexPaths
@@ -105,13 +105,13 @@ extension UITableView {
 
     // MARK: - Select / Deselect
 
-    func selectAll(animated: Bool = true) {
-        indexPaths.forEach { indexPath in
+    func selectForAllRows(animated: Bool = true) {
+        indexPathsForAllRows.forEach { indexPath in
             selectRow(at: indexPath, animated: animated, scrollPosition: .none)
         }
     }
 
-    func deselectAll(animated: Bool = true) {
+    func deselectForAllRows(animated: Bool = true) {
         indexPathsForSelectedRows?.forEach({ indexPath in
             deselectRow(at: indexPath, animated: animated)
         })
