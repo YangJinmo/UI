@@ -24,6 +24,20 @@ extension UIView {
         }
     }
 
+    func findSuperView<T>(cls superViewClass: T.Type) -> T? {
+        var superview: UIView! = superview!
+        var foundSuperview: UIView!
+
+        while superview != nil && foundSuperview == nil {
+            if superview.self is T {
+                foundSuperview = superview
+            } else {
+                superview = superview.superview
+            }
+        }
+        return foundSuperview as? T
+    }
+
     @IBInspectable var setCornerRadius: CGFloat {
         get {
             return layer.cornerRadius
