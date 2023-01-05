@@ -117,6 +117,56 @@ extension UITableView {
         })
     }
 
+    // MARK: - Perform Batch Updates
+
+    /// Allows multiple insert/delete/reload/move calls to be animated simultaneously. Nestable.
+
+    func reloadData(completion: @escaping () -> Void) {
+//        UIView.animate(withDuration: 0) {
+//            self.reloadData()
+//        } completion: { _ in
+//            completion()
+//        }
+
+        performBatchUpdates {
+            reloadData()
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func reloadSections(at sections: IndexSet, with animation: UITableView.RowAnimation = .automatic, completion: @escaping () -> Void) {
+        performBatchUpdates {
+            reloadSections(sections, with: animation)
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func reloadRows(indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .automatic, completion: @escaping () -> Void) {
+        performBatchUpdates {
+            reloadRows(at: indexPaths, with: animation)
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func insertRows(indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .automatic, completion: @escaping () -> Void) {
+        performBatchUpdates {
+            insertRows(at: indexPaths, with: animation)
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func deleteRows(indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .automatic, completion: @escaping () -> Void) {
+        performBatchUpdates {
+            deleteRows(at: indexPaths, with: animation)
+        } completion: { _ in
+            completion()
+        }
+    }
+
     func insertRowsAtBottom(_ indexPaths: [IndexPath]) {
         UIView.setAnimationsEnabled(false)
         CATransaction.begin()
