@@ -117,40 +117,6 @@ extension UITableView {
         })
     }
 
-    // MARK: - Reload Completion
-
-    func reloadData(completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0) {
-            self.reloadData()
-        } completion: { _ in
-            completion()
-        }
-    }
-
-    func reloadRows(indexPath: IndexPath, completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0) {
-            self.reloadRows(indexPath: indexPath)
-        } completion: { _ in
-            completion()
-        }
-    }
-
-    func reloadRows(indexPath: IndexPath, with animation: UITableView.RowAnimation = .none) {
-        DispatchQueue.main.async {
-            UIView.performWithoutAnimation {
-                self.reloadRows(at: [indexPath], with: animation)
-            }
-        }
-    }
-
-    func deleteRows(at: [IndexPath], with: UITableView.RowAnimation = .fade, completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0) {
-            self.deleteRows(at: at, with: with)
-        } completion: { _ in
-            completion()
-        }
-    }
-
     func insertRowsAtBottom(_ indexPaths: [IndexPath]) {
         UIView.setAnimationsEnabled(false)
         CATransaction.begin()
