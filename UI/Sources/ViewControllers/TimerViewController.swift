@@ -141,7 +141,7 @@ extension TimerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         timers[indexPath.row].isRunning.toggle()
 
-        tableView.reloadRows(at: [indexPath], with: .none)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
 
         if timers[indexPath.row].isRunning {
             startTimer()
