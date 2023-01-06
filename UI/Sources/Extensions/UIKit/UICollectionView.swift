@@ -124,6 +124,52 @@ extension UICollectionView {
         }
     }
 
+    // MARK: - Reload
+
+    // https://stackoverflow.com/questions/14094684/avoid-animation-of-uicollectionview-after-reloaditemsatindexpaths
+
+    func reloadDataWithoutAnimation() {
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        reloadData()
+        CATransaction.commit()
+    }
+
+    func reloadItemsWithoutAnimation(indexPaths: [IndexPath]) {
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        reloadItems(at: indexPaths)
+        CATransaction.commit()
+
+//        UIView.performWithoutAnimation {
+//            self.reloadItems(at: indexPaths)
+//        }
+    }
+
+    func reloadData(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0) {
+            self.performBatchUpdates {
+                self.reloadData()
+            } completion: { _ in
+                completion()
+            }
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func reloadItems(indexPaths: [IndexPath], completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0) {
+            self.performBatchUpdates {
+                self.reloadItems(at: indexPaths)
+            } completion: { _ in
+                completion()
+            }
+        } completion: { _ in
+            completion()
+        }
+    }
+
     // MARK: - Background View
 
     func setBackgroundView() {
