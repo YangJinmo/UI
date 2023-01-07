@@ -122,14 +122,8 @@ extension UITableView {
     /// Allows multiple insert/delete/reload/move calls to be animated simultaneously. Nestable.
 
     func reloadData(completion: @escaping () -> Void) {
-//        UIView.animate(withDuration: 0) {
-//            self.reloadData()
-//        } completion: { _ in
-//            completion()
-//        }
-
-        performBatchUpdates {
-            reloadData()
+        UIView.animate(withDuration: 0) {
+            self.reloadData()
         } completion: { _ in
             completion()
         }

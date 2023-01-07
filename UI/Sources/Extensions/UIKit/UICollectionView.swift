@@ -148,11 +148,7 @@ extension UICollectionView {
 
     func reloadData(completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0) {
-            self.performBatchUpdates {
-                self.reloadData()
-            } completion: { _ in
-                completion()
-            }
+            self.reloadData()
         } completion: { _ in
             completion()
         }
