@@ -127,6 +127,14 @@ extension UITableView {
         } completion: { _ in
             completion()
         }
+
+//        CATransaction.begin()
+//        CATransaction.setCompletionBlock({
+//            print("\(String(describing: self)): reload completed")
+//        })
+//        print("\(String(describing: self)): reloading")
+//        reloadData()
+//        CATransaction.commit()
     }
 
     func reloadSections(at sections: IndexSet, with animation: UITableView.RowAnimation = .automatic, completion: @escaping () -> Void) {
