@@ -24,7 +24,7 @@ extension UIView {
         }
     }
 
-    func findSuperView<T>(cls superViewClass: T.Type) -> T? {
+    func findSuperView<T>(class superViewClass: T.Type) -> T? {
         var superview: UIView! = superview!
         var foundSuperview: UIView!
 
