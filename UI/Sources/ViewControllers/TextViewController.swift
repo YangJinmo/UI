@@ -13,6 +13,10 @@ final class TextViewController: BaseTabViewController {
     var isScrollToBottom = false
     var scrollToBottomUpHeight: CGFloat = 0
 
+    private let keyboardNotifications: [Notification.Name] = [
+        UIResponder.keyboardWillChangeFrameNotification,
+    ]
+
     private enum Font {
         static let textView: UIFont = .systemFont(ofSize: 24, weight: .semibold)
     }
@@ -51,6 +55,22 @@ final class TextViewController: BaseTabViewController {
         setupViews()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        addObserverKeyboard()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        removeObserverKeyboard()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
     // MARK: - Methods
 
     private func setupViews() {
@@ -74,57 +94,81 @@ final class TextViewController: BaseTabViewController {
         addPopButton()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        addObserverKeyboard()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        removeObserverKeyboard()
-    }
-
     private func addObserverKeyboard() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        keyboardNotifications.forEach {
+            NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: $0, object: nil)
+        }
     }
 
     private func removeObserverKeyboard() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        keyboardNotifications.forEach {
+            NotificationCenter.default.removeObserver(self, name: $0, object: nil)
+        }
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+    func animateWithKeyboard(
+        notification: NSNotification,
+        animations: ((_ isKeyboardWillShow: Bool, _ keyboardFrame: CGRect) -> Void)?
+    ) {
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+
+        let isKeyboardWillShow = notification.name == UIResponder.keyboardWillShowNotification
+
+        let keyboardFrameKey = UIResponder.keyboardFrameEndUserInfoKey
+        let keyboardFrame = userInfo[keyboardFrameKey] as? CGRect ?? .zero
+
+        let durationKey = UIResponder.keyboardAnimationDurationUserInfoKey
+        let duration = userInfo[durationKey] as? Double ?? 0.25
+
+        let curveKey = UIResponder.keyboardAnimationCurveUserInfoKey
+        let curveValue = userInfo[curveKey] as? Int ?? 7
+        let curve = UIView.AnimationCurve(rawValue: curveValue) ?? .linear
+
+        let animator = UIViewPropertyAnimator(
+            duration: duration,
+            curve: curve
+        ) {
+            animations?(isKeyboardWillShow, keyboardFrame)
+
+            self.view.layoutIfNeeded()
+        }
+
+        animator.startAnimation()
     }
 
+    @objc dynamic func handleKeyboard2(_ notification: NSNotification) {
+        animateWithKeyboard(notification: notification) { isKeyboardWillShow, keyboardFrame in
+            self.bottomConstraint?.constant = isKeyboardWillShow ? -keyboardFrame.height : 0
+        }
+    }
+
+    // TODO: - 스크롤 애니메이션이 끝나지 않았을 때는 동작하지 않도록 구현
     @objc private func handleKeyboard(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             return
         }
 
-        guard let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
-            return
-        }
-
-        let isKeyboard = notification.name == UIResponder.keyboardWillShowNotification
-
-        bottomConstraint?.constant = isKeyboard
-            ? -keyboardFrame.height
-            : 0
-
+        let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect ?? .zero
         let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double ?? 0.25
         let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? 7
-        let options = UIView.AnimationOptions(rawValue: curve)
+        var options = UIView.AnimationOptions(rawValue: curve << 16)
+        options.update(with: .layoutSubviews)
 
-        UIView.animate(withDuration: duration, delay: duration, options: options, animations: {
-            self.view.layoutIfNeeded()
+        let contentAbsoluteFrame = view.convert(view.frame, to: nil)
+        let offset = contentAbsoluteFrame.maxY - keyboardFrame.minY
+        let keyboardHeight = max(0, offset)
+
+        view.layoutIfNeeded()
+
+        UIView.animate(withDuration: duration, delay: 0, options: options, animations: { [weak self] in
+            self?.bottomConstraint?.constant = -keyboardHeight // isKeyboardWillShow ? -keyboardFrame.height : 0
+            self?.view.layoutIfNeeded()
         }) { _ in
-            if isKeyboard, self.isScrollToBottom {
+//            if isKeyboardWillShow, self.isScrollToBottom {
 //                self.scrollView.scrollToBottom(up: self.scrollToBottomUpHeight)
-            }
+//            }
         }
     }
 }
