@@ -8,7 +8,7 @@
 import Foundation.NSDate
 
 extension Date {
-    func toString(dateFormat: String = "yyyy.MM.dd HH:mm:ss") -> String {
+    func toString(dateFormat: String = "yyyy.MM.dd HH:mm:ss:SSS") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = .current
         dateFormatter.dateFormat = dateFormat
