@@ -17,6 +17,8 @@ final class TextViewController: BaseTabViewController {
         UIResponder.keyboardWillChangeFrameNotification,
     ]
 
+    private var isScrollViewDidEndScrollingAnimation = true
+
     private enum Font {
         static let textView: UIFont = .systemFont(ofSize: 24, weight: .semibold)
     }
@@ -27,6 +29,8 @@ final class TextViewController: BaseTabViewController {
         let textView = UITextView()
         textView.font = Font.textView
         textView.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        textView.keyboardDismissMode = .interactive
+        textView.delegate = self
         return textView
     }()
 
@@ -144,7 +148,7 @@ final class TextViewController: BaseTabViewController {
         }
     }
 
-    // TODO: - 스크롤 애니메이션이 끝나지 않았을 때는 동작하지 않도록 구현
+    // TODO: - 보이지 않는 화면으로 스크롤 한 후 커서를 터치하면 기존에 있던 커서로 스크롤 되는 문제
     @objc private func handleKeyboard(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             return
@@ -188,5 +192,58 @@ extension TextViewController: UITextViewDelegate {
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return textView.text.count + (text.count - range.length) <= 50000 // maxLength
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension TextViewController: UIScrollViewDelegate {
+    private func scrollViewWillBeginScrolling(_ scrollView: UIScrollView) {
+        isScrollViewDidEndScrollingAnimation = false
+        scrollView.contentOffset.y.description.log()
+
+//        view.endEditing(true)
+    }
+
+    private func scrollViewDidEndScrolling(_ scrollView: UIScrollView) {
+//        isScrollViewDidEndScrolling = true
+        scrollView.contentOffset.y.description.log()
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentHeight = scrollView.contentSize.height - scrollView.frame.height
+
+        if scrollView.contentOffset.y >= contentHeight {
+        }
+
+        scrollView.contentOffset.y.description.log()
+
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        perform(#selector(UIScrollViewDelegate.scrollViewDidEndScrollingAnimation), with: nil, afterDelay: 0.3)
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        isScrollViewDidEndScrollingAnimation = true
+        scrollView.contentOffset.y.description.log()
+
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        scrollViewWillBeginScrolling(scrollView)
+    }
+
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        scrollViewWillBeginScrolling(scrollView)
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewDidEndScrolling(scrollView)
+        }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollViewDidEndScrolling(scrollView)
     }
 }
