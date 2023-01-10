@@ -101,34 +101,30 @@ final class TextViewController: BaseTabViewController {
     }
 
     @objc private func handleKeyboard(notification: NSNotification) {
-        guard
-            let userInfo = notification.userInfo,
-            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        else {
+        guard let userInfo = notification.userInfo else {
             return
         }
-        let keybaordHeight = keyboardFrame.cgRectValue.height
+
+        guard let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+
         let isKeyboard = notification.name == UIResponder.keyboardWillShowNotification
 
-        bottomConstraint?.constant = isKeyboard ? -keybaordHeight : 0
+        bottomConstraint?.constant = isKeyboard
+            ? -keyboardFrame.height
+            : 0
 
-        if let durationNumber = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
-           let curveNumber = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber {
-            let duration = durationNumber.doubleValue
-            let curve = curveNumber.uintValue
-            let options = UIView.AnimationOptions(rawValue: curve)
+        let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double ?? 0.25
+        let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt ?? 7
+        let options = UIView.AnimationOptions(rawValue: curve)
 
-            UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
-                self.view.layoutIfNeeded()
-            }) { _ in
-                if isKeyboard, self.isScrollToBottom {
-//                    self.scrollView.scrollToBottom(up: self.scrollToBottomUpHeight)
-                }
+        UIView.animate(withDuration: duration, delay: duration, options: options, animations: {
+            self.view.layoutIfNeeded()
+        }) { _ in
+            if isKeyboard, self.isScrollToBottom {
+//                self.scrollView.scrollToBottom(up: self.scrollToBottomUpHeight)
             }
-        } else {
-            UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
-                self.view.layoutIfNeeded()
-            })
         }
     }
 }
