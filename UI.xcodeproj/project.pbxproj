@@ -124,6 +124,7 @@
 		E8C622502935DFC80008C170 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C6224F2935DFC80008C170 /* Double.swift */; };
 		E8CF006A277C65F7009B3128 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF0069277C65F7009B3128 /* Track.swift */; };
 		E8CF006C277C6770009B3128 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF006B277C6770009B3128 /* QueryService.swift */; };
+		E8D2CB5B297234580016F78F /* KeyboardLayoutGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D2CB5A297234580016F78F /* KeyboardLayoutGuideViewController.swift */; };
 		E8D94126296C4FC20079B778 /* CATransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D94125296C4FC20079B778 /* CATransactionViewController.swift */; };
 		E8DB4BA427AC2D8000E29CF1 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */; };
 		E8DB51AA27D4BA850080CA6B /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51A927D4BA850080CA6B /* GradationView.swift */; };
@@ -263,6 +264,7 @@
 		E8C6224F2935DFC80008C170 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E8CF0069277C65F7009B3128 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E8CF006B277C6770009B3128 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		E8D2CB5A297234580016F78F /* KeyboardLayoutGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutGuideViewController.swift; sourceTree = "<group>"; };
 		E8D94125296C4FC20079B778 /* CATransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransactionViewController.swift; sourceTree = "<group>"; };
 		E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		E8DB51A927D4BA850080CA6B /* GradationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */,
 				E835405227B9173A002913FA /* BottomSheetViewController.swift */,
 				E8D94125296C4FC20079B778 /* CATransactionViewController.swift */,
+				E8D2CB5A297234580016F78F /* KeyboardLayoutGuideViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				09ADF3A827259A73004C6A97 /* CollectionViewController.swift in Sources */,
 				099D33EF2754678E00C14F5F /* TabView.swift in Sources */,
 				E8B448D0278F1ED6005881B9 /* API.swift in Sources */,
+				E8D2CB5B297234580016F78F /* KeyboardLayoutGuideViewController.swift in Sources */,
 				E85664F028884F91005897A1 /* Log.swift in Sources */,
 				E88A3EA8284B22F600832053 /* TimeInterval.swift in Sources */,
 				E85A735628CF6AC10045684F /* LiteralType.swift in Sources */,
