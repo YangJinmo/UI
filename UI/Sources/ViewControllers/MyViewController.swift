@@ -37,6 +37,7 @@ final class MyViewController: BaseTabViewController {
     private lazy var bottomSheetButton = UIButton("BottomSheet")
     private lazy var pushMessageButton = UIButton("PushMessage")
     private lazy var shareButton = UIButton("Share")
+    private lazy var transactionButton = UIButton("CATransaction")
     private lazy var nicknameButton: UIButton = {
         var configuration: UIButton.Configuration = .filled()
         configuration.title = "Edit Nickname"
@@ -93,6 +94,7 @@ final class MyViewController: BaseTabViewController {
             bottomSheetButton,
             pushMessageButton,
             shareButton,
+            transactionButton,
             nicknameButton
         )
 
@@ -110,6 +112,7 @@ final class MyViewController: BaseTabViewController {
         bottomSheetButton.left(equalTo: view.leftAnchor, constant: 32)
         pushMessageButton.height(44)
         shareButton.height(44)
+        transactionButton.height(44)
         nicknameButton.height(44)
 
         nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
@@ -130,6 +133,7 @@ final class MyViewController: BaseTabViewController {
 
         pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched(_:)), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
+        transactionButton.addTarget(self, action: #selector(transactionButtonTouched), for: .touchUpInside)
 
         requestAuthorizationNotification()
     }
@@ -277,6 +281,12 @@ final class MyViewController: BaseTabViewController {
         present(vc, animated: false)
     }
 
+    private var selectedSort = Sort.dateOrder
+
+    private func didSelectItemAt(selectedSort: Sort) {
+        self.selectedSort = selectedSort
+    }
+
     @objc private func pushMessageButtonTouched(_ sender: Any) {
         "".log()
 
@@ -326,10 +336,8 @@ final class MyViewController: BaseTabViewController {
         present(activityViewController, animated: true)
     }
 
-    private var selectedSort = Sort.dateOrder
-
-    private func didSelectItemAt(selectedSort: Sort) {
-        self.selectedSort = selectedSort
+    @objc private func transactionButtonTouched() {
+        pushViewController(CATransactionViewController())
     }
 }
 
