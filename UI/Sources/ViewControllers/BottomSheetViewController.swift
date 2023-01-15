@@ -58,18 +58,20 @@ final class BottomSheetViewController: UIViewController {
         return collectionView
     }()
 
-    // MARK: - View Life Cycle
-
-    override func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
-
-        setupViews()
-    }
+    // MARK: - Responding to view-related events
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         showBottomSheet()
+    }
+
+    // MARK: - Extending the view's safe area
+
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+
+        setupViews()
     }
 
     // MARK: - Methods

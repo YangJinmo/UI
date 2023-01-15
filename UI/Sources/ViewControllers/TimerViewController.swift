@@ -42,13 +42,15 @@ final class TimerViewController: UIViewController {
         return tableView
     }()
 
-    // MARK: - View Life Cycle
+    // MARK: - Managing the view
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
     }
+
+    // MARK: - Responding to view-related events
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

@@ -56,7 +56,7 @@ final class WebViewController: BaseTabViewController {
     private lazy var progressView = BaseProgressView()
     private lazy var floatingButton = FloatingButton(view: view, scrollView: webView.scrollView)
 
-    // MARK: - View Life Cycle
+    // MARK: - Managing the view
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +65,8 @@ final class WebViewController: BaseTabViewController {
         removeCache()
         loadWebView()
     }
+
+    // MARK: - Responding to view-related events
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

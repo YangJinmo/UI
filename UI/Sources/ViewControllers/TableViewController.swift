@@ -44,7 +44,7 @@ final class TableViewController: UIViewController {
 
     private let actionSheet = ActionSheet.shared
 
-    // MARK: - View Life Cycle
+    // MARK: - Managing the view
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,8 @@ final class TableViewController: UIViewController {
         setupViews()
         getWebsites()
     }
+
+    // MARK: - Responding to view-related events
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -204,7 +206,7 @@ extension TableViewController: UIScrollViewDelegate {
         view.endEditing(true)
         floatingButton.hide()
     }
-    
+
     private func stoppedScrolling(scrollView: UIScrollView) {
         scrollView.contentOffset.y == 0
             ? floatingButton.hide()

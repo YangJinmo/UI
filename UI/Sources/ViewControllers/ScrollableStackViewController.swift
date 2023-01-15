@@ -33,6 +33,8 @@ final class ScrollableStackViewController: UIViewController {
     // MARK: - View Life Cycle
 
     override func loadView() {
+//        super.loadView()
+
         presentButton.height(44)
         presentButton.addTarget(self, action: #selector(presentButtonTouched(_:)), for: .touchUpInside)
 
