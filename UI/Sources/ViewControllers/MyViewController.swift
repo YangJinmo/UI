@@ -28,6 +28,15 @@ final class MyViewController: BaseTabViewController {
 
     // MARK: - Views
 
+    private lazy var collectionView: BaseCollectionView = {
+        let collectionView = BaseCollectionView(layout: flowLayout())
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(SearchTitleCell.self)
+        collectionView.register(SearchTermCell.self)
+        return collectionView
+    }()
+
     private lazy var emailButton = UIButton("Email")
     private lazy var alertButton = UIButton("Alert")
     private lazy var alertOptionButton = UIButton("AlertOption")
@@ -68,21 +77,47 @@ final class MyViewController: BaseTabViewController {
         return slider
     }()
 
-    // MARK: - View Life Cycle
+    // MARK: - Creating a view controller
 
     override convenience init() {
         self.init(title: "마이")
     }
 
+    // MARK: - Managing the view
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
+        requestAuthorizationNotification()
+    }
+
+    // MARK: - Responding to environment changes
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animate(alongsideTransition: { _ in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        })
     }
 
     // MARK: - Methods
 
     private func setupViews() {
+//        contentView.addSubviews(collectionView)
+
+//        contentView.addConstraintsWithFormat("H:|[v0]|", views: collectionView)
+//        contentView.addConstraintsWithFormat("V:|[v0]|", views: collectionView)
+
+//        collectionView.edges()
+//        collectionView.edges(equalTo: contentView)
+
+        contentView.add(
+            collectionView,
+            edges: contentView
+        )
+
         setupScrollableStackView(
             emailButton,
             alertButton,
@@ -134,8 +169,6 @@ final class MyViewController: BaseTabViewController {
         pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched(_:)), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
         transactionButton.addTarget(self, action: #selector(transactionButtonTouched), for: .touchUpInside)
-
-        requestAuthorizationNotification()
     }
 
     private func requestAuthorizationNotification() {
@@ -362,5 +395,93 @@ extension MyViewController: UNUserNotificationCenterDelegate {
         let settingsViewController = UIViewController()
         settingsViewController.view.backgroundColor = .gray
         present(settingsViewController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension MyViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return searches.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let search = searches[section]
+
+        if search.isExpand {
+            return search.terms.count + 1
+        } else {
+            return 1
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let search = searches[indexPath.section]
+
+        switch indexPath.item {
+        case 0:
+            let cell: SearchTitleCell = collectionView.dequeueReusableCell(for: indexPath)
+            cell.bind(search: search)
+            return cell
+        default:
+            let cell: SearchTermCell = collectionView.dequeueReusableCell(for: indexPath)
+            cell.bind(
+                rank: indexPath.item,
+                term: search.terms[indexPath.item - 1]
+            )
+            return cell
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension MyViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var search = searches[indexPath.section]
+
+        if indexPath.item == 0 {
+            removeCell(indexPath: indexPath)
+
+            search.isExpand.toggle()
+
+            let sections = IndexSet(integer: indexPath.section)
+            collectionView.reloadSections(sections)
+        } else {
+            search.terms[indexPath.item - 1].log()
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension MyViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch indexPath.item {
+        case 0:
+            return itemSize(in: collectionView, height: SearchTitleCell.itemHeight)
+        default:
+            return itemSize(in: collectionView, height: SearchTermCell.itemHeight)
+        }
+    }
+}
+
+// MARK: - FlowLayoutMetric
+
+extension MyViewController: FlowLayoutMetric {
+    var numberOfItemForRow: CGFloat {
+        1.0
+    }
+
+    var sectionInset: UIEdgeInsets {
+        .uniform(size: 0.0)
+    }
+
+    var minimumLineSpacing: CGFloat {
+        1.0
+    }
+
+    var minimumInteritemSpacing: CGFloat {
+        0.0
     }
 }
