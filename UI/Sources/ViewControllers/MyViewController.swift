@@ -26,6 +26,24 @@ final class MyViewController: BaseTabViewController {
     private let step: Float = 1
     private var isSingleTouched = false
 
+    private var searches: [Search] = [
+        Search(
+            isExpand: false,
+            title: "인기 검색",
+            terms: ["캠핑", "가방", "고양이", "건전지", "오미자"]
+        ),
+        Search(
+            isExpand: false,
+            title: "최근 검색",
+            terms: ["충전기", "강아지", "개구리", "두꺼비", "아이유"]
+        ),
+        Search(
+            isExpand: false,
+            title: "연관 검색",
+            terms: ["보충제", "고구마", "헬스장", "런닝머신", "다이어트"]
+        ),
+    ]
+
     // MARK: - Views
 
     private lazy var collectionView: BaseCollectionView = {
@@ -92,6 +110,12 @@ final class MyViewController: BaseTabViewController {
         requestAuthorizationNotification()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        removeAllCells()
+    }
+
     // MARK: - Responding to environment changes
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -113,10 +137,10 @@ final class MyViewController: BaseTabViewController {
 //        collectionView.edges()
 //        collectionView.edges(equalTo: contentView)
 
-        contentView.add(
-            collectionView,
-            edges: contentView
-        )
+//        contentView.add(
+//            collectionView,
+//            edges: contentView
+//        )
 
         setupScrollableStackView(
             emailButton,
@@ -371,6 +395,22 @@ final class MyViewController: BaseTabViewController {
 
     @objc private func transactionButtonTouched() {
         pushViewController(CATransactionViewController())
+    }
+
+    private func removeAllCells() {
+        for section in 0 ..< collectionView.numberOfSections {
+            section.description.log()
+
+            let indexPath = IndexPath(item: 0, section: section)
+            removeCell(indexPath: indexPath)
+        }
+    }
+
+    private func removeCell(indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? SearchTitleCell {
+            cell.removeFromSuperview()
+        }
+        indexPath.description.log()
     }
 }
 
