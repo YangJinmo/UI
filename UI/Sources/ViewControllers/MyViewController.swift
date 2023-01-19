@@ -29,17 +29,17 @@ final class MyViewController: BaseTabViewController {
     private var searches: [Search] = [
         Search(
             isExpand: false,
-            title: "인기 검색",
+            title: "Alert",
             terms: ["캠핑", "가방", "고양이", "건전지", "오미자"]
         ),
         Search(
             isExpand: false,
-            title: "최근 검색",
+            title: "Views",
             terms: ["충전기", "강아지", "개구리", "두꺼비", "아이유"]
         ),
         Search(
             isExpand: false,
-            title: "연관 검색",
+            title: "Etcs",
             terms: ["보충제", "고구마", "헬스장", "런닝머신", "다이어트"]
         ),
     ]
@@ -91,7 +91,7 @@ final class MyViewController: BaseTabViewController {
         slider.setThumbImage(Image.normal, for: .normal)
         slider.setThumbImage(Image.highlighted, for: .highlighted)
         slider.setThumbImage(Image.disabled, for: .disabled)
-        slider.addTarget(self, action: #selector(sliderValueDidChange(_:)), for: .valueChanged)
+        slider.addTarget(self, action: #selector(sliderValueDidChange), for: .valueChanged)
         return slider
     }()
 
@@ -113,7 +113,7 @@ final class MyViewController: BaseTabViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        removeAllCells()
+//        removeAllCells()
     }
 
     // MARK: - Responding to environment changes
@@ -137,25 +137,25 @@ final class MyViewController: BaseTabViewController {
 //        collectionView.edges()
 //        collectionView.edges(equalTo: contentView)
 
-//        contentView.add(
-//            collectionView,
-//            edges: contentView
-//        )
-
-        setupScrollableStackView(
-            emailButton,
-            alertButton,
-            alertOptionButton,
-            actionSheetButton,
-            modalButton,
-            delegateButton,
-            slider,
-            bottomSheetButton,
-            pushMessageButton,
-            shareButton,
-            transactionButton,
-            nicknameButton
+        contentView.add(
+            collectionView,
+            edges: contentView
         )
+
+//        setupScrollableStackView(
+//            emailButton,
+//            alertButton,
+//            alertOptionButton,
+//            actionSheetButton,
+//            modalButton,
+//            delegateButton,
+//            slider,
+//            bottomSheetButton,
+//            pushMessageButton,
+//            shareButton,
+//            transactionButton,
+//            nicknameButton
+//        )
 
         emailButton.height(44)
         alertButton.height(44)
@@ -174,23 +174,23 @@ final class MyViewController: BaseTabViewController {
         transactionButton.height(44)
         nicknameButton.height(44)
 
-        nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched(_:)), for: .touchUpInside)
+        nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
 
-        emailButton.addTarget(self, action: #selector(mailButtonTouched(_:)), for: .touchUpInside)
-        alertButton.addTarget(self, action: #selector(alertButtonTouched(_:)), for: .touchUpInside)
-        alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched(_:)), for: .touchUpInside)
-        actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched(_:)), for: .touchUpInside)
-        modalButton.addTarget(self, action: #selector(modalButtonTouched(_:)), for: .touchUpInside)
+        emailButton.addTarget(self, action: #selector(mailButtonTouched), for: .touchUpInside)
+        alertButton.addTarget(self, action: #selector(alertButtonTouched), for: .touchUpInside)
+        alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched), for: .touchUpInside)
+        actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched), for: .touchUpInside)
+        modalButton.addTarget(self, action: #selector(modalButtonTouched), for: .touchUpInside)
 
-        delegateButton.addTarget(self, action: #selector(delegateButtonTouched(_:)), for: .touchUpInside)
-        bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched(_:)), for: .touchUpInside)
+        delegateButton.addTarget(self, action: #selector(delegateButtonTouched), for: .touchUpInside)
+        bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched), for: .touchUpInside)
 
         bottomSheetButton.backgroundColor = .red
         bottomSheetButton.layer.addBorder(color: .label, width: 1)
 //        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
         bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
 
-        pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched(_:)), for: .touchUpInside)
+        pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
         transactionButton.addTarget(self, action: #selector(transactionButtonTouched), for: .touchUpInside)
     }
@@ -209,15 +209,15 @@ final class MyViewController: BaseTabViewController {
         })
     }
 
-    @objc private func nicknameButtonTouched(_ sender: Any) {
+    @objc private func nicknameButtonTouched() {
         pushViewController(TextViewController())
     }
 
-    @objc private func mailButtonTouched(_ sender: Any) {
+    @objc private func mailButtonTouched() {
         pushViewController(MailComposeViewController())
     }
 
-    @objc private func alertButtonTouched(_ sender: Any) {
+    @objc private func alertButtonTouched() {
         alert(
             title: "title",
             message: "message"
@@ -228,7 +228,7 @@ final class MyViewController: BaseTabViewController {
         }
     }
 
-    @objc private func alertOptionButtonTouched(_ sender: Any) {
+    @objc private func alertOptionButtonTouched() {
         alertTwoOptions(
             title: "title",
             message: "message"
@@ -241,7 +241,7 @@ final class MyViewController: BaseTabViewController {
         }
     }
 
-    @objc private func actionSheetButtonTouched(_ sender: Any) {
+    @objc private func actionSheetButtonTouched() {
         // actionSheetImplementedInUIViewControllerExtension()
         actionSheetImplementedInUIAlertControllerExtension()
     }
@@ -282,7 +282,7 @@ final class MyViewController: BaseTabViewController {
         }
     }
 
-    @objc private func modalButtonTouched(_ sender: Any) {
+    @objc private func modalButtonTouched() {
         let vc = SearchViewController()
 
         /// https://sarunw.com/posts/bottom-sheet-in-ios-15-with-uisheetpresentationcontroller/
@@ -314,7 +314,7 @@ final class MyViewController: BaseTabViewController {
         present(nav)
     }
 
-    @objc private func delegateButtonTouched(_ sender: Any) {
+    @objc private func delegateButtonTouched() {
         present(DelegateViewController(delegate: self))
     }
 
@@ -329,7 +329,7 @@ final class MyViewController: BaseTabViewController {
         }
     }
 
-    @objc private func bottomSheetButtonTouched(_ sender: Any) {
+    @objc private func bottomSheetButtonTouched() {
         let vc = BottomSheetViewController()
         vc.setTitleLabel("정렬")
         vc.bind(selectedSort: selectedSort)
@@ -344,7 +344,7 @@ final class MyViewController: BaseTabViewController {
         self.selectedSort = selectedSort
     }
 
-    @objc private func pushMessageButtonTouched(_ sender: Any) {
+    @objc private func pushMessageButtonTouched() {
         "".log()
 
         let content = UNMutableNotificationContent()
@@ -489,6 +489,22 @@ extension MyViewController: UICollectionViewDelegate {
             collectionView.reloadSections(sections)
         } else {
             search.terms[indexPath.item - 1].log()
+//            let term = search.terms[indexPath.item - 1]
+
+//            nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
+//
+//            emailButton.addTarget(self, action: #selector(mailButtonTouched), for: .touchUpInside)
+//            alertButton.addTarget(self, action: #selector(alertButtonTouched), for: .touchUpInside)
+//            alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched), for: .touchUpInside)
+//            actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched), for: .touchUpInside)
+//            modalButton.addTarget(self, action: #selector(modalButtonTouched), for: .touchUpInside)
+//
+//            delegateButton.addTarget(self, action: #selector(delegateButtonTouched), for: .touchUpInside)
+//            bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched), for: .touchUpInside)
+//
+//            pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched), for: .touchUpInside)
+//            shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
+//            transactionButton.addTarget(self, action: #selector(transactionButtonTouched), for: .touchUpInside)
         }
     }
 }
