@@ -157,42 +157,42 @@ final class MyViewController: BaseTabViewController {
 //            nicknameButton
 //        )
 
-        emailButton.height(44)
-        alertButton.height(44)
-        alertOptionButton.height(44)
-        actionSheetButton.height(44)
-        modalButton.height(44)
-        delegateButton.height(44)
-
-        slider.height(44)
-        slider.left(equalTo: view.leftAnchor, constant: 32)
-
-        bottomSheetButton.height(44)
-        bottomSheetButton.left(equalTo: view.leftAnchor, constant: 32)
-        pushMessageButton.height(44)
-        shareButton.height(44)
-        transactionButton.height(44)
-        nicknameButton.height(44)
-
-        nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
-
-        emailButton.addTarget(self, action: #selector(mailButtonTouched), for: .touchUpInside)
-        alertButton.addTarget(self, action: #selector(alertButtonTouched), for: .touchUpInside)
-        alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched), for: .touchUpInside)
-        actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched), for: .touchUpInside)
-        modalButton.addTarget(self, action: #selector(modalButtonTouched), for: .touchUpInside)
-
-        delegateButton.addTarget(self, action: #selector(delegateButtonTouched), for: .touchUpInside)
-        bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched), for: .touchUpInside)
-
-        bottomSheetButton.backgroundColor = .red
-        bottomSheetButton.layer.addBorder(color: .label, width: 1)
-//        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
-        bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
-
-        pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched), for: .touchUpInside)
-        shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
-        transactionButton.addTarget(self, action: #selector(transactionButtonTouched), for: .touchUpInside)
+//        emailButton.height(44)
+//        alertButton.height(44)
+//        alertOptionButton.height(44)
+//        actionSheetButton.height(44)
+//        modalButton.height(44)
+//        delegateButton.height(44)
+//
+//        slider.height(44)
+//        slider.left(equalTo: view.leftAnchor, constant: 32)
+//
+//        bottomSheetButton.height(44)
+//        bottomSheetButton.left(equalTo: view.leftAnchor, constant: 32)
+//        pushMessageButton.height(44)
+//        shareButton.height(44)
+//        transactionButton.height(44)
+//        nicknameButton.height(44)
+//
+//        nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
+//
+//        emailButton.addTarget(self, action: #selector(mailButtonTouched), for: .touchUpInside)
+//        alertButton.addTarget(self, action: #selector(alertButtonTouched), for: .touchUpInside)
+//        alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched), for: .touchUpInside)
+//        actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched), for: .touchUpInside)
+//        modalButton.addTarget(self, action: #selector(modalButtonTouched), for: .touchUpInside)
+//
+//        delegateButton.addTarget(self, action: #selector(delegateButtonTouched), for: .touchUpInside)
+//        bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched), for: .touchUpInside)
+//
+//        bottomSheetButton.backgroundColor = .red
+//        bottomSheetButton.layer.addBorder(color: .label, width: 1)
+////        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
+//        bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
+//
+//        pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched), for: .touchUpInside)
+//        shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
+//        transactionButton.addTarget(self, action: #selector(transactionButtonTouched), for: .touchUpInside)
     }
 
     private func requestAuthorizationNotification() {
