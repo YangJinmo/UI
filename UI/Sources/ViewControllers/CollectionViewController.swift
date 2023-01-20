@@ -144,17 +144,15 @@ extension CollectionViewController: UICollectionViewDataSource {
 
 extension CollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var search = searches[indexPath.section]
-
         if indexPath.item == 0 {
             removeCell(indexPath: indexPath)
 
-            search.isExpand.toggle()
+            searches[indexPath.section].isExpand.toggle()
 
             let sections = IndexSet(integer: indexPath.section)
             collectionView.reloadSections(sections)
         } else {
-            search.terms[indexPath.item - 1].log()
+            searches[indexPath.section].terms[indexPath.item - 1].log()
         }
     }
 }
