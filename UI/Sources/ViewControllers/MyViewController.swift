@@ -30,17 +30,17 @@ final class MyViewController: BaseTabViewController {
         Search(
             isExpand: false,
             title: "Alert",
-            terms: ["캠핑", "가방", "고양이", "건전지", "오미자"]
+            terms: ["Alert", "AlertOption", "ActionSheet"]
         ),
         Search(
             isExpand: false,
             title: "Views",
-            terms: ["충전기", "강아지", "개구리", "두꺼비", "아이유"]
+            terms: ["BottomSheet", "Modal", "Delegate"]
         ),
         Search(
             isExpand: false,
             title: "Etcs",
-            terms: ["보충제", "고구마", "헬스장", "런닝머신", "다이어트"]
+            terms: ["Share", "PushMessage", "CATransaction"]
         ),
     ]
 
@@ -487,7 +487,20 @@ extension MyViewController: UICollectionViewDelegate {
             let sections = IndexSet(integer: indexPath.section)
             collectionView.reloadSections(sections)
         default:
-            searches[indexPath.section].terms[indexPath.item - 1].log()
+            let term = searches[indexPath.section].terms[indexPath.item - 1]
+            term.log()
+            
+            indexPath.description.log()
+
+            switch indexPath {
+            case [0, 1]:
+                break
+            case [0, 2]:
+                break
+            case [0, 3]:
+                break
+            default: break
+            }
 
 //            nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
 //
