@@ -187,7 +187,7 @@ final class MyViewController: BaseTabViewController {
 //
 //        bottomSheetButton.backgroundColor = .red
 //        bottomSheetButton.layer.addBorder(color: .label, width: 1)
-////        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
+        ////        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
 //        bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
 //
 //        pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched), for: .touchUpInside)
@@ -489,33 +489,36 @@ extension MyViewController: UICollectionViewDelegate {
         default:
             let term = searches[indexPath.section].terms[indexPath.item - 1]
             term.log()
-            
+
             indexPath.description.log()
 
             switch indexPath {
             case [0, 1]:
-                break
+                alertButtonTouched()
             case [0, 2]:
-                break
+                alertOptionButtonTouched()
             case [0, 3]:
-                break
-            default: break
-            }
+                actionSheetButtonTouched()
 
+            case [1, 1]:
+                bottomSheetButtonTouched()
+            case [1, 2]:
+                modalButtonTouched()
+            case [1, 3]:
+                delegateButtonTouched()
+
+            case [2, 1]:
+                shareButtonTouched()
+            case [2, 2]:
+                pushMessageButtonTouched()
+            case [2, 3]:
+                transactionButtonTouched()
+
+            default:
+                break
+            }
 //            nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
-//
 //            emailButton.addTarget(self, action: #selector(mailButtonTouched), for: .touchUpInside)
-//            alertButton.addTarget(self, action: #selector(alertButtonTouched), for: .touchUpInside)
-//            alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched), for: .touchUpInside)
-//            actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched), for: .touchUpInside)
-//            modalButton.addTarget(self, action: #selector(modalButtonTouched), for: .touchUpInside)
-//
-//            delegateButton.addTarget(self, action: #selector(delegateButtonTouched), for: .touchUpInside)
-//            bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched), for: .touchUpInside)
-//
-//            pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched), for: .touchUpInside)
-//            shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
-//            transactionButton.addTarget(self, action: #selector(transactionButtonTouched), for: .touchUpInside)
         }
     }
 }
