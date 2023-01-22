@@ -29,7 +29,7 @@ final class MyViewController: BaseTabViewController {
     private var searches: [Search] = [
         Search(
             isExpand: false,
-            title: "Alert",
+            title: "UIAlertController",
             terms: ["Alert", "AlertOption", "ActionSheet"]
         ),
         Search(
