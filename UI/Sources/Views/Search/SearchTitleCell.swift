@@ -10,7 +10,7 @@ import UIKit
 final class SearchTitleCell: BaseCollectionViewCell {
     // MARK: - Constants
 
-    static let itemHeight: CGFloat = 76.0
+    static let itemHeight: CGFloat = 56.0
 
     // MARK: - Variables
 

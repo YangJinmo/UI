@@ -23,6 +23,8 @@ final class SearchTermCell: BaseCollectionViewCell {
             rankTermLabel,
             center: contentView
         )
+
+        contentView.addBottomBorder()
     }
 
     func bind(rank: Int, term: String) {

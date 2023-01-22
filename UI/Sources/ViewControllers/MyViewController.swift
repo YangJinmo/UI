@@ -35,12 +35,12 @@ final class MyViewController: BaseTabViewController {
         Search(
             isExpand: false,
             title: "Views",
-            terms: ["BottomSheet", "Modal", "Delegate"]
+            terms: ["BottomSheet", "PageSheetModal", "Delegate"]
         ),
         Search(
             isExpand: false,
             title: "Etcs",
-            terms: ["Share", "PushMessage", "CATransaction"]
+            terms: ["UIActivityViewController", "UNUserNotificationCenter", "MFMailComposeViewController", "CATransaction"]
         ),
     ]
 
@@ -55,16 +55,6 @@ final class MyViewController: BaseTabViewController {
         return collectionView
     }()
 
-    private lazy var emailButton = UIButton("Email")
-    private lazy var alertButton = UIButton("Alert")
-    private lazy var alertOptionButton = UIButton("AlertOption")
-    private lazy var actionSheetButton = UIButton("ActionSheet")
-    private lazy var modalButton = UIButton("Modal")
-    private lazy var delegateButton = UIButton("Delegate")
-    private lazy var bottomSheetButton = UIButton("BottomSheet")
-    private lazy var pushMessageButton = UIButton("PushMessage")
-    private lazy var shareButton = UIButton("Share")
-    private lazy var transactionButton = UIButton("CATransaction")
     private lazy var nicknameButton: UIButton = {
         var configuration: UIButton.Configuration = .filled()
         configuration.title = "Edit Nickname"
@@ -143,56 +133,20 @@ final class MyViewController: BaseTabViewController {
         )
 
 //        setupScrollableStackView(
-//            emailButton,
-//            alertButton,
-//            alertOptionButton,
-//            actionSheetButton,
-//            modalButton,
-//            delegateButton,
 //            slider,
-//            bottomSheetButton,
-//            pushMessageButton,
-//            shareButton,
-//            transactionButton,
 //            nicknameButton
 //        )
 
-//        emailButton.height(44)
-//        alertButton.height(44)
-//        alertOptionButton.height(44)
-//        actionSheetButton.height(44)
-//        modalButton.height(44)
-//        delegateButton.height(44)
-//
 //        slider.height(44)
 //        slider.left(equalTo: view.leftAnchor, constant: 32)
 //
 //        bottomSheetButton.height(44)
 //        bottomSheetButton.left(equalTo: view.leftAnchor, constant: 32)
-//        pushMessageButton.height(44)
-//        shareButton.height(44)
-//        transactionButton.height(44)
-//        nicknameButton.height(44)
-//
-//        nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
-//
-//        emailButton.addTarget(self, action: #selector(mailButtonTouched), for: .touchUpInside)
-//        alertButton.addTarget(self, action: #selector(alertButtonTouched), for: .touchUpInside)
-//        alertOptionButton.addTarget(self, action: #selector(alertOptionButtonTouched), for: .touchUpInside)
-//        actionSheetButton.addTarget(self, action: #selector(actionSheetButtonTouched), for: .touchUpInside)
-//        modalButton.addTarget(self, action: #selector(modalButtonTouched), for: .touchUpInside)
-//
-//        delegateButton.addTarget(self, action: #selector(delegateButtonTouched), for: .touchUpInside)
-//        bottomSheetButton.addTarget(self, action: #selector(bottomSheetButtonTouched), for: .touchUpInside)
 //
 //        bottomSheetButton.backgroundColor = .red
 //        bottomSheetButton.layer.addBorder(color: .label, width: 1)
-        ////        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
+//        bottomSheetButton.layer.addBorder([.top, .left], color: .label, width: 2)
 //        bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
-//
-//        pushMessageButton.addTarget(self, action: #selector(pushMessageButtonTouched), for: .touchUpInside)
-//        shareButton.addTarget(self, action: #selector(shareButtonTouched), for: .touchUpInside)
-//        transactionButton.addTarget(self, action: #selector(transactionButtonTouched), for: .touchUpInside)
     }
 
     private func requestAuthorizationNotification() {
@@ -213,7 +167,7 @@ final class MyViewController: BaseTabViewController {
         pushViewController(TextViewController())
     }
 
-    @objc private func mailButtonTouched() {
+    @objc private func mailComposeButtonTouched() {
         pushViewController(MailComposeViewController())
     }
 
@@ -282,7 +236,7 @@ final class MyViewController: BaseTabViewController {
         }
     }
 
-    @objc private func modalButtonTouched() {
+    @objc private func pageSheetModalButtonTouched() {
         let vc = SearchViewController()
 
         /// https://sarunw.com/posts/bottom-sheet-in-ios-15-with-uisheetpresentationcontroller/
@@ -310,6 +264,7 @@ final class MyViewController: BaseTabViewController {
         }))
         vc.navigationItem.leftBarButtonItem = medium
         vc.navigationItem.rightBarButtonItem = large
+        vc.navigationItem.title = "PageSheet"
 
         present(nav)
     }
@@ -416,7 +371,7 @@ final class MyViewController: BaseTabViewController {
 
 extension MyViewController: ChangeUIDelegate {
     func changeUI() {
-        contentView.backgroundColor = .random()
+        collectionView.backgroundColor = .random()
 
         toast("UI가 변경되었습니다.", bottom: true)
     }
@@ -503,7 +458,7 @@ extension MyViewController: UICollectionViewDelegate {
             case [1, 1]:
                 bottomSheetButtonTouched()
             case [1, 2]:
-                modalButtonTouched()
+                pageSheetModalButtonTouched()
             case [1, 3]:
                 delegateButtonTouched()
 
@@ -512,13 +467,14 @@ extension MyViewController: UICollectionViewDelegate {
             case [2, 2]:
                 pushMessageButtonTouched()
             case [2, 3]:
+                mailComposeButtonTouched()
+            case [2, 4]:
                 transactionButtonTouched()
 
             default:
                 break
             }
 //            nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
-//            emailButton.addTarget(self, action: #selector(mailButtonTouched), for: .touchUpInside)
         }
     }
 }
