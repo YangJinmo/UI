@@ -50,6 +50,7 @@ final class MyViewController: BaseTabViewController {
         let collectionView = BaseCollectionView(layout: flowLayout())
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.registerHeader(SearchCollectionReusableView.self)
         collectionView.register(SearchTitleCell.self)
         collectionView.register(SearchTermCell.self)
         return collectionView
@@ -427,6 +428,11 @@ extension MyViewController: UICollectionViewDataSource {
             return cell
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header: SearchCollectionReusableView = collectionView.dequeueReusableViewHeader(for: indexPath)
+        return header
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -488,6 +494,14 @@ extension MyViewController: UICollectionViewDelegateFlowLayout {
             return itemSize(in: collectionView, height: SearchTitleCell.itemHeight)
         default:
             return itemSize(in: collectionView, height: SearchTermCell.itemHeight)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: collectionView.frame.width, height: SearchCollectionReusableView.itemHeight)
+        } else {
+            return CGSize(width: collectionView.frame.width, height: 0)
         }
     }
 }
