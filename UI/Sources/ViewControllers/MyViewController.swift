@@ -417,8 +417,11 @@ extension MyViewController: UICollectionViewDelegate {
 
             searches[indexPath.section].isExpand.toggle()
 
-            let sections = IndexSet(integer: indexPath.section)
-            collectionView.reloadSections(sections)
+//            let sections = IndexSet(integer: indexPath.section)
+//            collectionView.reloadSections(sections)
+
+            collectionView.reloadItems(inSection: indexPath.section)
+
         default:
             let term = searches[indexPath.section].terms[indexPath.item - 1]
             term.log()

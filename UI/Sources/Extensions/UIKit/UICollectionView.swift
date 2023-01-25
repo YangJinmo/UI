@@ -166,6 +166,13 @@ extension UICollectionView {
         }
     }
 
+    // Reload collectionview cells and not the section header
+    func reloadItems(inSection section: Int) {
+        reloadItems(at: (0 ..< numberOfItems(inSection: section)).map {
+            IndexPath(item: $0, section: section)
+        })
+    }
+
     // MARK: - Background View
 
     func setBackgroundView() {
