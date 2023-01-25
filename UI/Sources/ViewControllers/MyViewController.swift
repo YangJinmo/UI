@@ -338,6 +338,8 @@ final class MyViewController: BaseTabViewController {
     }
 }
 
+// MARK: - ChangeUIDelegate
+
 extension MyViewController: ChangeUIDelegate {
     func changeUI() {
         collectionView.backgroundColor = .random()
@@ -345,6 +347,8 @@ extension MyViewController: ChangeUIDelegate {
         toast("UI가 변경되었습니다.", bottom: true)
     }
 }
+
+// MARK: - UNUserNotificationCenterDelegate
 
 extension MyViewController: UNUserNotificationCenterDelegate {
     // To display notifications when app is running in foreground
