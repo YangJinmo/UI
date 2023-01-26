@@ -51,6 +51,12 @@ extension UICollectionView {
         return indexPaths
     }
 
+    func indexPathsForAllItems(inSection section: Int) -> [IndexPath] {
+        return (0 ..< numberOfItems(inSection: section)).compactMap({ item -> IndexPath? in
+            IndexPath(item: item, section: section)
+        })
+    }
+
     func nextIndexPath(to indexPath: IndexPath, offset: Int = 0) -> IndexPath? {
         return UICollectionView.nextIndexPath(to: indexPath, offset: offset, source: indexPaths)
     }
