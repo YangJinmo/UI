@@ -28,7 +28,7 @@ final class CATransactionViewController: UIViewController {
     }()
 
     private var randomColor: UIColor {
-        UIColor(red: self.randomFloat, green: self.randomFloat, blue: self.randomFloat, alpha: 1)
+        UIColor(red: CGFloat.randomFloat, green: CGFloat.randomFloat, blue: CGFloat.randomFloat, alpha: 1)
     }
 
     override func viewDidLoad() {
