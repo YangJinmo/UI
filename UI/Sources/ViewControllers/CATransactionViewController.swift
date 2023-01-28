@@ -27,13 +27,16 @@ final class CATransactionViewController: UIViewController {
         return button
     }()
 
+    private var randomFloat: CGFloat {
+        CGFloat(drand48())
+    }
+
     private var randomColor: UIColor {
         UIColor(red: self.randomFloat, green: self.randomFloat, blue: self.randomFloat, alpha: 1)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .systemGray4
 
         NSLayoutConstraint.activate([

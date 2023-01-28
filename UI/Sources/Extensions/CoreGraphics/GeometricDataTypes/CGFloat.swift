@@ -15,8 +15,4 @@ extension CGFloat {
         }
         return nearestValue
     }
-
-    var randomFloat: CGFloat {
-        CGFloat(drand48())
-    }
 }
