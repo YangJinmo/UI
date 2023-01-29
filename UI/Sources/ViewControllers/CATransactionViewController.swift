@@ -27,10 +27,6 @@ final class CATransactionViewController: UIViewController {
         return button
     }()
 
-    private var randomColor: UIColor {
-        UIColor(red: drand48().f, green: drand48().f, blue: drand48().f, alpha: 1)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray4
@@ -54,8 +50,8 @@ final class CATransactionViewController: UIViewController {
         }
 
         let animation = CABasicAnimation(keyPath: "backgroundColor")
-        animation.fromValue = randomColor.cgColor
-        animation.toValue = randomColor.cgColor
+        animation.fromValue = CGColor.random()
+        animation.toValue = CGColor.random()
         animation.duration = 3
         animation.repeatCount = 1
         myView.layer.add(animation, forKey: "myAnimation")

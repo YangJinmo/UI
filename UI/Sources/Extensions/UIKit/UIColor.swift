@@ -71,13 +71,24 @@ extension UIColor {
 
 //    let randomColor = UIColor.random()
     static func random(a: CGFloat = 1.0) -> UIColor {
-        let r = arc4random_uniform(256)
+        let r = arc4random_uniform(256) // 0 ~ 255
         let g = arc4random_uniform(256)
         let b = arc4random_uniform(256)
 
         "r: \(r), g: \(g), b: \(b), a: \(a)".log()
 
         return rgb(r: CGFloat(r), g: CGFloat(g), b: CGFloat(b), a: a)
+    }
+
+    // RGB values not known
+    static func random2(a: CGFloat = 1.0) -> UIColor {
+        let r = drand48().f // 0.0 ~ 1.0
+        let g = drand48().f
+        let b = drand48().f
+
+        // "r: \(r), g: \(g), b: \(b), a: \(a)".log()
+
+        return UIColor(red: r, green: g, blue: b, alpha: a)
     }
 
     var hexString: String {
