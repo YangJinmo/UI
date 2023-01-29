@@ -80,7 +80,7 @@ extension UIColor {
         return rgb(r: CGFloat(r), g: CGFloat(g), b: CGFloat(b), a: a)
     }
 
-    // RGB values not known
+    // RGB values are unknown function
     static func random2(a: CGFloat = 1.0) -> UIColor {
         let r = drand48().f // 0.0 ~ 1.0
         let g = drand48().f
