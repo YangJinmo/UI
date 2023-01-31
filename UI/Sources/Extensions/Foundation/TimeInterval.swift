@@ -8,11 +8,11 @@
 import Foundation.NSDate
 
 extension TimeInterval {
-    var seconds: Int64 {
-        return Int64(rounded())
-    }
-
     var milliseconds: Int64 {
         return Int64(self * 1000)
+    }
+
+    var seconds: Int64 {
+        return Int64(rounded())
     }
 }
