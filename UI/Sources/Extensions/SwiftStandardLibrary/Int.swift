@@ -17,10 +17,24 @@ extension Int {
         return CGFloat(self) * 180 / .pi
     }
 
+    var milliseconds: Int {
+        return self * 1000
+    }
+
+    var seconds: Int {
+        return self % 60
+    }
+
+    var minutes: Int {
+        return (self / 60) % 60
+    }
+
+    var hours: Int {
+        return self / 3600
+    }
+
     func timeFormatted() -> String {
-        let minutes: Int = (self / 60) % 60
-        let seconds: Int = self % 60
-        return String(format: "%02d:%02d", minutes, seconds)
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
 
     var abbreviatedNumber: String {
