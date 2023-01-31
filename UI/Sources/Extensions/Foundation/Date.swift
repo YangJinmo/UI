@@ -20,11 +20,19 @@ extension Date {
     /// 1970년 1월 1일 0시(UTC)를 기점으로 현재까지의 경과 시간을 초 단위로 환산하여 나타낸 값입니다.
     /// 예를 들어 2020년 1월 1일 0시(UTC)는 유닉스 시간으로 1577836800으로 표기합니다.
     static var timestamp: Int64 {
-        return Int64(Date().timeIntervalSince1970 * 1000)
+        return Date().millisecondsSince1970
     }
 
-    var milliseconds: Int64 {
-        return Int64(timeIntervalSince1970 * 1000)
+    // Date().millisecondsSince1970
+    // 1476889390939
+    var millisecondsSince1970: Int64 {
+        return Int64((timeIntervalSince1970 * 1000).rounded())
+    }
+
+    // Date(milliseconds: 0)
+    // "Dec 31, 1969, 4:00 PM" (PDT variant of 1970 UTC)
+    init(milliseconds: Int64) {
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds) / 1000)
     }
 
     var year: Int {
