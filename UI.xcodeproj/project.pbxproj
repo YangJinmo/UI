@@ -86,6 +86,7 @@
 		E85ABDFA27E96FD600787183 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85ABDF927E96FD600787183 /* DividerView.swift */; };
 		E85EFD2028D0427400846931 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85EFD1F28D0427400846931 /* Font.swift */; };
 		E86134B9278AE93B00E40407 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86134B8278AE93B00E40407 /* HTTPMethod.swift */; };
+		E862700F29820A3300E9571E /* SpaceCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862700E29820A3300E9571E /* SpaceCollectionReusableView.swift */; };
 		E864B8B8293F68E50061301C /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E864B8B7293F68E50061301C /* UITableViewCell.swift */; };
 		E864B8BA293F69270061301C /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E864B8B9293F69270061301C /* UIResponder.swift */; };
 		E86D2FE62971364F008CDBA4 /* LosslessStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D2FE52971364F008CDBA4 /* LosslessStringConvertible.swift */; };
@@ -228,6 +229,7 @@
 		E85ABDF927E96FD600787183 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		E85EFD1F28D0427400846931 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		E86134B8278AE93B00E40407 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E862700E29820A3300E9571E /* SpaceCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceCollectionReusableView.swift; sourceTree = "<group>"; };
 		E864B8B7293F68E50061301C /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		E864B8B9293F69270061301C /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		E86D2FE52971364F008CDBA4 /* LosslessStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LosslessStringConvertible.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				E821665F2898168A006ADC1D /* ChevronDownButton.swift */,
 				E8E888572930840400341BBE /* LeftAlignCollectionViewFlowLayout.swift */,
 				E8F590F429324B2C003F5A08 /* PlaceholderTextView.swift */,
+				E862700E29820A3300E9571E /* SpaceCollectionReusableView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				E8C622502935DFC80008C170 /* Double.swift in Sources */,
 				E84282CE2853630400E27E39 /* UIActivity.swift in Sources */,
 				09ADF39827252A7F004C6A97 /* BaseTableViewCell.swift in Sources */,
+				E862700F29820A3300E9571E /* SpaceCollectionReusableView.swift in Sources */,
 				E8B448D427906F41005881B9 /* APIError.swift in Sources */,
 				E8581347277F630200CD206E /* UIButton.swift in Sources */,
 				09ADF38A27252498004C6A97 /* UIView.swift in Sources */,

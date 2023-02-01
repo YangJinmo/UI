@@ -47,6 +47,7 @@ final class MyViewController: BaseTabViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerHeader(SearchCollectionReusableView.self)
+        collectionView.registerFooter(SpaceCollectionReusableView.self)
         collectionView.register(SearchTitleCell.self)
         collectionView.register(SearchTermCell.self)
         return collectionView
@@ -402,8 +403,13 @@ extension MyViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header: SearchCollectionReusableView = collectionView.dequeueReusableViewHeader(for: indexPath)
-        return header
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header: SearchCollectionReusableView = collectionView.dequeueReusableViewHeader(for: indexPath)
+            return header
+        } else {
+            let footer: SpaceCollectionReusableView = collectionView.dequeueReusableViewFooter(for: indexPath)
+            return footer
+        }
     }
 }
 
@@ -476,7 +482,15 @@ extension MyViewController: UICollectionViewDelegateFlowLayout {
         if section == 0 {
             return CGSize(width: collectionView.frame.width, height: SearchCollectionReusableView.itemHeight)
         } else {
-            return CGSize(width: collectionView.frame.width, height: 0)
+            return .zero
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: collectionView.frame.width, height: SpaceCollectionReusableView.itemHeight)
+        } else {
+            return .zero
         }
     }
 }

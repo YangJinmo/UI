@@ -11,7 +11,6 @@ final class SearchCollectionReusableView: BaseCollectionReusableView {
     static let itemHeight: CGFloat = 44
 
     private enum Image {
-        static let pencil = UIImage(systemName: "pencil")
         static let normal = UIImage(named: "imgNormal")
         static let disabled = UIImage.createThumbImage(size: 18, borderWidth: 0, fillColor: .white(127), strokeColor: .white(127))
         static let highlighted = UIImage(named: "imgHighlighted")
