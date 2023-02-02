@@ -142,6 +142,7 @@
 		E8EE7069276781150005877A /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE7068276781150005877A /* MailComposeViewController.swift */; };
 		E8EE706B276786940005877A /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE706A276786940005877A /* Bundle.swift */; };
 		E8EE96FA295723CC009E4D1A /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EE96F9295723CC009E4D1A /* CGSize.swift */; };
+		E8F349BD298C02C700843F23 /* StickyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F349BC298C02C700843F23 /* StickyLayout.swift */; };
 		E8F590F529324B2C003F5A08 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F590F429324B2C003F5A08 /* PlaceholderTextView.swift */; };
 		E8F6542F27A6CE8600FD44B8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */; };
 		E8F6543327A6EB6300FD44B8 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */; };
@@ -285,6 +286,7 @@
 		E8EE7068276781150005877A /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E8EE706A276786940005877A /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		E8EE96F9295723CC009E4D1A /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		E8F349BC298C02C700843F23 /* StickyLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyLayout.swift; sourceTree = "<group>"; };
 		E8F590F429324B2C003F5A08 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		E8F6542E27A6CE8600FD44B8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		E8F6543227A6EB6300FD44B8 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				E8E888572930840400341BBE /* LeftAlignCollectionViewFlowLayout.swift */,
 				E8F590F429324B2C003F5A08 /* PlaceholderTextView.swift */,
 				E862700E29820A3300E9571E /* SpaceCollectionReusableView.swift */,
+				E8F349BC298C02C700843F23 /* StickyLayout.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				093160AB2735162700126D4E /* ReviewWriteViewController.swift in Sources */,
 				09ADF38C272524C2004C6A97 /* UICollectionView.swift in Sources */,
 				E8A2041028240872001D5D92 /* UITextView.swift in Sources */,
+				E8F349BD298C02C700843F23 /* StickyLayout.swift in Sources */,
 				E8E1C24D27F1738700676A06 /* Classification.swift in Sources */,
 				09ADF37F272521EB004C6A97 /* TableViewController.swift in Sources */,
 				E8CF006A277C65F7009B3128 /* Track.swift in Sources */,
