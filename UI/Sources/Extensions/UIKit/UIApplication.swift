@@ -48,36 +48,19 @@ extension UIApplication {
         return UIApplication.shared.delegate as? AppDelegate
     }
 
-    // MARK: - Delegate
+    // MARK: - Etcs
 
-    class func topViewController(controller: UIViewController? = UIApplication.mainKeyWindow?.rootViewController) -> UIViewController? {
-        if let navigationController = controller as? UINavigationController {
-            return topViewController(controller: navigationController.visibleViewController)
+    class func topViewController(_ viewController: UIViewController? = mainKeyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = viewController as? UINavigationController {
+            return topViewController(navigationController.visibleViewController)
         }
-        if let tabController = controller as? UITabBarController {
-            if let selected = tabController.selectedViewController {
-                return topViewController(controller: selected)
-            }
+        if let tabController = viewController as? UITabBarController, let selected = tabController.selectedViewController {
+            return topViewController(selected)
         }
-        if let presented = controller?.presentedViewController {
-            return topViewController(controller: presented)
+        if let presented = viewController?.presentedViewController {
+            return topViewController(presented)
         }
-        return controller
-    }
-
-    class func getMostTopViewController(base: UIViewController? = nil) -> UIViewController? {
-        let baseVC = base ?? mainKeyWindow?.rootViewController
-
-        if let naviController = baseVC as? UINavigationController {
-            return getMostTopViewController(base: naviController.visibleViewController)
-
-        } else if let tabbarController = baseVC as? UITabBarController, let selected = tabbarController.selectedViewController {
-            return getMostTopViewController(base: selected)
-
-        } else if let presented = baseVC?.presentedViewController {
-            return getMostTopViewController(base: presented)
-        }
-        return baseVC
+        return viewController
     }
 
     func runInBackground(_ closure: @escaping () -> Void, expirationHandler: (() -> Void)? = nil) {
