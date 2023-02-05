@@ -113,6 +113,11 @@ extension String {
         return false
     }
 
+    var wordCount: Int {
+        let regex = try? NSRegularExpression(pattern: "\\w+")
+        return regex?.numberOfMatches(in: self, range: NSRange(location: 0, length: utf16.count)) ?? 0
+    }
+
     var isValidURL: Bool {
         let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: utf16.count)) {
