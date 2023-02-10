@@ -177,6 +177,23 @@ extension String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
+    func replacingOccurrences(of search: String, with replacement: String, count maxReplacements: Int) -> String {
+        var count = 0
+        var returnValue = self
+
+        while let range = returnValue.range(of: search) {
+            returnValue = returnValue.replacingCharacters(in: range, with: replacement)
+            count += 1
+
+            // exit as soon as we've made all replacements
+            if count == maxReplacements {
+                return returnValue
+            }
+        }
+
+        return returnValue
+    }
+
     var toPhoneNumber: String {
         return replacingOccurrences(of: "(\\d{3})(\\d{4})(\\d+)", with: " $1-$2-$3", options: .regularExpression, range: nil)
     }
