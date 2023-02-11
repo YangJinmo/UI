@@ -224,6 +224,26 @@ extension String {
         return String(c)
     }
 
+    /**
+     ```
+     let testString = "He thrusts his fists against the posts and still insists he sees the ghosts."
+     print(testString.truncate(to: 20, addEllipsis: true))
+     ```
+     */
+
+    func truncate(to length: Int, addEllipsis: Bool = false) -> String {
+        if length > count { return self }
+
+        let endPosition = index(startIndex, offsetBy: length)
+        let trimmed = self[..<endPosition]
+
+        if addEllipsis {
+            return "\(trimmed)..."
+        } else {
+            return String(trimmed)
+        }
+    }
+
     // MARK: - Size
 
     private func size(ofFont font: UIFont) -> CGSize {
