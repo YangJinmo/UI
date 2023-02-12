@@ -8,6 +8,10 @@
 import UIKit.UIImage
 
 extension UIImage {
+    convenience init(bundleName: StaticString) {
+        self.init(named: "\(bundleName)")!
+    }
+
     var ratio: CGFloat {
         size.width / size.height
     }
