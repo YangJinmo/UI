@@ -70,8 +70,21 @@ extension UIView {
         layer.masksToBounds = true
     }
 
-    func addSubviews(_ views: UIView...) {
-        views.forEach {
+//    @discardableResult
+//    func addSubviews(_ subviews: UIView...) -> UIView {
+//        subviews.forEach(addSubview)
+//        return self
+//    }
+
+    func addSubviews(_ subviews: UIView...) {
+        subviews.forEach {
+            addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+
+    func addSubviews(_ subviews: [UIView]) {
+        subviews.forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
