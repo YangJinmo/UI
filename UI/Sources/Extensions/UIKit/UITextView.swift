@@ -21,4 +21,8 @@ extension UITextView {
     var numberOfLines: Int {
         return Int(estimatedSize.height / font!.lineHeight)
     }
+
+    func selectedAllTextRange() {
+        selectedTextRange = textRange(from: beginningOfDocument, to: endOfDocument)
+    }
 }
