@@ -31,6 +31,10 @@ final class TextViewController: BaseTabViewController {
         textView.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         textView.keyboardDismissMode = .interactive
         textView.delegate = self
+
+        /// placeholder
+        textView.text = "메세지를 입력하세요"
+        textView.textColor = UIColor.lightGray
         return textView
     }()
 
@@ -192,6 +196,22 @@ extension TextViewController: UITextViewDelegate {
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return textView.text.count + (text.count - range.length) <= 50000 // maxLength
+    }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        // TextColor로 처리합니다. text로 처리하게 된다면 placeholder와 같은걸 써버리면 동작이 이상하겠죠?
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil // 텍스트를 날려줌
+            textView.textColor = UIColor.black
+        }
+    }
+
+    // UITextView의 placeholder
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "메세지를 입력하세요"
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
 
