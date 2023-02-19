@@ -8,6 +8,10 @@
 import Foundation
 
 extension Double {
+    var absoluteValue: Double {
+        return abs(self)
+    }
+
     var km: Double { return self * 1000.0 }
     var m: Double { return self }
     var cm: Double { return self / 100.0 }
