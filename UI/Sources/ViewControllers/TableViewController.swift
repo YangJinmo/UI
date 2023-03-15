@@ -50,7 +50,31 @@ final class TableViewController: UIViewController {
         super.viewDidLoad()
 
         setupViews()
-        getWebsites()
+//        getWebsites()
+
+//        getWebsites { (result: Result<[Website], Error>) in
+//            switch result {
+//            case let .success(websites):
+//                self.websites = websites
+//                break
+//
+//            case let .failure(message):
+//                print(message)
+//                break
+//            }
+//        }
+
+        fetchWebsites { (result: Result<[Website], Error>) in
+            switch result {
+            case let .success(websites):
+                self.websites = websites
+                break
+
+            case let .failure(message):
+                print(message)
+                break
+            }
+        }
     }
 
     // MARK: - Responding to view-related events
@@ -153,6 +177,69 @@ extension TableViewController {
             self.websites = websites
         } catch {
             error.localizedDescription.log()
+        }
+    }
+
+    private func getWebsites<T: Decodable>(completion: @escaping (Result<[T], Error>) -> Void) {
+        guard let path = Bundle.main.path(forResource: "Websites", ofType: "json") else {
+            return
+        }
+
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+
+            let result = try data.decoded() as [T]
+
+            DispatchQueue.main.async {
+                completion(.success(result))
+            }
+
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    private func fetchWebsites<T: Decodable>(completion: @escaping (Result<[T], Error>) -> Void) {
+        guard let path = Bundle.main.path(forResource: "Websites", ofType: "json") else {
+            "Error: Path".log()
+            return
+        }
+
+        fetchData(path: path) { (result: Result<Data, Error>) in
+            switch result {
+            case let .success(data):
+                self.fetchArray(data: data, completion: completion)
+                break
+
+            case let .failure(message):
+                print(message)
+                break
+            }
+        }
+    }
+
+    private func fetchArray<T: Decodable>(data: Data, completion: @escaping (Result<[T], Error>) -> Void) {
+        do {
+            let result = try data.decoded() as [T]
+
+            DispatchQueue.main.async {
+                completion(.success(result))
+            }
+
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    private func fetchData(path: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+
+            DispatchQueue.main.async {
+                completion(.success(data))
+            }
+        } catch {
+            completion(.failure(error))
         }
     }
 }
