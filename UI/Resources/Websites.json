@@ -39,6 +39,10 @@
 		"title" : "NaverMap",
 		"urlString" : "https://m.map.naver.com/search2/search.naver?query=동탄호수공원&sm=hty&style=v5"
 	},
+    {
+        "title" : "NaverShopping",
+        "urlString" : "https://msearch.shopping.naver.com/search/all?query=휴대폰"
+    },
 	{
 		"title" : "Empty",
 		"urlString" : ""
