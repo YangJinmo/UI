@@ -105,23 +105,3 @@ extension UIColor {
         return String(format: "%02X%02X%02X", r, g, b)
     }
 }
-
-import CoreGraphics.CGColor
-
-extension CGColor {
-    static func hex(_ hex: UInt32, a: CGFloat = 1.0) -> CGColor {
-        return UIColor.hex(hex, a: a).cgColor
-    }
-
-    static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) -> CGColor {
-        return UIColor.rgb(r: r, g: g, b: b, a: a).cgColor
-    }
-
-    static func white(_ w: CGFloat, a: CGFloat = 1.0) -> CGColor {
-        return UIColor.white(w, a: a).cgColor
-    }
-
-    static func random(a: CGFloat = 1.0) -> CGColor {
-        return UIColor.random(a: a).cgColor
-    }
-}

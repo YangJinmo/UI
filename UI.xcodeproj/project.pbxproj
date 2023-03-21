@@ -66,6 +66,8 @@
 		E835405B27B951DF002913FA /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835405A27B951DF002913FA /* Typealias.swift */; };
 		E8356DF22828092900F05BF4 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8356DF12828092900F05BF4 /* CALayer.swift */; };
 		E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83581EE27D0CA3A00179090 /* UIScrollView.swift */; };
+		E839AC8329C9893200DBA1AA /* AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E839AC8229C9893200DBA1AA /* AVPlayerItem.swift */; };
+		E839AC9729C98B3A00DBA1AA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E839AC9629C98B3A00DBA1AA /* CGColor.swift */; };
 		E84282CE2853630400E27E39 /* UIActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84282CD2853630400E27E39 /* UIActivity.swift */; };
 		E84282D02853633A00E27E39 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84282CF2853633A00E27E39 /* SafariActivity.swift */; };
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
@@ -211,6 +213,8 @@
 		E835405A27B951DF002913FA /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		E8356DF12828092900F05BF4 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		E83581EE27D0CA3A00179090 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		E839AC8229C9893200DBA1AA /* AVPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItem.swift; sourceTree = "<group>"; };
+		E839AC9629C98B3A00DBA1AA /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		E84282CD2853630400E27E39 /* UIActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivity.swift; sourceTree = "<group>"; };
 		E84282CF2853633A00E27E39 /* SafariActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
@@ -406,6 +410,7 @@
 				E8E28AD928CD914200EDF783 /* CoreAnimation */,
 				E8078ECE2854553800EA5D8A /* UIKit */,
 				E8E28ADA28CD915F00EDF783 /* WebKit */,
+				E839AC8129C9891C00DBA1AA /* AVKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -546,6 +551,14 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		E839AC8129C9891C00DBA1AA /* AVKit */ = {
+			isa = PBXGroup;
+			children = (
+				E839AC8229C9893200DBA1AA /* AVPlayerItem.swift */,
+			);
+			path = AVKit;
+			sourceTree = "<group>";
+		};
 		E853390228FFD32000808B5D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +669,7 @@
 			isa = PBXGroup;
 			children = (
 				E8EE96FB29572461009E4D1A /* GeometricDataTypes */,
+				E839AC9629C98B3A00DBA1AA /* CGColor.swift */,
 			);
 			path = CoreGraphics;
 			sourceTree = "<group>";
@@ -838,6 +852,7 @@
 				E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */,
 				E8AF878927733DF400E04F43 /* DelegateViewController.swift in Sources */,
 				E835405327B9173A002913FA /* BottomSheetViewController.swift in Sources */,
+				E839AC8329C9893200DBA1AA /* AVPlayerItem.swift in Sources */,
 				E853390528FFD37300808B5D /* BaseNavigationController.swift in Sources */,
 				09BD4EDB27352DCC00C48138 /* UIViewController.swift in Sources */,
 				E8A9177E27F40ABA0067CC58 /* TableHeaderView.swift in Sources */,
@@ -870,6 +885,7 @@
 				E8F6543327A6EB6300FD44B8 /* UINavigationController.swift in Sources */,
 				09ADF36D272521BD004C6A97 /* SceneDelegate.swift in Sources */,
 				09AB3493272D873100317254 /* SettingViewController.swift in Sources */,
+				E839AC9729C98B3A00DBA1AA /* CGColor.swift in Sources */,
 				E895CE66283BD45B00E85A2C /* Date.swift in Sources */,
 				E88AECC827D7592C00B14C1F /* SelectableLabelCell.swift in Sources */,
 				E82166602898168A006ADC1D /* ChevronDownButton.swift in Sources */,
