@@ -23,8 +23,8 @@ final class SearchTitleCell: BaseCollectionViewCell {
     private lazy var termLabel = UILabel.subtitle()
     private lazy var chevronButton: UIButton = {
         let button = UIButton()
-        button.setImage(Image.chevronDown, for: .normal)
-        button.setImage(Image.chevronUp, for: .selected)
+        button.setImage(.chevronDown, for: .normal)
+        button.setImage(.chevronUp, for: .selected)
         button.tintColor = .label
         button.isUserInteractionEnabled = false
         return button

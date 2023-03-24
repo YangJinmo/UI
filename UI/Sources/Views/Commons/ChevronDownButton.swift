@@ -24,8 +24,8 @@ final class ChevronDownButton: BaseButton {
         setTitleColor(.white(102), for: .normal)
         setTitleColor(.base, for: .selected)
 
-        setImage(Image.chevronDown, for: .normal)
-        setImage(Image.chevronUp, for: .selected)
+        setImage(.chevronDown, for: .normal)
+        setImage(.chevronUp, for: .selected)
 
         titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         semanticContentAttribute = .forceRightToLeft
@@ -41,7 +41,7 @@ final class ChevronDownButton: BaseButton {
         configuration.subtitle = "닉네임 수정"
         configuration.buttonSize = .large
         configuration.cornerStyle = .capsule
-        configuration.image = Image.chevronDown
+        configuration.image = .chevronDown
         configuration.imagePlacement = .trailing
         configuration.imagePadding = 4
         configuration.titlePadding = 10

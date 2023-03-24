@@ -8,6 +8,17 @@
 import UIKit.UIImage
 
 extension UIImage {
+    static let chevronLeft = UIImage(systemName: "chevron.left")
+    static let xmark = UIImage(systemName: "xmark")
+
+    static let chevronUp = UIImage(systemName: "chevron.up")
+    static let chevronDown = UIImage(systemName: "chevron.down")
+
+    static let arrowUp = UIImage(systemName: "arrow.up")
+    static let arrowLeft = UIImage(systemName: "arrow.left")
+}
+
+extension UIImage {
     convenience init(bundleName: StaticString) {
         self.init(named: "\(bundleName)")!
     }

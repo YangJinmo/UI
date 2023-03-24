@@ -15,18 +15,6 @@ final class WebViewController: BaseTabViewController {
     private let scriptMessageHandler = "scriptHandler"
     private var urlString: String?
 
-    // MARK: - Initialization
-
-    init(urlString: String, title: String = "") {
-        self.urlString = urlString
-
-        super.init(title: title)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     // MARK: - Views
 
     private lazy var configuration: WKWebViewConfiguration = {
@@ -54,9 +42,20 @@ final class WebViewController: BaseTabViewController {
 
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
     private lazy var progressView = BaseProgressView()
-    private lazy var floatingButton = FloatingButton(view: view, scrollView: webView.scrollView)
+    private lazy var goBackFloatingButton = FloatingButton.goBack(view: view, webView: webView)
+    private lazy var scrollToTopFloatingButton = FloatingButton.scrollToTop(view: view, scrollView: webView.scrollView)
 
-    // MARK: - Managing the view
+    // MARK: - Life Cycle
+
+    init(urlString: String, title: String = "") {
+        self.urlString = urlString
+
+        super.init(title: title)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,18 +65,36 @@ final class WebViewController: BaseTabViewController {
         loadWebView()
     }
 
-    // MARK: - Responding to view-related events
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        floatingButton.create()
+        goBackFloatingButton.create()
+        scrollToTopFloatingButton.create()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        floatingButton.remove()
+        goBackFloatingButton.remove()
+        scrollToTopFloatingButton.remove()
+    }
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        switch keyPath {
+        case #keyPath(WKWebView.estimatedProgress):
+            progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+
+        case #keyPath(WKWebView.title):
+            webView.title?.description.log()
+
+        default:
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+
+    deinit {
+        self.webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
+        self.webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.title))
     }
 
     // MARK: - Methods
@@ -86,18 +103,6 @@ final class WebViewController: BaseTabViewController {
         let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache])
         let date = Date(timeIntervalSince1970: 0)
         WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set<String>, modifiedSince: date, completionHandler: { })
-    }
-
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == #keyPath(WKWebView.estimatedProgress) {
-            progressView.progress = Float(webView.estimatedProgress)
-        }
-
-        if keyPath == #keyPath(WKWebView.title) {
-            if let title = webView.title {
-                title.log()
-            }
-        }
     }
 
     private func setupViews() {
@@ -219,12 +224,14 @@ extension WebViewController: WKUIDelegate {
 
     // href="_blank" 처리
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        navigationAction.request.url?.absoluteString.log()
+
         guard navigationAction.targetFrame == nil else {
-            navigationAction.request.url?.absoluteString.log()
             return nil
         }
 
         webView.load(navigationAction.request)
+
         return nil
     }
 }
@@ -233,23 +240,37 @@ extension WebViewController: WKUIDelegate {
 
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        goBackFloatingButton.hide()
+        scrollToTopFloatingButton.hide()
+
         activityIndicatorView.startAnimating()
-        progressView.isHidden = false
+
+        UIView.animate(withDuration: 0.25, animations: {
+            self.progressView.alpha = 1.0
+        })
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else {
+            navigationAction.description.log("cancel: ")
+            decisionHandler(.cancel)
             return
         }
 
-        url.absoluteString.log()
-
+        url.absoluteString.log("allow: ")
         decisionHandler(.allow)
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityIndicatorView.stopAnimating()
-        progressView.isHidden = true
+
+        UIView.animate(withDuration: 0.25, animations: { () in
+            self.progressView.alpha = 0.0
+        }) { _ in
+            self.progressView.setProgress(0.0, animated: false)
+
+            self.stoppedScrolling(scrollView: webView.scrollView)
+        }
 
         // Disable WKActionSheet on WKWebView
         webView.evaluateJavaScript("document.body.style.webkitTouchCallout='none';")
@@ -273,15 +294,11 @@ extension WebViewController: WKScriptMessageHandler {
 // MARK: - UIScrollViewDelegate
 
 extension WebViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentHeight = scrollView.contentSize.height - scrollView.frame.height
-
-        if scrollView.contentOffset.y >= contentHeight {
-//            if isLoaded && (hasMoreReviews || hasMoreRecommendReviews) {
-//                loadMore()
-//            }
-        }
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        scrollView.contentOffset.y == 0
+//            ? scrollToTopFloatingButton.hide()
+//            : scrollToTopFloatingButton.show()
+//    }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         startScrolling()
@@ -303,12 +320,20 @@ extension WebViewController: UIScrollViewDelegate {
 
     private func startScrolling() {
         view.endEditing(true)
-        floatingButton.hide()
     }
 
     private func stoppedScrolling(scrollView: UIScrollView) {
-        scrollView.contentOffset.y == 0
-            ? floatingButton.hide()
-            : floatingButton.show()
+        if scrollView.contentOffset.y == 0 {
+            goBackFloatingButton.hide()
+            scrollToTopFloatingButton.hide()
+        } else {
+            if webView.canGoBack {
+                goBackFloatingButton.show()
+                scrollToTopFloatingButton.hide()
+            } else {
+                goBackFloatingButton.hide()
+                scrollToTopFloatingButton.show()
+            }
+        }
     }
 }

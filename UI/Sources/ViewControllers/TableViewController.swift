@@ -17,7 +17,7 @@ final class TableViewController: UIViewController {
 
     // MARK: - Views
 
-    private lazy var floatingButton = FloatingButton(view: view, scrollView: tableView)
+    private lazy var floatingButton = FloatingButton.scrollToTop(view: view, scrollView: tableView)
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
     private lazy var refreshControl: BaseRefreshControl = {
         let refreshControl = BaseRefreshControl()

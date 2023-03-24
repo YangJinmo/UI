@@ -30,7 +30,7 @@ final class TimerViewController: UIViewController {
 
     // MARK: - Views
 
-    private lazy var floatingButton = FloatingButton(view: view, scrollView: tableView)
+    private lazy var floatingButton = FloatingButton.scrollToTop(view: view, scrollView: tableView)
 
     private lazy var tableView: BaseTableView = {
         let tableView = BaseTableView()

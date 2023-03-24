@@ -6,32 +6,48 @@
 //
 
 import UIKit
+import WebKit
 
 final class FloatingButton: UIButton {
     // MARK: - Properties
 
-    private enum Image {
-        static let arrowUpSquareFill = UIImage(systemName: "arrow.up.square.fill")
+    enum Mode {
+        case scrollToTop
+        case goBack
     }
 
-    private lazy var scaleAnimation: CABasicAnimation = {
-        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
-        scaleAnimation.duration = 0.4
-        scaleAnimation.repeatCount = .greatestFiniteMagnitude
-        scaleAnimation.autoreverses = true
-        scaleAnimation.fromValue = 1.00
-        scaleAnimation.toValue = 1.05
-        return scaleAnimation
-    }()
-
-    // MARK: - Views
-
+    private var mode: Mode!
+    private var webView: WKWebView!
     private var view: UIView!
     private var scrollView: UIScrollView!
 
+    private let inset = 16.0
+    private let bottomToolBarHeight = 60.0
+
+    static func goBack(view: UIView, webView: WKWebView) -> FloatingButton {
+        FloatingButton(mode: .goBack, view: view, webView: webView)
+    }
+
+    static func scrollToTop(view: UIView, scrollView: UIScrollView) -> FloatingButton {
+        FloatingButton(mode: .scrollToTop, view: view, scrollView: scrollView)
+    }
+
     // MARK: - View Life Cycle
 
-    init(view: UIView, scrollView: UIScrollView) {
+    init(mode: Mode, view: UIView, webView: WKWebView) {
+        self.mode = mode
+
+        self.view = view
+        self.webView = webView
+
+        super.init(frame: .zero)
+
+        commonInit()
+    }
+
+    init(mode: Mode, view: UIView, scrollView: UIScrollView) {
+        self.mode = mode
+
         self.view = view
         self.scrollView = scrollView
 
@@ -47,25 +63,45 @@ final class FloatingButton: UIButton {
     // MARK: - Methods
 
     private func commonInit() {
-        isHidden = true
-        alpha = 0
-        transform = CGAffineTransform(scaleX: 0, y: 0)
-        layer.add(scaleAnimation, forKey: "scale")
-
-        setImage(Image.arrowUpSquareFill, for: .normal)
-        tintColor = .base
+        setImage(mode == .goBack ? .arrowLeft : .arrowUp, for: .normal)
         addTarget(self, action: #selector(floatingButtonTouched), for: .touchUpInside)
 
+        isHidden = true
+        alpha = 0
+
+        tintColor = .black
+        backgroundColor = .white
+
+        layer.cornerRadius = 21
+        layer.masksToBounds = true
+        layer.borderWidth = 1
+        layer.borderColor = CGColor.rgba(247, 248, 249, 1)
+        layer.setShadow(x: 0, y: 4, blur: 4, alpha: 0.1)
+
+        configureConstraints()
+    }
+
+    private func configureConstraints() {
         translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 56),
-            heightAnchor.constraint(equalToConstant: 56),
+            widthAnchor.constraint(equalToConstant: 42),
+            heightAnchor.constraint(equalToConstant: 42),
         ])
     }
 
-    @objc private func floatingButtonTouched() {
-        scrollToTop()
+    @objc func floatingButtonTouched() {
+        mode == .goBack ? goBack() : scrollToTop()
+    }
+
+    private func goBack() {
+        UIView.animate(withDuration: 0) {
+            if self.webView.canGoBack {
+                self.webView.goBack()
+            }
+        } completion: { _ in
+            self.hide()
+        }
     }
 
     private func scrollToTop() {
@@ -77,13 +113,16 @@ final class FloatingButton: UIButton {
     }
 
     func show() {
+        if mode == .goBack && !webView.canGoBack {
+            return
+        }
+
         if isHidden {
             DispatchQueue.main.async {
                 self.isHidden = false
 
                 UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
                     self.alpha = 1
-                    self.transform = CGAffineTransform(scaleX: 1, y: 1)
                 })
             }
         }
@@ -94,7 +133,6 @@ final class FloatingButton: UIButton {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
                     self.alpha = 0
-                    self.transform = CGAffineTransform(scaleX: 0, y: 0)
                 }) { _ in
                     self.isHidden = true
                 }
@@ -113,9 +151,16 @@ final class FloatingButton: UIButton {
     func create() {
         view.addSubview(self)
 
-        NSLayoutConstraint.activate([
-            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-        ])
+        if mode == .goBack {
+            NSLayoutConstraint.activate([
+                leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: inset),
+                bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -inset - bottomToolBarHeight),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -inset),
+                bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -inset),
+            ])
+        }
     }
 }

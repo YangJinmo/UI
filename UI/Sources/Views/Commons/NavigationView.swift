@@ -17,14 +17,14 @@ final class NavigationView: BaseView {
 
     private lazy var titleLabel = UILabel.title()
     private lazy var popButton: UIButton = {
-        let button = UIButton(Image.chevronLeft)
+        let button = UIButton(.chevronLeft)
         button.isHidden = true
         button.addTarget(self, action: #selector(popButtonTouched), for: .touchUpInside)
         return button
     }()
 
     private lazy var dismissButton: UIButton = {
-        let button = UIButton(Image.xmark)
+        let button = UIButton(.xmark)
         button.isHidden = true
         button.addTarget(self, action: #selector(dismissButtonTouched), for: .touchUpInside)
         return button

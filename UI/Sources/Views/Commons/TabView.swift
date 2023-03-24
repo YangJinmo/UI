@@ -23,13 +23,13 @@ final class TabView: BaseView {
 
     private lazy var titleLabel = UILabel.title()
     private lazy var popButton: UIButton = {
-        let button = UIButton(Image.chevronLeft)
+        let button = UIButton(.chevronLeft)
         button.isHidden = true
         return button
     }()
 
     lazy var dismissButton: UIButton = {
-        let button = UIButton(Image.xmark)
+        let button = UIButton(.xmark)
         button.isHidden = true
         return button
     }()
