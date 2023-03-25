@@ -64,7 +64,7 @@ final class ActionSheet {
     }()
 
     func show() {
-        guard let keyWindow = UIApplication.mainKeyWindow else {
+        guard let keyWindow = UIApplication.sharedKeyWindow else {
             return
         }
 

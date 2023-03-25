@@ -9,7 +9,7 @@ import UIKit.UIDevice
 
 extension UIDevice {
     var hasNotch: Bool {
-        guard let keyWindow = UIApplication.mainKeyWindow else {
+        guard let keyWindow = UIApplication.sharedKeyWindow else {
             return false
         }
         let bottom = keyWindow.safeAreaInsets.bottom

@@ -10,7 +10,7 @@ import UIKit.UIApplication
 extension UIApplication {
     // MARK: - UIWindow
 
-    static var mainKeyWindow: UIWindow? {
+    static var sharedKeyWindow: UIWindow? {
         if #available(iOS 13, *) {
             return UIApplication.shared.connectedScenes
                 .compactMap { $0 as? UIWindowScene }
@@ -50,7 +50,7 @@ extension UIApplication {
 
     // MARK: - Etcs
 
-    class func topViewController(_ viewController: UIViewController? = mainKeyWindow?.rootViewController) -> UIViewController? {
+    class func topViewController(_ viewController: UIViewController? = sharedKeyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = viewController as? UINavigationController {
             return topViewController(navigationController.visibleViewController)
         }

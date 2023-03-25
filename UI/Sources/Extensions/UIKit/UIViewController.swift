@@ -126,7 +126,7 @@ extension UIViewController {
             }
             return controller
         }
-        return findBestViewController(UIApplication.mainKeyWindow?.rootViewController) ?? UIViewController()
+        return findBestViewController(UIApplication.sharedKeyWindow?.rootViewController) ?? UIViewController()
     }
 
     func findChildViewControllerOfType(_ klass: AnyClass) -> UIViewController? {
@@ -268,7 +268,7 @@ extension UIViewController {
     // MARK: - Toast
 
     func toast(_ text: String?, bottom: Bool = false, view: UIView? = nil) {
-        guard !text.isNilOrEmpty, let keyWindow = view ?? UIApplication.mainKeyWindow else {
+        guard !text.isNilOrEmpty, let keyWindow = view ?? UIApplication.sharedKeyWindow else {
             return
         }
 
