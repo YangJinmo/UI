@@ -58,6 +58,10 @@ extension String {
         return URLComponents(string: self)
     }
 
+    var toBundleURL: URL? {
+        return Bundle.main.url(forResource: self, withExtension: nil)
+    }
+
     var toURL: URL? {
 //        return URL(string: self)
         guard !isEmpty else {

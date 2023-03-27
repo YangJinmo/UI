@@ -59,7 +59,7 @@ final class QueryService {
 
             self?.updateSearchResults(data)
 
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 completion(self?.tracks, self?.errorMessage ?? "")
             }
         }

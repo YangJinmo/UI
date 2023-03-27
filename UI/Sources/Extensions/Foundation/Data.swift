@@ -17,7 +17,33 @@ extension Data {
         return base64EncodedString(options: .endLineWithLineFeed)
     }
 
-    func decoded<T: Decodable>() throws -> T {
+    func decodeJSON<T: Decodable>() throws -> T {
         return try JSONDecoder().decode(T.self, from: self)
+    }
+
+    func decodeJSON<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) {
+        do {
+            let result = try decodeJSON() as T
+
+            DispatchQueue.main.async {
+                completion(.success(result))
+            }
+
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    func decodeJSONArray<T: Decodable>(completion: @escaping (Result<[T], Error>) -> Void) {
+        do {
+            let result = try decodeJSON() as [T]
+
+            DispatchQueue.main.async {
+                completion(.success(result))
+            }
+
+        } catch {
+            completion(.failure(error))
+        }
     }
 }

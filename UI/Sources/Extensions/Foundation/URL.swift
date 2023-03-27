@@ -6,7 +6,7 @@
 //
 
 import Foundation.NSURL
-import UIKit
+import UIKit.UIApplication
 
 extension URL {
     var toURLRequest: URLRequest {
@@ -46,6 +46,36 @@ extension URL {
 //        UIApplication.shared.open(self)
         UIApplication.shared.open(self) { success in
             "Open \(self): \(success)".log()
+        }
+    }
+
+    func toData() throws -> Data {
+        return try Data(contentsOf: self, options: .mappedIfSafe)
+    }
+
+    func toData(completion: @escaping (Data) -> Void) {
+        do {
+            let data = try toData()
+
+            DispatchQueue.main.async {
+                completion(data)
+            }
+
+        } catch {
+            error.localizedDescription.log()
+        }
+    }
+
+    func toData(completion: @escaping (Result<Data, Error>) -> Void) {
+        do {
+            let data = try toData()
+
+            DispatchQueue.main.async {
+                completion(.success(data))
+            }
+
+        } catch {
+            completion(.failure(error))
         }
     }
 }

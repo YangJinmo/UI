@@ -49,7 +49,7 @@ final class IssuesService {
             }
             do {
                 // let result = try JSONDecoder().decode([T].self, from: data)
-                let result = try data.decoded() as [T]
+                let result = try data.decodeJSON() as [T]
 
                 DispatchQueue.main.async {
                     completion(.success(result))

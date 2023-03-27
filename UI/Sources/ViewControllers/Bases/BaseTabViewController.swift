@@ -18,7 +18,7 @@ class BaseTabViewController: BaseViewController {
 
     // MARK: - Views
 
-    lazy var navigationView = NavigationView()
+    private lazy var navigationView = NavigationView()
     lazy var contentView = UIView()
     private lazy var scrollView = UIScrollView()
     private lazy var guideView = UIView()

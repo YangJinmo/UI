@@ -619,9 +619,9 @@
 		E8985C7C285585FF00008FA7 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				E8EE706A276786940005877A /* Bundle.swift */,
 				E876669B27BB2EF600480E6A /* NSAttributedString.swift */,
 				E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */,
+				E8EE706A276786940005877A /* Bundle.swift */,
 				091AC42A2737ED5D00294EFC /* URL.swift */,
 				E8581348277F682E00CD206E /* Data.swift */,
 				E895CE65283BD45B00E85A2C /* Date.swift */,

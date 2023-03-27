@@ -35,7 +35,7 @@ extension UIImageView {
         return url
     }
 
-    private func toData(data: Data?, response: URLResponse?, error: Error?) -> Data? {
+    private func toImageData(data: Data?, response: URLResponse?, error: Error?) -> Data? {
         guard error == nil else {
             "\(error!)".log()
             return nil
@@ -101,20 +101,18 @@ extension UIImageView {
             return
         }
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let data = self?.toData(data: data, response: response, error: error) else {
+            guard let data = self?.toImageData(data: data, response: response, error: error) else {
                 return
             }
+
             let filename = response?.suggestedFilename ?? url.lastPathComponent
             filename.log()
 
-            DispatchQueue.main.async(execute: { () in
+            DispatchQueue.main.async { [weak self] in
                 self?.image = UIImage(data: data)
                 self?.setNeedsLayout()
                 completion()
-            })
-//            DispatchQueue.main.async {
-//                self?.image = UIImage(data: data)
-//            }
+            }
         }
     }
 
@@ -131,15 +129,16 @@ extension UIImageView {
         } else {
             URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 guard
-                    let data = self?.toData(data: data, response: response, error: error),
+                    let data = self?.toImageData(data: data, response: response, error: error),
                     let image = UIImage(data: data)
                 else {
                     return
                 }
+
                 let filename = response?.suggestedFilename ?? url.lastPathComponent
                 filename.log()
 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     ImageCacheManager.shared.setObject(image, forKey: cacheKey)
                     self?.image = image
                 }
@@ -194,15 +193,16 @@ extension UIImageView {
         } else {
             URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 guard
-                    let data = self?.toData(data: data, response: response, error: error),
+                    let data = self?.toImageData(data: data, response: response, error: error),
                     let image = UIImage(data: data)
                 else {
                     return
                 }
+
                 let filename = response?.suggestedFilename ?? url.lastPathComponent
                 filename.log()
 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     self?.image = image
                 }
 

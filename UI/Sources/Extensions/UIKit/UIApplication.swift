@@ -65,13 +65,10 @@ extension UIApplication {
 
     func runInBackground(_ closure: @escaping () -> Void, expirationHandler: (() -> Void)? = nil) {
         DispatchQueue.main.async {
-            let taskID: UIBackgroundTaskIdentifier
-            if let expirationHandler = expirationHandler {
-                taskID = self.beginBackgroundTask(expirationHandler: expirationHandler)
-            } else {
-                taskID = self.beginBackgroundTask(expirationHandler: { })
-            }
+            let taskID: UIBackgroundTaskIdentifier = self.beginBackgroundTask(expirationHandler: expirationHandler)
+
             closure()
+
             self.endBackgroundTask(taskID)
         }
     }
