@@ -28,9 +28,10 @@ extension Data {
             DispatchQueue.main.async {
                 completion(.success(result))
             }
-
+        } catch let error as DecodingError {
+            print(error.description)
         } catch {
-            completion(.failure(error))
+            print("Error decoding JSON: \(error)")
         }
     }
 

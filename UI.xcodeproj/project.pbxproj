@@ -68,6 +68,7 @@
 		E83581EF27D0CA3A00179090 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83581EE27D0CA3A00179090 /* UIScrollView.swift */; };
 		E839AC8329C9893200DBA1AA /* AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E839AC8229C9893200DBA1AA /* AVPlayerItem.swift */; };
 		E839AC9729C98B3A00DBA1AA /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E839AC9629C98B3A00DBA1AA /* CGColor.swift */; };
+		E840BDFB29D98888004FF5D2 /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E840BDFA29D98888004FF5D2 /* DecodingError.swift */; };
 		E84282CE2853630400E27E39 /* UIActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84282CD2853630400E27E39 /* UIActivity.swift */; };
 		E84282D02853633A00E27E39 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84282CF2853633A00E27E39 /* SafariActivity.swift */; };
 		E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84B78CF27A83139007581EB /* UIStoryboard.swift */; };
@@ -214,6 +215,7 @@
 		E83581EE27D0CA3A00179090 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		E839AC8229C9893200DBA1AA /* AVPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItem.swift; sourceTree = "<group>"; };
 		E839AC9629C98B3A00DBA1AA /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
+		E840BDFA29D98888004FF5D2 /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
 		E84282CD2853630400E27E39 /* UIActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivity.swift; sourceTree = "<group>"; };
 		E84282CF2853633A00E27E39 /* SafariActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		E84B78CF27A83139007581EB /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 				E85A735528CF6AC10045684F /* LiteralType.swift */,
 				E86D2FE52971364F008CDBA4 /* LosslessStringConvertible.swift */,
 				E861D50329929672001ED748 /* Comparable.swift */,
+				E840BDFA29D98888004FF5D2 /* DecodingError.swift */,
 			);
 			path = SwiftStandardLibrary;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				E839AC9729C98B3A00DBA1AA /* CGColor.swift in Sources */,
 				E895CE66283BD45B00E85A2C /* Date.swift in Sources */,
 				E88AECC827D7592C00B14C1F /* SelectableLabelCell.swift in Sources */,
+				E840BDFB29D98888004FF5D2 /* DecodingError.swift in Sources */,
 				E82166602898168A006ADC1D /* ChevronDownButton.swift in Sources */,
 				09ADF38E272524FB004C6A97 /* UITableView.swift in Sources */,
 				09ADF39427252921004C6A97 /* FlowLayoutMetric.swift in Sources */,
