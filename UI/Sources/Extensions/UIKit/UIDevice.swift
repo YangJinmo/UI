@@ -33,6 +33,21 @@ extension UIDevice {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
 
+    static var orientation: String {
+        switch UIDevice.current.orientation {
+        case .portrait:
+            return "Portrait"
+        case .portraitUpsideDown:
+            return "PortraitUpsideDown"
+        case .landscapeLeft:
+            return "LandscapeLeft"
+        case .landscapeRight:
+            return "LandscapeRight"
+        default:
+            return "Another"
+        }
+    }
+
     static func totalDiskSpace() -> NSNumber {
         do {
             let attributes = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory())
