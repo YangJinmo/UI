@@ -12,7 +12,6 @@
 		091AC42B2737ED5D00294EFC /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC42A2737ED5D00294EFC /* URL.swift */; };
 		091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC42C273903EC00294EFC /* BaseWebView.swift */; };
 		091AC42F273905D600294EFC /* BaseActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */; };
-		091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC4302739078D00294EFC /* BaseProgressView.swift */; };
 		091AC4332739142400294EFC /* WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091AC4322739142400294EFC /* WKWebView.swift */; };
 		093160A727350DEA00126D4E /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A627350DEA00126D4E /* MyViewController.swift */; };
 		093160A9273513DA00126D4E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093160A8273513DA00126D4E /* ReviewViewController.swift */; };
@@ -122,6 +121,7 @@
 		E8AF878B2778AE8400E04F43 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878A2778AE8400E04F43 /* SearchViewController.swift */; };
 		E8AF878D2778BBFB00E04F43 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */; };
 		E8AF878F2778C12000E04F43 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF878E2778C12000E04F43 /* TimerModel.swift */; };
+		E8B1232B29E4642400475053 /* UIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1232A29E4642400475053 /* UIProgressView.swift */; };
 		E8B448D0278F1ED6005881B9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448CF278F1ED6005881B9 /* API.swift */; };
 		E8B448D227906F09005881B9 /* IssuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448D127906F09005881B9 /* IssuesService.swift */; };
 		E8B448D427906F41005881B9 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B448D327906F41005881B9 /* APIError.swift */; };
@@ -157,7 +157,6 @@
 		091AC42A2737ED5D00294EFC /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		091AC42C273903EC00294EFC /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivityIndicatorView.swift; sourceTree = "<group>"; };
-		091AC4302739078D00294EFC /* BaseProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProgressView.swift; sourceTree = "<group>"; };
 		091AC4322739142400294EFC /* WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebView.swift; sourceTree = "<group>"; };
 		093160A627350DEA00126D4E /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		093160A8273513DA00126D4E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +268,7 @@
 		E8AF878A2778AE8400E04F43 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E8AF878C2778BBFB00E04F43 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		E8AF878E2778C12000E04F43 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		E8B1232A29E4642400475053 /* UIProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProgressView.swift; sourceTree = "<group>"; };
 		E8B448CF278F1ED6005881B9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E8B448D127906F09005881B9 /* IssuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesService.swift; sourceTree = "<group>"; };
 		E8B448D327906F41005881B9 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -366,7 +366,6 @@
 				09ADF39D2725562D004C6A97 /* BaseCollectionReusableView.swift */,
 				091AC42C273903EC00294EFC /* BaseWebView.swift */,
 				091AC42E273905D600294EFC /* BaseActivityIndicatorView.swift */,
-				091AC4302739078D00294EFC /* BaseProgressView.swift */,
 				E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */,
 				E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */,
 				E835405827B950DD002913FA /* BaseButton.swift */,
@@ -545,8 +544,9 @@
 				E83581EE27D0CA3A00179090 /* UIScrollView.swift */,
 				09ADF39527252989004C6A97 /* UIEdgeInsets.swift */,
 				E8A2040F28240872001D5D92 /* UITextView.swift */,
-				E84282CD2853630400E27E39 /* UIActivity.swift */,
 				E8B695E5292369F400763E79 /* UITextField.swift */,
+				E8B1232A29E4642400475053 /* UIProgressView.swift */,
+				E84282CD2853630400E27E39 /* UIActivity.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -829,7 +829,6 @@
 				E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */,
 				E8356DF22828092900F05BF4 /* CALayer.swift in Sources */,
 				E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */,
-				091AC4312739078D00294EFC /* BaseProgressView.swift in Sources */,
 				E858134F27805F7600CD206E /* UIColor.swift in Sources */,
 				E835405B27B951DF002913FA /* Typealias.swift in Sources */,
 				091AC42B2737ED5D00294EFC /* URL.swift in Sources */,
@@ -890,6 +889,7 @@
 				E840BDFB29D98888004FF5D2 /* DecodingError.swift in Sources */,
 				E82166602898168A006ADC1D /* ChevronDownButton.swift in Sources */,
 				09ADF38E272524FB004C6A97 /* UITableView.swift in Sources */,
+				E8B1232B29E4642400475053 /* UIProgressView.swift in Sources */,
 				09ADF39427252921004C6A97 /* FlowLayoutMetric.swift in Sources */,
 				E8112831288A303300635FCC /* SpaceView.swift in Sources */,
 				E8DB51B227E55DD60080CA6B /* SelectableRoundCell.swift in Sources */,
