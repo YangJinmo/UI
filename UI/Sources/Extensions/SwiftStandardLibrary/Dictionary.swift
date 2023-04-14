@@ -5,7 +5,7 @@
 //  Created by JMY on 2022/05/27.
 //
 
-extension Dictionary { // where Key: CustomDebugStringConvertible, Value: CustomDebugStringConvertible {
+extension Dictionary where Key: CustomDebugStringConvertible, Value: CustomDebugStringConvertible {
     func prettyPrint(prefixLetter: String = "") {
         for (key, value) in self {
             print("\(prefixLetter)\(key): \(value)")
