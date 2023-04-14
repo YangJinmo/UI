@@ -106,7 +106,7 @@ final class KeyboardLayoutGuideViewController: UIViewController {
         titleLabel.textAlignment = .natural
         view.addSubview(titleLabel)
 
-        let image = #imageLiteral(resourceName: "Plants_1_Succulents")
+        let image = #imageLiteral(resourceName: "imgNormal")
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
