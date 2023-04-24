@@ -41,7 +41,7 @@ final class WebViewController: BaseTabViewController {
     }()
 
     private lazy var activityIndicatorView = BaseActivityIndicatorView()
-    private lazy var progressView = BaseProgressView()
+    private lazy var progressView = UIProgressView.bar()
     private lazy var goBackFloatingButton = FloatingButton.goBack(view: view, webView: webView)
     private lazy var scrollToTopFloatingButton = FloatingButton.scrollToTop(view: view, scrollView: webView.scrollView)
 
