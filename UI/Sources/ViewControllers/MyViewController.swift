@@ -36,7 +36,13 @@ final class MyViewController: BaseTabViewController {
         Search(
             isExpand: false,
             title: "Etcs",
-            terms: ["UIActivityViewController", "UNUserNotificationCenter", "MFMailComposeViewController", "CATransaction"]
+            terms: [
+                "UIActivityViewController",
+                "UNUserNotificationCenter",
+                "MFMailComposeViewController",
+                "CATransaction",
+                "TextViewController",
+            ]
         ),
     ]
 
@@ -144,14 +150,6 @@ final class MyViewController: BaseTabViewController {
         })
     }
 
-    @objc private func nicknameButtonTouched() {
-        pushViewController(TextViewController())
-    }
-
-    @objc private func mailComposeButtonTouched() {
-        pushViewController(MailComposeViewController())
-    }
-
     @objc private func alertButtonTouched() {
         alert(
             title: "title",
@@ -217,6 +215,15 @@ final class MyViewController: BaseTabViewController {
         }
     }
 
+    @objc private func bottomSheetButtonTouched() {
+        let vc = BottomSheetViewController()
+        vc.setTitleLabel("정렬")
+        vc.bind(selectedSort: selectedSort)
+        vc.bind(didSelectItemAt: didSelectItemAt)
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: false)
+    }
+
     @objc private func pageSheetModalButtonTouched() {
         let vc = SearchViewController()
 
@@ -254,34 +261,10 @@ final class MyViewController: BaseTabViewController {
         present(DelegateViewController(delegate: self))
     }
 
-    @objc private func bottomSheetButtonTouched() {
-        let vc = BottomSheetViewController()
-        vc.setTitleLabel("정렬")
-        vc.bind(selectedSort: selectedSort)
-        vc.bind(didSelectItemAt: didSelectItemAt)
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: false)
-    }
-
     private var selectedSort = Sort.dateOrder
 
     private func didSelectItemAt(selectedSort: Sort) {
         self.selectedSort = selectedSort
-    }
-
-    @objc private func pushMessageButtonTouched() {
-        "".log()
-
-        let content = UNMutableNotificationContent()
-        content.title = "This is title"
-        content.subtitle = "This is Subtitle"
-        content.body = "This is Body"
-        content.badge = 1
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
-        let request = UNNotificationRequest(identifier: "timerdone", content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 
     @objc private func shareButtonTouched() {
@@ -318,8 +301,31 @@ final class MyViewController: BaseTabViewController {
         present(activityViewController, animated: true)
     }
 
+    @objc private func pushMessageButtonTouched() {
+        "".log()
+
+        let content = UNMutableNotificationContent()
+        content.title = "This is title"
+        content.subtitle = "This is Subtitle"
+        content.body = "This is Body"
+        content.badge = 1
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: "timerdone", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+
+    @objc private func mailComposeButtonTouched() {
+        pushViewController(MailComposeViewController())
+    }
+
     @objc private func transactionButtonTouched() {
         pushViewController(CATransactionViewController())
+    }
+
+    @objc private func textViewControllerButtonTouched() {
+        pushViewController(TextViewController())
     }
 
     private func removeAllCells() {
@@ -457,11 +463,12 @@ extension MyViewController: UICollectionViewDelegate {
                 mailComposeButtonTouched()
             case [2, 4]:
                 transactionButtonTouched()
+            case [2, 5]:
+                textViewControllerButtonTouched()
 
             default:
                 break
             }
-//            nicknameButton.addTarget(self, action: #selector(nicknameButtonTouched), for: .touchUpInside)
         }
     }
 }
