@@ -171,7 +171,7 @@ final class TextViewController: BaseTabViewController {
         view.layoutIfNeeded()
 
         UIView.animate(withDuration: duration, delay: 0, options: options, animations: { [weak self] in
-            self?.bottomConstraint?.constant = -keyboardHeight // isKeyboardWillShow ? -keyboardFrame.height : 0
+            self?.bottomConstraint?.constant = -keyboardHeight
             self?.view.layoutIfNeeded()
         }) { _ in
 //            if isKeyboardWillShow, self.isScrollToBottom {
