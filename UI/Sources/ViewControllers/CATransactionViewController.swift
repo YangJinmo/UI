@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class CATransactionViewController: UIViewController {
+final class CATransactionViewController: BaseTabViewController {
     private lazy var myView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(view)
+        contentView.addSubview(view)
         return view
     }()
 
@@ -23,24 +23,32 @@ final class CATransactionViewController: UIViewController {
         button.setTitleColor(.blue, for: .highlighted)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(button)
+        contentView.addSubview(button)
         return button
     }()
 
+    override convenience init() {
+        self.init(title: "CATransactionViewController")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray4
+
+        contentView.backgroundColor = .systemGray4
 
         NSLayoutConstraint.activate([
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            button.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
+
         NSLayoutConstraint.activate([
-            myView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            myView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            myView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             myView.widthAnchor.constraint(equalToConstant: 200),
             myView.heightAnchor.constraint(equalToConstant: 200),
         ])
+
+        addPopButton()
     }
 
     @objc private func didTapButton() {
