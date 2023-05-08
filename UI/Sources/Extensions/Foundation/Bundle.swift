@@ -63,7 +63,7 @@ extension Bundle {
     }
 
     func decodeWithExtension<T: Decodable>(_ type: T.Type, from filename: String) -> T {
-        guard let jsonURL = filename.toBundleURL else {
+        guard let jsonURL = filename.toBundleURL() else {
             fatalError("Failed to locate \(filename) in app bundle.")
         }
 
