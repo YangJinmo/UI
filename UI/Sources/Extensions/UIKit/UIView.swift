@@ -254,6 +254,19 @@ extension UIView {
         alpha = value
     }
 
+    func screenshotDefender() {
+        DispatchQueue.main.async {
+            let textField = UITextField()
+            textField.isSecureTextEntry = true
+
+            self.addSubview(textField)
+
+            textField.layer.removeFromSuperlayer()
+            self.layer.superlayer?.insertSublayer(textField.layer, at: 0)
+            textField.layer.sublayers?.first?.addSublayer(self.layer)
+        }
+    }
+
     // MARK: - NSLayoutAnchor
 
     func add(

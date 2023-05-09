@@ -125,6 +125,7 @@ final class MyViewController: BaseTabViewController {
 //        setupScrollableStackView(
 //            nicknameButton
 //        )
+        contentView.screenshotDefender()
 
 //
 //        bottomSheetButton.height(44)
