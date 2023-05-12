@@ -59,8 +59,8 @@ final class MyViewController: BaseTabViewController {
         return collectionView
     }()
 
-    private lazy var nicknameButton: UIButton = {
-        var configuration: UIButton.Configuration = .filled()
+    private lazy var configuration: UIButton.Configuration = {
+        var configuration = UIButton.Configuration.filled()
         configuration.title = "Edit Nickname"
         configuration.subtitle = "닉네임 수정"
         configuration.buttonSize = .large
@@ -70,10 +70,20 @@ final class MyViewController: BaseTabViewController {
         configuration.imagePadding = 16
         configuration.baseBackgroundColor = .systemIndigo
         configuration.baseForegroundColor = .systemPink
-        let button = UIButton(configuration: configuration, primaryAction: nil)
+        return configuration
+    }()
+
+    private lazy var primaryAction = UIAction { handler in
+        print("zzimss: \(handler)")
+    }
+
+    private lazy var nicknameButton: UIButton = {
+        let button = UIButton(configuration: configuration, primaryAction: primaryAction)
         button.sizeToFit()
         return button
     }()
+
+    let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
 
     // MARK: - Creating a view controller
 
@@ -87,7 +97,7 @@ final class MyViewController: BaseTabViewController {
         super.viewDidLoad()
 
         setupViews()
-        requestAuthorizationNotification()
+        requestNotificationAuthorization()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -122,10 +132,13 @@ final class MyViewController: BaseTabViewController {
             edges: contentView
         )
 
-//        setupScrollableStackView(
-//            nicknameButton
-//        )
         contentView.screenshotDefender()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(didTakeScreenshot(notification:)), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
+
+        setupScrollableStackView(
+            nicknameButton
+        )
 
 //
 //        bottomSheetButton.height(44)
@@ -137,18 +150,33 @@ final class MyViewController: BaseTabViewController {
 //        bottomSheetButton.layer.setShadow(x: 2, y: 2, blur: 2, alpha: 1)
     }
 
-    private func requestAuthorizationNotification() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert], completionHandler: { didAllow, error in
-            if let error = error {
-                "Error: \(error.localizedDescription)".log()
-            } else {
-                "didAllow: \(didAllow)".log()
+    @objc func didTakeScreenshot(notification: Notification) {
+        let alertController = UIAlertController(title: "Screenshot Detected", message: "Screenshots are not allowed for this content.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 
-                DispatchQueue.main.async {
-                    UNUserNotificationCenter.current().delegate = self
-                }
+    private func requestNotificationAuthorization() {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.requestAuthorization(options: [.sound, .badge, .alert]) { granted, error in
+            if let error = error {
+                "Error requesting notification authorization: \(error.localizedDescription)".log()
+                return
             }
-        })
+
+            "granted: \(granted)".log()
+
+            if granted {
+                // The app is authorized to display notifications, so you can proceed with setting up notifications
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            } else {
+                // Show an alert to inform the user that they need to grant notification access in the app's settings
+            }
+        }
     }
 
     @objc private func alertButtonTouched() {
@@ -310,11 +338,68 @@ final class MyViewController: BaseTabViewController {
         content.subtitle = "This is Subtitle"
         content.body = "This is Body"
         content.badge = 1
+        content.categoryIdentifier = "reminderCategory"
+        content.userInfo = ["taskID": "12345"] // Add some custom information to the notification
+
+        if let imageAttachment = createImageNotificationAttachment(identifier: "reminderImage", imageName: "Jmy", imageExtension: "png") {
+            content.attachments = [imageAttachment]
+        }
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
-        let request = UNNotificationRequest(identifier: "timerdone", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "reminderNotification", content: content, trigger: trigger)
 
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func saveImageToTemporaryDirectory(imageName: String, imageExtension: String = "jpg") -> URL? {
+        guard let image = UIImage(named: imageName) else {
+            return nil
+        }
+
+        let imageData: Data?
+
+        if imageExtension.lowercased() == "png" {
+            imageData = image.pngData()
+        } else {
+            imageData = image.jpegData(compressionQuality: 1.0)
+        }
+
+        guard let data = imageData else {
+            return nil
+        }
+
+        let tempDirectory = FileManager.default.temporaryDirectory
+        let imageURL = tempDirectory.appendingPathComponent("\(imageName).\(imageExtension)")
+
+        do {
+            try data.write(to: imageURL)
+            return imageURL
+        } catch {
+            print("Error saving image to temporary directory: \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    func createImageNotificationAttachment(identifier: String, imageName: String, imageExtension: String = "jpg", options: [NSObject: AnyObject]? = nil) -> UNNotificationAttachment? {
+        // App 내에 있을 경우
+        // guard let imageURL = Bundle.main.url(forResource: imageName, withExtension: imageExtension) else {
+
+        // Assets내에 있을 경우
+        guard let imageURL = saveImageToTemporaryDirectory(imageName: imageName, imageExtension: imageExtension) else {
+            return nil
+        }
+
+        do {
+            let attachment = try UNNotificationAttachment(identifier: identifier, url: imageURL, options: options)
+            return attachment
+        } catch {
+            print("Error creating image notification attachment: \(error.localizedDescription)")
+            return nil
+        }
     }
 
     @objc private func mailComposeButtonTouched() {
@@ -365,6 +450,22 @@ extension MyViewController: UNUserNotificationCenterDelegate {
     // viewDidLoad()에 UNUserNotificationCenter.current().delegate = self를 추가해주는 것을 잊지마세요.
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.sound, .badge, .list, .banner])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // Handle the user's interaction with the notification (e.g., opening the app from a notification)
+        let content = response.notification.request.content
+        let categoryIdentifier = content.categoryIdentifier
+
+        if categoryIdentifier == "reminderCategory" {
+            if let taskID = content.userInfo["taskID"] as? String {
+                // Handle the specific task, e.g., navigate to the task detail view controller
+                print("User opened the app from a reminder notification for taskID: \(taskID)")
+
+                // Perform any necessary actions, such as marking the task as completed or updating the app's UI
+            }
+        }
+        completionHandler()
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
