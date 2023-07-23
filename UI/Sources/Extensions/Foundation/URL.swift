@@ -6,7 +6,6 @@
 //
 
 import Foundation.NSURL
-import UIKit.UIApplication
 
 extension URL {
     var toURLRequest: URLRequest {
@@ -28,25 +27,6 @@ extension URL {
         }
 
         return parameters
-    }
-
-    // MARK: - UIApplication
-
-    var canOpenURL: Bool {
-//        return UIApplication.shared.canOpenURL(self)
-        guard UIApplication.shared.canOpenURL(self) else {
-            "Error: URL that cannot be opened \(self)".log()
-            return false
-        }
-
-        return true
-    }
-
-    func open() {
-//        UIApplication.shared.open(self)
-        UIApplication.shared.open(self) { success in
-            "Open \(self): \(success)".log()
-        }
     }
 
     func toData() throws -> Data {
@@ -76,6 +56,29 @@ extension URL {
 
         } catch {
             completion(.failure(error))
+        }
+    }
+}
+
+// MARK: - UIApplication
+
+import UIKit.UIApplication
+
+extension URL {
+    var canOpenURL: Bool {
+//        return UIApplication.shared.canOpenURL(self)
+        guard UIApplication.shared.canOpenURL(self) else {
+            "Error: URL that cannot be opened \(self)".log()
+            return false
+        }
+
+        return true
+    }
+
+    func open() {
+//        UIApplication.shared.open(self)
+        UIApplication.shared.open(self) { success in
+            "Open \(self): \(success)".log()
         }
     }
 }
