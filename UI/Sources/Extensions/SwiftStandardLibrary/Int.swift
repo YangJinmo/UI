@@ -17,7 +17,7 @@ extension Int {
         return CGFloat(self) * 180 / .pi
     }
 
-    var milliseconds: Int {
+    var secondsToMilliseconds: Int {
         return self * 1000
     }
 
