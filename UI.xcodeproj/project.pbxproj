@@ -94,6 +94,8 @@
 		E864B8B8293F68E50061301C /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E864B8B7293F68E50061301C /* UITableViewCell.swift */; };
 		E864B8BA293F69270061301C /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E864B8B9293F69270061301C /* UIResponder.swift */; };
 		E86D2FE62971364F008CDBA4 /* LosslessStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D2FE52971364F008CDBA4 /* LosslessStringConvertible.swift */; };
+		E86DA7A62AB982A0006A1743 /* ViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86DA7A52AB982A0006A1743 /* ViewControllerRepresentable.swift */; };
+		E86DA7AC2AB990B7006A1743 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86DA7AB2AB990B7006A1743 /* ViewRepresentable.swift */; };
 		E86E1C182963EEB200DC0AE8 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E1C172963EEB200DC0AE8 /* UICollectionViewCell.swift */; };
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
 		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
@@ -242,6 +244,8 @@
 		E864B8B7293F68E50061301C /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		E864B8B9293F69270061301C /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		E86D2FE52971364F008CDBA4 /* LosslessStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LosslessStringConvertible.swift; sourceTree = "<group>"; };
+		E86DA7A52AB982A0006A1743 /* ViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		E86DA7AB2AB990B7006A1743 /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
 		E86E1C172963EEB200DC0AE8 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
@@ -583,6 +587,8 @@
 			children = (
 				E85664F328885788005897A1 /* BuildConfiguration.swift */,
 				E85664EF28884F91005897A1 /* Log.swift */,
+				E86DA7A52AB982A0006A1743 /* ViewControllerRepresentable.swift */,
+				E86DA7AB2AB990B7006A1743 /* ViewRepresentable.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -845,6 +851,7 @@
 				E858134B277F696900CD206E /* Encodable.swift in Sources */,
 				09ADF39E2725562D004C6A97 /* BaseCollectionReusableView.swift in Sources */,
 				09ADF3AE2725A200004C6A97 /* Search.swift in Sources */,
+				E86DA7A62AB982A0006A1743 /* ViewControllerRepresentable.swift in Sources */,
 				09ADF3B52726BA1D004C6A97 /* ScrollViewController.swift in Sources */,
 				09AB348E272B9B1C00317254 /* TabBarController.swift in Sources */,
 				091AC4292737ED2F00294EFC /* String.swift in Sources */,
@@ -895,6 +902,7 @@
 				E8B1232B29E4642400475053 /* UIProgressView.swift in Sources */,
 				09ADF39427252921004C6A97 /* FlowLayoutMetric.swift in Sources */,
 				E8112831288A303300635FCC /* SpaceView.swift in Sources */,
+				E86DA7AC2AB990B7006A1743 /* ViewRepresentable.swift in Sources */,
 				E8DB51B227E55DD60080CA6B /* SelectableRoundCell.swift in Sources */,
 				E8D94126296C4FC20079B778 /* CATransactionViewController.swift in Sources */,
 				0977F7892759119E002700A5 /* UIImageView.swift in Sources */,
