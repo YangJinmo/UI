@@ -171,3 +171,15 @@ extension TabBarController: UITabBarControllerDelegate {
         tabBarController.selectedIndex.description.log()
     }
 }
+
+// MARK: - Preview
+
+import SwiftUI
+
+struct TabBarController_Previews: PreviewProvider {
+    static var previews: some View {
+        ViewControllerRepresentable {
+            TabBarController()
+        }
+    }
+}
