@@ -136,9 +136,9 @@ final class MyViewController: BaseTabViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(didTakeScreenshot(notification:)), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
 
-        setupScrollableStackView(
-            nicknameButton
-        )
+//        setupScrollableStackView(
+//            nicknameButton
+//        )
 
 //
 //        bottomSheetButton.height(44)
