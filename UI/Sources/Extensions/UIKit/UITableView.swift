@@ -12,6 +12,18 @@ extension UITableView {
         self.init(frame: .zero, style: style)
     }
 
+    func configure() {
+        separatorStyle = .none
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
+
+        sectionHeaderTopPadding = 0
+
+        if style == .grouped {
+            backgroundColor = .systemBackground
+        }
+    }
+
     func hideEmptyCells() {
         tableFooterView = UIView()
     }

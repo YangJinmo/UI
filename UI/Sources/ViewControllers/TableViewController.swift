@@ -25,9 +25,10 @@ final class TableViewController: UIViewController {
         return refreshControl
     }()
 
-    private lazy var tableView: BaseTableView = {
+    private lazy var tableView: UITableView = {
         // let tableView = BaseTableView(style: .grouped)
-        let tableView = BaseTableView()
+        let tableView = UITableView()
+        tableView.configure()
         tableView.refreshControl = refreshControl
         tableView.tableHeaderView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100))
         // tableView.optimalSizeTableHeaderView = TableHeaderView()
