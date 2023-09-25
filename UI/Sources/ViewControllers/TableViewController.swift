@@ -26,8 +26,7 @@ final class TableViewController: UIViewController {
     }()
 
     private lazy var tableView: UITableView = {
-        // let tableView = BaseTableView(style: .grouped)
-        let tableView = UITableView()
+        let tableView = UITableView() // BaseTableView(style: .grouped)
         tableView.configure()
         tableView.refreshControl = refreshControl
         tableView.tableHeaderView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100))
@@ -36,10 +35,9 @@ final class TableViewController: UIViewController {
         tableView.register(DividerTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.estimatedRowHeight = 85.0
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = 44 // UITableView.automaticDimension
+        // tableView.estimatedRowHeight = 44
         // tableView.contentInsetAdjustmentBehavior = .never
-
         return tableView
     }()
 
