@@ -76,7 +76,7 @@ extension UIImageView {
             } catch {
                 "Error: \(error)".log()
             }
-        }
+        }test
     }
 
     // MARK: - Synchronously
