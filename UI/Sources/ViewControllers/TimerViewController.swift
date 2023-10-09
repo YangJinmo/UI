@@ -28,7 +28,7 @@ final class TimerViewController: UIViewController {
     private var timersActive = 0
     private var timers = [TimerModel](repeating: TimerModel(), count: 30)
 
-    // MARK: - Views test
+    // MARK: - Views
 
     private lazy var floatingButton = FloatingButton.scrollToTop(view: view, scrollView: tableView)
 
