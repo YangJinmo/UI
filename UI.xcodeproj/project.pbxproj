@@ -97,6 +97,7 @@
 		E86DA7A62AB982A0006A1743 /* ViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86DA7A52AB982A0006A1743 /* ViewControllerRepresentable.swift */; };
 		E86DA7AC2AB990B7006A1743 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86DA7AB2AB990B7006A1743 /* ViewRepresentable.swift */; };
 		E86E1C182963EEB200DC0AE8 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E1C172963EEB200DC0AE8 /* UICollectionViewCell.swift */; };
+		E870C9012AD6E66C003F7DB7 /* LoopingVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E870C9002AD6E66C003F7DB7 /* LoopingVideoPlayerView.swift */; };
 		E875E94B27607D8B002EEBE4 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94A27607D8B002EEBE4 /* UIAlertController.swift */; };
 		E875E94D276097BB002EEBE4 /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E875E94C276097BB002EEBE4 /* UIAlertAction.swift */; };
 		E876669427B511F200480E6A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876669327B511F200480E6A /* Int.swift */; };
@@ -247,6 +248,7 @@
 		E86DA7A52AB982A0006A1743 /* ViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		E86DA7AB2AB990B7006A1743 /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
 		E86E1C172963EEB200DC0AE8 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		E870C9002AD6E66C003F7DB7 /* LoopingVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingVideoPlayerView.swift; sourceTree = "<group>"; };
 		E875E94A27607D8B002EEBE4 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E875E94C276097BB002EEBE4 /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		E876669327B511F200480E6A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				E8F590F429324B2C003F5A08 /* PlaceholderTextView.swift */,
 				E862700E29820A3300E9571E /* SpaceCollectionReusableView.swift */,
 				E8F349BC298C02C700843F23 /* StickyLayout.swift */,
+				E870C9002AD6E66C003F7DB7 /* LoopingVideoPlayerView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				E8F590F529324B2C003F5A08 /* PlaceholderTextView.swift in Sources */,
 				099D33F12754705000C14F5F /* ScrollableStackViewController.swift in Sources */,
 				E8132E1B29601764008891A7 /* UUID.swift in Sources */,
+				E870C9012AD6E66C003F7DB7 /* LoopingVideoPlayerView.swift in Sources */,
 				E88EB1F1286EF7FA00E2C4AE /* ActionSheet.swift in Sources */,
 				091AC42D273903EC00294EFC /* BaseWebView.swift in Sources */,
 				E8B448D227906F09005881B9 /* IssuesService.swift in Sources */,
