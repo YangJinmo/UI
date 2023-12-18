@@ -8,11 +8,11 @@
 import Foundation.NSDate
 
 extension TimeInterval {
-    var milliseconds: Int64 {
-        return Int64(self * 1000)
+    static var unixTime: TimeInterval {
+        return Date().timeIntervalSince1970
     }
 
-    var seconds: Int64 {
-        return Int64(rounded())
+    var toDate: Date {
+        return Date(timeIntervalSince1970: self)
     }
 }
