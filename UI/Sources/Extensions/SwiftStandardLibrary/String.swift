@@ -8,14 +8,17 @@
 import UIKit
 
 extension String {
+    // let stringFromInt: String = String(intTypeNumber: 20000) // "20000"
     init(intTypeNumber: Int) {
         self = "\(intTypeNumber)"
     }
 
+    // let stringFromDouble: String = String(doubleTypeNumber: 3.14159) // "3.14159"
     init(doubleTypeNumber: Double) {
         self = "\(doubleTypeNumber)"
     }
 
+    // let stringFromFloat: String = String(floatTypeNumber: 3.14159) // "3.14159"
     init(floatTypeNumber: Float) {
         self = "\(floatTypeNumber)"
     }
