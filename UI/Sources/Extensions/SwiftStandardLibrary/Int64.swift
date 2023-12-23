@@ -8,12 +8,24 @@
 import Foundation.NSDate
 
 extension Int64 {
-    var millisecondsToSeconds: Int64 {
-        return self / 1000
+    var hours: Int64 {
+        return self / 3600
+    }
+
+    var minutes: Int64 {
+        return (self / 60) % 60
     }
 
     var seconds: Int64 {
         return self % 60
+    }
+
+    var secondsToMilliseconds: Int64 {
+        return self * 1000
+    }
+
+    var millisecondsToSeconds: Int64 {
+        return self / 1000
     }
 
     var millisecondsToTimeString: String {
