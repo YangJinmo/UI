@@ -38,4 +38,10 @@ extension Double {
         let floored = floor(self * multiplier) / multiplier
         return floored
     }
+
+    var toDecimal: String {
+        let numberformatter = NumberFormatter()
+        numberformatter.numberStyle = .decimal
+        return numberformatter.string(for: self) ?? ""
+    }
 }
