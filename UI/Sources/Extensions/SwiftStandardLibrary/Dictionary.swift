@@ -126,3 +126,27 @@ extension Dictionary where Key: ExpressibleByStringLiteral {
         keys.forEach({ removeValue(forKey: $0) })
     }
 }
+
+extension Dictionary {
+    func queryPrint() {
+        for (key, value) in self {
+            print(" - \(key): \(value)")
+        }
+    }
+
+    func prettyPrint(prefixLetter: String = "\t") {
+        print()
+        print("[")
+
+        for (key, value) in self {
+            print("\(prefixLetter)\(key): \(value)")
+        }
+
+        print("]")
+        print()
+    }
+
+    func printAnyObject() {
+        print(self as AnyObject)
+    }
+}
