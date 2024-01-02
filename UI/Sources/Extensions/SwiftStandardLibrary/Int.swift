@@ -47,6 +47,24 @@ extension Int {
         return String(self)
     }
 
+    var secondsToTimeString: String {
+        let seconds = self
+
+        if seconds >= 60 {
+            var timeString = ""
+
+            timeString += "\(seconds / 60)분"
+
+            if seconds % 60 > 0 {
+                timeString += " \(seconds % 60)초"
+            }
+
+            return timeString
+        } else {
+            return "\(seconds)초"
+        }
+    }
+
     /// returns number of digits in Int number
     public var digitCount: Int {
         return numberOfDigits(in: self)
