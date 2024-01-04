@@ -21,6 +21,8 @@ final class TapSlider: UISlider {
 //    }
 
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        super.beginTracking(touch, with: event)
+
         let tapPoint = touch.location(in: self)
         let fraction = Float(tapPoint.x / bounds.width)
         let newValue = (maximumValue - minimumValue) * fraction + minimumValue
@@ -30,23 +32,24 @@ final class TapSlider: UISlider {
             sendActions(for: .valueChanged)
         }
 
+        print("beginTracking: \(tapPoint)")
+
         return true
     }
 
-//    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-//        super.beginTracking(touch, with: event)
-//        print(touch.location(in: self))
-//        return true
-//    }
-
     override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         super.continueTracking(touch, with: event)
-        print(touch.location(in: self))
+
+        let tapPoint = touch.location(in: self)
+        print("continueTracking: \(tapPoint)")
+
         return true
     }
 
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         super.endTracking(touch, with: event)
-        print(touch?.location(in: self) ?? 0)
+
+        let tapPoint = touch?.location(in: self) ?? CGPoint()
+        print("endTracking: \(tapPoint)")
     }
 }
