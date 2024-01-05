@@ -114,6 +114,7 @@
 		E895CE66283BD45B00E85A2C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895CE65283BD45B00E85A2C /* Date.swift */; };
 		E8983718284058BF000CE96F /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8983717284058BF000CE96F /* Dictionary.swift */; };
 		E8A2041028240872001D5D92 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2040F28240872001D5D92 /* UITextView.swift */; };
+		E8A2133A2B46A0CE00A1CEB6 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A213392B46A0CE00A1CEB6 /* AVPlayer.swift */; };
 		E8A829262740F36C00B3D7F9 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */; };
 		E8A829332743256A00B3D7F9 /* Website.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A829322743256A00B3D7F9 /* Website.swift */; };
 		E8A82935274373B600B3D7F9 /* BaseRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */; };
@@ -265,6 +266,7 @@
 		E895CE65283BD45B00E85A2C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E8983717284058BF000CE96F /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		E8A2040F28240872001D5D92 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
+		E8A213392B46A0CE00A1CEB6 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
 		E8A829252740F36C00B3D7F9 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		E8A829322743256A00B3D7F9 /* Website.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Website.swift; sourceTree = "<group>"; };
 		E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshControl.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				E839AC8229C9893200DBA1AA /* AVPlayerItem.swift */,
+				E8A213392B46A0CE00A1CEB6 /* AVPlayer.swift */,
 			);
 			path = AVKit;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				E8D2CB5B297234580016F78F /* KeyboardLayoutGuideViewController.swift in Sources */,
 				E85664F028884F91005897A1 /* Log.swift in Sources */,
 				E88A3EA8284B22F600832053 /* TimeInterval.swift in Sources */,
+				E8A2133A2B46A0CE00A1CEB6 /* AVPlayer.swift in Sources */,
 				E85A735628CF6AC10045684F /* LiteralType.swift in Sources */,
 				E8581349277F682E00CD206E /* Data.swift in Sources */,
 				E8DB4BA427AC2D8000E29CF1 /* NSMutableAttributedString.swift in Sources */,
