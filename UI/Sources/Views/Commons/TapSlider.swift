@@ -7,7 +7,7 @@
 
 import UIKit.UISlider
 
-final class TapSlider: UISlider {
+class TapSlider: UISlider {
 //    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
 //        let width = frame.size.width
 //        let tapPoint = touch.location(in: self)

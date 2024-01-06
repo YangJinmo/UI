@@ -136,6 +136,7 @@
 		E8CF006A277C65F7009B3128 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF0069277C65F7009B3128 /* Track.swift */; };
 		E8CF006C277C6770009B3128 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF006B277C6770009B3128 /* QueryService.swift */; };
 		E8D2CB5B297234580016F78F /* KeyboardLayoutGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D2CB5A297234580016F78F /* KeyboardLayoutGuideViewController.swift */; };
+		E8D796212B493997004C0342 /* BaseSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D796202B493997004C0342 /* BaseSlider.swift */; };
 		E8D94126296C4FC20079B778 /* CATransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D94125296C4FC20079B778 /* CATransactionViewController.swift */; };
 		E8DB4BA427AC2D8000E29CF1 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */; };
 		E8DB51AA27D4BA850080CA6B /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DB51A927D4BA850080CA6B /* GradationView.swift */; };
@@ -288,6 +289,7 @@
 		E8CF0069277C65F7009B3128 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E8CF006B277C6770009B3128 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		E8D2CB5A297234580016F78F /* KeyboardLayoutGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutGuideViewController.swift; sourceTree = "<group>"; };
+		E8D796202B493997004C0342 /* BaseSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSlider.swift; sourceTree = "<group>"; };
 		E8D94125296C4FC20079B778 /* CATransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransactionViewController.swift; sourceTree = "<group>"; };
 		E8DB4BA327AC2D8000E29CF1 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		E8DB51A927D4BA850080CA6B /* GradationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				E8A82934274373B600B3D7F9 /* BaseRefreshControl.swift */,
 				E835405827B950DD002913FA /* BaseButton.swift */,
 				E8333B64292A5D7B00A3DCCF /* BaseScrollIndicatorView.swift */,
+				E8D796202B493997004C0342 /* BaseSlider.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 				E859FAB227C4703A007FE276 /* BaseTabViewController.swift in Sources */,
 				E84B78D027A83139007581EB /* UIStoryboard.swift in Sources */,
 				09ADF3AA2725A1BC004C6A97 /* SearchTitleCell.swift in Sources */,
+				E8D796212B493997004C0342 /* BaseSlider.swift in Sources */,
 				E8983718284058BF000CE96F /* Dictionary.swift in Sources */,
 				E8EE706B276786940005877A /* Bundle.swift in Sources */,
 				E85ABDFA27E96FD600787183 /* DividerView.swift in Sources */,
