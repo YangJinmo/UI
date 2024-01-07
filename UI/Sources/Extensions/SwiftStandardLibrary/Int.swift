@@ -95,4 +95,11 @@ extension Int {
     private func isUseful(_ digit: Int) -> Bool {
         return (digit != 0) && (self % digit == 0)
     }
+
+    // 3.repetitions { print("Hello!" }
+    func repetitions(task: () -> Void) {
+        for _ in 0 ..< self {
+            task()
+        }
+    }
 }
