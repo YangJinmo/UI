@@ -75,7 +75,7 @@ struct VideoSlider: UIViewRepresentable {
 
                 slider.setValue(slider.value, animated: false)
             }
-            
+
             "\(slider.value)".log()
         }
 
@@ -95,17 +95,83 @@ struct VideoSlider: UIViewRepresentable {
     }
 }
 
-struct BaseSlider2: View {
-    @State private var player = AVPlayer()
-    @State private var progress: Float = 0
-    @State private var isPaused = false
-    @State private var isTouched = false
-    
+import AVKit
+import SwiftUI
+import Combine
+
+struct VideoPlayerView: View {
+    @State private var player = AVPlayer(url: URL(string: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8")!)
+    @State private var progress: Float = 0.0
+    @State private var isPaused: Bool = false
+    @State private var isTouched: Bool = false
+    @State private var timeControlStatusKVOPublisher: AnyCancellable!
+    @State private var periodicTimeObserver: Any?
+
     var body: some View {
-        VideoSlider(player: player, value: $progress, isPaused: $isPaused, isTouched: $isTouched)
+        VStack {
+            VideoPlayer(player: player)
+                .onAppear {
+                    player.play()
+                    addTimeControlStatusKVOPublisherToPlayer()
+                    // addPeriodicTimeObserverToPlayer()
+                }
+                .onChange(of: isPaused) { _ in
+                    isPaused
+                        ? player.pause()
+                        : player.play()
+                }
+
+            VideoSlider(player: player, value: $progress, isPaused: $isPaused, isTouched: $isTouched)
+
+            Button(action: {
+                self.isPaused.toggle()
+            }) {
+                Image(systemName: isPaused ? "play" : "pause")
+                    .symbolVariant(.fill)
+                    .foregroundColor(.gray)
+                    .font(.title)
+            }
+        }
+        .background(Color.black)
+    }
+
+    private func addTimeControlStatusKVOPublisherToPlayer() {
+        if timeControlStatusKVOPublisher == nil {
+            timeControlStatusKVOPublisher = player.publisher(for: \.timeControlStatus)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveValue: { timeControlStatus in
+                    switch timeControlStatus {
+                    case .paused:
+                        print("paused")
+                        break
+                    case .waitingToPlayAtSpecifiedRate:
+                        print("waitingToPlayAtSpecifiedRate")
+                        break
+
+                    case .playing:
+                        print("playing")
+                        break
+                    default:
+                        break
+                    }
+                })
+        }
+    }
+
+    private func addPeriodicTimeObserverToPlayer() {
+        if periodicTimeObserver == nil {
+            let timeScale = CMTimeScale(NSEC_PER_SEC)
+            let interval = CMTime(seconds: 0.1, preferredTimescale: timeScale)
+
+            periodicTimeObserver = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { currentTime in
+                if let currentItem = player.currentItem {
+                    progress = Float(currentTime.seconds / currentItem.duration.seconds)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    BaseSlider2()
+    VideoPlayerView()
 }
