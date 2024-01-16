@@ -31,6 +31,10 @@ extension Collection {
     }
 
     func toJSONData(options: JSONSerialization.WritingOptions = .prettyPrinted) -> Data? {
+        guard JSONSerialization.isValidJSONObject(self) else {
+            return nil
+        }
+
         do {
             return try JSONSerialization.data(withJSONObject: self, options: options)
         } catch {
@@ -39,11 +43,11 @@ extension Collection {
         }
     }
 
-    func toJSONString(options: JSONSerialization.WritingOptions = .prettyPrinted) -> String {
+    func toJSONString(options: JSONSerialization.WritingOptions = .prettyPrinted) -> String? {
         guard let jsonData = toJSONData(options: options) else {
-            return "{}"
+            return nil
         }
 
-        return String(data: jsonData, encoding: .utf8) ?? "{}"
+        return String(data: jsonData, encoding: .utf8)
     }
 }
