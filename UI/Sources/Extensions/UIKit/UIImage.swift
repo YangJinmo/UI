@@ -61,7 +61,19 @@ extension UIImage {
         return outputImage
     }
 
-    func resizeImage(targetSize: CGSize) -> UIImage? {
+    func resize(ratio: Double) -> UIImage? {
+        let newSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
+    }
+
+    func resize(targetSize: CGSize) -> UIImage? {
         let widthRatio = targetSize.width / size.width
         let heightRatio = targetSize.height / size.height
 
@@ -86,7 +98,7 @@ extension UIImage {
         return newImage
     }
 
-    func resize(_ size: CGSize, contentMode: UIView.ContentMode = .scaleToFill, quality: CGInterpolationQuality = .medium) -> UIImage? {
+    func resize(size: CGSize, contentMode: UIView.ContentMode = .scaleToFill, quality: CGInterpolationQuality = .medium) -> UIImage? {
         let horizontalRatio = size.width / self.size.width
         let verticalRatio = size.height / self.size.height
         var ratio: CGFloat!
