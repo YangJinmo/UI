@@ -42,12 +42,37 @@ extension String {
 
     // MARK: - Date
 
-    func toDate(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> Date {
+    func toDate(format: String = "yyyy-MM-dd HH:mm:ss") -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = .current // TimeZone(abbreviation: "GMT")
         dateFormatter.locale = .current // Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat = dateFormat
+        dateFormatter.dateFormat = format
         return dateFormatter.date(from: self) ?? Date()
+    }
+
+    func isValidDate(format: String = "yyyy.MM.dd") -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current // TimeZone(abbreviation: "GMT")
+        dateFormatter.locale = .current // Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: self) != nil
+    }
+
+    func isValidDateUpToToday(format: String = "yyyy.MM.dd") -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current // TimeZone(abbreviation: "GMT")
+        dateFormatter.locale = .current // Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = format
+
+        guard let date = dateFormatter.date(from: self) else {
+            return false
+        }
+
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let comparison = calendar.compare(date, to: currentDate, toGranularity: .day)
+
+        return comparison != .orderedDescending
     }
 
     // MARK: - URL
@@ -153,6 +178,10 @@ extension String {
         let regEx = "[0-9a-zA-Z._%+-]+@[0-9a-zA-Z.-]+\\.[a-zA-Z]{2,100}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regEx)
         return predicate.evaluate(with: self)
+    }
+
+    var isNumeric: Bool {
+        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
 
     var isNumber: Bool {
